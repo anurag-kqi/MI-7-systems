@@ -1,0 +1,12 @@
+Course structure
+1. Linux as OS
+2. C programming language
+3. Git
+4. Unix internals
+5. Python
+6. Docker
+7. Go lang
+8. Kubernetes
+9. Network programming
+10. Testing / Test automation
+

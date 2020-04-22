@@ -1,0 +1,3 @@
+Assignement from K&R book:
+1. 1.8, 1.9 and 1.10
+2. 1.22 and 1.23

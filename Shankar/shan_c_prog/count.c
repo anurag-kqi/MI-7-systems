@@ -1,21 +1,24 @@
-#include<stdio.h>
-int main()
+#include <stdio.h>
+
+/*1.8 count blanks,tabs and new lines*/
+
+int main(void)
 {
-	int nl=0,nb=0,nt=0,c;
+    /* initializes blank,tab,newline and c
+    sets them all to 0*/
+    int blank,tab,newline;
+    int c;
+    blank = 0;
+    tab = 0;
+    newline = 0;
 
-	while((c=getchar()) != EOF)
-	{
-		if(ch=='\n')
-		  nl++;
-
-		if(ch==' ')
-		  nb++;
-
-		if(ch=='\t')
-		  nt++;
-	}
-	printf("new lines:%d \n Tabs:%d \n Blank space:%d",nl,nt,nb);
-	return 0;
+    while((c = getchar()) != EOF)
+        if (c =='\n')
+            ++newline;
+        if (c == ' ')
+            ++blank;
+        if (c == '\t')
+            ++tab;
+        printf("Blanks: %d\nTabs: %d\nLines: %d\n", blank, tab, newline);
+        return 0;
 }
-
-

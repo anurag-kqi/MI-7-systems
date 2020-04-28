@@ -1,7 +1,8 @@
 #include<stdio.h>
-int main() {
+int main() 
+{
   char a;
-  char b='p';
+  char b = 'p';
   printf("Enter any charter:");
   scanf("%c", &a );
 

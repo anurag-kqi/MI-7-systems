@@ -11,8 +11,8 @@ int main(void)
 {
   int c;
 
-  while ((c = getchar()) != EOF)
-  {
+  while ((c = getchar()) != EOF){
+
     if(c == '\t')
     {
       putchar('\\');

@@ -1,3 +1,24 @@
 Assignement from K&R book:
 1. 1.8, 1.9 and 1.10
 2. 1.22 and 1.23
+
+24 April:
+* why programming language?
+- model of micro process is very simple:
+  - takes one instruction at a time and executes it
+  - arth, comparision, goto
+  - assembly language
+  - slow to write, error prone, difficult to maintain
+* C programming language structure
+  - variables
+  - fuctions
+  - control
+  - memory model
+  - files
+
+* variables: 
+  - int i = 10;
+    i = i + 20; 
+* define different variables for different data types and print addresses and size of each variable
+
+* 

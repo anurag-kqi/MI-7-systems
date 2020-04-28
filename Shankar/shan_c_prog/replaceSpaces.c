@@ -1,17 +1,29 @@
-#include <stdio.h>
-int main()
+/**
+ * Exercise 1.9 - Write a Program to copy its input to its output, replacing
+ * each string of one or more blanks by a single blank.
+ *
+ * */
+
+#include<stdio.h>
+
+#define NONBLANK '-'
+
+int main(void)
 {
-    int c,d;
-    d='\0';
-    while((c=getchar())!=EOF)
-        {
-        if (c==' ')
-            {
-                d=getchar();
-                if (d!=' ')
-                    putchar(c);
-            }
+  int c, lastc;
+
+  lastc = NONBLANK;
+
+  while ((c = getchar()) != EOF)
+  {
+    if (c == ' ')
+    {
+      if (lastc != ' ')
         putchar(c);
-        }
-	return 0;
+    }
+    else
+      putchar(c);
+    lastc = c;
+  }
+  return 0;
 }

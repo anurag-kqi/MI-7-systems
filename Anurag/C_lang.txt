@@ -21,4 +21,4 @@ Assignement from K&R book:
     i = i + 20; 
 * define different variables for different data types and print addresses and size of each variable
 
-* 
+* Changed as per reviewer request 

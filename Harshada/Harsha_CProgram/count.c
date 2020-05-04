@@ -3,8 +3,7 @@ int main()
 {
 	int nl = 0,nb = 0,nt = 0,ch;
 
-	while ((ch = getchar()) != EOF)
-	{
+	while ((ch = getchar()) != EOF) {
 		if (ch == '\n')
 		  nl++;
 
@@ -14,8 +13,6 @@ int main()
 		if (ch == '\t')
 		  nt++;
 	}
-	printf("new lines:%d \n Tabs:%d \n Blank space:%d",nl,nt,nb);
+	printf("new lines:%d \n Tabs:%d \n Blank space:%d", nl, nt, nb);
 	return 0;
 }
-
-

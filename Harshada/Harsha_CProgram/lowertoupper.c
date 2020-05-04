@@ -1,4 +1,4 @@
-#include<stdio.h>
+#include <stdio.h>
 int lower(int c) ;   //Functio initialization
 
 int main(void)

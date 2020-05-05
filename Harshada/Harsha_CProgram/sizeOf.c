@@ -4,7 +4,7 @@ int
 main()
 {
   int *p;
-
+  
   struct employee
   {
       int emp_num;
@@ -33,7 +33,6 @@ main()
 
   printf("size of integer array = %d\n", sizeof(str));
   printf("size of charector array = %d\n", sizeof(str1));
-  printf("size of float array
-   = %d\n", sizeof(str2));
+  printf("size of float array = %d\n", sizeof(str2));
   return 0;
 }

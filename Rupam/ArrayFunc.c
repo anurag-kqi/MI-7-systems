@@ -1,4 +1,4 @@
-//Program to find sum of elements in a given array using function to return sum of elements
+//Program to find sum of elements in a given array using function to return sum of elements.
 
 #include <stdio.h> 
     

@@ -1,6 +1,5 @@
 //Print Half Pyramid of *
-#include<stdio.h>
-#include<conio.h>
+#include <stdio.h>
 
 int 
 main()
@@ -12,11 +11,11 @@ main()
 
     for(i = 1; i <= rows; ++i)
     {
-    for(j = 1; j <= i; ++j)
+       for(j = 1; j <= i; ++j)
     {
     printf("* ");
     }
     printf("\n");
     }
-    getch();
+    return 0;
     }

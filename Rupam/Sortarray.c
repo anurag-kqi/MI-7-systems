@@ -1,16 +1,15 @@
 //Program to Sorting array elements
-#include<stdio.h>
-#include<conio.h>
+#include <stdio.h>
 
 void 
 main()
     {                
     int i, j, temp;
-    int a[10]={2,3,4,1,32,22,14,55,21,31};
+    int a[10]={2, 3, 4, 1, 32, 22, 14, 55, 21, 31};
 
     for(i = 0; i < 10; i++)
     {
-    for(j = i+1; j < 10; j++)
+       for(j = i + 1; j < 10; j++)
     {
     if(a[j] < a[i])
     {
@@ -25,5 +24,5 @@ main()
     {
     printf("%d \n", a[i]);
     }
-	getch();
+	return 0;
     }

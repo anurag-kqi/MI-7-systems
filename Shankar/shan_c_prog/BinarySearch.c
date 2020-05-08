@@ -6,8 +6,7 @@
 
 //function to search element
 int 
-binarySearch(int arr[], int left, int right, int toSearch) 
-{ 
+binarySearch(int arr[], int left, int right, int toSearch) { 
     if (right >= left) { 
         int mid = left + (right - left) / 2; 
   
@@ -33,8 +32,7 @@ binarySearch(int arr[], int left, int right, int toSearch)
 } 
   
 int 
-main(void) 
-{ 
+main(void) { 
     int arr[MAX_SIZE], size, i, toSearch; 
 
     /* Input size of array */

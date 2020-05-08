@@ -1,53 +1,34 @@
 #include <stdio.h>
 
-void bubbleSort(int ary[], int n);
-void swap(int *x, int *y);
-void printAry (int ary, int n);
-
 int
 main ()
 {
-    int ary[] = {64, 85, 2, 6, 25, 85, 30, 72, 0, 100};
-    int n = (sizeof(ary) / sizeof(ary[0]));
+    int i, j, temp, count, ary[10];
+    printf("how many numbers you want to enter: \n");
+    scanf("%d", &count);
 
-    // calculate size of array ary[]
-    n = (sizeof(ary) / sizeof(ary[0]));
+    printf("Enter numbers\n");
+    for (i = 0; i < count; i++) {
+        scanf("%d", &ary[i]);
+    }
 
-    bubbleSort(ary, n);
-    printf("Sorted arrat:\n");
-    printAry(ary, n);
 
-    return 0;
-}
-
-void
-bubbleSort (int ary[], int n)
-{
-    int i, j;
-
-    for (i = 0; i < n-1; i++) {
-        for (j = 0 ; j < (n - i - 1); j++) {
+    for (i = 0; i < count-1; i++) {
+        for (j = 0 ; j < (count - i - 1); j++) {
             if (ary[j] > ary[j + 1]) {
-                swap(&ary[j], &ary[j+1]);
+                temp = ary[j];
+                ary[j] = ary[j + 1];
+                ary[j + 1] = temp;
             }
         }
     }
-}
 
-void
-swap (int *x, int *y)
-{
-  int temp = *x;
-  *x = *y;
-  *y = temp;
-}
+    printf("Sorted array: \n");
 
-void
-printAry (int ary, int n)
-{
-    int i;
-    for(i = 0; i < n; i++){
-      printf("%d\n", ary[i]);
+    for (i = 0; i < count; i++) {
+            printf("%d ", ary[i]);
     }
     printf("\n");
+
+    return 0;
 }

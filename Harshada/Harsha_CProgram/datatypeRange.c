@@ -1,7 +1,8 @@
 #include<stdio.h>
 #include<limits.h>
 #include<float.h>
-int main() {
+int main() 
+{
   printf("Range of unsigned charter:0 to %d\n", UCHAR_MAX );
   printf("Range of signed charter:%d to %d\n\n", SCHAR_MIN, SCHAR_MAX );
 

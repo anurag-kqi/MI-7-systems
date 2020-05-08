@@ -1,3 +1,5 @@
+/* Sort numbers using bubble Sort*/
+
 #include <stdio.h>
 
 int

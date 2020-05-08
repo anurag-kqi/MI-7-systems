@@ -1,3 +1,5 @@
+/* Program  to print full pyramid of star*/
+
 #include <stdio.h>
 
 int

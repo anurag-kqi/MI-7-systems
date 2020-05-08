@@ -1,3 +1,5 @@
+/* Sort Elements by using selection Sort*/
+
 #include <stdio.h>
 
 void selectionSort(int count, int number[]);

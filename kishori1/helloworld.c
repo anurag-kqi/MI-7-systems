@@ -1,5 +1,7 @@
+/* program to print "hello world"*/
+
 #include <stdio.h>
-int 
+int
 main()
 {
   printf("hello world");

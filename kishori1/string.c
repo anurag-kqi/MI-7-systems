@@ -1,3 +1,5 @@
+/*program to convert lowercase string into uppercase*/
+
 #include <stdio.h>
 #include <string.h>
 int

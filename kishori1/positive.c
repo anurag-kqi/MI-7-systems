@@ -1,3 +1,5 @@
+/*program to find positive and negative number*/
+
 #include <stdio.h>
 int
 main()

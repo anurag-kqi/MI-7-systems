@@ -1,5 +1,6 @@
 #include <stdio.h>
-int main()
+int
+main()
 {
   int num;
   printf("enter a number:\n");
@@ -7,11 +8,11 @@ int main()
   if (num >= 0)
   {
     if (num > 0)
-      printf("%d is a positive number \n",num);
+      printf("%d is a positive number \n", num);
     else
       printf("you have entered value zero");
   }
   else
-  printf("%d is negative num",num);
+  printf("%d is negative num", num);
   return 0;
 }

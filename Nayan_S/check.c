@@ -1,3 +1,5 @@
+// Program is to check, Number entered by user is Positive or Negative.
+
 #include <stdio.h>
 #inlcide <conio.h>
 
@@ -5,7 +7,6 @@ void
 main()
 {
    int n;   
-
    printf("Enter the Number");
    scanf("%d", n);
 

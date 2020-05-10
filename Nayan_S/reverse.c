@@ -1,3 +1,5 @@
+// Program is to reverse a number entered by the user.
+
 #include <stdio.h>
 #include <conio.h>
 
@@ -12,7 +14,7 @@ main()
   printf("Enter the Number you want to reverse!\n");
   scanf("%d", number); 
 
-  while(Number != 0){
+  while (Number != 0){
        remainder = number % 10;
        reverse = reverse * 10 + remainder;
        number /= 10;

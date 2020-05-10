@@ -1,8 +1,7 @@
 /* program to find size of data types*/
 
 #include <stdio.h>
-int
-main()
+int main()
 {
   int intType;
   float floatType;

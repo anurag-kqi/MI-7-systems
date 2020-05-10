@@ -1,7 +1,8 @@
 #include <stdio.h>
 #inlcide <conio.h>
 
-void main()
+void 
+main()
 {
    int n;   
 

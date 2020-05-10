@@ -5,10 +5,12 @@ int main()
 {
     int n,i;
     char a[10];
-    printf("Enter any number\n");
-    for (i = 0; a[i]; i++) {
-      scanf("%c", &a[i]);
+
+    for (i = 0; i < 10; i++) {
+        scanf("%s", a[i]);
     }
-    printf("%c\n",a[i]);
+
+    i = atoi(a);
+    printf("%d\n", i);
     return 0;
 }

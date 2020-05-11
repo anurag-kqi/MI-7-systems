@@ -1,3 +1,5 @@
+//c program nested structure dtudent college details
+
 #include <stdio.h>
 #include <string.h>
  
@@ -16,8 +18,8 @@ struct student_detail
     struct student_college_detail clg_data;
 }stu_data;
  
-int main() 
-{
+int 
+main() {
     struct student_detail stu_data = {1, "Raju", 90.5, 71145,
                                        "Anna University"};
     printf(" Id is: %d \n", stu_data.id);

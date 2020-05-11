@@ -4,11 +4,11 @@ int
 main()
 {
 int i, j, a, n, number[30];
-printf("enter the value of N \n");
-scanf("%d", &n);
-printf("enter the numbers \n");
+printf ("enter the value of N \n");
+scanf ("%d", &n);
+printf ("enter the numbers \n");
 for (i = 0; i < n; ++i)
-scanf("%d", &number[i]);
+scanf ("%d", &number[i]);
 for (i = 0; i < n; ++i) {
   for (j = i + 1; j < n; ++j) {
     if (number[i] > number[j])
@@ -20,7 +20,7 @@ for (i = 0; i < n; ++i) {
   }
 }
 printf("the numbers arranged in ascending order are given below \n");
-for (i=0; i < n; ++i) {
+for (i = 0; i < n; ++i) {
   printf("%d\n", number[i]);
 }
 }

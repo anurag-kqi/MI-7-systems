@@ -5,9 +5,7 @@ int
 main()
 {
   int i ;
-  for(i='Z'; i >= 'A'; i--) {
-
+  for (i = 'Z'; i >= 'A'; i--) {
     printf("%c", i);
   }
-
 }

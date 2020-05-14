@@ -1,0 +1,41 @@
+Team1:
+- Harshada
+- Rupam
+- Shankar
+Team2:
+- Divya
+- Kishori
+- Nayan
+Team3:
+- Vinay
+- Satya
+
+1. Harshada:
+   6 May, 2020:
+   - C lang: pointers, function, array, control, data types
+   - git
+   - ubuntu
+2. Divya:
+   6 May, 2020:
+   - C lang: pointers, function, data types, string
+   - git
+   - ubuntu
+3. Shankar:
+   6 May, 2020:
+   - C lang: pointers, function, data types
+   - git
+   - ubuntu
+4. Kishori:
+   6 May, 2020:
+   - C lang: data types, operators
+   - git
+   - ubuntu
+5. Nayan:
+   6 May, 2020:
+   - C lang: data types, operators, pointer, function
+6. Rupam:
+   6 May, 2020:
+   - C lang: function, data types, string, array
+7. Satya:
+
+8. Vinay

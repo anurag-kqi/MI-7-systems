@@ -5,7 +5,6 @@ struct Student
   char Student_Name[50];
   float First_Year_Marks;
   float Second_Year_Marks;
-    
 };
 
 void PassBy_Value(struct Student Students);
@@ -29,7 +28,6 @@ main()
 }
 
 void PassBy_Value(struct Student Students)
-  
 {
   float Sum, Average;
 

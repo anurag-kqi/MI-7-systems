@@ -9,7 +9,7 @@ main()
   printf("enter the value of N \n");
   scanf("%d", &n);
   printf("enter the numbers \n");
-    for (i = 0; i < n; ++i) {
+  for (i = 0; i < n; ++i) {
     scanf("%d", &number[i]);
   }
   for (i = 0; i < n; ++i) {

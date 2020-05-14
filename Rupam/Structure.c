@@ -1,3 +1,4 @@
+//Structure Program
 
 #include <stdio.h>
 #include <string.h>              `
@@ -20,15 +21,15 @@ main( )
    struct Books Book2;        // Declare Book2 of type Book 
 
    // book 1 specification 
-   strcpy( Book1.title, "Harry Potter");
-   strcpy( Book1.author, "Elazin Plot");
-   strcpy( Book1.subject, "The Dark Donuld Secretes");
+   strcpy( Book1.title, " Harry Potter ");
+   strcpy( Book1.author, " Elazin Plot ");
+   strcpy( Book1.subject, " The Dark Donuld Secretes ");
    Book1.book_id = 1234;
 
    // book 2 specification 
-   strcpy( Book2.title, "Way to success");
-   strcpy( Book2.author, "Swami Vivekanand");
-   strcpy( Book2.subject, "Will Power");
+   strcpy( Book2.title, " Way to success ");
+   strcpy( Book2.author, " Swami Vivekanand ");
+   strcpy( Book2.subject, " Will Power ");
    Book2.book_id = 1126;
 
    // print Book1 info 
@@ -43,8 +44,8 @@ main( )
 void 
 printBook( struct Books book ) {
 
-   printf( "Book title : %s\n", book.title);
-   printf( "Book author : %s\n", book.author);
-   printf( "Book subject : %s\n", book.subject);
-   printf( "Book book_id : %d\n", book.book_id);
+   printf( "Book title : %s\n ", book.title);
+   printf( "Book author : %s\n ", book.author);
+   printf( "Book subject : %s\n ", book.subject);
+   printf( "Book book_id : %d\n ", book.book_id);
 }

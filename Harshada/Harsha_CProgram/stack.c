@@ -1,4 +1,4 @@
-/*stack implimention using ststic array*/
+/*stack implimention using static array*/
 
 #include <stdio.h>
 #include <stdlib.h>

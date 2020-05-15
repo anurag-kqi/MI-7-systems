@@ -5,12 +5,12 @@ int function(int *a, int *b);
 int
 main()
 {
-    int a = 10, b = 20, c;
-    printf("a = %d, b = %d\n\n", a, b);
+    int m = 10, n = 20, c;
+    printf("a = %d, b = %d\n\n", m, n);
 
-    c = function(&a, &b);
+    c = function(&m, &n);
 
-    printf("vaues in main function a = %d, b = %d\n\n", a, b);
+    printf("vaues in main function m = %d, n = %d\n\n", m, n);
     return 0;
 }
 

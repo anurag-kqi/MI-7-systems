@@ -11,8 +11,8 @@ int
 main()
 {
     int i;
-    struct student record1={1,"sakshi",83.25};
-    struct student record2={2,"tejas",87.45};
+    struct student record1={1, "sakshi", 83.25};
+    struct student record2={2, "tejas", 87.45};
     
     printf("record of student1:\n");
     printf(" id is : %d\n", record1.id);

@@ -45,7 +45,6 @@ main()
   root->left->left = newNode(4);
   printf("\nPostorder traversal of binary tree is \n");
   printPostorder(root);
-
   getchar();
   return 0;
 }

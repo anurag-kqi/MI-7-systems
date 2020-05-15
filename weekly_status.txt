@@ -2,10 +2,13 @@ Team1:
 - Harshada
 - Rupam
 - Shankar
+- Simran
+
 Team2:
 - Divya
 - Kishori
 - Nayan
+`
 Team3:
 - Vinay
 - Satya
@@ -19,6 +22,7 @@ Team4:
 Team5: 
 - Swapnil
 - Saksham Vivek
+- Bhavesh
 
 1. Harshada:
    9 May, 2020:

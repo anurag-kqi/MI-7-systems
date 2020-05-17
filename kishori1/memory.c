@@ -16,10 +16,10 @@ description = (char*)malloc(200 * sizeof(char) );
 
 if(description == NULL) {
   fprintf(stderr, "error - unable to allocate required memory\n");
-}
+  }
 else {
-  strcpy(description, "Aditi Noor in class 10th");
-}
-printf("Name = %s\n", name);
+  strcpy(description, "Aditi Noor is in class 10th");
+  }
+printf("Name: %s\n", name);
 printf("Description: %s\n", description);
 }

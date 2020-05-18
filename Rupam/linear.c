@@ -7,7 +7,7 @@
 int 
 LinearSearch(int arr[], int size, int key) {
     
-	int i;
+    int i;
      //if any match, return 1
     for(i = 0; i < size; i++)
         if(arr[i] == key)

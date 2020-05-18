@@ -2,13 +2,13 @@
 int main()
 {
     int c,d;
-    d='\0';
-    while((c=getchar())!=EOF)
+    d = '\0';
+    while ((c = getchar()) != EOF)
         {
-        if (c==' ')
+        if (c == ' ')
             {
-                d=getchar();
-                if (d!=' ')
+                d = getchar();
+                if (d != ' ')
                     putchar(c);
             }
         putchar(c);

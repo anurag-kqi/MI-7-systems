@@ -4,21 +4,21 @@ int main(void)
 {
   int c;
 
-  while((c = getchar()) != EOF)
+  while ((c = getchar()) != EOF)
   {
-    if(c == '\t')
+    if (c == '\t')
     {
       putchar('\\');
       putchar('t');
     }
 
-    else if(c == '\b')
+    else if (c == '\b')
     {
       putchar('\\');
       putchar('b');
     }
 
-    else if(c == '\\')
+    else if (c == '\\')
     {
       putchar('\\');
       putchar('\\');

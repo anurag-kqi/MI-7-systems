@@ -1,8 +1,10 @@
+  // C program to insert a value into the hashtable and display the values. 
+
 #include <stdio.h> 
 
 struct pair
 {
-    int valu, key;
+    int value, key;
 }
 
 void
@@ -15,12 +17,11 @@ main()
 
     struct pair hash_table[size];
     printf("Enter the elements:");
-    for(i = 0; i < size; i++)
-       {
-           scanf("%d",&temp);
+    for(i = 0; i < size; i++){
+         scanf("%d",&temp);
            hash_table[temp % size].value = temp;
            hast_table[temp % size].key = temp % size;
-       }
+         }
 
     printf("\n");
     display(hast_table, size);
@@ -32,8 +33,7 @@ void display(struct pair[], int size)
    int i;
 
    printf("value\key\n");
-    for(i = 0; i < size; i++)
-      {
-          printf("%d\t%d\n", ar[i].value, ar[i].key);
-      }
+    for(i = 0; i < size; i++){
+        printf("%d\t%d\n", ar[i].value, ar[i].key);
+      }          
 }

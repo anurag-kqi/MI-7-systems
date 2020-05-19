@@ -1,0 +1,35 @@
+//list_element:
+// next, and key (int) and value (string) [100]
+
+//single list meaning, list of structure connected with next pointer
+//initially the head pointer is null
+
+//list_init
+//Allocate list_head and initialize next to NULL
+
+//list_add(list_element) add this element at the head of list
+//the caller of list add has allocated the memory for list_element, and it has set key and values and it has set next to null too.
+//check the head->next, if null, means no element, then head->next will point to this element. But if head->next is not null, then set ele->next to head's next pointer and then set head next to this element
+//
+//list_find(int key ) search the list from the head using next pointer and find the element with key matching, if key matches, return pointer to that element, otherwise return NULL
+
+//list_del_ele(int key): given the key find and delete the elements
+//find the element, but make sure that you remember the prev elemente
+//set the pre element next to the next element
+//free this element
+
+//display_list: print all the element of the list
+
+//list_delete() traverse the whole list and delete the whole list
+
+
+//main: initialize the list, then in a while loop, take the input from user as what operation to be performed on the list
+//add: take key and value and add to the list
+//find: take key and find the element, if found, print the element otherwise print msg element not found
+//del_ele: take the key, find and delete the ele
+//display: then display the whole list
+//delete: then delete the complete list and exit
+
+
+
+// htab: array of ahtab_head structure

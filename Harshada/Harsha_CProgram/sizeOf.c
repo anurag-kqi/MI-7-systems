@@ -4,7 +4,7 @@ int
 main()
 {
   int *p;
-  
+
   struct employee
   {
       int emp_num;

@@ -1,4 +1,3 @@
-Live Demo
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -10,7 +9,6 @@ struct node {
 struct node *head = NULL;
 struct node *current = NULL;
 
-//display the list
 void printList() {
 
    struct node *ptr = head;
@@ -26,7 +24,8 @@ void printList() {
 }
 
 //insert link at the first location
-void insert(int data) {
+void insert(int data) 
+{
    
    struct node *link = (struct node*) malloc(sizeof(struct node));
 

@@ -244,8 +244,7 @@ list_del_ele()
 void
 list_find()
 {
-    int ele
-    ;
+    int ele;
     temp = root;
 
     if (temp == NULL) {

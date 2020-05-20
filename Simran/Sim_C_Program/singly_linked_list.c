@@ -20,70 +20,57 @@ void search_list();
 int 
 main() 
 { 
-
 	int choice;
 	while(1) {
-	
 		printf("\n ------------ SINGLY LINKED LIST OPERATION ------------");
 		printf("\n 1. INSERT \n 2. DELETE \n 3. SEARCH \n 4. DISPLAY \n 5. EXIT ");
 		printf("\n Eter your choice : ");
 		scanf("%d",&choice);
 		
 		switch(choice){
-			
 			case 1 :
 				printf("\n ~~~ Select Insertion Position ~~~ ");
 				printf("\n 1. Inserting Node in the Beginning. \n 2. Inserting Node in the End. ");
 				scanf("%d",&choice);
 				
 				switch(choice){
-					
 					case 1: insert_list_in_beg();
 						break;
-						
 					case 2: insert_list_in_end();
 						break;
-						
 					default: 
 						printf("\n Invalid entry :");
 					}
 				break;
 				
 			case 2 :
-			
 				printf("\n ~~~ Select Deletion Position ~~~ ");
 				printf("\n 1. Delete from Beginning. \n 2. Delete from End. ");
 				scanf("%d" , &choice);
 				
 					switch(choice){
+						case 1: delete_list_from_beg();
+						break;
 					
-					case 1: delete_list_from_beg();
+						case 2: delete_list_from_end();
 						break;
-						
-					case 2: delete_list_from_end();
-						break;
-						
-					default: 
+						default: 
 						printf("\n Invalid entry :");
 					}
 				break;
 			
 			case 3 :
-			
 				search_list();
 				break;
 				
 			case 4 :
-				
 				display_list();
 				break;
 				
 			case 5 :
-			
 				exit(0);
 				
 			default:
-				
 				printf("\n Invalid Entry !");
 			}
 		}

@@ -156,13 +156,11 @@ search_list() {
 				printf("\n The data %d is present at location %d ", num, i+1);
 				flag = 0;
 			}
-			
 			else
 				flag = 1;
 			i++;
 			temp = temp -> next;
 		}
-		
 		if(flag == 1)
 			printf("\n Item is not present in the list !");
 	}

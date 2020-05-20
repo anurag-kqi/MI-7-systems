@@ -17,28 +17,24 @@ void delete_list_from_end();
 void display_list();
 void search_list();
 
-
-
 int 
-main() { 
-
+main() 
+{ 
 
 	int choice;
 	while(1) {
-	
 	
 		printf("\n ------------ SINGLY LINKED LIST OPERATION ------------");
 		printf("\n 1. INSERT \n 2. DELETE \n 3. SEARCH \n 4. DISPLAY \n 5. EXIT ");
 		printf("\n Eter your choice : ");
 		scanf("%d",&choice);
 		
-		switch(choice)
-		{
+		switch(choice){
 			
 			case 1 :
 				printf("\n ~~~ Select Insertion Position ~~~ ");
 				printf("\n 1. Inserting Node in the Beginning. \n 2. Inserting Node in the End. ");
-				scanf("%d" , &choice);
+				scanf("%d",&choice);
 				
 				switch(choice){
 					
@@ -50,11 +46,9 @@ main() {
 						
 					default: 
 						printf("\n Invalid entry :");
-					
 					}
 				break;
 				
-					
 			case 2 :
 			
 				printf("\n ~~~ Select Deletion Position ~~~ ");
@@ -71,7 +65,6 @@ main() {
 						
 					default: 
 						printf("\n Invalid entry :");
-					
 					}
 				break;
 			
@@ -92,7 +85,6 @@ main() {
 			default:
 				
 				printf("\n Invalid Entry !");
-				
 			}
 		}
 		
@@ -107,18 +99,14 @@ insert_list_in_beg() {
 	printf("\n Enter your Data : ");
 	scanf("%d",&newnode -> data);
 	
-	if(head == NULL){
-	
+	if(head == NULL)
 		head = temp = newnode;
-	}
 				
 	else {
-	
 		temp -> next = newnode;
 		temp = newnode;
 	}
 }
-
 
 void 
 insert_list_in_end() {
@@ -129,30 +117,23 @@ insert_list_in_end() {
 	scanf("%d",&newnode -> data);
 	newnode -> next = NULL;
 	
-	if(head == NULL){
-	
+	if(head == NULL)
 		head = temp = newnode;
-	}
 	
-	else {
+	else{
 		
-		while(temp -> next != NULL){
-			
+		while(temp -> next != NULL)
 			temp = temp -> next;
-		}
 		
 		temp -> next = newnode;
 	}
 }
 
-
 void 
 delete_list_from_beg() {
 
-	if(head == NULL){
-	
+	if(head == NULL)
 		printf("\n THE LIST IS EMPTY !");
-	}
 	
 	else {
 	
@@ -163,21 +144,17 @@ delete_list_from_beg() {
 	}
 }
 
+void 
+delete_list_from_end() {
 
-void delete_list_from_end() {
-
-	 if(head == NULL){
-	
+	 if(head == NULL)
 		printf("\n THE LIST IS EMPTY !");
-	}
 	
 	else {
 	
 		temp = head;
-		while(temp -> next != NULL) {
-			
+		while(temp -> next != NULL)
 			temp = temp -> next;
-		}
 		
 		newnode = temp -> next;
 		temp -> next = NULL;
@@ -185,7 +162,6 @@ void delete_list_from_end() {
 		free(newnode);
 	}
 }
-
 
 void 
 display_list() {
@@ -205,7 +181,6 @@ display_list() {
 	}
 }
 
-
 void 
 search_list() {
 
@@ -218,12 +193,9 @@ search_list() {
 	
 		printf("\n Enter the data which you wnt to search from list : ");
 		scanf("%d", &num);
-		
-		
 		while( temp -> next != NULL) {
 		
 			if(temp -> next == num){
-			
 				printf("\n The data %d is present at location %d ", num, i+1);
 				flag = 0;
 			}

@@ -1,4 +1,4 @@
-Live Demo
+
 #include <stdio.h>
 #include <stdlib.h>
 

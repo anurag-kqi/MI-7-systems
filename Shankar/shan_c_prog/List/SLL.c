@@ -2,17 +2,13 @@
 
 #include<stdio.h>
 #include<stdlib.h>
-//#include<process.h>
  
 struct node
 {
     int data;
     struct node *next;
-} *start, *temp, *newNode;
+} *start = NULL, *temp, *newNode;
  
-int 
-main()
-{
     int ch;
     void insert_beg();
     void insert_end();
@@ -23,6 +19,9 @@ main()
     int delete_pos();
     void search();
 
+int 
+main()
+{
     while(1) {
         printf("\n\n---- Singly Linked List(SLL) Menu ----");
         printf("\n1.Insert\n2.Display\n3.Delete\n4.Search\n5.Exit\n\n");
@@ -113,8 +112,9 @@ void insert_end()
     }
     else {
         temp = start;
-        while(temp->next != NULL)
-        temp = temp->next;
+        while(temp->next != NULL) {
+            temp = temp->next;
+        }
         temp->next = newNode;
     }
 }
@@ -207,7 +207,7 @@ int delete_pos()
     scanf("%d", &pos);
  
     temp = start;
-    for(i=1;i<pos-1;i++) {
+    for(i = 1; i < pos-1; i++) {
         if(temp->next == NULL) {
             printf("There are less elements!!");
             return 0;

@@ -47,6 +47,6 @@ main()
     insert(6);
 
     printList();
-    
+
     return 0;
 }

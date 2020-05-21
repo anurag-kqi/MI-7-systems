@@ -33,3 +33,24 @@
 
 
 // htab: array of ahtab_head structure
+// key, value store. Key is very important, key as int for now
+//
+// insert, delete, find
+// find which list to use for a given key
+//
+// htab, with 1001 number of elements in my array of lists.
+// struct node *htab[1001]
+// hash_func(key) // index = key % 1001, return htab[index]
+// functions to be supported:
+struct Node {
+    int key;
+    int value;
+    struct Node *next;
+}
+#define HTABSIZE 1001
+1. htab_init
+2. htab_insert(int key, int value)
+3. htab_find(int key) //printf if key is found, or print if key is not found
+4. htab_delete(int key)
+5. htab_print() //print the whole htab, by traversing one list at a time
+6. htab_deinit(); //free all the elements and free the htab array

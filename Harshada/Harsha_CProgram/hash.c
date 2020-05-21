@@ -1,56 +1,51 @@
 #include <stdio.h>
 #include <stdlib.h>
-
-#define SIZE 20
+#define SIZE 7
 
 struct dataItem {
-    int data, key;
+    int value, key;
 };
-struct dataItem *hashArray[SIZE];
+struct dataItem hashArray[SIZE];
 
-void insert(int, int);
+void insert_ele();
+void delete_ele();
 void display();
 
 int
 main()
 {
-    struct dataItem *temp = (struct dataItem*)malloc(sizeof(struct dataItem));
-    temp->data = -1;
-    temp->key = -1;
+    int ch;
 
-    insert(1, 20);
-    display();
+    printf("Hash table operation:\n");
+    printf("1.Insert in table\n");
+    printf("2.Delete from table\n");
+    printf("3.Display table\n");
+
+    switch (ch)
+    {
+        case 1: insert_ele();
+                break;
+        case 2: delete_ele();
+                break;
+        case 3: display();
+                break;
+    }
 }
 
 void
-insert(int key, int data)
+insert_ele()
 {
-      struct dataItem *item = (struct dataItem*)malloc(sizeof(struct dataItem));
-      item->data = data;
-      item->key = key;
-      printf("element %d is inserted at key %d\n", data, key);
-      //get the hash
-      int hashindex = (key % SIZE);
 
-      // move in Array
-      while (hashArray[hashindex] != NULL && hashArray[hashindex]->key != -1) {
-          ++hashindex;
-          hashindex = hashindex % SIZE;
-      }
-      hashArray[hashindex] = item;
+}
+
+void
+delete_ele()
+{
+
 }
 
 void
 display()
 {
-    int i = 0;
 
-    for (i = 0; i < SIZE; i++) {
-        if (hashArray[i] != NULL) {
-            printf("(%d, %d)\n", hashArray[i]->key, hashArray[i]->data);
-        }
-        else {
-            printf("----\n");
-        }
-    }
 }

@@ -1,6 +1,6 @@
 /* c program to insert, delet and search a value in hash table*/
 
-#include<stdio.h>
+#include <stdio.h>
 #define size 10
 
 int arr[size];

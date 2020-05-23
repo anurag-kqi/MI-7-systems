@@ -40,10 +40,10 @@ void SortedLinks(struct Node **H, int x)
  {
  	while(p!=NULL)
  	{
- 		std::cout<< p->data<<"-->";
+ 		printf("%d-->",p->data);
  		if(p->next == NULL)
  		{
- 			std::cout<<"/";
+ 			printf("/");
  		}
  		p = p-> next;
 
@@ -82,9 +82,9 @@ int main()
 	}
 	for(int i = 0; i <size ; i++)
 	 {	
-	 	std::cout<<i<<" : ";	
+	 	printf("%d : ",i);	
 	 	Print(HT[i]);
-	 	std::cout<<std::endl;
+	 	printf("\n");
 	 }
 	 	
     return 0;

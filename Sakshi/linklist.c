@@ -1,7 +1,6 @@
-<<<<<<< HEAD
-=======
 
->>>>>>> 357ebadc6df5e34c565f885eed590fc0d2d84b93
+
+
 #include <stdio.h>
 #include <stdlib.h>
 

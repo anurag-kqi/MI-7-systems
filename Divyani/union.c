@@ -1,23 +1,21 @@
-/* Pogram to find union oeration work */
+/* Program to find union oeration work */
 
 #include <stdio.h>
 
+//defining a union
 union unionEmp {
-
-   //defining a union
+  
    char name[32];
    float salary;
    int emp_Id;
-   
 } uEmp;
 
+//defining a struct
 struct structEmp {
-
-   //defining a struct
+   
    char name[32];
    float salary;
    int emp_Id;
-   
 } sEmp;
 
 void

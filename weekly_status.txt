@@ -20,6 +20,7 @@ Team4:
 - Ashwini Garje
 - Ashwini-2
 - Shubham : Not sure
+- Sagar Mahajan
 
 Team5: 
 - Swapnil
@@ -27,6 +28,8 @@ Team5:
 - Bhavesh
 
 1. Harshada:
+   23 May, 2020:
+   - overall good
    9 May, 2020:
    - C lang: pointers, function, array, control, data types
    - git
@@ -110,6 +113,28 @@ Team5:
    - simple linked list, hash table without linked list
    - all days in week
    -   
+12. Simram
+   23 May, 2020:
+   - 3 program
+13. Maheep
+   25 May, 2020
+   - some issues with Linux machine
+14. Vinay
+   - have not seen him for some time
+
+15. Shubham
+    25 May, 2020
+    - Linux still not working
+
+16. Swapnil
+    not responding
+
+17. Bhavesh
+    not responding
+
+18. Sksham
+    not responding
+
 18. Siddhant Gupta
    23 May, 2020:
    - hash table program

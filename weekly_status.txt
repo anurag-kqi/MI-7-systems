@@ -12,18 +12,18 @@ Team2:
 `
 Team3:
 - Vinay
-- Satya : Not active
 - Sakshi
 - Siddhant Gupta
+- Swapnil
 
 Team4:
 - Ashwini Garje
 - Ashwini-2
-- Shubham : Not sure
+- Shubham :  
 - Sagar Mahajan
 
 Team5: 
-- Swapnil
+- Satya : Not active
 - Saksham Vivek: Not sure, never logged in the git.
 - Bhavesh
 

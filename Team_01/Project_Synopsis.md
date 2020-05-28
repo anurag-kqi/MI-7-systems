@@ -6,6 +6,7 @@ will be choosing the operation which they want to perform
 
 Main Menu will have following choices that will be chosen by the user:
 MAIN MENU
+
     1. Insert into Table
     2. Delete from Table
     3. Update entries in Table
@@ -18,10 +19,12 @@ The sub menu will ask the user that where he/she wants to make changes i.e. in
 Student’s Table or Teacher’s Table
 
 SUB-MENU
+
     1. Student’s Table
     2. Teacher’s Table
 
 Our project will mainly consist of 2 modules.
+
     1. Student information.
     2. Teacher information.
 

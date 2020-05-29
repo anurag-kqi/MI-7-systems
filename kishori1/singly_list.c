@@ -3,41 +3,50 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-struct node
-{
+struct node {
     int data;
-    struct node* next;
+    struct node *next;
 };
-void printList(struct node* node)
+
+struct node *head = NULL;
+struct node *current = NULL;
+
+//display the list
+void printList()
 {
-    while (node != NULL) {
-      printf(" %d ", node->data);
-        node = node->next;
-    }
+    struct node *ptr = head;
+    printf("\n[head] =>");
+
+    while(ptr != NULL) {
+      printf(" %d =>",ptr->data);
+      ptr = ptr->next;
+   }
+    printf(" [null]\n");
+}
+
+/*insert data at the first location*/
+void insert(int data)
+{
+  /*allocate memory*/
+    struct node *link = (struct node*) malloc(sizeof(struct node));
+
+   //link->key = key;
+    link->data = data;
+    link->next = head;
+    head = link;
 }
 
 int
 main()
 {
-  /* Allocate list_head and initialize next to NULL*/
-    struct node* head = NULL;
-    struct node* second = NULL;
-    struct node* third = NULL;
+    insert(1);
+    insert(2);
+    insert(3);
+    insert(4);
+    insert(5);
+    insert(6);
 
-    /*allocate memory to node*/
-    head = (struct node*)malloc(sizeof(struct node));
-    second = (struct node*)malloc(sizeof(struct node));
-    third = (struct node*)malloc(sizeof(struct node));
-
-    head->data = 1; /*assign data to head*/
-    head->next = second; /*link head to second node*/
-
-    second->data = 2; /*assign data to second node*/
-    second->next = third;
-
-    third->data = 3; /* assign dta to third node*/
-    third->next = NULL;
-    printList(head);
+    printList();
 
     return 0;
 }

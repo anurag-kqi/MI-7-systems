@@ -7,7 +7,11 @@
 int 
 LinearSearch(int arr[], int size, int key) {
     
+<<<<<<< HEAD
 	int i;
+=======
+    int i;
+>>>>>>> 3063a008417267f33ca5baed60932a6745080441
      //if any match, return 1
     for(i = 0; i < size; i++)
         if(arr[i] == key)
@@ -31,4 +35,8 @@ main()
         printf(" Search Not Found ");
 
     return 0;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 3063a008417267f33ca5baed60932a6745080441

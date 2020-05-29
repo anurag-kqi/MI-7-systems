@@ -8,23 +8,28 @@ Team2:
 - Divya
 - Kishori
 - Nayan
+- Maheep
 `
 Team3:
 - Vinay
-- Satya
 - Sakshi
+- Siddhant Gupta
+- Swapnil
 
 Team4:
 - Ashwini Garje
 - Ashwini-2
-- Shubham
+- Shubham :  
+- Sagar Mahajan
 
 Team5: 
-- Swapnil
-- Saksham Vivek
+- Satya : Not active
+- Saksham Vivek: Not sure, never logged in the git.
 - Bhavesh
 
 1. Harshada:
+   23 May, 2020:
+   - overall good
    9 May, 2020:
    - C lang: pointers, function, array, control, data types
    - git
@@ -32,6 +37,10 @@ Team5:
    - buuble sort and selection sort, pattern
    - Code review
 2. Divya:
+   23 May, 2020:
+   - linked list, basic hash table
+   - 3-4 submissions
+   - attended all sessions
    9 May, 2020:
    - C lang: pointers, function, data types, string, control
    - git
@@ -39,6 +48,9 @@ Team5:
    - selection sort, palindrome,  
    - code review 
 3. Shankar:
+   23 May, 2020:
+   - 3-4 programs
+   - getting comfortable
    9 May, 2020:
    - C lang: pointers, function, data types, string, array
    - git
@@ -46,6 +58,10 @@ Team5:
    - palindrome, binary search, linear search, string
    - code review
 4. Kishori:
+   23 May, 2020:
+   - tree programs, linked list, hash table work in progress
+   - 3-4 submission
+   - missed 1 session this week
    9 May, 2020:
    - C lang: data types, operators
    - git
@@ -53,10 +69,15 @@ Team5:
    - lower to upper, positve / -ve number
    - code review 
 5. Nayan:
+   23 May, 2020:
+   - linked list
+   - missed one day
    9 May, 2020:
    - C lang: data types, operators, pointer, function
    - git
 6. Rupam:
+   23rd May, 2020:
+   - 4 programs, 
    6 May, 2020:
    - C lang: function, data types, string, array
 7. Satya:
@@ -65,18 +86,57 @@ Team5:
    - git, getting started 
 
 8. Vinay
+   23rd May, 2020:
+   - working on linked list
+   - 
    9 May, 2020:
    - does not have machine
    - work on paper
 
 9. Sakshi:
+   23 May, 2020:
+
    9 May, 2020:
    - C lang: comfortable with C lang concepts
    - arranging machine, will get mid next week
    - work on paper
 
-10. Ashwini
+10. Ashwini Garje
+   23 May, 2020:
+   - 3-4 programs
    9 May, 2020:
    - git 
    - linux machine
    - c language: basic concepts
+11. Ashwini Parab
+   23 May, 2020:
+   - simple linked list, hash table without linked list
+   - all days in week
+   -   
+12. Simram
+   23 May, 2020:
+   - 3 program
+13. Maheep
+   25 May, 2020
+   - some issues with Linux machine
+14. Vinay
+   - have not seen him for some time
+
+15. Shubham
+    25 May, 2020
+    - Linux still not working
+
+16. Swapnil
+    not responding
+
+17. Bhavesh
+    not responding
+
+18. Sksham
+    not responding
+
+18. Siddhant Gupta
+   23 May, 2020:
+   - hash table program
+   - Git is setup
+   - ubuntu 

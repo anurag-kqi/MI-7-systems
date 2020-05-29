@@ -2,11 +2,12 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#define SIZE 7
+#define SIZE 10
 
 struct student {
     int id, roll_num;
     char name[20];
+    struct student *next;
 };
 struct student *temp;
 
@@ -53,11 +54,9 @@ insert_ele()
   int index;
 
   // initialiszing array value to null and index to -1
-  for (int i = 0; i < 3; i++) {
+  for (int i = 0; i < SIZE; i++) {
       arr[i].value = NULL;
       arr[i].key = -1;
-      printf("Key 1= %d \n", arr[i].key);
-
   }
 
   temp = (struct student*)malloc(sizeof(struct student));
@@ -71,13 +70,15 @@ insert_ele()
   printf("Roll Number:");
   scanf("%d", &temp->roll_num);
 
-  index = (temp->roll_num % SIZE);  //create hash code that is key
+  temp->next = NULL;
 
-  printf("index2 = %d \n", index);
+  //create hash code that is key
+  index = (temp->roll_num % SIZE);
+
+  printf("\nindex = %d \n", index);
 
   //  inserting value  at hash code index
   if(arr[index].key == -1) {
-      printf("\nIf loop\n");
       arr[index].value = temp;
       arr[index].key = index;
 
@@ -86,8 +87,6 @@ insert_ele()
       printf("Roll number: %d\n", arr[index].value->roll_num);
 
   }
-  printf("Key3 = %d \n", arr[index].key);
-
 
 }
 

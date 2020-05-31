@@ -75,9 +75,10 @@ Task Performed By :
               iii. Student table Update  
 
 Second Demo 1st june 2020: 
-simran, harshhada: delete
-shankar, rupam : teacher hashtable
-shankar - code design
-Aishwarya - code review, testing, project desin study, test case design 
+
+Simran, Harshada : delete table, teacher hashtable search, delete
+shankar, rupam   : teacher hashtable insert,update,display
+shankar          : code design
+Aishwarya        : code study and review, project desin study, testing, test case design and perform any task
 
                 

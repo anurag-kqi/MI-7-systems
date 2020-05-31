@@ -184,7 +184,7 @@ main()
                                 break;
 
 
-                        default: printf("Wrong Choice!!");
+                        default: printf("Wrong Choice");
                     }
 
                     break;

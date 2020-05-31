@@ -56,7 +56,7 @@ Teacher’s basic information will consist of
     
 Project Planning : 28 may 2020
         
-        .Meating with all team members.   
+    . Meating with all team members.   
 
 First Demo: 30 may 2020
 

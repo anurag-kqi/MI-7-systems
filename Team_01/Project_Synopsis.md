@@ -54,9 +54,11 @@ Teacher’s basic information will consist of
     • Contact Number
     
     
-Project Planning : Meating with all team members.   
+Project Planning : 28 may 2020
+        
+        .Meating with all team members.   
 
-First Demo 30th may 2020:
+First Demo: 30 may 2020
 
 Task Performed By :
 
@@ -83,7 +85,9 @@ Task Performed By :
         . Project Requirement Gathering 
         . Student table Update  
 
-Second Demo 1st june 2020: 
+Second Demo 1 june 2020: 
+
+Task Alloted:
 
     Simran, Harshada : delete table, teacher hashtable search, delete
     Shankar, Rupam   : teacher hashtable insert,update,display

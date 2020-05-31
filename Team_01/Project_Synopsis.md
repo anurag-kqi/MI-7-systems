@@ -60,20 +60,24 @@ First Demo 30th may 2020:
 
 Task Performed By :
     1. Shankar :  
+    
         . Project file Structure
         . Project Menus
         . Student Hashmap insert, update, search, display
             
 2. Harshada :
+
         . Project requirement Gathering 
         . Hashmap 
         . Structure insertion
               
-3. Rupam :    
+3. Rupam :  
+
         . Progect Design
         . Search, Display
 
 4. Simran :   
+
         . Project Design 
         . Project Requirement Gathering 
         . Student table Update  

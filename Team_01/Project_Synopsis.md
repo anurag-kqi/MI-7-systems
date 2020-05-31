@@ -59,24 +59,25 @@ Project Planning : Meating with all team members.
 First Demo 30th may 2020:
 
 Task Performed By :
+
     1. Shankar :  
     
         . Project file Structure
         . Project Menus
         . Student Hashmap insert, update, search, display
             
-2. Harshada :
+    2. Harshada :
 
         . Project requirement Gathering 
         . Hashmap 
         . Structure insertion
               
-3. Rupam :  
+    3. Rupam :  
 
         . Progect Design
         . Search, Display
 
-4. Simran :   
+    4. Simran :   
 
         . Project Design 
         . Project Requirement Gathering 
@@ -84,9 +85,9 @@ Task Performed By :
 
 Second Demo 1st june 2020: 
 
-Simran, Harshada : delete table, teacher hashtable search, delete
-Shankar, Rupam   : teacher hashtable insert,update,display
-Shankar          : code design
-Aishwarya        : code study and review, project desin study, testing, test case design and perform any task
+    Simran, Harshada : delete table, teacher hashtable search, delete
+    Shankar, Rupam   : teacher hashtable insert,update,display
+    Shankar          : code design
+    Aishwarya        : code study and review, project desin study, testing, test case design and perform any task
 
                 

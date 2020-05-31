@@ -76,7 +76,7 @@ Task Performed By :
               
     3. Rupam :  
 
-        . Progect Design
+        . Project Design
         . Search, Display
 
     4. Simran :   

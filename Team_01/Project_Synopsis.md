@@ -54,31 +54,35 @@ Teacher’s basic information will consist of
     • Contact Number
     
     
-Project Planning : Meating all team members.   
+Project Planning : Meating with all team members.   
 
 First Demo 30th may 2020:
 
 Task Performed By :
-1. Shankar :  1. Project file Structure
-              2. Project Menus
-              3. Student Hashmap insert, update, search, display
+    1. Shankar :  
+        . Project file Structure
+        . Project Menus
+        . Student Hashmap insert, update, search, display
             
-2. Harshada : 1.   Project requirement Gathering 
-              2  Hashmap 
-              iii. Structure insertion
+2. Harshada :
+        . Project requirement Gathering 
+        . Hashmap 
+        . Structure insertion
               
-3. Rupam :    1. Progect Design
-              2. Search, Display
+3. Rupam :    
+        . Progect Design
+        . Search, Display
 
-4. Simran :   i.   Project Design 
-              ii.  Project Requirement Gathering 
-              iii. Student table Update  
+4. Simran :   
+        . Project Design 
+        . Project Requirement Gathering 
+        . Student table Update  
 
 Second Demo 1st june 2020: 
 
 Simran, Harshada : delete table, teacher hashtable search, delete
-shankar, rupam   : teacher hashtable insert,update,display
-shankar          : code design
+Shankar, Rupam   : teacher hashtable insert,update,display
+Shankar          : code design
 Aishwarya        : code study and review, project desin study, testing, test case design and perform any task
 
                 

@@ -12,10 +12,13 @@ struct society_D
     struct society_D *next;
     struct society_D *prev;
 
+
 };
 struct society_D* root = NULL;
 int key;
 struct society_D* temp;
+struct society_D *next;
+struct society_D *prev;
 
 /*struct Maintenance
 {
@@ -43,7 +46,7 @@ struct Complaints
  struct society_D* arr[10];
     void insert_society_D(char owner_name[], int flat_num, int owner_contact);
     void display_society_D();
-    //void delete_society_D(int key);
+    void delete_society_D(int key, int flat_num);
     void init()
 {
     int i;
@@ -61,7 +64,7 @@ void insert_society_D(char owner_name[], int flat_num, int owner_contact)
     newNode->flat_num = flat_num;
     newNode->owner_contact = owner_contact;
     newNode->next = NULL;
-    //newNode->prev = next;
+    newNode->prev = next;
 
     //calculate hash key
     key = flat_num % size;
@@ -108,17 +111,17 @@ void display_society_D()
         //printf("NULL\n");
     }
 
-
-
-/*void delete_society_D(int key)
+void delete_society_D(int key, int flat_num)
 {
-    int key = key % size;
-    struct society_D *ptr = arr[key], *toDelete;
+    key = flat_num % size;
+    //struct society_D *ptr = arr[key], *toDelete;
+    struct society_D *ptr = arr[key];
+    struct society_D *toDelete;
 
     if(ptr == NULL) {
         printf("\n List is Empty");
     }
-    else if(ptr->flat_num == key && ptr->next == NULL) {
+     else if(ptr->flat_num == key && ptr->next == NULL) {
         ptr = NULL;
         free(ptr);
         printf("\nnode deleted\n");
@@ -136,7 +139,7 @@ void display_society_D()
         }
         printf("\nnode deleted successfully\n");
     }
-}*/
+}
 
 
 int
@@ -155,24 +158,29 @@ main()
         switch(ch) {
             case 1:
                     printf("\nINSERT IN TO");
-                    printf("\n1.Society data\n3.Exit(0)");
+                    printf("\n1.Society data\n2.Exit(0)");
                     printf("\n\nEnter your choice to insert(1-3):");
                     scanf("%d", &ch);
 
                     switch(ch)
                     {
-                        case 1: printf("Enter owner_name, flat_num, owner_contact respectively : ");
-				                        scanf("%s, %d, %d", &owner_name, &flat_num, &owner_contact);
-			                	        insert_society_D(owner_name, flat_num, owner_contact);
+                        case 1: printf("\n\n\tEnter owner_name : ");
+                                          scanf("\t %s", &owner_name);
+                                          printf("\n\tEnter flat_num : ");
+                                          scanf("\t %d", &flat_num);
+                                          printf("\n\tEnter owner_contact : ");
+                                          scanf("\t %d", &owner_contact);
+                                          insert_society_D(owner_name, flat_num, owner_contact);
+
                                 break;
-                        case 3: exit(0);
+                        case 2: exit(0);
 
                         default: printf("Wrong Choice!!");
                      }
                     break;
 
             case 2: printf("\nDISPLAY SOCIETY DATA");
-                    printf("\n1.society data\n3.Exit(0)");
+                    printf("\n1.society data\n2.Exit(0)");
                     printf("\n\nEnter your choice to display(1-3):");
                     scanf("%d", &ch);
 
@@ -181,14 +189,14 @@ main()
                         case 1: display_society_D();
                                 break;
 
-                        case 3: exit(0);
+                        case 2: exit(0);
 
                         default: printf("Wrong Choice!!");
                     }
                     break;
 
 
-          /*  case 3: printf("\nDELETE FROM");
+          case 3: printf("\nDELETE FROM");
                     printf("\n1.Society DATA\n3.EXIT");
                     printf("\n\nEnter your choice to delete(1-3):");
                     scanf("%d", &ch);
@@ -198,7 +206,7 @@ main()
                         case 1: printf("Enter society data for Delete : ");
                                 printf("enter flat_num for delete:\n");
                                 scanf("%d",&flat_num);
-				                        //delete_society_D(flat_num);
+				                        delete_society_D(key, flat_num);
                                 break;
 
 
@@ -206,8 +214,8 @@ main()
                     }
 
                     break;
-                  }*/
-              }
-            };
+                  }
+              };
+
               return 0;
-}
+            }

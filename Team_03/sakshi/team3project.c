@@ -105,29 +105,29 @@ struct Node *Print_Hash(struct Node *p)
 
   struct Node *Print_DB(struct Node *p){
 	
-              printf("endl");
+              printf("\n");
            int Sr =1;
            while(p!=NULL){
-   	    printf("Sr");
+   			printf("Sr");
             printf("p->value.BID");
             printf("p->value.bName");
-            printf("p->value.bType");
-            printf("p->value.oName");
-            printf("p->value.contact");
+        	printf("p->value.bType");
+        	printf("p->value.oName");
+        	printf("p->value.contact");
             printf("p->value.bAdd");
             printf("p->value.email");
           	for (int i = 0; i < 137 ;i++){
               	if(i==0||i==5||i==19||i==39||i==54||i==74||i==86||i==116||i==136)
                   		printf("+");
               	printf("-");
-              	endl;
+              	printf("\n");
    				if(p->next == NULL)
  			    	{
-  				printf("endl");
-   			    	}
+  				printf("\n");
+   					}
    				p = p-> next;
-  				endl;
-   		    	}
+  				printf("\n");
+   				}
     		}
     	return 0;
   }    
@@ -177,8 +177,8 @@ int main()
 						//ask for element to delete
 						//delete the item replacing 0;
 						break;
-					default:
-						break;
+					// default:
+					// 	break;
 				}}
 
 			case 3:{
@@ -191,43 +191,47 @@ int main()
 				scanf("%d",&a);
 				switch (a){
 					
-					case 1:
+					case 1:{
 						// //display database table ;
 						 printf(" MI-Batch-2020 (Team_03) business catalogue");
-         				              if(i==0||i==5||i==19||i==39||i==54||i==74||i==86||i==116||i==136)
+						 for(int i =0; i<137;i++){
+         				if(i==0||i==5||i==19||i==39||i==54||i==74||i==86||i==116||i==136)
                 					printf("+");
-             				             printf("-");
-         				   }
-         				    end;
+             				printf("-");
+         				}
+         				printf("\n");
+   				
 
     					printf("Sr.no");
-      					printf("Business ID");
+    					printf("Business ID");
     					printf("Business Name");
-      				        printf("Business Type");
-      				        printf("Business Owner");
-      				        printf("Contact no.");
-      				        printf("Business Address");
-      				        printf("Business Email");
-      				        printf("\n");
+      				    printf("Business Type");
+      				    printf("Business Owner");
+      				    printf("Contact no.");
+      				    printf("Business Address");
+      				    printf("Business Email");
+      				    printf("\n");
         				for (int i = 0; i < 137 ;i++){
              				if(i==0||i==5||i==19||i==39||i==54||i==74||i==86||i==116||i==136)
-                 					printf("+");
-             				       printf("-");
+                 						printf("+");
+             				printf("-");
         					}	
 						 for(int i = 0; i <size ; i++){	
 	 						
 	 					Print_DB(HT[i]);
-	 				 		endl;
+	 				 		printf("\n");
+   				
 	 				 		for(int i = 0; i < 137 ;i++){
-                  		                              if(i==0||i==5||i==19||i==39||i==54||i==74||i==86||i==116||i==136)
-                					    printf("+");
-            				          printf("-");
+                  		if(i==0||i==5||i==19||i==39||i==54||i==74||i==86||i==116||i==136)
+                					printf("+");
+            				printf("-");
         					}
-         					endl;
-	 				 	}
+         					printf("\n");
+   			
+		 				 	}
 						break;
-
-					case 2:
+					}
+					case 2:{
 						//display Hash table;
 						for(int i = 0; i <size ; i++){	
 	 						printf("%d : ",i);	
@@ -235,7 +239,7 @@ int main()
 	 						printf("\n");
 	 					}
 						break;
-				
+					}
 					default:
 						break;
 				}
@@ -248,8 +252,8 @@ int main()
 		printf("Do you want to continue:- [Y/N]?\t");
 		scanf("%c",&x);
 	} while (x=='Y'||x=='y');
-	free(*HT);
-	free(key);
+	//free(*HT);
+	//free(key);
 	return 0;
 }
 

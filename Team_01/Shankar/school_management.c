@@ -39,10 +39,10 @@ void search_stud(int id);
 
 //teacher operations
 void insert_teacher(int id, char name[], char department[], int contact);
-    //display_teacher();
-    //delete_teacher();
-    //update_teacher();
-    //search_teacher();
+void display_teacher();
+//delete_teacher();
+void update_teacher(int id);
+void search_teacher(int id);
 
 //init array of list to NULL
 void init()
@@ -179,6 +179,7 @@ void display_teacher()
     }
 }
 
+//SEARCH Student data from STUDENT hash table
 void search_stud(int id)  
 {  
     struct student *ptr;  
@@ -194,7 +195,7 @@ void search_stud(int id)
           
         while (ptr != NULL) {  
             if (ptr->id == id) {  
-                printf("\n\n\titem found at location %d ", i+1); 
+                printf("\n\n\tStudent id found at location %d ", i+1); 
                 printf("\n\n\tStudent Id - %d\n\tStudent Nmae - %s\n\tStudent Class - %s\n\tStudent Address - %s\n\tStudent Contact - %d", 
                        ptr->id, ptr->name, ptr->class, ptr->address, ptr->contact); 
                 flag = 0;  
@@ -206,11 +207,45 @@ void search_stud(int id)
             ptr = ptr -> next;  
         }  
         if (flag==1) {  
-            printf("\n\n\tItem not found\n");  
+            printf("\n\n\tStudent id not found\n");  
         }  
     }              
 } 
 
+//SEARCH teacher data from TEACHER hash table
+void search_teacher(int id)  
+{  
+    struct teacher *ptr;  
+    int i=0, flag; 
+    
+    int key = id % size; 
+
+    ptr = chaint[key];   
+    if (ptr == NULL) {  
+        printf("\n\n\tEmpty List\n");  
+    } else {   
+        
+          
+        while (ptr != NULL) {  
+            if (ptr->id == id) {  
+                printf("\n\n\tTeacher id found at location %d ", i+1); 
+                printf("\n\n\tTeacher Id - %d\n\tTeacher Nmae - %s\n\tTeacher Department - %s\n\tTeacher Contact - %d", 
+                       ptr->id, ptr->name, ptr->department, ptr->contact); 
+                flag = 0;  
+                break;  
+            } else {  
+                flag=1;  
+            }  
+            i++;  
+            ptr = ptr -> next;  
+        }  
+        if (flag==1) {  
+            printf("\n\n\tTeacher id not found\n");  
+        }  
+    }              
+}
+ 
+//UPDATE student data from STUDENT hash table
 void update_stud(int id)  
 {  
     struct student *ptr;  
@@ -264,11 +299,68 @@ void update_stud(int id)
         } 
 	 
         if (flag == 1) {  
-            printf("\n\n\tItem not found\n");  
+            printf("\n\n\tStudent id not found\n");  
+        }  
+    }     
+} 
+
+//UPDATE teacher data from TEACHER hash table
+void update_teacher(int id)  
+{  
+    struct teacher *ptr;  
+    int i=0, flag; 
+    
+    int key = id % size; 
+
+    ptr = chaint[key];   
+    if (ptr == NULL) {  
+        printf("\n\n\tEmpty List\n");  
+    } else {   
+          
+        while (ptr != NULL) {  
+            if (ptr->id == id) {  
+                printf("\n\n\tTeacher old Data !!!\n"); 
+                printf("\n\n\tTeacher Id - %d\n\tTeacher Nmae - %s\n\tTeacher Department - %s\n\tTeacher Contact - %d", 
+                       ptr->id, ptr->name, ptr->department, ptr->contact); 
+
+		printf("\n\n\tTeacher New Data !!!\n");
+		
+		int id, contact;
+    		char name[30], department[30];
+
+		printf("\n\tEnter Same ID : ");
+		scanf("\t %d", &id);
+		printf("\n\tEnter New Name : ");
+		scanf("\t %s", name);
+		printf("\n\tEnter New Department : ");
+		scanf("\t %s", department);
+		printf("\n\tEnter New Contact : ");
+		scanf("\t %d", &contact);
+
+		ptr->id = id;
+    		strcpy(ptr->name, name);
+    		strcpy(ptr->department, department);
+    		ptr->contact = contact;
+    		
+		printf("\n\n\tTeacher Id - %d\n\tTeacher Nmae - %s\n\tTeacher Department - %s\n\tTeacher Contact - %d", 
+                       ptr->id, ptr->name, ptr->department, ptr->contact); 
+		printf("\n\n\tTeacher Record Updated Successfully !!!\n");
+                flag = 0;  
+                break;  
+            } else {  
+                flag = 1;  
+            }  
+            i++;  
+            ptr = ptr -> next; 
+        } 
+	 
+        if (flag == 1) {  
+            printf("\n\n\tTeacher id not found\n");  
         }  
     }     
           
 } 
+
 int 
 main()
 {
@@ -373,8 +465,11 @@ main()
                                 scanf("\t %d", &id);
 				update_stud(id);
                                 break;
-                        //case 2: update_teacher();
-                                //break;
+
+                        case 2: printf("\n\n\tEnter Teacher ID for Update : ");
+                                scanf("\t %d", &id);
+				update_teacher(id);
+                                break;
                         case 3: exit(0);
 
                         default: printf("\n\n\tWrong Choice!!\n");
@@ -392,8 +487,11 @@ main()
                                 scanf("\t%d", &id);
 				search_stud(id);
                                 break;
-                        //case 2: search_teacher();
-                                //break;
+
+                        case 2: printf("\n\n\tEnter Teacher ID for Search : ");
+                                scanf("\t%d", &id);
+				search_teacher(id);
+                                break;
                         case 3: exit(0);
 
                         default: printf("\n\n\tWrong Choice!!\n");

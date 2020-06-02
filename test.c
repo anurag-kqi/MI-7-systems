@@ -11,7 +11,7 @@ struct society_D
     int key;
     int value;
     struct society_D *next;
-    //struct society_D *prev;
+    struct society_D *prev;
 
 };
 //struct society_D* root = NULL;
@@ -73,7 +73,7 @@ void display_society_D()
   int i;
 
 for(i = 0; i < size; i++) {
-for (i = 0; i < size; i++) {
+//for (i = 0; i < size; i++) {
     struct society_D *temp = arr[i];
     printf("arr[%d]-->",i);
     while(temp) {
@@ -83,10 +83,12 @@ for (i = 0; i < size; i++) {
         printf("%d %s %d -->",temp->flat_num, temp->owner_name, temp->owner_contact);
         temp = temp->next;
     }
+  }
+}
     printf("NULL\n");
+
 }
-}
-}
+
 
 
 int
@@ -114,16 +116,16 @@ main()
                         case 1: printf("Enter owner_name, flat_num, owner_contact respectively : ");
 				                        scanf("%s, %d, %d", &owner_name, &flat_num, &owner_contact);
 
-                                case 1: printf("\n\n\tEnter flat_num : ");
+                              /*  case 2: printf("\n\n\tEnter flat_num : ");
                                         scanf("\t %d", &flat_num);
                                         printf("\n\tEnter owner_nameName : ");
                                         scanf("\t %s", owner_name);
                                         printf("\n\tEnter owner_contact : ");
                                         scanf("\t %d", &owner_contact);
-                                        insert_society_D(owner_name, flat_num, owner_contact);
+                                        insert_society_D(owner_name, flat_num, owner_contact);*/
 
                                 break;
-                        case 3: exit(0);
+                        case 3: //exit(0);
                         default: printf("Wrong Choice!!");
                         }
                         break;
@@ -144,7 +146,7 @@ main()
                                 }
                                 break;
                               }
-                            }
+                            };
                             return 0;
-};
+
 }

@@ -108,32 +108,34 @@ struct Node *Print_Hash(struct Node *p)
               printf("\n");
            int Sr =1;
            while(p!=NULL){
-   			printf("Sr");
-            printf("p->value.BID");
-            printf("p->value.bName");
-        	printf("p->value.bType");
-        	printf("p->value.oName");
-        	printf("p->value.contact");
-            printf("p->value.bAdd");
-            printf("p->value.email");
-          	for (int i = 0; i < 137 ;i++){
-              	if(i==0||i==5||i==19||i==39||i==54||i==74||i==86||i==116||i==136)
-                  		printf("+");
-              	printf("-");
-              	printf("\n");
-   				if(p->next == NULL)
+   		  printf("Sr");
+                  printf("p->value.BID");
+                  printf("p->value.bName");
+        	  printf("p->value.bType");
+        	  printf("p->value.oName");
+        	  printf("p->value.contact");
+                  printf("p->value.bAdd");
+                  printf("p->value.email");
+          	  for (int i = 0; i < 137 ;i++){
+              	        if(i==0||i==5||i==19||i==39||i==54||i==74||i==86||i==116||i==136)
+                            printf("+");
+              	            printf("-");
+              	            printf("\n");
+   			       if(p->next == NULL)
  			    	{
   				printf("\n");
-   					}
+   				}
    				p = p-> next;
   				printf("\n");
    				}
-    		}
-    	return 0;
-  }    
+    		         }
+    	        return 0;
+          }    
 
-int main()
-{	char x;
+int 
+main()
+     {
+	char x;
 	int choice;
 	int size,n;
 	printf("take the hashtable size:");
@@ -146,8 +148,7 @@ int main()
 	printf("enter  no. of nodes: \n");
 	scanf("%d",&n);
 	struct Node_at *key= (struct Node_at*)malloc(size*sizeof(struct Node_at));
-	
-	do{	
+	do {	
 		printf("This is business catalogue of surrounding you are given following choices:");
 		printf("\nMENU :- \n 1.Register your business \n 2.Remove a Business or remove any element \n 3.Check number of businesses \n 4.Display entire catalogue \n \n please enter your choice ");
 
@@ -179,12 +180,13 @@ int main()
 						break;
 					// default:
 					// 	break;
-				}}
+				         }
+			        }
 
 			case 3:{
 				printf("total businesses in Town is:\n");//<< length();
 				break;
-			}
+			       }
 			case 4:{
 				int a;
 				printf( "Do you want to look at 1.database table or 2.hash table [1/2]?");
@@ -195,42 +197,40 @@ int main()
 						// //display database table ;
 						 printf(" MI-Batch-2020 (Team_03) business catalogue");
 						 for(int i =0; i<137;i++){
-         				if(i==0||i==5||i==19||i==39||i==54||i==74||i==86||i==116||i==136)
+         				            if(i==0||i==5||i==19||i==39||i==54||i==74||i==86||i==116||i==136)
                 					printf("+");
-             				printf("-");
-         				}
-         				printf("\n");
-   				
-
-    					printf("Sr.no");
-    					printf("Business ID");
-    					printf("Business Name");
-      				    printf("Business Type");
-      				    printf("Business Owner");
-      				    printf("Contact no.");
-      				    printf("Business Address");
-      				    printf("Business Email");
-      				    printf("\n");
-        				for (int i = 0; i < 137 ;i++){
-             				if(i==0||i==5||i==19||i==39||i==54||i==74||i==86||i==116||i==136)
-                 						printf("+");
-             				printf("-");
-        					}	
-						 for(int i = 0; i <size ; i++){	
-	 						
-	 					Print_DB(HT[i]);
-	 				 		printf("\n");
-   				
-	 				 		for(int i = 0; i < 137 ;i++){
-                  		if(i==0||i==5||i==19||i==39||i==54||i==74||i==86||i==116||i==136)
-                					printf("+");
-            				printf("-");
-        					}
-         					printf("\n");
-   			
-		 				 	}
-						break;
-					}
+             				                printf("-");
+         				       }
+         				         printf("\n");
+						
+   				                 printf("Sr.no");
+    					         printf("Business ID");
+    					         printf("Business Name");
+      				                 printf("Business Type");
+      				                 printf("Business Owner");
+      				                 printf("Contact no.");
+      				                 printf("Business Address");
+      				                 printf("Business Email");
+      				                 printf("\n");
+        				         for (int i = 0; i < 137 ;i++)
+						 {
+             				           if(i==0||i==5||i==19||i==39||i==54||i==74||i==86||i==116||i==136)
+                 					printf("+");
+             				                printf("-");
+        					  }	
+						 for(int i = 0; i <size ; i++)
+						 {	
+					              Print_DB(HT[i]);
+	 				 	      printf("\n");
+   				                       for(int i = 0; i < 137 ;i++){
+                  		                          if(i==0||i==5||i==19||i==39||i==54||i==74||i==86||i==116||i==136)
+                					     printf("+");
+            				                     printf("-");
+        					          }
+         					             printf("\n")
+						 }
+						     break;
+					     }
 					case 2:{
 						//display Hash table;
 						for(int i = 0; i <size ; i++){	

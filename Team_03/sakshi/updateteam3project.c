@@ -111,24 +111,24 @@ struct Node *Print_Hash(struct Node *p)
     			       printf("%-20s|",p->value.bName);
       			       printf("%-15s|",p->value.bType);
       			       printf("%-20s|",p->value.oName);
-                       printf("%-12s|",p->value.contact);
-      		           printf("%-30s|",p->value.bAdd);
-      		           printf("%-20s|",p->value.email);
-                       for (int i = 0; i < 137 ;i++){
-              	          if(i==0||i==5||i==19||i==39||i==54||i==74||i==86||i==116||i==136)
+                               printf("%-12s|",p->value.contact);
+      		               printf("%-30s|",p->value.bAdd);
+      		               printf("%-20s|",p->value.email);
+                                 for (int i = 0; i < 137 ;i++){
+              	                      if(i==0||i==5||i==19||i==39||i==54||i==74||i==86||i==116||i==136)
                   		         printf("+");
-              	                 printf("-");
+              	                    printf("-");
               	                 printf("\n");
-   				          if(p->next == NULL)
+   				      if(p->next == NULL)
  			            	{
-  				              printf("\n");
-   					        }
-                             p = p-> next;
-  				             printf("\n");
+  				            printf("\n");
+   					 }
+                                      p = p-> next;
+  				           printf("\n");
   				              Sr++;
    			           	}
-    		    }
-    return 0;
+    		              }
+              return 0;
   }    
 
 int main()
@@ -215,13 +215,13 @@ int main()
 					case 1:{
 						// //display database table ;
 						for(int i = 0; i<50 ;i++)
-							printf(" ");
-						    printf( "MI-Batch-2020 (Team_03) business catalogue\n");
-						 for(int i =0; i<137;i++){
-         				if(i==0||i==5||i==19||i==39||i==54||i==74||i==86||i==116||i==136)
-                					printf("+");
-             				       printf("-");
-         				}
+						      printf(" ");
+						 printf( "MI-Batch-2020 (Team_03) business catalogue\n");
+						    for(int i =0; i<137;i++){
+         				                 if(i==0||i==5||i==19||i==39||i==54||i==74||i==86||i==116||i==136)
+                					   printf("+");
+             				           printf("-");
+         				         }
          				printf("\n|");
    				
 
@@ -239,12 +239,12 @@ int main()
                  				   printf("+");
              				       printf("-");
              				       printf("\n");
-        				}	
+        				    }	
 						for(int i = 0; i <n ; i++){	
 	 						Print_DB(HT[i]);
 	 				 		printf("\n");
 	 				 		for(int i = 0; i < 137 ;i++){
-                  				if(i==0||i==5||i==19||i==39||i==54||i==74||i==86||i==116||i==136)
+                  				          if(i==0||i==5||i==19||i==39||i==54||i==74||i==86||i==116||i==136)
                 					printf("+");
             					    printf("-");
         					}

@@ -1,4 +1,4 @@
-/*School Mnagement Systems*/
+/*School Management Systems*/
 
 #include <stdio.h>
 #include <stdlib.h>

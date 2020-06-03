@@ -2,7 +2,7 @@ PROJECT : SCHOOL MANAGEMENT  SYSTEM
 
 Team Members :
 
-    1. Shankar Thombare (Project Leader)
+    1. Shankar Thombare (Team Leader)
     2. Harshada Londhal
     3. Rupam Dandge
     4. Simran Mehra

@@ -8,6 +8,32 @@
 <b> 03. | <b> Vinay Motghare
 <b> 04. | <b> Swapnil Borkar
 
+#### Starting Of the Program
+## Catalouge Menu ( Display All 4 Input Choice)
+
+<b> Input No. | <b> Option
+:--|:--|
+<b> 01. | <b> Register your business
+<b> 02. | <b> Remove a Business or remove any element   
+<b> 03. | <b> Check number of businesses
+<b> 04. | <b> Display entire catalogue
+
+
+## Enter Your Choice
+### If you select any choice then the table take entry
+
+<b> Choice No. | <b> Processing
+:--|:--|
+<b> 01. | <b> Enter Every details of your business
+<b> 02. | <b> 1.Remove a Business
+<b> 	| <b> 2.Remove any Single Element   
+<b> 03. | <b> Check Total number of businesses
+<b> 04. | <b> 1.Display Data Base Table
+<b>     | <b> 2.Display Hash Table
+
+## Flow Chart
+![Untitled Diagram](https://user-images.githubusercontent.com/61742259/83295715-0c213980-a20d-11ea-9215-bd62ab0dde9d.png)
+
 #### Business Information
 ##### Types of Businesses
 <h4> 1. Groceries(#G)

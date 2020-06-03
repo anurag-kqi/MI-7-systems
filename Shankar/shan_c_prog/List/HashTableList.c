@@ -73,11 +73,11 @@ int delete(int value)
     struct node *temp = chain[key], *dealloc;
     if(temp != NULL)
     {
-        if(temp->data == value)
+        if(temp->data == value && temp->next == NULL)
         {
-            dealloc = temp;
-            temp = temp->next;
-            free(dealloc);
+            
+            temp = NULL;
+            free(temp);
             return 1;
         }
         else

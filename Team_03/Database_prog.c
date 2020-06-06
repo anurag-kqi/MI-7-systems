@@ -87,7 +87,7 @@ struct Node *Print_Hash(struct Node *p)
 			printf("\n");
            	static int Sr =1;
            	{
-				printf("|%-5d|",Sr);
+			printf("|%-5d|",Sr);
     			printf("%-14d|",p.BID);
     			printf("%-20s|",p.bName);
       			printf("%-15s|",p.bType);
@@ -237,8 +237,8 @@ int main(){
     	printf("%-5s|",s);
     	printf("%-14s|",BI);
     	printf("%-20s|",BN);
-   		printf("%-15s|",BT);
-  		printf("%-20s|",BO);
+   	printf("%-15s|",BT);
+  	printf("%-20s|",BO);
       	printf("%-12s|",CO);
       	printf("%-30s|",CA);
       	printf("%-20s|",CE);
@@ -252,7 +252,7 @@ int main(){
 	 		Print_DB(B[i]);	
 		 }
 		printf("\n");
-						//display Hash table;
+		//display Hash table;
 		printf("\n\n\t\t\t----HASH-TABLE----\n\n");
 		for(int i = 0; i <size ; i++){	
 		printf("%d : ",i);	

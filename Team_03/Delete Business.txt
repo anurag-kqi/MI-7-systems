@@ -1,0 +1,28 @@
+//DELETE Business from hash table
+void delete_BID(int BID)  
+{  
+    int key = id % size;
+    struct Node *ptr = chain[key], *toDelete;  
+  
+    if (ptr == NULL) {  
+        printf("\n\n\tList is Empty !!!\n");  
+    }  
+    else if (ptr->BID == BID && ptr->next == NULL) {  
+        chain[key]=NULL;
+        ptr = NULL;   
+        free(ptr);  
+        printf("\n\n\t Business deleted\n");  
+    } else {  
+	while (ptr->next != NULL) {
+            if (ptr->next->BID == BID) {
+
+            toDelete = ptr->next;  
+        	ptr->next = toDelete->next;  
+        	toDelete->next->prev = ptr;  
+        	free(toDelete);  
+            }
+            ptr = ptr->next;
+        }	
+        printf("\n\n\tnode Business deleted successfully\n");  
+    }     
+}

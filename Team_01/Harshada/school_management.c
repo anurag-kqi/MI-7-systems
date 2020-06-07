@@ -137,19 +137,19 @@ void delete_stud(int id)
     } else {
 	        while (ptr->next != NULL) {
               if (ptr->next->id == id) {
-                toDelete = ptr->next;
-                if (toDelete->next == NULL) {
-                    printf("if loop\n");
-                    ptr->next = NULL;
+                  toDelete = ptr->next;
+                  if (toDelete->next == NULL) {
+                      printf("if loop\n");
+                      ptr->next = NULL;
+                      printf("\n\n\tnode is deleted\n");
+                      free(toDelete);
+                      return;
+                  } else {
+                    ptr->next = toDelete->next;
+                    toDelete->next->prev = toDelete->prev;
                     printf("\n\n\tnode is deleted\n");
                     free(toDelete);
-                    return;
-                } else {
-                  ptr->next = toDelete->next;
-                  toDelete->next->prev = toDelete->prev;
-                  printf("\n\n\tnode is deleted\n");
-                  free(toDelete);
-                }
+                  }
 
             }
             ptr = ptr->next;

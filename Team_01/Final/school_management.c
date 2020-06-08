@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 #define size 9
-struct student 
+struct student
 {
     int id;
     char name[30];
@@ -12,7 +12,7 @@ struct student
     char address[50];
     int contact;
     struct student *next;
-    struct student *prev; 
+    struct student *prev;
 };
 
 struct teacher
@@ -20,7 +20,7 @@ struct teacher
     char department[30];
     struct student stud;
     struct teacher *next;
-    struct teacher *prev; 
+    struct teacher *prev;
 };
     struct student *chain[size];
 
@@ -47,8 +47,8 @@ void init()
     }
 }
 
-void insert_stud(int id, char name[], int class, char address[], int contact) 
-{ 
+void insert_stud(int id, char name[], int class, char address[], int contact)
+{
     //create a newnode with value
     struct student *newNode = malloc(sizeof(struct student));
     newNode->id = id;
@@ -60,24 +60,24 @@ void insert_stud(int id, char name[], int class, char address[], int contact)
     newNode->prev = NULL;
 
     //calculate hash key
-    int key = id % size;  
-    
-    if(chain[key] == NULL) {  
-        newNode->next = NULL;  
-        newNode->prev = NULL;  
-        chain[key] = newNode;  
-    }  
-    else {  
-        struct student *temp = chain[key]; 
+    int key = id % size;
 
-        while(temp->next != NULL){  
-            temp = temp->next;  
-        }  
-        temp->next = newNode;  
-        newNode->prev = temp;  
-        newNode->next = NULL;  
-    }  
-    printf("\n\nNode inserted Successfully...!\n");  
+    if(chain[key] == NULL) {
+        newNode->next = NULL;
+        newNode->prev = NULL;
+        chain[key] = newNode;
+    }
+    else {
+        struct student *temp = chain[key];
+
+        while(temp->next != NULL){
+            temp = temp->next;
+        }
+        temp->next = newNode;
+        newNode->prev = temp;
+        newNode->next = NULL;
+    }
+    printf("\n\nNode inserted Successfully...!\n");
 }
 
 /*void delete_stud(int id)
@@ -101,7 +101,7 @@ void insert_stud(int id, char name[], int class, char address[], int contact)
                 {
                     toDelete = temp->next;
                     temp->next = toDelete->next;
-                    toDelete->next->prev = temp;  
+                    toDelete->next->prev = temp;
                     free(toDelete);
                 }
                 temp = temp->next;
@@ -110,32 +110,32 @@ void insert_stud(int id, char name[], int class, char address[], int contact)
     //}
 }*/
 
-void delete_stud(int id)  
-{  
+void delete_stud(int id)
+{
     int key = id % size;
-    struct student *ptr = chain[key], *toDelete;  
-  
-    if(ptr == NULL) {  
-        printf("\n List is Empty !!!");  
-    }  
-    else if(ptr->id == id && ptr->next == NULL) {  
-        ptr = NULL;   
-        free(ptr);  
-        printf("\nnode deleted\n");  
-    }  
-    else {  
+    struct student *ptr = chain[key], *toDelete;
+
+    if(ptr == NULL) {
+        printf("\n List is Empty !!!");
+    }
+    else if(ptr->id == id && ptr->next == NULL) {
+        ptr = NULL;
+        free(ptr);
+        printf("\nnode deleted\n");
+    }
+    else {
 	while(ptr->next != NULL) {
             if(ptr->next->id == id) {
 
-                toDelete = ptr->next;  
-        	ptr->next = toDelete->next;  
-        	toDelete->next->prev = ptr;  
-        	free(toDelete);  
+                toDelete = ptr->next;
+        	ptr->next = toDelete->next;
+        	toDelete->next->prev = ptr;
+        	free(toDelete);
             }
             ptr = ptr->next;
-        }	
-        printf("\nnode deleted successfully\n");  
-    }     
+        }
+        printf("\nnode deleted successfully\n");
+    }
 }
 
 void display_stud()
@@ -154,62 +154,62 @@ void display_stud()
 }
 
 
-void search_stud(int id)  
-{  
-    struct student *ptr;  
-    int i=0, flag; 
-    
-    int key = id % size; 
+void search_stud(int id)
+{
+    struct student *ptr;
+    int i=0, flag;
 
-    ptr = chain[key];   
-    if(ptr == NULL) {  
-        printf("\nEmpty List\n");  
-    }  
-    else {   
-        
-        //printf("\nEnter item which you want to search?\n");   
-        //scanf("%d",&item);  
-        while (ptr != NULL) {  
-            if(ptr->id == id) {  
-                printf("\nitem found at location %d ", i+1); 
-                printf("\n\nStudent Id - %d\nStudent Nmae - %s\nStudent Class - %d\nStudent Address - %s\nStudent Contact - %d", 
-                       ptr->id, ptr->name, ptr->class, ptr->address, ptr->contact); 
-                flag = 0;  
-                break;  
-            }   
-            else {  
-                flag=1;  
-            }  
-            i++;  
-            ptr = ptr -> next;  
-        }  
-        if(flag==1) {  
-            printf("\nItem not found\n");  
-        }  
-    }              
-} 
+    int key = id % size;
 
-void update_stud(int id)  
-{  
-    struct student *ptr;  
-    int i=0, flag; 
-    
-    int key = id % size; 
+    ptr = chain[key];
+    if(ptr == NULL) {
+        printf("\nEmpty List\n");
+    }
+    else {
 
-    ptr = chain[key];   
-    if(ptr == NULL) {  
-        printf("\nEmpty List\n");  
-    }  
-    else {   
-          
-        while (ptr != NULL) {  
-            if(ptr->id == id) {  
-                printf("\nStudent old Data !!!"); 
-                printf("\n\nStudent Id - %d\nStudent Nmae - %s\nStudent Class - %d\nStudent Address - %s\nStudent Contact - %d", 
-                       ptr->id, ptr->name, ptr->class, ptr->address, ptr->contact); 
+        //printf("\nEnter item which you want to search?\n");
+        //scanf("%d",&item);
+        while (ptr != NULL) {
+            if(ptr->id == id) {
+                printf("\nitem found at location %d ", i+1);
+                printf("\n\nStudent Id - %d\nStudent Nmae - %s\nStudent Class - %d\nStudent Address - %s\nStudent Contact - %d",
+                       ptr->id, ptr->name, ptr->class, ptr->address, ptr->contact);
+                flag = 0;
+                break;
+            }
+            else {
+                flag=1;
+            }
+            i++;
+            ptr = ptr -> next;
+        }
+        if(flag==1) {
+            printf("\nItem not found\n");
+        }
+    }
+}
+
+void update_stud(int id)
+{
+    struct student *ptr;
+    int i=0, flag;
+
+    int key = id % size;
+
+    ptr = chain[key];
+    if(ptr == NULL) {
+        printf("\nEmpty List\n");
+    }
+    else {
+
+        while (ptr != NULL) {
+            if(ptr->id == id) {
+                printf("\nStudent old Data !!!");
+                printf("\n\nStudent Id - %d\nStudent Nmae - %s\nStudent Class - %d\nStudent Address - %s\nStudent Contact - %d",
+                       ptr->id, ptr->name, ptr->class, ptr->address, ptr->contact);
 
 		printf("\nStudent New Data !!!");
-		
+
 		int id, contact, class;
     		char name[30], address[50];
 
@@ -221,27 +221,27 @@ void update_stud(int id)
     		ptr->class = class;
     		strcpy(ptr->address, address);
     		ptr->contact = contact;
-    		
-		printf("\n\nStudent Id - %d\nStudent Nmae - %s\nStudent Class - %d\nStudent Address - %s\nStudent Contact - %d", 
-                       ptr->id, ptr->name, ptr->class, ptr->address, ptr->contact); 
+
+		printf("\n\nStudent Id - %d\nStudent Nmae - %s\nStudent Class - %d\nStudent Address - %s\nStudent Contact - %d",
+                       ptr->id, ptr->name, ptr->class, ptr->address, ptr->contact);
 		printf("\nStudent Record Updated Successfully !!!");
-                flag = 0;  
-                break;  
-            } 
-	    else {  
-                flag=1;  
-            }  
-            i++;  
-            ptr = ptr -> next; 
-        } 
-	 
-        if(flag==1) {  
-            printf("\nItem not found\n");  
-        }  
-    }     
-          
-} 
-int 
+                flag = 0;
+                break;
+            }
+	    else {
+                flag=1;
+            }
+            i++;
+            ptr = ptr -> next;
+        }
+
+        if(flag==1) {
+            printf("\nItem not found\n");
+        }
+    }
+
+}
+int
 main()
 {
     int ch, id, contact, class;
@@ -261,7 +261,7 @@ main()
                     printf("\n1.STUDENT DATA\n2.TEACHER DATA\n3.EXIT");
                     printf("\n\nEnter your choice to insert(1-3):");
                     scanf("%d", &ch);
- 
+
                     switch(ch)
                     {
                         case 1: printf("Enter ID, Name, Class, Address, Contact respectively : ");
@@ -275,12 +275,12 @@ main()
                         default: printf("Wrong Choice!!");
                     }
                     break;
- 
+
             case 2: printf("\n---- DISPLAY DATA ----");
                     printf("\n1.STUDENT DATA\n2.TEACHER DATA\n3.EXIT");
                     printf("\n\nEnter your choice to display(1-3):");
                     scanf("%d", &ch);
- 
+
                     switch(ch)
                     {
                         case 1: display_stud();
@@ -292,12 +292,12 @@ main()
                         default: printf("Wrong Choice!!");
                     }
                     break;
- 
+
             case 3: printf("\n---- DELETE FROM ----");
                     printf("\n1.STUDENT DATA\n2.TEACHER DATA\n3.EXIT");
                     printf("\n\nEnter your choice to delete(1-3):");
                     scanf("%d", &ch);
- 
+
                     switch(ch)
                     {
                         case 1: printf("Enter Student ID for Delete : ");
@@ -316,7 +316,7 @@ main()
                     printf("\n1.STUDENT DATA\n2.TEACHER DATA\n3.EXIT");
                     printf("\n\nEnter your choice to update(1-3):");
                     scanf("%d", &ch);
- 
+
                     switch(ch)
                     {
                         case 1: printf("Enter Student ID for Update : ");
@@ -335,7 +335,7 @@ main()
                     printf("\n1.STUDENT DATA\n2.TEACHER DATA\n3.EXIT");
                     printf("\n\nEnter your choice to search(1-3):");
                     scanf("%d", &ch);
- 
+
                     switch(ch)
                     {
                         case 1: printf("Enter Student ID for Search : ");
@@ -351,7 +351,7 @@ main()
                     break;
 
             case 6: exit(0);
-                    
+
 	    default: printf("Wrong Choice!!");
         }
     }

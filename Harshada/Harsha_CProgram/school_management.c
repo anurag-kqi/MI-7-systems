@@ -128,25 +128,64 @@ void delete_stud(int id)
     if (ptr == NULL) {
         printf("\n\n\tList is Empty !!!\n");
     }
-    else if (ptr->id == id && ptr->next == NULL) {
-      
-        ptr = NULL;
+    else if (ptr->id == id) {
+        printf("\n\n\tFirst node deleted\n");
+        chain[key] = chain[key]->next;
+        chain[key]->prev = NULL;
+        ptr->next = NULL;
         free(ptr);
-        printf("\n\n\tnode deleted\n");
     } else {
-	while (ptr->next != NULL) {
-            if (ptr->next->id == id) {
-
+	        while (ptr->next != NULL) {
+              if (ptr->next->id == id) {
                 toDelete = ptr->next;
-        	ptr->next = toDelete->next;
-        	toDelete->next->prev = ptr;
-        	free(toDelete);
+                if (toDelete->next == NULL) {
+                    printf("if loop\n");
+                    ptr->next = NULL;
+                    printf("\n\n\tnode is deleted\n");
+                    free(toDelete);
+                    return;
+                } else {
+                  ptr->next = toDelete->next;
+                  toDelete->next->prev = toDelete->prev;
+                  printf("\n\n\tnode is deleted\n");
+                  free(toDelete);
+                }
+
             }
             ptr = ptr->next;
         }
-        printf("\n\n\tnode deleted successfully\n");
+        printf("\n\n\tnode not found\n");
     }
 }
+
+
+// void delete_stud(int id)
+// {
+//     int key = id % size;
+//     struct student *ptr = chain[key], *toDelete;
+//
+//     if (ptr == NULL) {
+//         printf("\n\n\tList is Empty !!!\n");
+//     }
+//     else if (ptr->id == id && ptr->next == NULL) {
+//
+//         ptr = NULL;
+//         free(ptr);
+//         printf("\n\n\tnode deleted\n");
+//     } else {
+// 	while (ptr->next != NULL) {
+//             if (ptr->next->id == id) {
+//
+//                 toDelete = ptr->next;
+//         	ptr->next = toDelete->next;
+//         	toDelete->next->prev = ptr;
+//         	free(toDelete);
+//             }
+//             ptr = ptr->next;
+//         }
+//         printf("\n\n\tnode deleted successfully\n");
+//     }
+// }
 
 //DISPLAY data of STUDENT hash table
 void display_stud()

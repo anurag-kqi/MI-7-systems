@@ -1,5 +1,13 @@
 PROJECT : SCHOOL MANAGEMENT  SYSTEM
 
+Team Members :
+
+    1. Shankar Thombare (Team Leader)
+    2. Harshada Londhal
+    3. Rupam Dandge
+    4. Simran Mehra
+    5. Aishwarya Bhutkar
+
 
 When the user will run the program it will see a main menu from which he/she 
 will be choosing the operation which they want to perform 
@@ -44,5 +52,46 @@ Teacher’s basic information will consist of
     • Name
     • Department
     • Contact Number
+    
+    
+Project Planning : 28 may 2020
+        
+    . Meating with all team members.   
 
+First Demo: 30 may 2020
 
+Task Performed By :
+
+    1. Shankar :  
+    
+        . Project file Structure
+        . Project Menus
+        . Student Hashmap insert, update, search, display
+            
+    2. Harshada :
+
+        . Project requirement Gathering 
+        . Hashmap 
+        . Structure insertion
+              
+    3. Rupam :  
+
+        . Project Design
+        . Search, Display
+
+    4. Simran :   
+
+        . Project Design 
+        . Project Requirement Gathering 
+        . Student table Update  
+
+Second Demo 1 june 2020: 
+
+Task Alloted:
+
+    Simran, Harshada : delete table, teacher hashtable search, delete
+    Shankar, Rupam   : teacher hashtable insert,update,display
+    Shankar          : code design
+    Aishwarya        : code study and review, project desin study, testing, test case design and perform any task
+
+                

@@ -14,8 +14,8 @@ typedef struct dnode
 void
 main()
 {
-    dnode *head;
-    head = NULL;
+    dnode *head,*h,*q;
+    //head = NULL;
     head = create();
     printf("\n Elements in forward direction : ");
     print_for(head);
@@ -47,7 +47,7 @@ dnode *create()
 	    P = q;
 	}
     }
-    return(n);
+    return(h);
 }
 
 void print_for(dnode *h)

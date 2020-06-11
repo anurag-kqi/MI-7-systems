@@ -1,4 +1,4 @@
-// C program to implement Binary Search
+// C program to Binary Search with Read file
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -51,7 +51,7 @@ binarySearch(int arr[], int left, int right, int toSearch)
         // Else the element can only be present in right subarray
 
         else {
-        return binarySearch(arr, mid + 1, right, toSearch);
+          return binarySearch(arr, mid + 1, right, toSearch);
         }
     }
 
@@ -71,20 +71,19 @@ main(void)
     FILE *fp1;      //file pointer
 
     for (i = 0; i < 50; i++) {   //initialize array with 0
-    arr[i] = 0;
+      arr[i] = 0;
     }
     i = 0;
     if (( fp1 = fopen("student.txt","r" )) == NULL) {
-    printf("\n\n\tstudent.txt failed to open\n\n");
-    return 1;
-    }
-    else {
-	printf("\n\n\tUnsorted array = ");
-        while (( fscanf(fp1, "%d", &arr[i] )) != EOF){ //scanf and check EOF
-            printf("%d ", arr[i]);
-            i++;
-	    len++;
-        }
+      printf("\n\n\tstudent.txt failed to open\n\n");
+      return 1;
+    } else {
+	    printf("\n\n\tUnsorted array = ");
+      while (( fscanf(fp1, "%d", &arr[i] )) != EOF) { //scanf and check EOF
+        printf("%d ", arr[i]);
+        i++;
+	      len++;
+      }
     }
 
     //calculate array length

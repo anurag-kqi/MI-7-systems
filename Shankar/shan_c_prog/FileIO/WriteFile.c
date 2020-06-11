@@ -14,15 +14,15 @@ writeArray()
 
     FILE *fptr;
     fptr = (fopen("student.txt", "w"));
-    if(fptr == NULL) {
-    printf("Error!");
-    exit(1);
+    if (fptr == NULL) {
+      printf("Error!");
+      exit(1);
     }
 
     printf("\n________________________________________________________");
     printf("\n\n\tEnter elements: ");
     for (i = 0; i < n; ++i) {
-        scanf("%d", &arr[i]);
+      scanf("%d", &arr[i]);
     	fprintf(fptr, "%d ", arr[i]);
     }
     printf("\n________________________________________________________");

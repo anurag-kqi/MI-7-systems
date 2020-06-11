@@ -1,5 +1,5 @@
 # the name of the target program
-TARGET = scm
+TARGET = Hospital_Management 
 
 # other source files and the associated object files (this can be blank)
 # SRC	= hospital.c main.c
@@ -13,7 +13,7 @@ TARGET = scm
 #
 # # select the compiler and flags
 # CC = /usr/bin/gcc
-# CFLAGS = -g
+# CFLAGS = -ansi -g
 #
 # # .SUFFIXES: .c
 #

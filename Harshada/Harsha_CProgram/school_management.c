@@ -131,6 +131,14 @@ void delete_stud(int id)
     else if (ptr->id == id) {
         printf("\n\n\tFirst node deleted\n");
         chain[key] = chain[key]->next;
+
+    } else {
+	        while (ptr->next != NULL) {
+              if (ptr->next->id == id) {
+                printf("node is deleted\n");
+                ptr->next = ptr->next->next;
+                return;
+
         chain[key]->prev = NULL;
         ptr->next = NULL;
         free(ptr);
@@ -151,12 +159,14 @@ void delete_stud(int id)
                   free(toDelete);
                 }
 
+
             }
             ptr = ptr->next;
         }
         printf("\n\n\tnode not found\n");
     }
 }
+
 
 
 // void delete_stud(int id)
@@ -186,6 +196,7 @@ void delete_stud(int id)
 //         printf("\n\n\tnode deleted successfully\n");
 //     }
 // }
+
 
 //DISPLAY data of STUDENT hash table
 void display_stud()

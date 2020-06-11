@@ -2,31 +2,43 @@ Team1:
 - Harshada
 - Rupam
 - Shankar
-- Simran
 - Aishwarya
+Project status:
+- Validation
+- Makefile
 
 Team2:
 - Divya
 - Kishori
 - Nayan
-- Maheep
-`
+- Maheep (not responding)
+- Nipun
+Project status:
+- insert is working
+- delete still has some problem
+
 Team3:
 - Vinay
 - Sakshi
 - Siddhant Gupta
 - Swapnil
+Project status:
+- Need to do coding style changes
 
 Team4:
 - Ashwini Garje
 - Ashwini-2
 - Shubham :
 - Sagar Mahajan
+Project status:
+- still not at the demo stage
+
 
 Team5:
 - Satya : Not active
 - Saksham Vivek: Not sure, never logged in the git.
 - Bhavesh
+- Simran
 
 1. Harshada:
    30 May, 2020:

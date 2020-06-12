@@ -37,9 +37,15 @@ Task Performed By : (yesterday's)
 	
     2. Harshada :
     
+    	. Make File
+    
     3. Aishwarya :
     
+    	. Make File
+    
     4. Rupam :
+    
+    	. Make File
 
 
 11 june 2020

@@ -1,129 +1,14 @@
 #include<stdio.h>
-#include<stdlib.h>
 #include<string.h>
+#include<stdlib.h>
+#include"database.h"
 
-struct Node
-{
-
-	struct Node *prev;
-	int BID;
-	int OID;
-	char bName[15];
-	char oName[16];
-	char bAdd[31];
-	char bType[13];
-	char contact[10];
-	char email[21];
-	struct Node *next;
-};
-
-void SortedLinks(struct Node **H, struct Node x)
-{
-	struct Node *t,*q = NULL, *p= *H;
-	t =(struct Node*) malloc (sizeof(struct Node));
-	t->BID = x.BID;
-	t->OID = x.OID;
-	strcpy(t->bName,x.bName);
-	strcpy(t->oName,x.oName);
-	strcpy(t->bAdd,x.bAdd);
-	strcpy(t->bType,x.bType);
-	strcpy(t->contact,x.contact);
-	strcpy(t-> email,x.email);
-	;
-	t->next = NULL;
-	if(*H==NULL)
-	{
-		t->next = t->prev =NULL;
-		*H = t;
-
-	}else{
-		while(p&& p->BID<x.BID)
-		{
-			q=p;
-			p=p->next;
-		}
-		if(p==*H)
-		{
-			t->prev = p->prev;
-			t->next=*H;
-			*H=t;
-		}else{
-			t->next=q->next;
-			q->next = t;
-			t->prev = q;
-		}
-	}
-}
 int hash_at_int(int key,int size)
 {
 	return key%size;
 }
 
-
-void Insert_Row(struct Node *H[], struct Node key , int size)
-{	
-	int c;
-	int Index= hash_at_int(key.BID,size);
-	SortedLinks(&H[Index],key);
-}
-
-struct Node *Print_Hash(struct Node *p)
- {	
- 	printf("<-");
- 	while(p!=NULL)
- 	{
- 		printf("->{%d,%s,%s,%s,%d,%s,%s,%s}<-",p->BID,p->bName,p->bType,p->oName,p->OID,p->contact,p->bAdd,p->email);
- 		if(p->next == NULL)
- 		{
- 			printf("->NULL");
- 		}
- 		p = p-> next;
-
- 	}
- 	return NULL;
- }
-
- struct Node *Print_DB(struct Node p){
-			printf("\n");
-           	static int Sr =1;
-           	{
-				printf("|%-5d|",Sr);
-    			printf("%-14d|",p.BID);
-    			printf("%-20s|",p.bName);
-      			printf("%-21s|",p.bType);
-      			printf("%-20s|",p.oName);
-      			printf("%-12s|",p.contact);
-      			printf("%-30s|",p.bAdd);
-      			printf("%-20s|",p.email);
-      			printf("\n");
-          		for (int i = 0; i < 143 ;i++){
-            		if(i==0||i==5||i==19||i==39||i==60||i==80||i==92||i==122||i==142)
-                  		printf("+");
-              	printf("-");
-   				}
-    		} Sr++;
-    	return 0;
-  }   
-
-   void delete_BID(struct Node **H, struct Node key) {
-     // Deletes an Business ID from the table
-     struct Node *q = NULL, *p= *H;
-     if(p != NULL && p->BID == key.BID ){
-      *H = p->next;
-      free(p);
-      return;
-     }
-     while(p != NULL && p->BID != key.BID){
-      q=p;
-      p=p->next;
-     }
-     if ( p == NULL) return;
-     q->next = p->next;
-     free(p);
-  }
-
-
-int main(){
+int main() {
   char x;
 	int size,n,choice;
 	printf("enter size of hash table\n");
@@ -359,3 +244,4 @@ int main(){
 	return 0;
 	 				
 }
+

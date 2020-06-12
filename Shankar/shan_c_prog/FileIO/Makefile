@@ -1,8 +1,8 @@
 # the name of the target program
-TARGET = scm
+TARGET = rwm
 
 # other source files and the associated object files (this can be blank)
-SRC	= student.c main.c
+SRC	= WriteFile.c BSReadFile.c
 OBJ	= $(SRC:.c=.o)
 
 # special include directories

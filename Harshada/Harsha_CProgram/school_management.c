@@ -145,6 +145,7 @@ void delete_stud(int id)
     } else {
 	        while (ptr->next != NULL) {
               if (ptr->next->id == id) {
+<<<<<<< HEAD
                   toDelete = ptr->next;
                   if (toDelete->next == NULL) {
                       ptr->next = NULL;
@@ -163,6 +164,63 @@ void delete_stud(int id)
           printf("\n\n\tnode not found\n");
       }
   }
+=======
+                toDelete = ptr->next;
+                if (toDelete->next == NULL) {
+                    printf("if loop\n");
+                    ptr->next = NULL;
+                    printf("\n\n\tnode is deleted\n");
+                    free(toDelete);
+                    return;
+                } else {
+                  ptr->next = toDelete->next;
+                  toDelete->next->prev = toDelete->prev;
+                  printf("\n\n\tnode is deleted\n");
+                  free(toDelete);
+                }
+
+<<<<<<< HEAD
+=======
+
+            }
+            ptr = ptr->next;
+>>>>>>> 95f166507462951f9442b34eb5031c249527421e
+        }
+        printf("\n\n\tnode not found\n");
+    }
+}
+
+
+
+// void delete_stud(int id)
+// {
+//     int key = id % size;
+//     struct student *ptr = chain[key], *toDelete;
+//
+//     if (ptr == NULL) {
+//         printf("\n\n\tList is Empty !!!\n");
+//     }
+//     else if (ptr->id == id && ptr->next == NULL) {
+//
+//         ptr = NULL;
+//         free(ptr);
+//         printf("\n\n\tnode deleted\n");
+//     } else {
+// 	while (ptr->next != NULL) {
+//             if (ptr->next->id == id) {
+//
+//                 toDelete = ptr->next;
+//         	ptr->next = toDelete->next;
+//         	toDelete->next->prev = ptr;
+//         	free(toDelete);
+//             }
+//             ptr = ptr->next;
+//         }
+//         printf("\n\n\tnode deleted successfully\n");
+//     }
+// }
+
+>>>>>>> 8fb9bf27864b26dd30a7fd2791dfbd70973d6b6c
 
 //DISPLAY data of STUDENT hash table
 void display_stud()

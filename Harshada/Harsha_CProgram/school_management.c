@@ -159,9 +159,12 @@ void delete_stud(int id)
                   free(toDelete);
                 }
 
+<<<<<<< HEAD
+=======
 
             }
             ptr = ptr->next;
+>>>>>>> 95f166507462951f9442b34eb5031c249527421e
         }
         printf("\n\n\tnode not found\n");
     }

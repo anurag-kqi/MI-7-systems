@@ -2,7 +2,7 @@
 TARGET = scm
 
 # other source files and the associated object files (this can be blank)
-SRC	= student.c main.c
+SRC	= school_management.c stud_scm.c teacher_scm.c
 OBJ	= $(SRC:.c=.o)
 
 # special include directories

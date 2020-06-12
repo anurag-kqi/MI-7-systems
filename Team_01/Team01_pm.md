@@ -31,9 +31,9 @@ Tasks :
 Task Performed By : (yesterday's)
 
     1. Shankar :  
-    
-        . Make file, file Read, write operations, 
-	. Persistent layer design : "Team01_pm.md" file design.
+
+    	. Make file, file Read, write operations
+    	. Persistent layer design : "Team01_pm.md" file design
             
     2. Harshada :
 

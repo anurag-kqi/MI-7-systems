@@ -8,11 +8,49 @@ Team Members :
     2. Harshada Londhal
     3. Rupam Dandge
     4. Aishwarya Bhutkar
+---------------------------------------------------------------------------------------------------------------
+     
+12 june 2020
+
+Meeting Time : 9 AM
+
+Attendees :  
+
+	Shankar
+	Harshada
+	Aishwarya
+	Rupam
+Tasks :
+
+	Harshada : Validation of address - accepts spaces, char, int, symbols;
+	Aishwarya: Validation of Name - Spaces, should not accept integer; 
+	Rupam    : Validation contact - it should be only 10 digit, 
+	           it should not accept character and symbols.
+	Shankar  : Project Main Menu coding and design, Make file for Project  
+	
+Task Performed By : (yesterday's)
+
+    1. Shankar :  
+    
+        . Make file, file Read, write operations.
+	. persistent layer design - "Team01_pm.md" file design.
+            
+    2. Harshada :
+
+        . Make file
+
+    3. Aishwarya : 
+    
+        . Make file
+              
+    4. Rupam :  
+
+        . Make file
 
 11 june 2020
 
 Meeting Time : 10 AM
-
+		     
 Attendees :  
 
 	Shankar

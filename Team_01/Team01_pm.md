@@ -34,18 +34,13 @@ Task Performed By : (yesterday's)
 
     	. Make file, file Read, write operations
     	. Persistent layer design : "Team01_pm.md" file design
-            
+	
     2. Harshada :
-
-	. Make file
-
-    3. Aishwarya : 
     
-        . Make file
-              
-    4. Rupam :  
+    3. Aishwarya :
+    
+    4. Rupam :
 
-        . Make file
 
 11 june 2020
 

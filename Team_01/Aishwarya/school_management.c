@@ -402,8 +402,6 @@ main()
     
     				if(alpha == 0 && digit > 0)
     				{
-       					//scanf("\t %[^\n]%*c", name);
-					//continue;
 					printf("Enter characters only\n");
     				}  
     				else
@@ -417,18 +415,6 @@ main()
 				    insert_stud(id, name, class, address, contact);
     				}
 				
-                                break;
-
-                        case 2: printf("\n\n\tEnter ID : ");
-				scanf("\t %d", &id);
-				printf("\n\tEnter Name : ");
-				scanf("\t %s", name);
-				printf("\n\tEnter Department : ");
-				scanf("\t %s", department);
-				printf("\n\tEnter Contact : ");
-				scanf("\t %d", &contact);
-				insert_teacher(id, name, department, contact);
-                                break;
 
                         case 3: exit(0);
 

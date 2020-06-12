@@ -464,7 +464,7 @@ main()
                     {
                         case 1: printf("\n\n\tEnter Student ID for Delete : ");
                                 scanf("\t %d", &id);
-				delete_stud(id);
+				                        delete_stud(id);
                                 break;
                         //case 2: delete_teacher();
                                 //break;

@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 #define size 9
 struct student 
 {
@@ -244,7 +245,7 @@ void update_stud(int id)
 int 
 main()
 {
-    int ch, id, contact, class;
+    int ch, id, contact, class,i,digit,alpha;
     char name[30], address[50];
 
     //init array of list to NULL
@@ -266,6 +267,27 @@ main()
                     {
                         case 1: printf("Enter ID, Name, Class, Address, Contact respectively : ");
 				scanf("%d %s %d %s %d", &id, &name, &class, &address, &contact);
+				fgets(name, sizeof(name), stdin);
+  
+   				for (i=0; name[i]!= '\0'; i++) 
+    				{ 
+        
+       					 if (isalpha(name[i]) != 0) 
+            					alpha++; 
+  
+        				 else if (isdigit(name[i]) != 0) 
+            					digit++; 
+    				} 
+    
+    				if(alpha > 0 && digit == 0)
+    				{
+       					printf("Name is: ");
+       					puts(name);
+    				}  
+    				else
+    				{
+       					printf("Enter characters only\n");
+    				}
 				insert_stud(id, name, class, address, contact);
                                 break;
                         //case 2: insert_teacher();

@@ -40,7 +40,7 @@ struct doctor
     void delete_doc(int id);
     void update_doc(int id);
 
-
+/*
 void init()
 {
     int i;
@@ -359,7 +359,7 @@ void update_doc(int id)
 
 }
 
-
+*/
 
 int
 main()

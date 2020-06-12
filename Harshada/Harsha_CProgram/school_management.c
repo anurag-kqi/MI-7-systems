@@ -129,7 +129,6 @@ void delete_stud(int id)
         printf("\n\n\tList is Empty !!!\n");
     }
     else if (ptr->id == id) {
-<<<<<<< HEAD
         if (ptr->prev == NULL && ptr->next == NULL) {
             free(ptr);
             chain[key] = NULL;
@@ -164,76 +163,6 @@ void delete_stud(int id)
           printf("\n\n\tnode not found\n");
       }
   }
-=======
-        printf("\n\n\tFirst node deleted\n");
-        chain[key] = chain[key]->next;
-
-    } else {
-	        while (ptr->next != NULL) {
-              if (ptr->next->id == id) {
-                printf("node is deleted\n");
-                ptr->next = ptr->next->next;
-                return;
-
-        chain[key]->prev = NULL;
-        ptr->next = NULL;
-        free(ptr);
-    } else {
-	        while (ptr->next != NULL) {
-              if (ptr->next->id == id) {
-                toDelete = ptr->next;
-                if (toDelete->next == NULL) {
-                    printf("if loop\n");
-                    ptr->next = NULL;
-                    printf("\n\n\tnode is deleted\n");
-                    free(toDelete);
-                    return;
-                } else {
-                  ptr->next = toDelete->next;
-                  toDelete->next->prev = toDelete->prev;
-                  printf("\n\n\tnode is deleted\n");
-                  free(toDelete);
-                }
-
-
-            }
-            ptr = ptr->next;
-        }
-        printf("\n\n\tnode not found\n");
-    }
-}
-
-
-
-// void delete_stud(int id)
-// {
-//     int key = id % size;
-//     struct student *ptr = chain[key], *toDelete;
-//
-//     if (ptr == NULL) {
-//         printf("\n\n\tList is Empty !!!\n");
-//     }
-//     else if (ptr->id == id && ptr->next == NULL) {
-//
-//         ptr = NULL;
-//         free(ptr);
-//         printf("\n\n\tnode deleted\n");
-//     } else {
-// 	while (ptr->next != NULL) {
-//             if (ptr->next->id == id) {
-//
-//                 toDelete = ptr->next;
-//         	ptr->next = toDelete->next;
-//         	toDelete->next->prev = ptr;
-//         	free(toDelete);
-//             }
-//             ptr = ptr->next;
-//         }
-//         printf("\n\n\tnode deleted successfully\n");
-//     }
-// }
->>>>>>> 829a4cb5c170660044a3ea72639e2cb382a1c58e
-
 
 //DISPLAY data of STUDENT hash table
 void display_stud()
@@ -463,39 +392,42 @@ main()
         printf("\n\n\t---- SCHOOL MANAGEMENT SYSTEM MENU ----");
         printf("\n\n\t1.ADD ENTRY\n\t2.DISPLAY DATA\n\t3.DELETE ENTRY\n\t4.UPDATE ENTRY\n\t5.SEARCH ENTRY\n\t6.EXIT\n\n");
         printf("\n\tEnter your choice(1-6) : ");
+
         scanf("\t %d", &ch);
-	printf("\n_______________________________________________________________________________");
+
+  printf("\n_______________________________________________________________________________");
         switch (ch) {
             case 1:
                     printf("\n\n\t---- INSERT IN TO ----");
                     printf("\n\n\t1.STUDENT DATA\n\t2.TEACHER DATA\n\t3.EXIT");
                     printf("\n\n\tEnter your choice to insert(1-3) : ");
+
                     scanf("\t %d", &ch);
 
                     switch (ch)
                     {
                         case 1: printf("\n\n\tEnter ID : ");
-				scanf("\t %d", &id);
-				printf("\n\tEnter Name : ");
-				scanf("\t %s", name);
-				printf("\n\tEnter Class : ");
-				scanf("\t %s", class);
-				printf("\n\tEnter Address : ");
-				scanf("\t %s", address);
-				printf("\n\tEnter Contact : ");
-				scanf("\t %d", &contact);
-				insert_stud(id, name, class, address, contact);
+                        				scanf("\t %d", &id);
+                        				printf("\n\tEnter Name : ");
+                        				scanf("\t %s", name);
+                        				printf("\n\tEnter Class : ");
+                        				scanf("\t %s", class);
+                        				printf("\n\tEnter Address : ");
+                        				scanf("\t %[^\n]%*c", address);
+                        				printf("\n\tEnter Contact : ");
+                        				scanf("\t %d", &contact);
+                        				insert_stud(id, name, class, address, contact);
                                 break;
 
                         case 2: printf("\n\n\tEnter ID : ");
-				scanf("\t %d", &id);
-				printf("\n\tEnter Name : ");
-				scanf("\t %s", name);
-				printf("\n\tEnter Department : ");
-				scanf("\t %s", department);
-				printf("\n\tEnter Contact : ");
-				scanf("\t %d", &contact);
-				insert_teacher(id, name, department, contact);
+                        				scanf("\t %d", &id);
+                        				printf("\n\tEnter Name : ");
+                        				scanf("\t %s", name);
+                        				printf("\n\tEnter Department : ");
+                        				scanf("\t %s", department);
+                        				printf("\n\tEnter Contact : ");
+                        				scanf("\t %d", &contact);
+                        				insert_teacher(id, name, department, contact);
                                 break;
 
                         case 3: exit(0);
@@ -532,7 +464,7 @@ main()
                     {
                         case 1: printf("\n\n\tEnter Student ID for Delete : ");
                                 scanf("\t %d", &id);
-				delete_stud(id);
+				                        delete_stud(id);
                                 break;
                         //case 2: delete_teacher();
                                 //break;

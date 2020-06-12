@@ -9,7 +9,6 @@ Team Members :
     3. Rupam Dandge
     4. Aishwarya Bhutkar
 _______________________________________________________________________________________________________________
-_______________________________________________________________________________________________________________
      
 12 june 2020
 
@@ -34,7 +33,7 @@ Task Performed By : (yesterday's)
     1. Shankar :  
     
         . Make file, file Read, write operations.
-	. persistent layer design - "Team01_pm.md" file design.
+	. Persistent layer design - "Team01_pm.md" file design.
             
     2. Harshada :
 

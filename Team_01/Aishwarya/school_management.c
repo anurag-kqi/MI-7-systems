@@ -415,31 +415,6 @@ main()
 				    insert_stud(id, name, class, address, contact);
     				}
 				
-                                break;
-
-                        case 2: printf("\n\n\tEnter ID : ");
-				scanf("\t %d", &id);
-				printf("\n\tEnter Name : ");
-				scanf("\t %[^\n]%*c", name);
-				for (i=0; name[i]!= '\0'; i++) 
-    				{ 
-       				    if (isalpha(name[i]) != 0) 
-            			        alpha++; 
-  
-        			    else if (isdigit(name[i]) != 0) 
-            				digit++; 
-    				} 
-    				if(alpha == 0 && digit > 0)
-    				{
-				    printf("Enter characters only\n");
-    				} else{
-				    printf("\n\tEnter Department : ");
-				    scanf("\t %s", department);
-				    printf("\n\tEnter Contact : ");
-				    scanf("\t %d", &contact);
-				    insert_teacher(id, name, department, contact);
-				}
-                                break;
 
                         case 3: exit(0);
 

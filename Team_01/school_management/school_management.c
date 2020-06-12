@@ -6,7 +6,7 @@
 
 #define size 9
 	
-//student operations.
+//student operations
 extern void insert_stud(int id, char name[], char class[], char address[], int contact);
 extern void display_stud();
 extern void delete_stud(int id);

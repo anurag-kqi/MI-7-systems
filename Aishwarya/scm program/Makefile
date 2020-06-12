@@ -2,7 +2,7 @@
 TARGET = scm
 
 # other source files and the associated object files (this can be blank)
-SRC	= student.c main.c
+SRC	= add.c main.c
 OBJ	= $(SRC:.c=.o)
 
 # special include directories
@@ -22,7 +22,7 @@ CFLAGS = -g
 	$(CC) $(CFLAGS) $(INCLUDE) -c $<
 
 # if you type 'make' without arguments, this is the default
-
+build: $(TARGET)
 
 # specify how to compile the target
 $(TARGET): $(OBJ)

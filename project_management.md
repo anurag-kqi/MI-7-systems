@@ -35,20 +35,25 @@ Task :
 
 Task Performed by:
 
-1) Ashwini Garje
-
-	. Create Make file.
-	. Work on Make file.
-
-2) Ashwini Parab
+1) Ashwini Parab
 
 	. Create Project Management file.
 	. Created seperate files for Make file.
+	. work on code file.
+
+2) Ashwini Garje
+
+	. Create Make file.
+	. Work on Make file.
+        . work on code. 
 	
+
 3) Shubham
 
 	. Work on Make file.
+	. work on code.
 
 4) Sagar
 
 	. Work on Make file.
+	. work on code.

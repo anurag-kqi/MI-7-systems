@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
+
 #define size 9
 
 struct student
@@ -415,6 +416,7 @@ main()
 				    insert_stud(id, name, class, address, contact);
     				}
 				
+
 
                         case 3: exit(0);
 

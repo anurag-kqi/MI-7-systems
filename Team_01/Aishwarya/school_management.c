@@ -417,6 +417,7 @@ main()
     				}
 				
 
+
                         case 3: exit(0);
 
                         default: printf("\n\n\tWrong Choice!!\n");

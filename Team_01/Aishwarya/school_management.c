@@ -273,25 +273,37 @@ void update_stud(int id)
 
 		printf("\n\tEnter Same ID : ");
 		scanf("\t %d", &id);
-		printf("\n\tEnter New Name : ");
-		scanf("\t %s", name);
-		printf("\n\tEnter New Class : ");
-		scanf("\t %s", class);
-		printf("\n\tEnter New Address : ");
-		scanf("\t %s", address);
-		printf("\n\tEnter New Contact : ");
-		scanf("\t %d", &contact);
+		scanf("\t %[^\n]%*c", name);
+		for (i=0; name[i]!= '\0'; i++) 
+    		{ 
+       		    if (isalpha(name[i]) != 0) 
+            	        alpha++; 
+  
+  	      	    else if (isdigit(name[i]) != 0) 
+            		digit++; 
+    		} 
+    		if(alpha == 0 && digit > 0)
+    		{
+		    printf("Enter characters only\n");
+    		} else{
+		    printf("\n\tEnter New Class : ");
+		    scanf("\t %s", class);
+		    printf("\n\tEnter New Address : ");
+		    scanf("\t %s", address);
+		    printf("\n\tEnter New Contact : ");
+		    scanf("\t %d", &contact);
 
-		ptr->id = id;
-    		strcpy(ptr->name, name);
-    		strcpy(ptr->class, class);
-    		strcpy(ptr->address, address);
-    		ptr->contact = contact;
-
-		printf("\n\n\tStudent Id - %d\n\tStudent Nmae - %s\n\tStudent Class - %s\n\tStudent Address - %s\n\tStudent Contact - %d",
-                       ptr->id, ptr->name, ptr->class, ptr->address, ptr->contact);
-		printf("\n\n\tStudent Record Updated Successfully !!!\n");
-                flag = 0;
+		    ptr->id = id;
+    		    strcpy(ptr->name, name);
+    		    strcpy(ptr->class, class);
+    		    strcpy(ptr->address, address);
+    		    ptr->contact = contact;
+    		
+		    printf("\n\n\tStudent Id - %d\n\tStudent Nmae - %s\n\tStudent Class - %s\n\tStudent Address - %s\n\tStudent Contact - %d", 
+                           ptr->id, ptr->name, ptr->class, ptr->address, ptr->contact); 
+		    printf("\n\n\tStudent Record Updated Successfully !!!\n");
+                    flag = 0; 
+		} 
                 break;
             } else {
                 flag = 1;
@@ -333,21 +345,34 @@ void update_teacher(int id)
 		printf("\n\tEnter Same ID : ");
 		scanf("\t %d", &id);
 		printf("\n\tEnter New Name : ");
-		scanf("\t %s", name);
-		printf("\n\tEnter New Department : ");
-		scanf("\t %s", department);
-		printf("\n\tEnter New Contact : ");
-		scanf("\t %d", &contact);
+		scanf("\t %[^\n]%*c", name);
+		for (i=0; name[i]!= '\0'; i++) 
+    		{ 
+       		    if (isalpha(name[i]) != 0) 
+            		alpha++; 
+  
+        	    else if (isdigit(name[i]) != 0) 
+            		digit++; 
+    		} 
+    		if(alpha == 0 && digit > 0)
+    		{
+		    printf("Enter characters only\n");
+    		} else{
+		    printf("\n\tEnter New Department : ");
+		    scanf("\t %s", department);
+		    printf("\n\tEnter New Contact : ");
+		    scanf("\t %d", &contact);
 
-		ptr->id = id;
-    		strcpy(ptr->name, name);
-    		strcpy(ptr->department, department);
-    		ptr->contact = contact;
+		    ptr->id = id;
+    		    strcpy(ptr->name, name);
+    		    strcpy(ptr->department, department);
+    		    ptr->contact = contact;
 
-		printf("\n\n\tTeacher Id - %d\n\tTeacher Nmae - %s\n\tTeacher Department - %s\n\tTeacher Contact - %d",
-                       ptr->id, ptr->name, ptr->department, ptr->contact);
-		printf("\n\n\tTeacher Record Updated Successfully !!!\n");
-                flag = 0;
+		    printf("\n\n\tTeacher Id - %d\n\tTeacher Nmae - %s\n\tTeacher Department - %s\n\tTeacher Contact - %d",
+                           ptr->id, ptr->name, ptr->department, ptr->contact);
+		    printf("\n\n\tTeacher Record Updated Successfully !!!\n");
+                    flag = 0;
+		}
                 break;
             } else {
                 flag = 1;
@@ -416,7 +441,31 @@ main()
 				    insert_stud(id, name, class, address, contact);
     				}
 				
+                                break;
 
+                        case 2: printf("\n\n\tEnter ID : ");
+				scanf("\t %d", &id);
+				printf("\n\tEnter Name : ");
+				scanf("\t %[^\n]%*c", name);
+				for (i=0; name[i]!= '\0'; i++) 
+    				{ 
+       				    if (isalpha(name[i]) != 0) 
+            			        alpha++; 
+  
+        			    else if (isdigit(name[i]) != 0) 
+            				digit++; 
+    				} 
+    				if(alpha == 0 && digit > 0)
+    				{
+				    printf("Enter characters only\n");
+    				} else{
+				    printf("\n\tEnter Department : ");
+				    scanf("\t %s", department);
+				    printf("\n\tEnter Contact : ");
+				    scanf("\t %d", &contact);
+				    insert_teacher(id, name, department, contact);
+				}
+                                break;
 
                         case 3: exit(0);
 

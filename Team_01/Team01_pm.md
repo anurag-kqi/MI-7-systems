@@ -10,6 +10,48 @@ Team Members :
     4. Aishwarya Bhutkar
 _______________________________________________________________________________________________________________
 15 june 2020    
+
+Meeting Time : 4Pm   
+
+Attendees :  
+
+	Shankar
+	Harshada
+	Aishwarya
+	Rupam
+
+Tasks :
+
+	Aishwarya :  
+		. perform Read and write file opration to store data into file. 
+		(Read and write inserted node from file and display it);
+
+	Harshada :  
+		. perform Read and write file opration to store data into file.
+		(Read and write inserted node from file and display it);
+ 
+	Rupam :  
+		. perform Read and write file operations to store data into file. 
+		(Read and write inserted node from file and display it);
+
+	Shankar:  
+		. perform Read and write file opration to store data into file. 
+		(Read and write inserted node from file and display it);
+
+Task Performed By : (yesterday's)
+
+    1. Shankar :  
+		. Working on Read and Write data into file. 
+	
+    2. Harshada :  
+		. -
+    
+    3. Aishwarya :  
+		. Working Read and Write data into file.
+    
+    4. Rupam :  
+		. contact validation. 
+
 13 june 2020
 
 Meeting Time : 10Am. 

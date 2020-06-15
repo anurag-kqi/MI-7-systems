@@ -19,6 +19,13 @@ struct student
 
 struct student *chain[size];
 
+//file write functions
+void write_stud();
+extern void insert_stud(int id, char name[], char class[], char address[], int contact);
+
+//File pointer
+FILE *fptr;
+
 //init array of list to NULL
 void init_stud()
 {
@@ -26,6 +33,36 @@ void init_stud()
     for(i = 0; i < size; i++) {
         chain[i] = NULL;
     }
+}
+
+//Read the student data
+void read_stud()
+{
+    int id, contact;
+    char name[30], class [30], address[50];
+    fptr = fopen("Student.txt", "r");
+    while (( fscanf(fptr, "%d %[^\n]%*c %s %[^\n]%*c %d", &id, name, class, address, &contact)) != EOF) {
+      insert_stud(id, name, class, address, contact);
+      //printf("%d %s %s %s %d\n", id, name, class, address, contact);
+    }
+    fclose(fptr);
+}
+
+//Write the student data
+void write_stud()
+{
+    int i;
+    fptr = (fopen("student.txt", "a+"));
+    for (i = 0; i < size; i++) {
+        struct student *temp = chain[i];
+        //fprintf(fptr,"\tchain[%d]-->", i);
+        while (temp) {
+            fprintf(fptr, " %d\n %s\n %s\n %s\n %d\n", temp->id, temp->name, temp->class, temp->address, temp->contact);
+            temp = temp->next;
+        }
+        //fprintf(fptr,"NULL\n");
+    }
+    fclose(fptr);
 }
 
 //insert values into STUDENT hash table
@@ -47,7 +84,7 @@ void insert_stud(int id, char name[], char class[], char address[], int contact)
     if (chain[key] == NULL) {  
         newNode->next = NULL;  
         newNode->prev = NULL;  
-        chain[key] = newNode;  
+        chain[key] = newNode; 
     } else {  
         struct student *temp = chain[key]; 
 
@@ -58,7 +95,8 @@ void insert_stud(int id, char name[], char class[], char address[], int contact)
         newNode->prev = temp;  
         newNode->next = NULL;  
     }  
-    printf("\n\n\tNode inserted Successfully...!\n");  
+    //printf("\n\n\tNode inserted Successfully...!\n");
+    //write_stud(); 
 }
 
 //DELETE values from STUDENT hash table
@@ -101,12 +139,11 @@ void delete_stud(int id)
 void display_stud()
 {
     int i;
-
     for (i = 0; i < size; i++) {
         struct student *temp = chain[i];
-        printf("\tchain[%d]-->",i);
+        printf("\tchain[%d]-->", i);
         while (temp) {
-            printf("%d %s %s %s %d -->",temp->id, temp->name, temp->class, temp->address, temp->contact);
+            printf("%d %s %s %s %d -->", temp->id, temp->name, temp->class, temp->address, temp->contact);
             temp = temp->next;
         }
         printf("NULL\n");

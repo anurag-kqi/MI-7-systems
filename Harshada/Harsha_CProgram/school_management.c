@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <ctype.h>
+
 #define size 9
 
 struct student
@@ -128,25 +128,78 @@ void delete_stud(int id)
     if (ptr == NULL) {
         printf("\n\n\tList is Empty !!!\n");
     }
-    else if (ptr->id == id && ptr->next == NULL) {
-      
-        ptr = NULL;
-        free(ptr);
-        printf("\n\n\tnode deleted\n");
-    } else {
-	while (ptr->next != NULL) {
-            if (ptr->next->id == id) {
+    else if (ptr->id == id) {
+        printf("\n\n\tFirst node deleted\n");
+        chain[key] = chain[key]->next;
 
+    } else {
+	        while (ptr->next != NULL) {
+              if (ptr->next->id == id) {
+                printf("node is deleted\n");
+                ptr->next = ptr->next->next;
+                return;
+
+        chain[key]->prev = NULL;
+        ptr->next = NULL;
+        free(ptr);
+    } else {
+	        while (ptr->next != NULL) {
+              if (ptr->next->id == id) {
                 toDelete = ptr->next;
-        	ptr->next = toDelete->next;
-        	toDelete->next->prev = ptr;
-        	free(toDelete);
+                if (toDelete->next == NULL) {
+                    printf("if loop\n");
+                    ptr->next = NULL;
+                    printf("\n\n\tnode is deleted\n");
+                    free(toDelete);
+                    return;
+                } else {
+                  ptr->next = toDelete->next;
+                  toDelete->next->prev = toDelete->prev;
+                  printf("\n\n\tnode is deleted\n");
+                  free(toDelete);
+                }
+
+<<<<<<< HEAD
+=======
+
             }
             ptr = ptr->next;
+>>>>>>> 95f166507462951f9442b34eb5031c249527421e
         }
-        printf("\n\n\tnode deleted successfully\n");
+        printf("\n\n\tnode not found\n");
     }
 }
+
+
+
+// void delete_stud(int id)
+// {
+//     int key = id % size;
+//     struct student *ptr = chain[key], *toDelete;
+//
+//     if (ptr == NULL) {
+//         printf("\n\n\tList is Empty !!!\n");
+//     }
+//     else if (ptr->id == id && ptr->next == NULL) {
+//
+//         ptr = NULL;
+//         free(ptr);
+//         printf("\n\n\tnode deleted\n");
+//     } else {
+// 	while (ptr->next != NULL) {
+//             if (ptr->next->id == id) {
+//
+//                 toDelete = ptr->next;
+//         	ptr->next = toDelete->next;
+//         	toDelete->next->prev = ptr;
+//         	free(toDelete);
+//             }
+//             ptr = ptr->next;
+//         }
+//         printf("\n\n\tnode deleted successfully\n");
+//     }
+// }
+
 
 //DISPLAY data of STUDENT hash table
 void display_stud()
@@ -365,7 +418,7 @@ void update_teacher(int id)
 int
 main()
 {
-    int ch, id, contact,i,digit=0,alpha=0;
+    int ch, id, contact;
     char name[30], address[50], class[10], department[30];
 
     //init array of list to NULL
@@ -390,31 +443,26 @@ main()
                         case 1: printf("\n\n\tEnter ID : ");
 				scanf("\t %d", &id);
 				printf("\n\tEnter Name : ");
-				scanf("\t %[^\n]%*c", name);
-				for (i=0; name[i]!= '\0'; i++) 
-    				{ 
-       					 if (isalpha(name[i]) != 0) 
-            					alpha++; 
-  
-        				 else if (isdigit(name[i]) != 0) 
-            					digit++; 
-    				} 
-    
-    				if(alpha == 0 && digit > 0)
-    				{
-					printf("Enter characters only\n");
-    				}  
-    				else
-    				{
-       				    printf("\n\tEnter Class : ");
-				    scanf("\t %s", class);
-				    printf("\n\tEnter Address : ");
-				    scanf("\t %s", address);
-				    printf("\n\tEnter Contact : ");
-				    scanf("\t %d", &contact);
-				    insert_stud(id, name, class, address, contact);
-    				}
-				
+				scanf("\t %s", name);
+				printf("\n\tEnter Class : ");
+				scanf("\t %s", class);
+				printf("\n\tEnter Address : ");
+				scanf("\t %s", address);
+				printf("\n\tEnter Contact : ");
+				scanf("\t %d", &contact);
+				insert_stud(id, name, class, address, contact);
+                                break;
+
+                        case 2: printf("\n\n\tEnter ID : ");
+				scanf("\t %d", &id);
+				printf("\n\tEnter Name : ");
+				scanf("\t %s", name);
+				printf("\n\tEnter Department : ");
+				scanf("\t %s", department);
+				printf("\n\tEnter Contact : ");
+				scanf("\t %d", &contact);
+				insert_teacher(id, name, department, contact);
+                                break;
 
                         case 3: exit(0);
 

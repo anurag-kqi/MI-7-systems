@@ -16,10 +16,10 @@ main()
 { 
     //init array of list to NULL
     init_stud();
-    init_teacher();
+    init_teacher
 	
     //calling main menu function
     menus();
-   
+  
     return 0;
 }

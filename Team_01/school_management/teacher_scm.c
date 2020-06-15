@@ -20,6 +20,7 @@ struct teacher *chaint[size];
 
 //file write functions
 void write_teacher();
+extern void insert_teacher(int id, char name[], char department[], int contact);
 
 //File pointer
 FILE *fptr;

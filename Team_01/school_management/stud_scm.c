@@ -21,6 +21,7 @@ struct student *chain[size];
 
 //file write functions
 void write_stud();
+extern void insert_stud(int id, char name[], char class[], char address[], int contact);
 
 //File pointer
 FILE *fptr;

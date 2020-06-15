@@ -219,11 +219,11 @@ void del_end()
     if(root == NULL)
     {
 	printf("\nList is empty");
-    } /*else if(root->next == NULL){
+    } else if(root->next == NULL){
         root = NULL;
 	free(root);
 	printf("\n Node is deleted.....");
-    }*/ else{
+    } else{
         P = root;
 	while(P->next != NULL)
 	{

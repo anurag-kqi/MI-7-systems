@@ -1,4 +1,4 @@
-/*School Mnagement Systems...*/
+/*School Mnagement Systems*/
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -18,6 +18,12 @@ struct teacher
 
 struct teacher *chaint[size];
 
+//file write functions
+void write_teacher();
+
+//File pointer
+FILE *fptr;
+
 //init array of list to NULL
 void init_teacher()
 {
@@ -25,6 +31,35 @@ void init_teacher()
     for(i = 0; i < size; i++) {
 	chaint[i] = NULL;
     }
+}
+
+//Read the teacher data
+void read_teacher()
+{
+    int id, contact;
+    char name[30], department[50];
+    fptr = fopen("Teacher.txt", "r");
+    while (( fscanf(fptr, "%d %[^\n]%*c %[^\n]%*c %d", &id, name, department, &contact)) != EOF) {
+      insert_teacher(id, name, department, contact);
+    }
+    fclose(fptr);
+}
+
+//Write the teacher data
+void write_teacher()
+{
+    int i;
+    fptr = (fopen("Teacher.txt", "a+"));
+    for (i = 0; i < size; i++) {
+        struct teacher *temp = chaint[i];
+        //fprintf(fptr,"\tchaint[%d]-->", i);
+        while (temp) {
+            fprintf(fptr, " %d\n %s\n %s\n %d\n", temp->id, temp->name, temp->department, temp->contact);
+            temp = temp->next;
+        }
+        //fprintf(fptr,"NULL\n");
+    }
+    fclose(fptr);
 }
 
 //insert values into TEACHER hash table

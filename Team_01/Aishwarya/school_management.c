@@ -3,11 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-<<<<<<< HEAD
-#include <ctype.h>
 
-=======
->>>>>>> 047907378d8f1e116c31bb81adb750348a6c9145
 #define size 9
 struct student 
 {
@@ -159,6 +155,7 @@ void display_stud()
 }
 
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 void search_stud(int id)  
 {  
@@ -450,6 +447,9 @@ void update_teacher(int id)
 
 int
 >>>>>>> 8349fba854ca053ac783d4d7d603829ff740c309
+=======
+
+>>>>>>> b71d662a6dbf8a3b6dba55182a46d6e5b3d11a9f
 main()
 {
     int ch, id, contact, class;
@@ -472,37 +472,8 @@ main()
  
                     switch(ch)
                     {
-<<<<<<< HEAD
-                        case 1: printf("\n\n\tEnter ID : ");
-				scanf("\t %d", &id);
-				printf("\n\tEnter Name : ");
-				scanf("\t %[^\n]%*c", name);
-				for (i=0; name[i]!= '\0'; i++) 
-    				{ 
-       					 if (isalpha(name[i]) != 0) 
-            					alpha++; 
-  
-        				 else if (isdigit(name[i]) != 0) 
-            					digit++; 
-    				} 
-    
-    				if(alpha == 0 && digit > 0)
-    				{
-					printf("Enter characters only\n");
-    				}  
-    				else
-    				{
-       				    printf("\n\tEnter Class : ");
-				    scanf("\t %s", class);
-				    printf("\n\tEnter Address : ");
-				    scanf("\t %s", address);
-				    printf("\n\tEnter Contact : ");
-				    scanf("\t %d", &contact);
-				    insert_stud(id, name, class, address, contact);
-    				}
-				
-                                break;
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -533,14 +504,15 @@ main()
 
 =======
 =======
+=======
+>>>>>>> b71d662a6dbf8a3b6dba55182a46d6e5b3d11a9f
                         case 1: printf("Enter ID, Name, Class, Address, Contact respectively : ");
 				scanf("%d %s %d %s %d", &id, &name, &class, &address, &contact);
 				insert_stud(id, name, class, address, contact);
                                 break;
                         //case 2: insert_teacher();
                                //break;
->>>>>>> parent of 88fe938... validation name
->>>>>>> 047907378d8f1e116c31bb81adb750348a6c9145
+
                         case 3: exit(0);
 
                         default: printf("Wrong Choice!!");

@@ -9,7 +9,91 @@ Team Members :
     3. Rupam Dandge
     4. Aishwarya Bhutkar
 _______________________________________________________________________________________________________________
-     
+15 june 2020    
+
+Meeting Time : 4Pm   
+
+Attendees :  
+
+	Shankar
+	Harshada
+	Aishwarya
+	Rupam
+
+Tasks :
+
+	Aishwarya :  
+		. perform Read and write file opration to store data into file. 
+		(Read and write inserted node from file and display it);
+
+	Harshada :  
+		. perform Read and write file opration to store data into file.
+		(Read and write inserted node from file and display it);
+ 
+	Rupam :  
+		. perform Read and write file operations to store data into file. 
+		(Read and write inserted node from file and display it);
+
+	Shankar:  
+		. perform Read and write file opration to store data into file. 
+		(Read and write inserted node from file and display it);
+
+Task Performed By : (yesterday's)
+
+    1. Shankar :  
+		. Working on Read and Write data into file. 
+	
+    2. Harshada :  
+		. -
+    
+    3. Aishwarya :  
+		. Working Read and Write data into file.
+    
+    4. Rupam :  
+		. contact validation. 
+
+13 june 2020
+
+Meeting Time : 10Am. 
+
+Attendees :  
+
+	Shankar
+	Harshada
+	Aishwarya
+	Rupam
+Tasks :
+
+	Harshada : Add validation into project code;
+		   perform write file opration on insert function(store inserted node into file);
+	Aishwarya: Add validation into project code;
+		   perform Read file opration on Display function(Read inserted node from file and display it); 
+	Rupam    : contact validation;
+	Shankar  : Project Main Menu coding and output design.
+		   Design persistency layer.
+
+Task Performed By : (yesterday's)
+
+    1. Shankar :  
+
+    	. Make file for project, change the code
+	. project code divided into diffrent files.
+	
+    2. Harshada :
+    
+    	. Address Validation
+    
+    3. Aishwarya :
+    
+    	. Name Validation, 
+	. seperate program Read write file operations.
+    
+    4. Rupam :
+    
+    	. -
+
+
+
 12 june 2020
 
 Meeting Time : 9 AM

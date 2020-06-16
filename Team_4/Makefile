@@ -2,7 +2,7 @@
 TARGET = Hospital_Management 
 
 # other source files and the associated object files (this can be blank)
-# SRC	= hospital.c main.c
+# SRC	= Hospital.c doctor.c patient.c
 # OBJ	= $(SRC:.c=.o)
 #
 # # special include directories

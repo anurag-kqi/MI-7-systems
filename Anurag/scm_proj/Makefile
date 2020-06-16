@@ -22,7 +22,7 @@ CFLAGS = -g
 	$(CC) $(CFLAGS) $(INCLUDE) -c $<
 
 # if you type 'make' without arguments, this is the default
-build: $(TARGET)
+
 
 # specify how to compile the target
 $(TARGET): $(OBJ)

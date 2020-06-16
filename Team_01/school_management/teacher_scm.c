@@ -1,4 +1,4 @@
-/*School Mnagement Systems...*/
+/*School Mnagement Systems*/
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -18,6 +18,13 @@ struct teacher
 
 struct teacher *chaint[size];
 
+//file write functions
+void write_teacher();
+extern void insert_teacher(int id, char name[], char department[], int contact);
+
+//File pointer
+FILE *fptr;
+
 //init array of list to NULL
 void init_teacher()
 {
@@ -25,6 +32,35 @@ void init_teacher()
     for(i = 0; i < size; i++) {
 	chaint[i] = NULL;
     }
+}
+
+//Read the teacher data
+void read_teacher()
+{
+    int id, contact;
+    char name[30], department[50];
+    fptr = fopen("Teacher.txt", "r");
+    while (( fscanf(fptr, "%d %[^\n]%*c %[^\n]%*c %d", &id, name, department, &contact)) != EOF) {
+      insert_teacher(id, name, department, contact);
+    }
+    fclose(fptr);
+}
+
+//Write the teacher data
+void write_teacher()
+{
+    int i;
+    fptr = (fopen("Teacher.txt", "a+"));
+    for (i = 0; i < size; i++) {
+        struct teacher *temp = chaint[i];
+        //fprintf(fptr,"\tchaint[%d]-->", i);
+        while (temp) {
+            fprintf(fptr, " %d\n %s\n %s\n %d\n", temp->id, temp->name, temp->department, temp->contact);
+            temp = temp->next;
+        }
+        //fprintf(fptr,"NULL\n");
+    }
+    fclose(fptr);
 }
 
 //insert values into TEACHER hash table
@@ -135,21 +171,34 @@ void update_teacher(int id)
 		printf("\n\tEnter Same ID : ");
 		scanf("\t %d", &id);
 		printf("\n\tEnter New Name : ");
-		scanf("\t %s", name);
-		printf("\n\tEnter New Department : ");
-		scanf("\t %s", department);
-		printf("\n\tEnter New Contact : ");
-		scanf("\t %d", &contact);
+		scanf("\t %[^\n]%*c", name);
+		for (i=0; name[i]!= '\0'; i++) 
+    		{ 
+       		    if (isalpha(name[i]) != 0) 
+            		alpha++; 
+  
+        	    else if (isdigit(name[i]) != 0) 
+            		digit++; 
+    		} 
+    		if(alpha == 0 && digit > 0)
+    		{
+		    printf("Enter characters only\n");
+    		} else{
+		    printf("\n\tEnter New Department : ");
+		    scanf("\t %s", department);
+		    printf("\n\tEnter New Contact : ");
+		    scanf("\t %d", &contact);
 
-		ptr->id = id;
-    		strcpy(ptr->name, name);
-    		strcpy(ptr->department, department);
-    		ptr->contact = contact;
+		    ptr->id = id;
+    		    strcpy(ptr->name, name);
+    		    strcpy(ptr->department, department);
+    		    ptr->contact = contact;
 
-		printf("\n\n\tTeacher Id - %d\n\tTeacher Nmae - %s\n\tTeacher Department - %s\n\tTeacher Contact - %d",
-                       ptr->id, ptr->name, ptr->department, ptr->contact);
-		printf("\n\n\tTeacher Record Updated Successfully !!!\n");
-                flag = 0;
+		    printf("\n\n\tTeacher Id - %d\n\tTeacher Nmae - %s\n\tTeacher Department - %s\n\tTeacher Contact - %d",
+                           ptr->id, ptr->name, ptr->department, ptr->contact);
+		    printf("\n\n\tTeacher Record Updated Successfully !!!\n");
+                    flag = 0;
+		}
                 break;
             } else {
                 flag = 1;

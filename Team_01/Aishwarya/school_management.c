@@ -228,31 +228,6 @@ void search_teacher(int id)
     } else {
 
 
-        while (ptr != NULL) {
-            if (ptr->id == id) {
-                printf("\n\n\tTeacher id found at location %d ", i+1);
-                printf("\n\n\tTeacher Id - %d\n\tTeacher Nmae - %s\n\tTeacher Department - %s\n\tTeacher Contact - %d",
-                       ptr->id, ptr->name, ptr->department, ptr->contact);
-                flag = 0;
-                break;
-            } else {
-                flag=1;
-            }
-            i++;
-            ptr = ptr -> next;
-        }
-        if (flag==1) {
-            printf("\n\n\tTeacher id not found\n");
-        }
-    }
-}
-
-//UPDATE student data from STUDENT hash table
-void update_stud(int id)
-{
-    struct student *ptr;
-    int i=0, flag;
-
     int key = id % size;
 
     ptr = chain[key];
@@ -389,6 +364,7 @@ void update_teacher(int id)
 }
 
 int
+
 main()
 {
     int ch, id, contact,i,digit=0,alpha=0;
@@ -443,6 +419,7 @@ main()
 				
                                 break;
 
+
                         case 2: printf("\n\n\tEnter ID : ");
 				scanf("\t %d", &id);
 				printf("\n\tEnter Name : ");
@@ -465,6 +442,12 @@ main()
 				    scanf("\t %d", &contact);
 				    insert_teacher(id, name, department, contact);
 				}
+                                break;
+
+                        case 1: printf("Enter ID, Name, Class, Address, Contact respectively : ");
+				scanf("%d %s %d %s %d", &id, &name, &class, &address, &contact);
+				insert_stud(id, name, class, address, contact);
+
                                 break;
 
                         case 3: exit(0);

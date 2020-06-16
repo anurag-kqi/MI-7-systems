@@ -3,11 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-<<<<<<< HEAD
-#include <ctype.h>
 
-=======
->>>>>>> 047907378d8f1e116c31bb81adb750348a6c9145
 #define size 9
 struct student 
 {
@@ -159,94 +155,7 @@ void display_stud()
 }
 
 
-void search_stud(int id)  
-{  
-    struct student *ptr;  
-    int i=0, flag; 
-    
-    int key = id % size; 
 
-    ptr = chain[key];   
-    if(ptr == NULL) {  
-        printf("\nEmpty List\n");  
-    }  
-    else {   
-        
-        //printf("\nEnter item which you want to search?\n");   
-        //scanf("%d",&item);  
-        while (ptr != NULL) {  
-            if(ptr->id == id) {  
-                printf("\nitem found at location %d ", i+1); 
-                printf("\n\nStudent Id - %d\nStudent Nmae - %s\nStudent Class - %d\nStudent Address - %s\nStudent Contact - %d", 
-                       ptr->id, ptr->name, ptr->class, ptr->address, ptr->contact); 
-                flag = 0;  
-                break;  
-            }   
-            else {  
-                flag=1;  
-            }  
-            i++;  
-            ptr = ptr -> next;  
-        }  
-        if(flag==1) {  
-            printf("\nItem not found\n");  
-        }  
-    }              
-} 
-
-void update_stud(int id)  
-{  
-    struct student *ptr;  
-    int i=0, flag; 
-    
-    int key = id % size; 
-
-    ptr = chain[key];   
-    if(ptr == NULL) {  
-        printf("\nEmpty List\n");  
-    }  
-    else {   
-          
-        while (ptr != NULL) {  
-            if(ptr->id == id) {  
-                printf("\nStudent old Data !!!"); 
-                printf("\n\nStudent Id - %d\nStudent Nmae - %s\nStudent Class - %d\nStudent Address - %s\nStudent Contact - %d", 
-                       ptr->id, ptr->name, ptr->class, ptr->address, ptr->contact); 
-
-		printf("\nStudent New Data !!!");
-		
-		int id, contact, class;
-    		char name[30], address[50];
-
-		printf("Enter ID, Name, Class, Address, Contact respectively : ");
-		scanf("%d %s %d %s %d", &id, &name, &class, &address, &contact);
-
-		ptr->id = id;
-    		strcpy(ptr->name, name);
-    		ptr->class = class;
-    		strcpy(ptr->address, address);
-    		ptr->contact = contact;
-    		
-		printf("\n\nStudent Id - %d\nStudent Nmae - %s\nStudent Class - %d\nStudent Address - %s\nStudent Contact - %d", 
-                       ptr->id, ptr->name, ptr->class, ptr->address, ptr->contact); 
-		printf("\nStudent Record Updated Successfully !!!");
-                flag = 0;  
-                break;  
-            } 
-	    else {  
-                flag=1;  
-            }  
-            i++;  
-            ptr = ptr -> next; 
-        } 
-	 
-        if(flag==1) {  
-            printf("\nItem not found\n");  
-        }  
-    }     
-          
-} 
-int 
 main()
 {
     int ch, id, contact, class;
@@ -269,48 +178,14 @@ main()
  
                     switch(ch)
                     {
-<<<<<<< HEAD
-                        case 1: printf("\n\n\tEnter ID : ");
-				scanf("\t %d", &id);
-				printf("\n\tEnter Name : ");
-				scanf("\t %[^\n]%*c", name);
-				for (i=0; name[i]!= '\0'; i++) 
-    				{ 
-       					 if (isalpha(name[i]) != 0) 
-            					alpha++; 
-  
-        				 else if (isdigit(name[i]) != 0) 
-            					digit++; 
-    				} 
-    
-    				if(alpha == 0 && digit > 0)
-    				{
-					printf("Enter characters only\n");
-    				}  
-    				else
-    				{
-       				    printf("\n\tEnter Class : ");
-				    scanf("\t %s", class);
-				    printf("\n\tEnter Address : ");
-				    scanf("\t %s", address);
-				    printf("\n\tEnter Contact : ");
-				    scanf("\t %d", &contact);
-				    insert_stud(id, name, class, address, contact);
-    				}
-				
 
-<<<<<<< HEAD
-
-=======
-=======
                         case 1: printf("Enter ID, Name, Class, Address, Contact respectively : ");
 				scanf("%d %s %d %s %d", &id, &name, &class, &address, &contact);
 				insert_stud(id, name, class, address, contact);
                                 break;
                         //case 2: insert_teacher();
                                //break;
->>>>>>> parent of 88fe938... validation name
->>>>>>> 047907378d8f1e116c31bb81adb750348a6c9145
+
                         case 3: exit(0);
 
                         default: printf("Wrong Choice!!");

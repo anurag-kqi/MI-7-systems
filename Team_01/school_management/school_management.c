@@ -16,10 +16,18 @@ main()
 { 
     //init array of list to NULL
     init_stud();
+<<<<<<< HEAD
     init_teacher();
 	
     //calling main menu function
     menus();
    
+=======
+    init_teacher
+	
+    //calling main menu function
+    menus();
+  
+>>>>>>> 46fcafbb3a3df9b378280f7bfd24155b7400bc36
     return 0;
 }

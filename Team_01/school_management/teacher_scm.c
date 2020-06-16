@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 
 #define size 9
 
@@ -50,7 +51,7 @@ void read_teacher()
 void write_teacher()
 {
     int i;
-    fptr = (fopen("Teacher.txt", "a+"));
+    fptr = (fopen("Teacher.txt", "w+"));
     for (i = 0; i < size; i++) {
         struct teacher *temp = chaint[i];
         //fprintf(fptr,"\tchaint[%d]-->", i);
@@ -148,7 +149,7 @@ void search_teacher(int id)
 void update_teacher(int id)
 {
     struct teacher *ptr;
-    int i=0, flag;
+    int i=0, flag,j,digit,alpha;
 
     int key = id % size;
 
@@ -172,12 +173,12 @@ void update_teacher(int id)
 		scanf("\t %d", &id);
 		printf("\n\tEnter New Name : ");
 		scanf("\t %[^\n]%*c", name);
-		for (i=0; name[i]!= '\0'; i++) 
+		for (j=0; name[j]!= '\0'; j++) 
     		{ 
-       		    if (isalpha(name[i]) != 0) 
+       		    if (isalpha(name[j]) != 0) 
             		alpha++; 
   
-        	    else if (isdigit(name[i]) != 0) 
+        	    else if (isdigit(name[j]) != 0) 
             		digit++; 
     		} 
     		if(alpha == 0 && digit > 0)

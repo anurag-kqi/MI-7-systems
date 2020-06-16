@@ -9,6 +9,37 @@ Team Members :
     3. Rupam Dandge
     4. Aishwarya Bhutkar
 _______________________________________________________________________________________________________________
+16 june 2020    
+
+Meeting Time : 4Pm   
+
+Attendees :  
+
+	Shankar
+	Harshada
+	Rupam
+
+Tasks :
+
+	For All :  
+		. perform Read and write file opration to store data into file. 
+		(Read and write inserted node from file and display it);
+
+	
+Task Performed By : (yesterday's)
+
+    1. Shankar :  
+		. Working on Read and Write data into file. 
+	
+    2. Harshada :  
+		. -
+    
+    3. Aishwarya :  
+		. Working Read and Write data into file.
+    
+    4. Rupam :  
+		. -
+
 15 june 2020    
 
 Meeting Time : 4Pm   

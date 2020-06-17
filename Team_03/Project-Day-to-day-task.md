@@ -16,9 +16,9 @@ Meeting Time : 4Pm
 Attendees :  
 
 	Siddhant Gupta
-  Sakshi Belpande
+        Sakshi Belpande
 	Vinay Motghare
-  Swapnil Borkar
+        Swapnil Borkar
 
 Tasks :
 
@@ -48,15 +48,12 @@ Meeting Time : 4Pm
 Attendees :  
 
 	Siddhant Gupta
-  Sakshi Belpande
+        Sakshi Belpande
 	Vinay Motghare
-  Swapnil Borkar
-
-
-
+        Swapnil Borkar
 Tasks :
 
-		Siddhant Gupta :  
+	Siddhant Gupta :  
 		. perform Read and write file opration to store data into file. 
 		(Read and write inserted node from file and display it);
 
@@ -94,13 +91,14 @@ Attendees :
 
   Siddhant Gupta
   Sakshi Belpande
-	Vinay Motghare
+  Vinay Motghare
   Swapnil Borkar
+
 Tasks :
 
 	Siddhant : Add validation into project code;
 		   perform write file opration on insert function(store inserted node into file);
-	Sakshi: Add validation into project code;
+	Sakshi   : Add validation into project code;
 		   perform Read file opration on Display function(Read inserted node from file and display it); 
 	Vinay    : Delete Function;
 	Swapnil  : Project Main Menu coding and output design.
@@ -111,39 +109,38 @@ Task Performed By : (yesterday's)
     1. Siddhant :  
 
     	. Make file for project, change the code
-	    . project code divided into diffrent files.
+	. project code divided into diffrent files.
 	
     2. Sakshi :
     
     	. Address Validation
     
     3. Vinay :
-    
-    	. Name Validation
+        . Name Validation
     	. seperate program Read write file operations.
     
     4. Swapnil :
-    
-    	.Documentation Part
+        .Documentation Part
 
 
 12 june 2020
 
 Meeting Time : 9 AM
 
-Attendees :  
+Attendees :
 
-	Siddhant Gupta
+  Siddhant Gupta
   Sakshi Belpande
-	Vinay Motghare
+  Vinay Motghare
   Swapnil Borkar
+
 Tasks :
 
-	Siddhant : Validation of address - accepts spaces, char, int, symbols;
-	Sakshi: Validation of Name - Spaces, should not accept integer; 
-	Vinay    : Validation contact - it should be only 10 digit, 
-	           it should not accept character and symbols.
-	Swapnil  : Project Main Menu coding and design, Make file for Project  
+	Siddhant :  Validation of address - accepts spaces, char, int, symbols;
+	Sakshi   :  Validation of Name - Spaces, should not accept integer; 
+	Vinay    :  Validation contact - it should be only 10 digit, 
+	            it should not accept character and symbols.
+	Swapnil  :  Project Main Menu coding and design, Make file for Project  
 	
 Task Performed By : (yesterday's)
 
@@ -172,9 +169,9 @@ Meeting Time : 10 AM
 Attendees :  
 
 	Siddhant Gupta
-  Sakshi Belpande
+        Sakshi Belpande
 	Vinay Motghare
-  Swapnil Borkar
+        Swapnil Borkar
   
 Tasks :  
 
@@ -186,7 +183,7 @@ Tasks :
 	. Team Disscussion, Design for persistency layer.
 	
 	.  Document The Persistnt layer design, create the persistent.md 
-	            file for that.
+	   file for that.
 
 Second Demo: 6 june 2020: 
 

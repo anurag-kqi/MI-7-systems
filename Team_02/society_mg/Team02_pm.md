@@ -9,6 +9,21 @@ Team Members :
 3. Nayan Shrivastava
 4. Nipun Divecha
 
+17 June 2020
+Meeting Time: 10Am.
+
+Attendees:
+1. Divyani Patidar
+2. Kishori Nikam
+
+Tasks:
+  .Difference between virtual machine & physical machine
+  .Read write operation of file.
+
+Task Performed By : (yesterday's)
+  .Client-server module
+
+
 16 june 2020
 Meeting Time: 11Am.
 

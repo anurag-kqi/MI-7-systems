@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "patient.c"
+#include "doctor.c"
+
 #define size 10
 
 
@@ -17,27 +20,19 @@ extern void delete_doc(int id);
 extern void update_doc(int id);
 
 
-extern void init()
-{
-    int i;
-    for(i = 0; i < size; i++) {
-        index_pat[i] = NULL;
-        index_doc[i] = NULL;
-    }
-}
+extern void init_pat();
+extern void init_doc();
 
 
 
-
-
-int
-main()
+int main()
 {
     int ch, a, b, id, contact, age;
     char name[20], address[50], bloodgrp[10], symptoms[40];
 
 
-    init();
+    init_pat();
+    init_doc();
 
         do
         {

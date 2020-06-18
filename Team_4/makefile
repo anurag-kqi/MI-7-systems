@@ -1,21 +1,21 @@
-CC=g++
+CC=gcc
 
 CFLAGS=-c -wall
 
 
-all: Hsm
+all: Hospital
 
-Hsm: HSM.o patient.o doctor.o
-	$(CC) HSM.o patient.o doctor.o -o Hsm
+Hospital: HSM.o patient.o doctor.o
+	$(CC) $(CFLAGS) HSM.o patient.o doctor.o -o Hospital
 
 HSM.o: HSM.c
-	$(CC) $(CFLAGS) HSM.c
+	$(CC) HSM.c
 
 patient.o: patient.c
-	$(CC) $(CFLAGS) patient.c
+	$(CC) patient.c
 
 doctor.o: doctor.c
-	$(CC) $(CFLAGS) doctor.c
+	$(CC) doctor.c
 
 clean:
-	rm -rf *o Hsm
+	rm -rf *o Hospital

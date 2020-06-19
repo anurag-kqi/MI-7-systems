@@ -25,7 +25,7 @@ extern void search_teacher(int id);
 extern void read_stud();
 extern void read_teacher();
 
-//main menu function	
+//main menu function
 void menus()
 {
     int ch, id, contact,j,digit,alpha;
@@ -44,22 +44,22 @@ void menus()
                     printf("\n\n\t1.STUDENT DATA\n\t2.TEACHER DATA\n\t3.EXIT");
                     printf("\n\n\tEnter your choice to insert(1-3) : ");
                     scanf("\t %d", &ch);
- 
+
                     switch (ch)
                     {
                         case 1: fptr = (fopen("Student.txt","aw+"));
-				printf("\n\n\tEnter ID : ");
-				scanf("\t %d", &id);
-				printf("\n\tEnter Name : ");
-				scanf("\t %[^\n]%*c", name);
-				for (j=0; name[j]!= '\0'; j++) 
-    				{ 
-       		    		    if (isalpha(name[j]) != 0) 
+    				printf("\n\n\tEnter ID : ");
+    				scanf("\t %d", &id);
+    				printf("\n\tEnter Name : ");
+    				scanf("\t %[^\n]%*c", name);
+    				for (j=0; name[j]!= '\0'; j++)
+    				{
+       		    		    if (isalpha(name[j]) != 0)
             	        		alpha++; 
-  
-  	      	    		    else if (isdigit(name[j]) != 0) 
-            				digit++; 
-    				} 
+
+  	      	    		    else if (isdigit(name[j]) != 0)
+            				digit++;
+    				}
     				if(alpha == 0 && digit > 0)
     				{
 		    		    printf("Enter characters only\n");
@@ -77,19 +77,19 @@ void menus()
 				}
                                 break;
 
-                        case 2: fptr = (fopen("Teacher.txt","aw+")); 
+                        case 2: fptr = (fopen("Teacher.txt","aw+"));
 				printf("\n\n\tEnter ID : ");
 				scanf("\t %d", &id);
 				printf("\n\tEnter Name : ");
 				scanf("\t %[^\n]%*c", name);
-				for (j=0; name[j]!= '\0'; j++) 
-    				{ 
-       		    		    if (isalpha(name[j]) != 0) 
-            	        		alpha++; 
-  
-  	      	    		    else if (isdigit(name[j]) != 0) 
-            				digit++; 
-    				} 
+				for (j=0; name[j]!= '\0'; j++)
+    				{
+       		    		    if (isalpha(name[j]) != 0)
+            	        		alpha++;
+
+  	      	    		    else if (isdigit(name[j]) != 0)
+            				digit++;
+    				}
     				if(alpha == 0 && digit > 0)
     				{
 		    		    printf("Enter characters only\n");
@@ -110,12 +110,12 @@ void menus()
                         default: printf("\n\n\tWrong Choice!!\n");
                     }
                     break;
- 
+
             case 2: printf("\n\n\t---- DISPLAY DATA ----");
                     printf("\n\n\t1.STUDENT DATA\n\t2.TEACHER DATA\n\t3.EXIT");
                     printf("\n\n\tEnter your choice to display(1-3) : ");
                     scanf("\t%d", &ch);
- 
+
                     switch (ch)
                     {
                         case 1: display_stud();
@@ -129,12 +129,12 @@ void menus()
                         default: printf("\n\n\tWrong Choice!!\n");
                     }
                     break;
- 
+
             case 3: printf("\n\n\t---- DELETE FROM ----");
                     printf("\n\n\t1.STUDENT DATA\n\t2.TEACHER DATA\n\t3.EXIT");
                     printf("\n\n\tEnter your choice to delete(1-3) : ");
                     scanf("\t %d", &ch);
- 
+
                     switch(ch)
                     {
                         case 1: printf("\n\n\tEnter Student ID for Delete : ");
@@ -153,7 +153,7 @@ void menus()
                     printf("\n\n\t1.STUDENT DATA\n\t2.TEACHER DATA\n\t3.EXIT");
                     printf("\n\n\tEnter your choice to update(1-3) : ");
                     scanf("\t %d", &ch);
- 
+
                     switch(ch)
                     {
                         case 1: printf("\n\n\tEnter Student ID for Update : ");
@@ -175,7 +175,7 @@ void menus()
                     printf("\n\n\t1.STUDENT DATA\n\t2.TEACHER DATA\n\t3.EXIT");
                     printf("\n\n\tEnter your choice to search(1-3) : ");
                     scanf("\t %d", &ch);
- 
+
                     switch(ch)
                     {
                         case 1: printf("\n\n\tEnter Student ID for Search : ");
@@ -194,7 +194,7 @@ void menus()
                     break;
 
             case 6: exit(0);
-                    
+
 	    default: printf("\n\n\tWrong Choice!!\n");
         }
     }

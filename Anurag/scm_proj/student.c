@@ -7,8 +7,4 @@ hello_student(char *name)
     return;
 }
 
-int
-main()
-{
-    printf("My second main\n");
-}
+

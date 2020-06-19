@@ -5,7 +5,7 @@
 struct patient
 {
     int id;
-    char name[30];
+    char name[20];
     int age;
     char address[50];
     int contact;
@@ -17,7 +17,7 @@ struct patient
 struct doctor
 {
     int id;
-    char name[30];
+    char name[20];
     char address[50];
     int contact;
     struct doctor *next;
@@ -31,13 +31,11 @@ struct doctor
     void display_pat();
     void delete_pat(int id);
     void update_pat(int id);
-    
     struct doctor *index1[size];
     void insert_doc(int id, char name[], char address[], int contact);
     void display_doc();
     void delete_doc(int id);
     void update_doc(int id);
-   
 
 void init()
 {
@@ -50,7 +48,7 @@ void init()
 
 void insert_pat(int id, char name[], int age, char address[], int contact)
 {
-    //create a newnode with value
+    
     struct patient *newNode = malloc(sizeof(struct patient));
     newNode->id = id;
     strcpy(newNode->name, name);
@@ -60,7 +58,7 @@ void insert_pat(int id, char name[], int age, char address[], int contact)
     newNode->next = NULL;
     newNode->prev = NULL;
 
-    //calculate hash key
+ 
     int key = id % size;
 
     if(index[key] == NULL) {
@@ -84,7 +82,7 @@ void insert_pat(int id, char name[], int age, char address[], int contact)
 
 void insert_doc(int id, char name[], char address[], int contact)
 {
-    //create a newnode with value
+   
     struct doctor *newNode = malloc(sizeof(struct doctor));
     newNode->id = id;
     strcpy(newNode->name, name);
@@ -93,7 +91,7 @@ void insert_doc(int id, char name[], char address[], int contact)
     newNode->next = NULL;
     newNode->prev = NULL;
 
-    //calculate hash key
+   
     int key = id % size;
 
     if(index1[key] == NULL) {
@@ -198,7 +196,7 @@ void update_pat(int id)
 		printf("\nPatient New Data !!!");
 
 		int id, contact, age;
-    		char name[30], address[50];
+    		char name[20], address[50];
 
 		printf("Enter ID, Name, Age, Address, Contact respectively : ");
 		scanf("%d %s %d %s %d", &id, &name, &age, &address, &contact);
@@ -279,33 +277,6 @@ void update_doc(int id)
     }
 
 }
-=======
-
-
-
-extern void insert_pat(int id, char name[], int age,char bloodgrp[], char address[], int contact, char symtoms[]);
-extern void display_pat();
-extern void delete_pat(int id);
-extern void update_pat(int id);
-
- 
-extern void insert_doc(int id, char name[], char address[], int contact);
-extern void display_doc();
-extern void delete_doc(int id);
-extern void update_doc(int id);
-
-
-void init()
-{
-    int i;
-    for(i = 0; i < size; i++) {
-        index_pat[i] = NULL;
-        index_doc[i] = NULL;
-    }
-}
-
-
-
 
 
 
@@ -313,38 +284,21 @@ int
 main()
 {
     int ch, a, b, id, contact, age;
-
     char name[30], address[50];
 
 
     init();
-    //while(1) {
-
-    char name[20], address[50], bloodgrp[10], symptoms[40];
-
-
-    init();
-
-
+    
         do
         {
-        printf("\n\n---- HOSPITAL MANAGEMENT SYSTEM MENU ----\n\n");
+        printf("\n\n---- HOSPITAL MANAGEMENT SYSTEM MENU ----");
         printf("\n1.PATIENT DATA\n2.DOCTOR DATA\n3.EXIT");
-
         printf("\nEnter your choice(1-3) : ");
-
-        printf("\n\nEnter your choice(1-3) : ");
-
         scanf("%d", &ch);
         switch(ch) {
             case 1:
                     do{
-
-                        printf("\n----PATIENT DEPARTMENT----\n");
-  
-
                         printf("\n----PATIENT DEPARTMENT----");
-
                         printf("\n\n1.INSERT DATA\n2.DISPLAY DATA\n3.DELETE DATA\n4.UPDATE DATA\n5.EXIT\n\n");
                         printf("\n\nEnter your choice to insert(1-5):");
                         scanf("%d", &a);
@@ -352,7 +306,6 @@ main()
 
                         {
                             case 1: printf("\n---- INSERT IN TO PATIENT----\n");
-
                                     printf("\nEnter ID, Name, Age, Address, Contact respectively : ");
                                     scanf("%d %s %d %s %d", &id, &name, &age, &address, &contact);
                                     insert_pat(id, name, age, address, contact);
@@ -364,45 +317,12 @@ main()
 
                             case 3: printf("\n---- DELETE PATIENT DATA ----");
                                     printf("Enter Patient ID for Delete : ");
-
-                                    //printf("\nEnter ID, Name, Age, Address, Contact respectively : ");
-                                    printf("\nEnter Patient ID:");
-                                    scanf("%d",&id);
-                                    printf("\nEnter Patient Name:");
-                                    scanf("%s",name);
-                                    printf("\nEnter Patient Age:");
-                                    scanf("%d",&age);
-                                    printf("\nEnter Patient Blood Group:");
-                                    scanf("%s",bloodgrp);
-                                    printf("\nEnter Patient Address:");
-                                    scanf("%s",address);
-                                    printf("\nEnter Patient Contact:");
-                                    scanf("%d",&contact);
-                                    printf("\nEnter Disease Symptoms:");
-                                    scanf("%s",symptoms);
-                                    //scanf("%d %s %d %s %d", &id, &name, &age, &address, &contact);
-                                    insert_pat(id, name, age, bloodgrp, address, contact, symptoms);
-                                    break;
-
-                            case 2: printf("\n---- DISPLAY PATIENT DATA ----\n");
-                                    printf("\t\tID\tName\tAge\tBlood Group\tAddress\tContact\tSymptoms");
-                                    display_pat();
-                                    break;
-
-                            case 3: printf("\n---- DELETE PATIENT DATA ----\n");
-                                    printf("\nEnter Patient ID for Delete : ");
-
                                     scanf("%d",&id);
                                     delete_pat(id);
                                     break;
 
-
                             case 4: printf("\n---- UPDATE PATIENT DATA ----");
                                     printf("Enter Pateint id for Update : ");
-
-                            case 4: printf("\n---- UPDATE PATIENT DATA ----\n");
-                                    printf("\nEnter Patient id for Update : ");
-
                                     scanf("%d",&id);
                                     update_pat(id);
                                     break;
@@ -410,11 +330,7 @@ main()
                            // case 5: exit(0);
 
 
-
                             default: printf("Wrong Choice!!");
-
-                            //default: printf("Wrong Choice!!");
-
                                      break;
                         }
                     }while(a != -1 && a !=5);
@@ -430,7 +346,6 @@ main()
 
                         {
                             case 1: printf("\n---- INSERT IN TO DOCTOR----\n");
-
                                     printf("\nEnter ID, Name, Clinic Address, Contact respectively : ");
                                     scanf("%d %s %s %d", &id, &name, &address, &contact);
                                     insert_doc(id, name, address, contact);
@@ -448,44 +363,12 @@ main()
 
                             case 4: printf("\n---- UPDATE DOCTOR DATA ----");
                                     printf("Enter Doctor id for Update : ");
-
-                                   // printf("\nEnter ID, Name, Clinic Address, Contact respectively : ");
-                                    printf("\nEnter Doctor ID:");
-                                    scanf("%d",&id);
-                                    printf("\nEnter Doctor Name:");
-                                    scanf("%s",name);
-                                    printf("\nEnter Doctor Address:");
-                                    scanf("%s",address);
-                                    printf("\nEnter Doctor Contact:");
-                                    scanf("%d",&contact);
-                                    //scanf("%d %s %s %d", &id, name, address, &contact);
-                                    insert_doc(id, name, address, contact);
-                                    break;
-
-                            case 2: printf("\n---- DISPLAY DOCTOR DATA ----\n\n");
-                                    printf("\t\tID\tName\tAddress\tContact");
-                                    display_doc();
-                                    break;
-
-                            case 3: printf("\n---- DELETE DOCTOR DATA ----\n");
-                                    printf("\nEnter Doctor ID for Delete : ");
-                                    scanf("%d",&id);
-                                    delete_doc(id);
-                                    break;
-
-                            case 4: printf("\n---- UPDATE DOCTOR DATA ----\n");
-                                    printf("\nEnter Doctor id for Update : ");
-
                                     scanf("%d",&id);
                                     update_doc(id);
                                     break;
 
                             //case 5: exit(0);
-
                             default: printf("Wrong Choice!!");
-
-                            //default: printf("Wrong Choice!!");
-
                                      break;
                         }
                     }while(b != -1 && b != 5);
@@ -494,13 +377,8 @@ main()
 
        // case 3: exit(0);
 
-
 	    default: printf("Wrong Choice!!");
-
-	    //default: printf("Wrong Choice!!");
-
         }
     }while(ch!= -1 && ch!= 3);
     return 0;
 }
-

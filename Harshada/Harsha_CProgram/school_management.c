@@ -196,8 +196,10 @@ void delete_stud(int id)
                 }
 
 
+
             }
             ptr = ptr->next;
+ 
         }
         printf("\n\n\tnode not found\n");
     }

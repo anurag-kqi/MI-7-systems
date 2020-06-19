@@ -1,9 +1,6 @@
-/*School Mnagement Systems*/
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <ctype.h>
 
 #define size 9
 
@@ -13,7 +10,7 @@ struct student
     char name[30];
     char class[10];
     char address[50];
-    int contact;
+    char contact[10];
     struct student *next;
     struct student *prev;
 };
@@ -23,7 +20,7 @@ struct teacher
     int id;
     char name[30];
     char department[30];
-    int contact;
+    char contact[10];
     struct teacher *next;
     struct teacher *prev;
 };
@@ -32,14 +29,14 @@ struct student *chain[size];
 struct teacher *chaint[size];
 
 //student operations
-void insert_stud(int id, char name[], char class[], char address[], int contact);
+void insert_stud(int id, char name[], char class[], char address[], char contact[10]);
 void display_stud();
 void delete_stud(int id);
 void update_stud(int id);
 void search_stud(int id);
 
 //teacher operations
-void insert_teacher(int id, char name[], char department[], int contact);
+void insert_teacher(int id, char name[], char department[], char contact[10]);
 void display_teacher();
 //delete_teacher();
 void update_teacher(int id);
@@ -56,7 +53,7 @@ void init()
 }
 
 //insert values into STUDENT hash table
-void insert_stud(int id, char name[], char class[], char address[], int contact)
+void insert_stud(int id, char name[], char class[], char address[], char contact[10])
 {
     //create a newnode with value
     struct student *newNode = malloc(sizeof(struct student));
@@ -64,7 +61,9 @@ void insert_stud(int id, char name[], char class[], char address[], int contact)
     strcpy(newNode->name, name);
     strcpy(newNode->class, class);
     strcpy(newNode->address, address);
-    newNode->contact = contact;
+	strcpy(newNode->contact, contact);   
+
+   //newNode->contact = contact;
     newNode->next = NULL;
     newNode->prev = NULL;
 
@@ -89,14 +88,15 @@ void insert_stud(int id, char name[], char class[], char address[], int contact)
 }
 
 //insert values into TEACHER hash table
-void insert_teacher(int id, char name[], char department[], int contact)
+void insert_teacher(int id, char name[], char department[], char contact[10])
 {
     //create a newnode with value
     struct teacher *newNode = malloc(sizeof(struct teacher));
     newNode->id = id;
     strcpy(newNode->name, name);
     strcpy(newNode->department, department);
-    newNode->contact = contact;
+    strcpy(newNode->contact, contact);
+	//newNode->contact = contact;
     newNode->next = NULL;
     newNode->prev = NULL;
 
@@ -158,7 +158,7 @@ void display_stud()
         struct student *temp = chain[i];
         printf("\tchain[%d]-->",i);
         while (temp) {
-            printf("%d %s %s %s %d -->",temp->id, temp->name, temp->class, temp->address, temp->contact);
+            printf("%d %s %s %s %s -->",temp->id, temp->name, temp->class, temp->address, temp->contact);
             temp = temp->next;
         }
         printf("NULL\n");
@@ -174,7 +174,7 @@ void display_teacher()
         struct teacher *temp = chaint[i];
         printf("\tchaint[%d]-->",i);
         while (temp) {
-            printf("%d %s %s %d -->",temp->id, temp->name, temp->department, temp->contact);
+            printf("%d %s %s %s -->",temp->id, temp->name, temp->department, temp->contact);
             temp = temp->next;
         }
         printf("NULL\n");
@@ -198,7 +198,7 @@ void search_stud(int id)
         while (ptr != NULL) {
             if (ptr->id == id) {
                 printf("\n\n\tStudent id found at location %d ", i+1);
-                printf("\n\n\tStudent Id - %d\n\tStudent Nmae - %s\n\tStudent Class - %s\n\tStudent Address - %s\n\tStudent Contact - %d",
+                printf("\n\n\tStudent Id - %d\n\tStudent Nmae - %s\n\tStudent Class - %s\n\tStudent Address - %s\n\tStudent Contact - %s",
                        ptr->id, ptr->name, ptr->class, ptr->address, ptr->contact);
                 flag = 0;
                 break;
@@ -228,6 +228,31 @@ void search_teacher(int id)
     } else {
 
 
+        while (ptr != NULL) {
+            if (ptr->id == id) {
+                printf("\n\n\tTeacher id found at location %d ", i+1);
+                printf("\n\n\tTeacher Id - %d\n\tTeacher Nmae - %s\n\tTeacher Department - %s\n\tTeacher Contact - %s",
+                       ptr->id, ptr->name, ptr->department, ptr->contact);
+                flag = 0;
+                break;
+            } else {
+                flag=1;
+            }
+            i++;
+            ptr = ptr -> next;
+        }
+        if (flag==1) {
+            printf("\n\n\tTeacher id not found\n");
+        }
+    }
+}
+
+//UPDATE student data from STUDENT hash table
+void update_stud(int id)
+{
+    struct student *ptr;
+    int i=0, flag;
+
     int key = id % size;
 
     ptr = chain[key];
@@ -238,47 +263,37 @@ void search_teacher(int id)
         while (ptr != NULL) {
             if (ptr->id == id) {
                 printf("\n\n\tStudent old Data !!!\n");
-                printf("\n\n\tStudent Id - %d\n\tStudent Nmae - %s\n\tStudent Class - %s\n\tStudent Address - %s\n\tStudent Contact - %d",
+                printf("\n\n\tStudent Id - %d\n\tStudent Nmae - %s\n\tStudent Class - %s\n\tStudent Address - %s\n\tStudent Contact - %s",
                        ptr->id, ptr->name, ptr->class, ptr->address, ptr->contact);
 
 		printf("\n\n\tStudent New Data !!!\n");
 
-		int id, contact;
+		int id;
+		char contact[10];
     		char name[30], class[10], address[50];
 
 		printf("\n\tEnter Same ID : ");
 		scanf("\t %d", &id);
-		scanf("\t %[^\n]%*c", name);
-		for (i=0; name[i]!= '\0'; i++) 
-    		{ 
-       		    if (isalpha(name[i]) != 0) 
-            	        alpha++; 
-  
-  	      	    else if (isdigit(name[i]) != 0) 
-            		digit++; 
-    		} 
-    		if(alpha == 0 && digit > 0)
-    		{
-		    printf("Enter characters only\n");
-    		} else{
-		    printf("\n\tEnter New Class : ");
-		    scanf("\t %s", class);
-		    printf("\n\tEnter New Address : ");
-		    scanf("\t %s", address);
-		    printf("\n\tEnter New Contact : ");
-		    scanf("\t %d", &contact);
+		printf("\n\tEnter New Name : ");
+		scanf("\t %s", name);
+		printf("\n\tEnter New Class : ");
+		scanf("\t %s", class);
+		printf("\n\tEnter New Address : ");
+		scanf("\t %s", address);
+		printf("\n\tEnter New Contact : ");
+		scanf("\t %s", contact);
 
-		    ptr->id = id;
-    		    strcpy(ptr->name, name);
-    		    strcpy(ptr->class, class);
-    		    strcpy(ptr->address, address);
-    		    ptr->contact = contact;
-    		
-		    printf("\n\n\tStudent Id - %d\n\tStudent Nmae - %s\n\tStudent Class - %s\n\tStudent Address - %s\n\tStudent Contact - %d", 
-                           ptr->id, ptr->name, ptr->class, ptr->address, ptr->contact); 
-		    printf("\n\n\tStudent Record Updated Successfully !!!\n");
-                    flag = 0; 
-		} 
+		ptr->id = id;
+    		strcpy(ptr->name, name);
+    		strcpy(ptr->class, class);
+    		strcpy(ptr->address, address);
+    		strcpy(ptr->contact, contact);
+    		//ptr->contact = contact;
+
+		printf("\n\n\tStudent Id - %d\n\tStudent Nmae - %s\n\tStudent Class - %s\n\tStudent Address - %s\n\tStudent Contact - %s",
+                       ptr->id, ptr->name, ptr->class, ptr->address, ptr->contact);
+		printf("\n\n\tStudent Record Updated Successfully !!!\n");
+                flag = 0;
                 break;
             } else {
                 flag = 1;
@@ -309,45 +324,34 @@ void update_teacher(int id)
         while (ptr != NULL) {
             if (ptr->id == id) {
                 printf("\n\n\tTeacher old Data !!!\n");
-                printf("\n\n\tTeacher Id - %d\n\tTeacher Nmae - %s\n\tTeacher Department - %s\n\tTeacher Contact - %d",
+                printf("\n\n\tTeacher Id - %d\n\tTeacher Nmae - %s\n\tTeacher Department - %s\n\tTeacher Contact - %s",
                        ptr->id, ptr->name, ptr->department, ptr->contact);
 
 		printf("\n\n\tTeacher New Data !!!\n");
 
-		int id, contact;
-    		char name[30], department[30];
+		int id;
+		char contact[10];
+    	char name[30], department[30];
 
 		printf("\n\tEnter Same ID : ");
 		scanf("\t %d", &id);
 		printf("\n\tEnter New Name : ");
-		scanf("\t %[^\n]%*c", name);
-		for (i=0; name[i]!= '\0'; i++) 
-    		{ 
-       		    if (isalpha(name[i]) != 0) 
-            		alpha++; 
-  
-        	    else if (isdigit(name[i]) != 0) 
-            		digit++; 
-    		} 
-    		if(alpha == 0 && digit > 0)
-    		{
-		    printf("Enter characters only\n");
-    		} else{
-		    printf("\n\tEnter New Department : ");
-		    scanf("\t %s", department);
-		    printf("\n\tEnter New Contact : ");
-		    scanf("\t %d", &contact);
+		scanf("\t %s", name);
+		printf("\n\tEnter New Department : ");
+		scanf("\t %s", department);
+		printf("\n\tEnter New Contact : ");
+		scanf("\t %s", contact);
 
-		    ptr->id = id;
-    		    strcpy(ptr->name, name);
-    		    strcpy(ptr->department, department);
-    		    ptr->contact = contact;
+		ptr->id = id;
+    		strcpy(ptr->name, name);
+    		strcpy(ptr->department, department);
+    		strcpy(ptr->contact, contact);
+    		//ptr->contact = contact;
 
-		    printf("\n\n\tTeacher Id - %d\n\tTeacher Nmae - %s\n\tTeacher Department - %s\n\tTeacher Contact - %d",
-                           ptr->id, ptr->name, ptr->department, ptr->contact);
-		    printf("\n\n\tTeacher Record Updated Successfully !!!\n");
-                    flag = 0;
-		}
+		printf("\n\n\tTeacher Id - %d\n\tTeacher Nmae - %s\n\tTeacher Department - %s\n\tTeacher Contact - %s",
+                       ptr->id, ptr->name, ptr->department, ptr->contact);
+		printf("\n\n\tTeacher Record Updated Successfully !!!\n");
+                flag = 0;
                 break;
             } else {
                 flag = 1;
@@ -364,10 +368,10 @@ void update_teacher(int id)
 }
 
 int
-
 main()
 {
-    int ch, id, contact,i,digit=0,alpha=0;
+    int ch, id;
+    char contact[10]={0};
     char name[30], address[50], class[10], department[30];
 
     //init array of list to NULL
@@ -392,62 +396,44 @@ main()
                         case 1: printf("\n\n\tEnter ID : ");
 				scanf("\t %d", &id);
 				printf("\n\tEnter Name : ");
-				scanf("\t %[^\n]%*c", name);
-				for (i=0; name[i]!= '\0'; i++) 
-    				{ 
-       					 if (isalpha(name[i]) != 0) 
-            					alpha++; 
-  
-        				 else if (isdigit(name[i]) != 0) 
-            					digit++; 
-    				} 
-    
-    				if(alpha == 0 && digit > 0)
-    				{
-					printf("Enter characters only\n");
-    				}  
-    				else
-    				{
-       				    printf("\n\tEnter Class : ");
-				    scanf("\t %s", class);
-				    printf("\n\tEnter Address : ");
-				    scanf("\t %s", address);
-				    printf("\n\tEnter Contact : ");
-				    scanf("\t %d", &contact);
-				    insert_stud(id, name, class, address, contact);
-    				}
+				scanf("\t %s", name);
+				printf("\n\tEnter Class : ");
+				scanf("\t %s", class);
+				printf("\n\tEnter Address : ");
+				scanf("\t %s", address);
 				
+				do
+				{
+				printf("\n\tEnter Contact : ");
+				scanf("\t %10s", contact);
+				if(strnlen(contact, 10) != 10)
+				    {
+					 printf("You Entered Invalid Contact\nPlz Enter 10 Digit Valid contact number!\n"); 
+				    }
+				}while(strnlen(contact, 10) != 10);
+							
+				insert_stud(id, name, class, address, contact);
                                 break;
-
 
                         case 2: printf("\n\n\tEnter ID : ");
 				scanf("\t %d", &id);
 				printf("\n\tEnter Name : ");
-				scanf("\t %[^\n]%*c", name);
-				for (i=0; name[i]!= '\0'; i++) 
-    				{ 
-       				    if (isalpha(name[i]) != 0) 
-            			        alpha++; 
-  
-        			    else if (isdigit(name[i]) != 0) 
-            				digit++; 
-    				} 
-    				if(alpha == 0 && digit > 0)
-    				{
-				    printf("Enter characters only\n");
-    				} else{
-				    printf("\n\tEnter Department : ");
-				    scanf("\t %s", department);
-				    printf("\n\tEnter Contact : ");
-				    scanf("\t %d", &contact);
-				    insert_teacher(id, name, department, contact);
-				}
-                                break;
+				scanf("\t %s", name);
+				printf("\n\tEnter Department : ");
+				scanf("\t %s", department);
+				
+				do
+  				{
+				printf("\n\tEnter Contact : ");
+				scanf("\t %s", contact);
+				  if(strnlen(contact, 10) != 10)			
+				    {
+					printf("You Entered Invalid Contact\nPlz Enter 10 Digit Valid contact number!\n"); 
+				     }
+				}while(strnlen(contact, 10) != 10);
 
-                        case 1: printf("Enter ID, Name, Class, Address, Contact respectively : ");
-				scanf("%d %s %d %s %d", &id, &name, &class, &address, &contact);
-				insert_stud(id, name, class, address, contact);
-
+				
+				insert_teacher(id, name, department, contact);
                                 break;
 
                         case 3: exit(0);

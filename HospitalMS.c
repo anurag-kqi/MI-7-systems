@@ -5,37 +5,39 @@
 struct patient
 {
     int id;
-    char name[20];
+    char name[30];
     int age;
     char address[50];
     int contact;
     struct patient *next;
     struct patient *prev;
-    
+    //struct patient pat;
 };
 
 struct doctor
 {
     int id;
-    char name[20];
+    char name[30];
     char address[50];
     int contact;
     struct doctor *next;
     struct doctor *prev;
-    
+    //struct doctor doc;
 };
-
+//struct doctor doc;
 
     struct patient *index[size];
     void insert_pat(int id, char name[], int age, char address[], int contact);
     void display_pat();
     void delete_pat(int id);
     void update_pat(int id);
+    //void search_pat(int id);
     struct doctor *index1[size];
     void insert_doc(int id, char name[], char address[], int contact);
     void display_doc();
     void delete_doc(int id);
     void update_doc(int id);
+    //void search_doc(int id);
 
 void init()
 {
@@ -48,7 +50,7 @@ void init()
 
 void insert_pat(int id, char name[], int age, char address[], int contact)
 {
-    
+    //create a newnode with value
     struct patient *newNode = malloc(sizeof(struct patient));
     newNode->id = id;
     strcpy(newNode->name, name);
@@ -58,7 +60,7 @@ void insert_pat(int id, char name[], int age, char address[], int contact)
     newNode->next = NULL;
     newNode->prev = NULL;
 
- 
+    //calculate hash key
     int key = id % size;
 
     if(index[key] == NULL) {
@@ -82,7 +84,7 @@ void insert_pat(int id, char name[], int age, char address[], int contact)
 
 void insert_doc(int id, char name[], char address[], int contact)
 {
-   
+    //create a newnode with value
     struct doctor *newNode = malloc(sizeof(struct doctor));
     newNode->id = id;
     strcpy(newNode->name, name);
@@ -91,7 +93,7 @@ void insert_doc(int id, char name[], char address[], int contact)
     newNode->next = NULL;
     newNode->prev = NULL;
 
-   
+    //calculate hash key
     int key = id % size;
 
     if(index1[key] == NULL) {
@@ -174,7 +176,42 @@ void display_doc()
         printf("NULL\n");
     }
 }
+/*
+void search_pat(int id)
+{
+    struct patient *ptr;
+    int i=0, flag;
 
+    int key = id % size;
+
+    ptr = chain[key];
+    if(ptr == NULL) {
+        printf("\nEmpty List\n");
+    }
+    else {
+
+        //printf("\nEnter item which you want to search?\n");
+        //scanf("%d",&item);
+        while (ptr != NULL) {
+            if(ptr->id == id) {
+                printf("\nitem found at location %d ", i+1);
+                printf("\n\nPatient Id - %d\n Name - %s\nAge - %d\n Address - %s\n Contact - %d",
+                       ptr->id, ptr->name, ptr->age, ptr->address, ptr->contact);
+                flag = 0;
+                break;
+            }
+            else {
+                flag=1;
+            }
+            i++;
+            ptr = ptr -> next;
+        }
+        if(flag==1) {
+            printf("\nItem not found\n");
+        }
+    }
+}
+*/
 void update_pat(int id)
 {
     struct patient *ptr;
@@ -196,7 +233,7 @@ void update_pat(int id)
 		printf("\nPatient New Data !!!");
 
 		int id, contact, age;
-    		char name[20], address[50];
+    		char name[30], address[50];
 
 		printf("Enter ID, Name, Age, Address, Contact respectively : ");
 		scanf("%d %s %d %s %d", &id, &name, &age, &address, &contact);
@@ -288,10 +325,11 @@ main()
 
 
     init();
-    
+    //while(1) {
         do
         {
         printf("\n\n---- HOSPITAL MANAGEMENT SYSTEM MENU ----");
+        //printf("\n\n1.INSERT DATA\n2.DISPLAY DATA\n3.DELETE DATA\n4.UPDATE DATA\n5.EXIT\n\n");
         printf("\n1.PATIENT DATA\n2.DOCTOR DATA\n3.EXIT");
         printf("\nEnter your choice(1-3) : ");
         scanf("%d", &ch);
@@ -299,6 +337,7 @@ main()
             case 1:
                     do{
                         printf("\n----PATIENT DEPARTMENT----");
+                        //printf("\n1.PATIENT DATA\n2.DOCTOR DATA\n3.BACK TO MAIN MENU");
                         printf("\n\n1.INSERT DATA\n2.DISPLAY DATA\n3.DELETE DATA\n4.UPDATE DATA\n5.EXIT\n\n");
                         printf("\n\nEnter your choice to insert(1-5):");
                         scanf("%d", &a);

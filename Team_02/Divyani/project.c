@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#define size 1000
+#define size 9
 struct society_D
 {
     char owner_name[30];
@@ -64,25 +64,24 @@ struct complaints_D *next3;
 struct complaints_D *prev3;
 
 /*SOCIETY DATA*/
-  struct society_D* arr[1000];
+  struct society_D* arr[9];
     void insert_society_D(char owner_name[], int flat_num, int owner_contact);
     void display_society_D();
     void delete_society_D(int flat_num);
-    void search_society_D(int flat_num);
 
 /* MAINTENANCE DATA*/
-  struct maintenance_D* arr1[1000];
+  struct maintenance_D* arr1[9];
     void insert_maintenance_D(int water_bill, int electricity_bill);
     void display_maintenance_D();
 
   /*VISITORS DATA*/
-  struct visitors* arr2[1000];
+  struct visitors* arr2[9];
     void insert_visitors_D(char visitor_name[], int vehicle_num, int visitor_contact, int TimeIn, int TimeOut);
     void display_visitors_D();
     //void delete_visitors(char visitor_name[], int vehicle_num, int visitor_contact, int TimeIn, int TimeOut);*/
 
 /*COMPLAINTS DATA*/
-  struct complaints_D* arr3[1000];
+  struct complaints_D* arr3[9];
     void insert_complaints_D(char complaints_name[],char suggestions_name[]);
     void display_complaints_D();
 
@@ -109,7 +108,6 @@ void insert_society_D(char owner_name[], int flat_num, int owner_contact)
 
     key = flat_num % size;
 
-
     newNode->next = NULL;
     newNode->prev = NULL;
 
@@ -125,7 +123,7 @@ void insert_society_D(char owner_name[], int flat_num, int owner_contact)
         }
         temp->next = newNode;
         newNode->prev = temp;
-      }
+        }
     printf("Node inserted\n");
 }
 
@@ -275,61 +273,42 @@ void display_complaints_D()
       }
 }
 
-void search_society_D(int flat_num)
+/*void search_society_D(int flat_num)
 {
-     int pos = 0;
-
-   if(root==NULL) {
-      printf("Linked List not initialized");
-      return;
-   }
-
-   prev = root;
-   while(prev!=NULL) {
-      pos++;
-      if(prev->flat_num == flat_num) {
-         printf("%d found at position %d\n", flat_num, pos);
-         return;
-      }
-
-      if(prev->next != NULL)
-         prev = prev->next;
-      else
-
-         break;
-   }
-    //struct society_D *temp = arr[key];
-    /*int i=0, flag;
+    struct society_D *temp;
+    int i=0, flag;
 
     int key = flat_num % size;
 
-    root = arr[key];
-    if (root == NULL) {
+    temp = arr[key];
+    if (temp == NULL) {
         printf("\n\n\tEmpty List\n");
     } else {
-            while (root != NULL) {
-            if (root->flat_num == flat_num) {
+
+
+        while (temp != NULL) {
+            if (temp->flat_num == flat_num) {
                 printf("\n\n\tflat_num found at location %d ", i+1);
-                printf("owner_name - %s\n\tflat_num - %d\n\towner_contact - %d",
-                       root->owner_name, root->flat_num, root->owner_contact);
+                printf("\n\tow - %s\n\tStudent Class - %s\n\tStudent Address - %s\n\tStudent Contact - %d",
+                       ptr->id, ptr->name, ptr->class, ptr->address, ptr->contact);
                 flag = 0;
                 break;
             } else {
                 flag=1;
             }
             i++;
-            root = root -> next;
+            ptr = ptr -> next;
         }
         if (flag==1) {
-            printf("\n\n\tflat_num not found\n");
-        }*/
+            printf("\n\n\tStudent id not found\n");
+        }+
     }
-
+}*/
 
 void delete_society_D(int flat_num)
 {
     int key = flat_num % size;
-  //struct society_D *toDelete =  (struct society_D*)malloc(sizeof(struct society_D));
+    //struct society_D *toDelete =  (struct society_D*)malloc(sizeof(struct society_D));
     struct society_D *toDelete;
     struct society_D *temp = arr[key];
     if(root == NULL) {
@@ -366,7 +345,7 @@ main()
     while(1) {
 
         printf("\n MANAGEMENT DATA");
-        printf("\n1.insert data\n2.Display data\n3.search data\n4.delete data\n5.Exit");
+        printf("\n1.insert data\n2.Display data\n3.delete data\n4.Exit\n");
         printf("\nEnter your choice(1-4) : ");
         scanf("%d", &ch);
         switch(ch) {
@@ -442,30 +421,8 @@ main()
                     }
                     break;
 
-            case 3: printf("\nSEARCH");
-                    printf("\n1.Society DATA\n2.EXIT");
-                    printf("\n\nEnter your choice to delete(1-3):");
-                    scanf("%d", &ch);
 
-                    switch(ch)
-                    {
-                        case 1: //printf("Enter society data for Delete : ");
-                                printf("enter flat_num for search:");
-                                scanf("%d",&flat_num);
-        				                search_society_D(flat_num);
-                                break;
-                        case 2: exit(0);
-
-
-                        default: printf("Wrong Choice");
-                        }
-
-                        break;
-
-
-
-
-            case 4: printf("\nDELETE FROM");
+            case 3: printf("\nDELETE FROM");
                     printf("\n1.Society DATA\n2.EXIT");
                     printf("\n\nEnter your choice to delete(1-3):");
                     scanf("%d", &ch);
@@ -484,11 +441,7 @@ main()
                     }
 
                     break;
-            case 5: exit(0);
-
                   }
-
-
               };
              return 0;
             }

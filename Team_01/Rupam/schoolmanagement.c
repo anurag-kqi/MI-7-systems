@@ -1,5 +1,3 @@
-/*School Mnagement Systems*/
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -12,7 +10,7 @@ struct student
     char name[30];
     char class[10];
     char address[50];
-    int contact;
+    char contact[10];
     struct student *next;
     struct student *prev;
 };
@@ -22,7 +20,7 @@ struct teacher
     int id;
     char name[30];
     char department[30];
-    int contact;
+    char contact[10];
     struct teacher *next;
     struct teacher *prev;
 };
@@ -31,14 +29,14 @@ struct student *chain[size];
 struct teacher *chaint[size];
 
 //student operations
-void insert_stud(int id, char name[], char class[], char address[], int contact);
+void insert_stud(int id, char name[], char class[], char address[], char contact[10]);
 void display_stud();
 void delete_stud(int id);
 void update_stud(int id);
 void search_stud(int id);
 
 //teacher operations
-void insert_teacher(int id, char name[], char department[], int contact);
+void insert_teacher(int id, char name[], char department[], char contact[10]);
 void display_teacher();
 //delete_teacher();
 void update_teacher(int id);
@@ -55,7 +53,7 @@ void init()
 }
 
 //insert values into STUDENT hash table
-void insert_stud(int id, char name[], char class[], char address[], int contact)
+void insert_stud(int id, char name[], char class[], char address[], char contact[10])
 {
     //create a newnode with value
     struct student *newNode = malloc(sizeof(struct student));
@@ -63,7 +61,9 @@ void insert_stud(int id, char name[], char class[], char address[], int contact)
     strcpy(newNode->name, name);
     strcpy(newNode->class, class);
     strcpy(newNode->address, address);
-    newNode->contact = contact;
+	strcpy(newNode->contact, contact);   
+
+   //newNode->contact = contact;
     newNode->next = NULL;
     newNode->prev = NULL;
 
@@ -88,14 +88,15 @@ void insert_stud(int id, char name[], char class[], char address[], int contact)
 }
 
 //insert values into TEACHER hash table
-void insert_teacher(int id, char name[], char department[], int contact)
+void insert_teacher(int id, char name[], char department[], char contact[10])
 {
     //create a newnode with value
     struct teacher *newNode = malloc(sizeof(struct teacher));
     newNode->id = id;
     strcpy(newNode->name, name);
     strcpy(newNode->department, department);
-    newNode->contact = contact;
+    strcpy(newNode->contact, contact);
+	//newNode->contact = contact;
     newNode->next = NULL;
     newNode->prev = NULL;
 
@@ -128,77 +129,25 @@ void delete_stud(int id)
     if (ptr == NULL) {
         printf("\n\n\tList is Empty !!!\n");
     }
-    else if (ptr->id == id) {
-        printf("\n\n\tFirst node deleted\n");
-        chain[key] = chain[key]->next;
-
-    } else {
-	        while (ptr->next != NULL) {
-              if (ptr->next->id == id) {
-                printf("node is deleted\n");
-                ptr->next = ptr->next->next;
-                return;
-
-        chain[key]->prev = NULL;
-        ptr->next = NULL;
+    else if (ptr->id == id && ptr->next == NULL) {
+      
+        ptr = NULL;
         free(ptr);
+        printf("\n\n\tnode deleted\n");
     } else {
-	        while (ptr->next != NULL) {
-              if (ptr->next->id == id) {
+	while (ptr->next != NULL) {
+            if (ptr->next->id == id) {
+
                 toDelete = ptr->next;
-                if (toDelete->next == NULL) {
-                    printf("if loop\n");
-                    ptr->next = NULL;
-                    printf("\n\n\tnode is deleted\n");
-                    free(toDelete);
-                    return;
-                } else {
-                  ptr->next = toDelete->next;
-                  toDelete->next->prev = toDelete->prev;
-                  printf("\n\n\tnode is deleted\n");
-                  free(toDelete);
-                }
-
-
-
+        	ptr->next = toDelete->next;
+        	toDelete->next->prev = ptr;
+        	free(toDelete);
             }
             ptr = ptr->next;
- 
         }
-        printf("\n\n\tnode not found\n");
+        printf("\n\n\tnode deleted successfully\n");
     }
 }
-
-
-
-// void delete_stud(int id)
-// {
-//     int key = id % size;
-//     struct student *ptr = chain[key], *toDelete;
-//
-//     if (ptr == NULL) {
-//         printf("\n\n\tList is Empty !!!\n");
-//     }
-//     else if (ptr->id == id && ptr->next == NULL) {
-//
-//         ptr = NULL;
-//         free(ptr);
-//         printf("\n\n\tnode deleted\n");
-//     } else {
-// 	while (ptr->next != NULL) {
-//             if (ptr->next->id == id) {
-//
-//                 toDelete = ptr->next;
-//         	ptr->next = toDelete->next;
-//         	toDelete->next->prev = ptr;
-//         	free(toDelete);
-//             }
-//             ptr = ptr->next;
-//         }
-//         printf("\n\n\tnode deleted successfully\n");
-//     }
-// }
-
 
 //DISPLAY data of STUDENT hash table
 void display_stud()
@@ -209,7 +158,7 @@ void display_stud()
         struct student *temp = chain[i];
         printf("\tchain[%d]-->",i);
         while (temp) {
-            printf("%d %s %s %s %d -->",temp->id, temp->name, temp->class, temp->address, temp->contact);
+            printf("%d %s %s %s %s -->",temp->id, temp->name, temp->class, temp->address, temp->contact);
             temp = temp->next;
         }
         printf("NULL\n");
@@ -225,7 +174,7 @@ void display_teacher()
         struct teacher *temp = chaint[i];
         printf("\tchaint[%d]-->",i);
         while (temp) {
-            printf("%d %s %s %d -->",temp->id, temp->name, temp->department, temp->contact);
+            printf("%d %s %s %s -->",temp->id, temp->name, temp->department, temp->contact);
             temp = temp->next;
         }
         printf("NULL\n");
@@ -249,7 +198,7 @@ void search_stud(int id)
         while (ptr != NULL) {
             if (ptr->id == id) {
                 printf("\n\n\tStudent id found at location %d ", i+1);
-                printf("\n\n\tStudent Id - %d\n\tStudent Nmae - %s\n\tStudent Class - %s\n\tStudent Address - %s\n\tStudent Contact - %d",
+                printf("\n\n\tStudent Id - %d\n\tStudent Nmae - %s\n\tStudent Class - %s\n\tStudent Address - %s\n\tStudent Contact - %s",
                        ptr->id, ptr->name, ptr->class, ptr->address, ptr->contact);
                 flag = 0;
                 break;
@@ -282,7 +231,7 @@ void search_teacher(int id)
         while (ptr != NULL) {
             if (ptr->id == id) {
                 printf("\n\n\tTeacher id found at location %d ", i+1);
-                printf("\n\n\tTeacher Id - %d\n\tTeacher Nmae - %s\n\tTeacher Department - %s\n\tTeacher Contact - %d",
+                printf("\n\n\tTeacher Id - %d\n\tTeacher Nmae - %s\n\tTeacher Department - %s\n\tTeacher Contact - %s",
                        ptr->id, ptr->name, ptr->department, ptr->contact);
                 flag = 0;
                 break;
@@ -314,12 +263,13 @@ void update_stud(int id)
         while (ptr != NULL) {
             if (ptr->id == id) {
                 printf("\n\n\tStudent old Data !!!\n");
-                printf("\n\n\tStudent Id - %d\n\tStudent Nmae - %s\n\tStudent Class - %s\n\tStudent Address - %s\n\tStudent Contact - %d",
+                printf("\n\n\tStudent Id - %d\n\tStudent Nmae - %s\n\tStudent Class - %s\n\tStudent Address - %s\n\tStudent Contact - %s",
                        ptr->id, ptr->name, ptr->class, ptr->address, ptr->contact);
 
 		printf("\n\n\tStudent New Data !!!\n");
 
-		int id, contact;
+		int id;
+		char contact[10];
     		char name[30], class[10], address[50];
 
 		printf("\n\tEnter Same ID : ");
@@ -331,15 +281,16 @@ void update_stud(int id)
 		printf("\n\tEnter New Address : ");
 		scanf("\t %s", address);
 		printf("\n\tEnter New Contact : ");
-		scanf("\t %d", &contact);
+		scanf("\t %s", contact);
 
 		ptr->id = id;
     		strcpy(ptr->name, name);
     		strcpy(ptr->class, class);
     		strcpy(ptr->address, address);
-    		ptr->contact = contact;
+    		strcpy(ptr->contact, contact);
+    		//ptr->contact = contact;
 
-		printf("\n\n\tStudent Id - %d\n\tStudent Nmae - %s\n\tStudent Class - %s\n\tStudent Address - %s\n\tStudent Contact - %d",
+		printf("\n\n\tStudent Id - %d\n\tStudent Nmae - %s\n\tStudent Class - %s\n\tStudent Address - %s\n\tStudent Contact - %s",
                        ptr->id, ptr->name, ptr->class, ptr->address, ptr->contact);
 		printf("\n\n\tStudent Record Updated Successfully !!!\n");
                 flag = 0;
@@ -373,13 +324,14 @@ void update_teacher(int id)
         while (ptr != NULL) {
             if (ptr->id == id) {
                 printf("\n\n\tTeacher old Data !!!\n");
-                printf("\n\n\tTeacher Id - %d\n\tTeacher Nmae - %s\n\tTeacher Department - %s\n\tTeacher Contact - %d",
+                printf("\n\n\tTeacher Id - %d\n\tTeacher Nmae - %s\n\tTeacher Department - %s\n\tTeacher Contact - %s",
                        ptr->id, ptr->name, ptr->department, ptr->contact);
 
 		printf("\n\n\tTeacher New Data !!!\n");
 
-		int id, contact;
-    		char name[30], department[30];
+		int id;
+		char contact[10];
+    	char name[30], department[30];
 
 		printf("\n\tEnter Same ID : ");
 		scanf("\t %d", &id);
@@ -388,14 +340,15 @@ void update_teacher(int id)
 		printf("\n\tEnter New Department : ");
 		scanf("\t %s", department);
 		printf("\n\tEnter New Contact : ");
-		scanf("\t %d", &contact);
+		scanf("\t %s", contact);
 
 		ptr->id = id;
     		strcpy(ptr->name, name);
     		strcpy(ptr->department, department);
-    		ptr->contact = contact;
+    		strcpy(ptr->contact, contact);
+    		//ptr->contact = contact;
 
-		printf("\n\n\tTeacher Id - %d\n\tTeacher Nmae - %s\n\tTeacher Department - %s\n\tTeacher Contact - %d",
+		printf("\n\n\tTeacher Id - %d\n\tTeacher Nmae - %s\n\tTeacher Department - %s\n\tTeacher Contact - %s",
                        ptr->id, ptr->name, ptr->department, ptr->contact);
 		printf("\n\n\tTeacher Record Updated Successfully !!!\n");
                 flag = 0;
@@ -417,7 +370,8 @@ void update_teacher(int id)
 int
 main()
 {
-    int ch, id, contact;
+    int ch, id;
+    char contact[10]={0};
     char name[30], address[50], class[10], department[30];
 
     //init array of list to NULL
@@ -447,8 +401,17 @@ main()
 				scanf("\t %s", class);
 				printf("\n\tEnter Address : ");
 				scanf("\t %s", address);
+				
+				do
+				{
 				printf("\n\tEnter Contact : ");
-				scanf("\t %d", &contact);
+				scanf("\t %10s", contact);
+				if(strnlen(contact, 10) != 10)
+				    {
+					 printf("You Entered Invalid Contact\nPlz Enter 10 Digit Valid contact number!\n"); 
+				    }
+				}while(strnlen(contact, 10) != 10);
+							
 				insert_stud(id, name, class, address, contact);
                                 break;
 
@@ -458,8 +421,18 @@ main()
 				scanf("\t %s", name);
 				printf("\n\tEnter Department : ");
 				scanf("\t %s", department);
+				
+				do
+  				{
 				printf("\n\tEnter Contact : ");
-				scanf("\t %d", &contact);
+				scanf("\t %s", contact);
+				  if(strnlen(contact, 10) != 10)			
+				    {
+					printf("You Entered Invalid Contact\nPlz Enter 10 Digit Valid contact number!\n"); 
+				     }
+				}while(strnlen(contact, 10) != 10);
+
+				
 				insert_teacher(id, name, department, contact);
                                 break;
 

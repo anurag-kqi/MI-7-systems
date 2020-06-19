@@ -1,5 +1,3 @@
-
-
 CC=gcc
 
 CFLAGS=-c -wall
@@ -21,4 +19,3 @@ doctor.o: doctor.c
 
 clean:
 	rm -rf *o Hospital
-

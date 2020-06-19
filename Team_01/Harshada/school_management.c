@@ -173,7 +173,7 @@ void display_stud()
         struct student *temp = chain[i];
         printf("\tchain[%d]-->",i);
         while (temp) {
-            printf("%d %s %s %s %d -->",temp->id, temp->name, temp->class, temp->address, temp->contact);
+            printf("%d %s %s %s %s -->",temp->id, temp->name, temp->class, temp->address, temp->contact);
             temp = temp->next;
         }
         printf("NULL\n");
@@ -189,7 +189,7 @@ void display_teacher()
         struct teacher *temp = chaint[i];
         printf("\tchaint[%d]-->",i);
         while (temp) {
-            printf("%d %s %s %d -->",temp->id, temp->name, temp->department, temp->contact);
+            printf("%d %s %s %s -->",temp->id, temp->name, temp->department, temp->contact);
             temp = temp->next;
         }
         printf("NULL\n");
@@ -381,8 +381,8 @@ void update_teacher(int id)
 int
 main()
 {
-    int ch, id, contact;
-    char name[30], address[50], class[10], department[30];
+    int ch, id;
+    char contact[10], name[30], address[50], class[10], department[30];
 
     //init array of list to NULL
     init();
@@ -415,7 +415,7 @@ main()
                         				printf("\n\tEnter Address : ");
                         				scanf("\t %[^\n]%*c", address);
                         				printf("\n\tEnter Contact : ");
-                        				scanf("\t %d", &contact);
+                        				scanf("\t %s", contact);
                         				insert_stud(id, name, class, address, contact);
                                 break;
 
@@ -426,7 +426,8 @@ main()
                         				printf("\n\tEnter Department : ");
                         				scanf("\t %s", department);
                         				printf("\n\tEnter Contact : ");
-                        				scanf("\t %d", &contact);
+                                scanf("\t %s", contact);
+
                         				insert_teacher(id, name, department, contact);
                                 break;
 
@@ -483,12 +484,12 @@ main()
                     {
                         case 1: printf("\n\n\tEnter Student ID for Update : ");
                                 scanf("\t %d", &id);
-				update_stud(id);
+				                        update_stud(id);
                                 break;
 
                         case 2: printf("\n\n\tEnter Teacher ID for Update : ");
                                 scanf("\t %d", &id);
-				update_teacher(id);
+				                        update_teacher(id);
                                 break;
                         case 3: exit(0);
 
@@ -496,7 +497,7 @@ main()
                     }
                     break;
 
-	    case 5: printf("\n\n\t---- SEARCH FROM ----");
+	         case 5: printf("\n\n\t---- SEARCH FROM ----");
                     printf("\n\n\t1.STUDENT DATA\n\t2.TEACHER DATA\n\t3.EXIT");
                     printf("\n\n\tEnter your choice to search(1-3) : ");
                     scanf("\t %d", &ch);
@@ -505,12 +506,12 @@ main()
                     {
                         case 1: printf("\n\n\tEnter Student ID for Search : ");
                                 scanf("\t%d", &id);
-				search_stud(id);
+				                        search_stud(id);
                                 break;
 
                         case 2: printf("\n\n\tEnter Teacher ID for Search : ");
                                 scanf("\t%d", &id);
-				search_teacher(id);
+				                        search_teacher(id);
                                 break;
                         case 3: exit(0);
 

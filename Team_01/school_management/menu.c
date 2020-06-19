@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <ctype.h>
+
 //file pointer
 FILE *fptr;
 
@@ -28,7 +28,7 @@ extern void read_teacher();
 //main menu function	
 void menus()
 {
-    int ch, id, contact,j,digit,alpha;
+    int ch, id, contact;
     char name[30], address[50], class[10], department[30];
 
     while (1) {
@@ -47,62 +47,34 @@ void menus()
  
                     switch (ch)
                     {
-                        case 1: fptr = (fopen("Student.txt","aw+"));
+                        case 1: fptr = (fopen("Student.txt","a+"));
 				printf("\n\n\tEnter ID : ");
 				scanf("\t %d", &id);
 				printf("\n\tEnter Name : ");
 				scanf("\t %[^\n]%*c", name);
-				for (j=0; name[j]!= '\0'; j++) 
-    				{ 
-       		    		    if (isalpha(name[j]) != 0) 
-            	        		alpha++; 
-  
-  	      	    		    else if (isdigit(name[j]) != 0) 
-            				digit++; 
-    				} 
-    				if(alpha == 0 && digit > 0)
-    				{
-		    		    printf("Enter characters only\n");
-    				} else{
-
-				    printf("\n\tEnter Class : ");
-				    scanf("\t %s", class);
-				    printf("\n\tEnter Address : ");
-				    scanf("\t %[^\n]%*c", address);
-				    printf("\n\tEnter Contact : ");
-				    scanf("\t %d", &contact);
-				    fprintf(fptr, " %d\n %s\n %s\n %s\n %d\n", id, name, class, address, contact);
-                                    fclose(fptr);
-				    read_stud();
-				}
+				printf("\n\tEnter Class : ");
+				scanf("\t %s", class);
+				printf("\n\tEnter Address : ");
+				scanf("\t %[^\n]%*c", address);
+				printf("\n\tEnter Contact : ");
+				scanf("\t %d", &contact);
+				fprintf(fptr, " %d\n %s\n %s\n %s\n %d\n", id, name, class, address, contact);
+                                fclose(fptr);
+				read_stud();
                                 break;
 
-                        case 2: fptr = (fopen("Teacher.txt","aw+")); 
+                        case 2: fptr = (fopen("Teacher.txt","a+")); 
 				printf("\n\n\tEnter ID : ");
 				scanf("\t %d", &id);
 				printf("\n\tEnter Name : ");
 				scanf("\t %[^\n]%*c", name);
-				for (j=0; name[j]!= '\0'; j++) 
-    				{ 
-       		    		    if (isalpha(name[j]) != 0) 
-            	        		alpha++; 
-  
-  	      	    		    else if (isdigit(name[j]) != 0) 
-            				digit++; 
-    				} 
-    				if(alpha == 0 && digit > 0)
-    				{
-		    		    printf("Enter characters only\n");
-    				} else{
-
-				    printf("\n\tEnter Department : ");
-				    scanf("\t %[^\n]%*c", department);
-				    printf("\n\tEnter Contact : ");
-				    scanf("\t %d", &contact);
-				    fprintf(fptr, " %d\n %s\n %s\n %d\n", id, name, department, contact);
-                                    fclose(fptr);
-				    read_teacher();
-				}
+				printf("\n\tEnter Department : ");
+				scanf("\t %[^\n]%*c", department);
+				printf("\n\tEnter Contact : ");
+				scanf("\t %d", &contact);
+				fprintf(fptr, " %d\n %s\n %s\n %d\n", id, name, department, contact);
+                                fclose(fptr);
+				read_teacher();
                                 break;
 
                         case 3: exit(0);

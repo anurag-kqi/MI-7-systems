@@ -1,38 +1,24 @@
-# the name of the target program
-TARGET = Hospital_Management 
 
-# other source files and the associated object files (this can be blank)
-SRC	= HSM.c doctor.c patient.c
-OBJ	= $(SRC:.c=.o)
 
-# # special include directories
-INCLUDE = -I.
+CC=gcc
 
-# # special libraries (none for now)
-LIB	=
+CFLAGS=-c -wall
 
-# # select the compiler and flags
-CC = /usr/bin/gcc
-CFLAGS = -ansi -g
 
-# # .SUFFIXES: .c
+all: Hospital
 
-# # specify how to compile the .c files
-.c.o:
-	$(CC) $(CFLAGS) $(INCLUDE) -c $<
+Hospital: HSM.o patient.o doctor.o
+	$(CC) $(CFLAGS) HSM.o patient.o doctor.o -o Hospital
 
-# 	# if you type 'make' without arguments, this is the default
- 	all: $(TARGET)
+HSM.o: HSM.c
+	$(CC) HSM.c
 
-# 	# specify how to compile the target
- 	$(TARGET): $(OBJ)
- 		$(CC) $(CFLAGS) $(INCLUDE)  $(OBJ) $(LIB) -o $(TARGET)
+patient.o: patient.c
+	$(CC) patient.c
 
-# 		# remove binaries
- 		clean:
- 			rm -f $(OBJ) $(TARGET)
-#
-# 			# remove binaries and other junk
- 			clobber:
- 				make clean
- 					rm -f core *~
+doctor.o: doctor.c
+	$(CC) doctor.c
+
+clean:
+	rm -rf *o Hospital
+

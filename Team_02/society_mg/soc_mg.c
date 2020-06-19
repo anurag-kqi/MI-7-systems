@@ -255,11 +255,12 @@ void display_society_D()
           printf("%s, %d, %d ", temp->owner_name, temp->flat_num, temp->owner_contact);
           temp = temp->next;
       }
-}
+    }
 else{
     printf("society data is empty or deleted");
 }
 }
+
 
 /* MAINTENANCE DISPLAY*/
 void display_maintenance_D()
@@ -271,7 +272,7 @@ void display_maintenance_D()
           printf("%d, %d ", temp1->water_bill, temp1->electricity_bill);
           temp1 = temp1->next1;
       }
-}
+    }
 else{
     printf("maintenance data is empty or deleted");
 }
@@ -405,8 +406,8 @@ void search_complaints_D(int flat_number)
     }
 }
 
-void update_society_D(int flat_num, int new_flat_num)
-{
+/*SOCIETY UPDATION*/
+void update_society_D(int flat_num, int new_flat_num) {
    int pos = 0;
 
    if(root == NULL) {
@@ -416,12 +417,11 @@ void update_society_D(int flat_num, int new_flat_num)
 
    prev = root;
    while(prev!=NULL) {
-
       pos++;
 
-      if(prev->flat_num == flat_num) {
-         prev->new_flat_num = new_flat_num;
-         printf("\n%d found at position %d, replaced with %d\n",flat_num, pos, new_flat_num);
+      if(prev->flat_num== flat_num) {
+         prev->flat_num = new_flat_num;
+         printf("\n%d found at position %d, replaced with %d\n", flat_num, pos, new_flat_num);
          return;
       }
 
@@ -433,6 +433,7 @@ void update_society_D(int flat_num, int new_flat_num)
    printf("%d does not exist in the list\n", flat_num);
 }
 
+/*MAINTENANCE UPDATION*/
 void update_maintenance_D(int water_bill, int electricity_bill,int new_water_bill, int new_electricity_bill)
 {
    int pos = 0;
@@ -448,7 +449,7 @@ void update_maintenance_D(int water_bill, int electricity_bill,int new_water_bil
       pos++;
 
       if(prev1->water_bill = water_bill, prev1->electricity_bill == electricity_bill) {
-         prev1->new_water_bill = new_water_bill, prev1->new_electricity_bill = new_electricity_bill;
+         prev1->water_bill = new_water_bill, prev1->electricity_bill = new_electricity_bill;
          printf("\n%d found at position %d, replaced with %d\n",water_bill, pos, new_water_bill);
          printf("\n%d found at position %d, replaced with %d\n",electricity_bill, pos, new_electricity_bill);
 
@@ -464,6 +465,7 @@ void update_maintenance_D(int water_bill, int electricity_bill,int new_water_bil
    printf("%d %d does not exist in the list\n", water_bill, electricity_bill);
 }
 
+/*VISITORS UPDATION*/
 void update_visitors_D(int vehicle_num, int new_vehicle_num)
 {
   int pos = 0;
@@ -479,7 +481,7 @@ void update_visitors_D(int vehicle_num, int new_vehicle_num)
      pos++;
 
      if(prev2->vehicle_num == vehicle_num) {
-        prev2->new_vehicle_num = new_vehicle_num;
+        prev2->vehicle_num = new_vehicle_num;
         printf("\n%d found at position %d, replaced with %d\n",vehicle_num, pos, new_vehicle_num);
         return;
      }
@@ -492,6 +494,7 @@ void update_visitors_D(int vehicle_num, int new_vehicle_num)
   printf("%d does not exist in the list\n", vehicle_num);
 }
 
+/*COMPLAINTS UPDATION*/
 void update_complaints_D(int flat_number, int new_flat_number)
 {
   int pos = 0;
@@ -507,7 +510,7 @@ void update_complaints_D(int flat_number, int new_flat_number)
      pos++;
 
      if(prev3->flat_number == flat_number) {
-        prev3->new_flat_number = new_flat_number;
+        prev3->flat_number = new_flat_number;
         printf("\n%d found at position %d, replaced with %d\n",flat_number, pos, new_flat_number);
         return;
      }
@@ -519,60 +522,6 @@ void update_complaints_D(int flat_number, int new_flat_number)
   }
   printf("%d does not exist in the list\n", flat_number);
 }
-
-
-
-/*void update_society_D(int flat_num)
-{
-    struct society_D *root;
-    int i=0, flag;
-
-    int key = flat_num % size;
-
-    root = arr[key];
-    if (root == NULL) {
-        printf("\n\n\tEmpty List\n");
-    } else {
-
-        while (root != NULL) {
-            if (root->flat_num == flat_num) {
-                printf("\n\n\tdelete_society_D old Data !!!\n");
-                printf("\n\n\towner_name - %s\n\tflat_num - %d\n\towner_contact - %d",
-                       root->owner_name, root->flat_num,  root->owner_contact);
-
-		printf("\n\n\tsociety New Data !!!\n");
-
-		int flat_num, owner_contact;
-    		char owner_name[30];
-            printf("\n\tEnter Same flat_num : ");
-        		scanf("\t %d", &flat_num);
-        		printf("\n\tEnter New owner_name : ");
-        		scanf("\t %s", owner_name);
-        		printf("\n\tEnter New owner_contact : ");
-        		scanf("\t %d", &owner_contact);
-
-        		root->flat_num = flat_num;
-            		strcpy(root->owner_name, owner_name);
-            		root->owner_contact = owner_contact;
-
-        		printf("\n\n\towner_name - %s\n\tflat_num - %d\n\towner_contact - %d",
-                               root->owner_name, root->flat_num, root->owner_contact);
-        		printf("\n\n\tsociety Record Updated Successfully !!!\n");
-                        flag = 0;
-                        break;
-                    } else {
-                        flag = 1;
-                    }
-                    i++;
-                    root= temp -> next;
-                  }
-
-      if (flag == 1) {
-          printf("\n\n\tsociety flat_num not found\n");
-      }
-  }
-}*/
-
 
 /*SOCIETY DELETION*/
 void delete_society_D(int flat_num)
@@ -816,11 +765,11 @@ main()
 
                     switch(ch)
                    {
-                        case 1: printf("\n\n\tEnter flat_num for Update : ");
+                        case 1: printf("\n\n\tEnter old flat_num : ");
                                 scanf("\t %d", &flat_num);
                                 printf("\n\n\tEnter new_flat_num for Update : ");
                                 scanf("\t %d", &new_flat_num);
-				                        update_society_D(flat_num, new_flat_num);
+				                        update_society_D(flat_num, new_flat_num );
                                 break;
                         case 2: printf("\n\n\tEnter water_bill for Update : ");
                                 scanf("\t %d", &water_bill);

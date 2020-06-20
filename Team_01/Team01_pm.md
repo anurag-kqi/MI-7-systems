@@ -9,6 +9,80 @@ Team Members :
     3. Rupam Dandge
     4. Aishwarya Bhutkar
 _______________________________________________________________________________________________________________
+19 june 2020    
+
+Meeting Time : 12 PM   
+
+Attendees :  
+
+	Shankar
+	Harshada
+	Rupam
+	Aishwarya
+
+Tasks :	
+	work in team of two.
+	Harshada/Rupam :  
+	Shankar/Aishwarya: 
+	
+		. Use (unix) file descriptor to open ane read file.
+
+		. use open, close instead of fclose, fopen.
+
+		. make sure hashtable shows all the values only once. 
+		  (it should not repete the same value while showing)
+	
+		. write (store) "inserted node only" (not all hashtable) into the file and display it.	
+
+Task Performed By : (yesterday's)
+
+		Everyone is working on Persistency layer.
+
+18 june 2020    
+
+Meeting Time : 4:00 PM   
+
+Attendees :  
+
+	Shankar
+	Harshada
+	Rupam
+	Aishwarya
+
+Tasks :
+
+	For All :  
+		. perform Read and write file opration to store data into file. 
+		(Read and write inserted node from file and display it);
+
+Task Performed By : (yesterday's)
+
+		Everyone is working on Persistency layer.
+
+
+17 june 2020    
+
+Meeting Time : 12Pm   
+(oncall)
+
+Attendees :  
+
+	Shankar
+	Harshada
+	Rupam
+	Aishwarya
+
+Tasks :
+
+	For All :  
+		. perform Read and write file opration to store data into file. 
+		(Read and write inserted node from file and display it);
+
+Task Performed By : (yesterday's)
+
+		Everyone is working on Persistency layer.
+
+
 16 june 2020    
 
 Meeting Time : 4Pm   

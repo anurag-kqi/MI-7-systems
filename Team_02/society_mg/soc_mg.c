@@ -655,11 +655,10 @@ main()
         printf("\nEnter your choice(1-6) : ");
         scanf("%d", &ch);
         switch(ch) {
-            case 1:
-                    printf("\nINSERT IN TO");
-                    printf("\n1.Society data\n2.Maintenance data\n3.visitor data\n4.complaints data\n5.Exit(0)");
-                    printf("\n\nEnter your choice to insert(1-5):");
-                    scanf("%d", &ch);
+            case 1:printf("\nINSERT IN TO");
+                   printf("\n1.Society data\n2.Maintenance data\n3.visitor data\n4.complaints data\n5.Exit(0)");
+                   printf("\n\nEnter your choice to insert(1-5):");
+                   scanf("%d", &ch);
 
                     switch(ch)
                     {

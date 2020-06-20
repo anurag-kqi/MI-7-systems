@@ -13,7 +13,7 @@ Team Members:
      
 19 June 2020:
 
-Meeting Time:
+Meeting Time: 1.00Pm
 
 Atendees:
 

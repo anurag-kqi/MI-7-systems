@@ -11,7 +11,7 @@ Team Members:
         4. Sagar Mahajan 
         
      
-19 June 2020:
+18 June 2020:
 
 Meeting Time: 1.00Pm
 

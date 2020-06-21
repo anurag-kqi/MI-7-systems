@@ -1,24 +1,32 @@
 
+# the name of the target program
+TARGET = hms
 
-CC=gcc
+# other source files and the associated object files (this can be blank)
+SRC	= HSM.c patient.c doctor.c
+OBJ	= $(SRC:.c=.o)
 
-CFLAGS=-c -wall
+# special include directories
+INCLUDE = -I.
+
+# special libraries (none for now)
+LIB	=
+
+# select the compiler and flags
+CC = /usr/bin/gcc
+CFLAGS = -g
+
+# .SUFFIXES: .c
 
 
-all: Hospital
 
-Hospital: HSM.o patient.o doctor.o
-	$(CC) $(CFLAGS) HSM.o patient.o doctor.o -o Hospital
-
-HSM.o: HSM.c
-	$(CC) $(CFLAGS) HSM.c
-
-patient.o: patient.c
-	$(CC) $(CFLAGS) patient.c
-
-doctor.o: doctor.c
-	$(CC) $(CFLAGS) doctor.c
-
+# remove binaries
 clean:
-	rm -rf *o Hospital
+	rm -f $(OBJ) $(TARGET)
+
+# remove binaries and other junk
+clobber:
+	make clean
+	rm -f core *~
+
 

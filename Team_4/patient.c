@@ -20,7 +20,6 @@ struct patient
 
     struct patient *index_pat[size];
 
-
 void init_pat()
 {
     int i;

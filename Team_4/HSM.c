@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "patient.c"
-#include "doctor.c"
+//#include "patient.c"
+//#include "doctor.c"
 
 #define size 10
 

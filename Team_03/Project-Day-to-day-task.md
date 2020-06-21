@@ -38,10 +38,10 @@ Attendees :
 	Vinay
 	Swapnil
 
-Tasks :	
-	work in team of two.
-	Siddhant/Sakshi :  Working on persistancy layer
-Vinay/Swapnil:     Working on alingment and Delete Function
+	Tasks :	
+		work in team of two.
+			Siddhant/Sakshi :  Working on persistancy layer
+			Vinay/Swapnil:Working on alingment and Delete Function
 
 
 

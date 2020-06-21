@@ -9,6 +9,18 @@ Team Members :
 3. Nayan Shrivastava
 4. Nipun Divecha
 
+18 June 2020
+
+Attendees:
+1. Divyani Patidar
+2. Kishori Nikam
+3. Nipun Divecha
+4. Prajawal
+
+Tasks:
+  .Read-Write operation of module.
+  .Discussion about persistant layer.
+
 17 June 2020
 Meeting Time: 10Am.
 

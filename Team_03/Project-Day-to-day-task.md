@@ -9,7 +9,7 @@ Team Members :
     3. Vinay Motghare
     4. Swapnil Borkar
 _______________________________________________________________________________________________________________
-19 june 2020    
+21 june 2020    
 
 Meeting Time : 10 PM   
 
@@ -41,7 +41,7 @@ Attendees :
 Tasks :	
 	work in team of two.
 	Siddhant/Sakshi :  Working on persistancy layer
-	Vinay/Swapnil:     Working on alingment and Delete Function
+Vinay/Swapnil:     Working on alingment and Delete Function
 
 
 
@@ -59,8 +59,9 @@ Attendees :
 
 Tasks :	
 	work in team of two.
-	Siddhant/Sakshi :  
-	Vinay/Swapnil: 
+		
+		Siddhant/Sakshi :  
+		Vinay/Swapnil:
 	
 		. Use (unix) file descriptor to open ane read file.
 

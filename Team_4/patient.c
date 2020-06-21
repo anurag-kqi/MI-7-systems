@@ -19,10 +19,10 @@ struct patient
 
 
     struct patient *index_pat[size];
-extern void insert_pat(int id, char name[], int age,char bloodgrp[], char address[], int contact, char symtoms[]);
-extern void display_pat();
-extern void delete_pat(int id);
-extern void update_pat(int id);
+//extern void insert_pat(int id, char name[], int age,char bloodgrp[], char address[], int contact, char symtoms[]);
+//extern void display_pat();
+//extern void delete_pat(int id);
+//extern void update_pat(int id);
 
 void init_pat()
 {

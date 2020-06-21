@@ -20,10 +20,10 @@ Attendees :
 	Vinay
 	Swapnil
 
-Tasks :	
-	work in team of two.
-	Siddhant/Sakshi :  Working on changing coding logic .
-	Vinay/Swapnil: Working on client-server arch and make file.
+	Tasks :	
+		work in team of two
+			Siddhant/Sakshi :  Working on changing coding logic .
+			Vinay/Swapnil: Working on client-server arch and make file.
 
 
 

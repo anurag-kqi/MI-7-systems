@@ -9,6 +9,91 @@ Team Members :
     3. Vinay Motghare
     4. Swapnil Borkar
 _______________________________________________________________________________________________________________
+21 june 2020    
+
+Meeting Time : 10 PM   
+
+Attendees :  
+
+	Siddhant
+	Sakshi
+	Vinay
+	Swapnil
+
+	Tasks :	
+		work in team of two
+			Siddhant/Sakshi :  Working on changing coding logic .
+			Vinay/Swapnil: Working on client-server arch and make file.
+
+
+
+20 june 2020    
+
+Meeting Time : 1 PM   
+
+Attendees :  
+
+	Siddhant
+	Sakshi
+	Vinay
+	Swapnil
+
+	Tasks :	
+		work in team of two.
+			Siddhant/Sakshi :  Working on persistancy layer
+			Vinay/Swapnil:Working on alingment and Delete Function
+
+
+
+
+19 june 2020    
+
+Meeting Time : 10 PM   
+
+Attendees :  
+
+	Siddhant
+	Sakshi
+	Vinay
+	Swapnil
+
+Tasks :	
+	work in team of two.
+		
+		Siddhant/Sakshi :  
+		Vinay/Swapnil:
+	
+		. Use (unix) file descriptor to open ane read file.
+
+		. use open, close instead of fclose, fopen.
+
+		. make sure hashtable shows all the values only once. 
+		  (it should not repete the same value while showing)
+	
+		. write (store) "inserted node only" (not all hashtable) into the file and display it.	
+
+18 june 2020    
+
+Meeting Time : 4 PM   
+
+Attendees Task:  
+	Siddhant/Sakshi : Working on Logic  
+	Vinay/Swapnil: working on .md file and client-server arch
+
+
+
+17 june 2020
+
+Meeting Time :-12pm
+    
+        Siddhant/Sakshi :  
+	Vinay/Swapnil: 
+
+ Task:-
+ 
+ 	Discussion and Everyone is working on Persistency layer.
+
+
 16 june 2020
 
 Meeting Time : 4 pm

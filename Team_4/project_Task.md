@@ -7,8 +7,9 @@ Team Members:
 
         1. Ashwini Parab
         2. Ashwini Garje
-        3. Shubham
+        3. Shubham Tankhiwale
         4. Sagar Mahajan 
+        5. Vaibhav Mehtre
         
      
 18 June 2020:
@@ -97,3 +98,36 @@ Task Performed By :
          
         Sagar:
          Working on persisancy Layer. 
+
+22 June 2020:
+
+Meeting Time: 11.30am
+
+Atendees:
+
+        Ashwini P
+        Ashwini G
+        Sagar
+        Vaibhav
+        
+Tasks :  Ashwini P, Ashwini G Sagar,Shubham: .Working on persistancy Layer. 
+         Vaibhav : Working on git installation on linux
+
+Task Performed By :
+
+        Ashwini Parab:
+         Working on Persistancy Layer, Read And Write Operations.
+     
+        Ashwini Garje:
+         Working on persistancy Layer, Read And Write Operations.
+         
+        Shubham:
+         Working on persisancy Layer, Read And Write Operations.
+         
+        Sagar:
+         Working on persisancy Layer, Read And Write Operations.
+         
+        Vaibhav:
+         Working on Linux and git installation.
+         
+         

@@ -1,6 +1,8 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
+#include<unistd.h> 
+#include<fcntl.h> 
 
 struct Node
 {
@@ -124,35 +126,42 @@ struct Node *Print_Hash(struct Node *p)
 
 
 int main(){
-  char x;
+
+  	char x;
 	int size,choice;
-  static int n=1;
+  	//static int n=1;
 	printf("enter size of hash table\n");
 	scanf("%d",&size);
 	printf("\n");
 	struct Node B;
     struct Node **HT = (struct Node**)malloc(size*sizeof(struct Node));
+    int fd1 = open("Input.txt",O_APPEND| O_CREAT);
 
-  char *s  = "sr.no";
-  char *BI = "Business ID";
-  char *BN = "Business Name";
-  char *BO = "Business Owner";
-  char *BT = "Business Type";
-  char *CO = "Contact no.";
-  char *CA = "Contact Address";
-  char *CE = "Email";
+    int n = sizeof(struct Node);
+    char buffer[n];
+   	
+   	struct Node copy_data;
+
+  	char *s  = "sr.no";
+ 	char *BI = "Business ID";
+  	char *BN = "Business Name";
+  	char *BO = "Business Owner";
+  	char *BT = "Business Type";
+  	char *CO = "Contact no.";
+  	char *CA = "Contact Address";
+  	char *CE = "Email";
 
 
-  int Bi = 0;
+  	int Bi = 0;
     int Oi = 0;
-    char bN[15];
-    char oN[16];
-    char bA[31];
+    char bN[15]="";
+    char oN[16]="";
+    char bA[31]="";
     int bT = 0;
     char c[10] = "";
     char e[21] = "";
       
-  /*initialize hash*/ 
+ 	 /*initialize hash*/ 
     for(int i = 0; i < size; i++) 
         HT[i] = NULL;
     
@@ -179,7 +188,7 @@ int main(){
             
             printf("___________________________________________________________________________________________________\n");
             printf("\t\t--> Enter owner Name\n\t\t-");
-            scanf("%[^\n]%*c",oN);
+            fgets(oN, 16, stdin);
             strcpy(B.oName,oN);
                 
             printf("___________________________________________________________________________________________________\n");
@@ -234,7 +243,11 @@ int main(){
             printf("\t\t--> Enter owner Email\n\t\t-");
             scanf("%s",e);
             strcpy(B.email,e);
-            Insert_Row(HT,B,size);
+            memcpy(buffer, &B, sizeof(struct Node));
+            printf("%s",buffer);
+            write(fd1, buffer, sizeof(struct Node));
+            Insert_Row(HT, B, size);
+            memcpy(&copy_data, buffer, sizeof(struct Node));
             printf("\n"); 
           } break;
 
@@ -350,10 +363,9 @@ int main(){
             break;
       }
     }
-  	
-}	free(*HT);
-	
+  }	
 
-	return 0;
+	  free(*HT);
+	  return 0;
 	 				
 }

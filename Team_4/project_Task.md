@@ -170,7 +170,7 @@ Task Performed By :
           25 June 2020:
 
 Meeting Time: 
-First Meeting:10.30am , 3.00pm
+First Meeting: 10.30am 
 
 Atendees:
 
@@ -179,7 +179,7 @@ Atendees:
         Shubham
         Vaibhav
         
-First Meeting: 3.00pm
+Second Meeting: 3.00pm
 
 Atendees:
 

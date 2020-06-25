@@ -131,3 +131,77 @@ Task Performed By :
          Working on Linux and git installation.
          
          
+         23 June 2020:
+
+Meeting Time: 1.30am
+
+Atendees:
+
+        Ashwini P
+        Ashwini G
+        Sagar
+        Vaibhav
+        
+Tasks :  Ashwini P, Ashwini G :Working on persistancy Layer. Write Operation.
+         Sagar,Shubham: .Working on persistancy Layer. Read Operation.
+         Vaibhav : Working on git installation on linux
+
+Task Performed By :
+
+        Ashwini Parab:
+         Working on Persistancy Layer, Write Operations.
+         Researched on how to implement write function in code.
+     
+        Ashwini Garje:
+         Working on persistancy Layer, Write Operations.
+         Researched on how to implement write function in code.
+         
+        Shubham:
+         Working on persisancy Layer, Read  Operations.
+         Researched on how to implement read function in code.
+         
+        Sagar:
+         Working on persisancy Layer, Read Operations.
+         Researched on how to implement read function in code.
+         
+        Vaibhav:
+         Working on git installation. Done with Linux installation and docker.
+         
+          25 June 2020:
+
+Meeting Time: 
+First Meeting:10.30am , 3.00pm
+
+Atendees:
+
+        Ashwini P
+        Sagar
+        Shubham
+        Vaibhav
+        
+First Meeting: 3.00pm
+
+Atendees:
+
+        Ashwini P
+        Sagar
+        
+        
+Tasks :  Ashwini P, Ashwini G :Working on persistancy Layer. Implementing Write Operation.
+         Sagar,Shubham: .Working on persistancy Layer. Implementing Read Operation.
+         Vaibhav : Working on git configuration.
+
+Task Performed By :
+
+        Ashwini Parab:
+         Working on Persistancy Layer, Write Operations.
+         Researched on how to implement write function in code.
+         Implementation of write fuction in code. 
+         
+        Sagar:
+         Working on persisancy Layer, Read Operations.
+         Researched on how to implement read function in code.
+         Implementation of read fuction in code. 
+         
+        Vaibhav:
+         Working on git configuration and its use.

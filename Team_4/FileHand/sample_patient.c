@@ -67,7 +67,8 @@ void insert_pat(int id, char name[], int age, char address[], int contact)
         newNode->next = NULL;
     }
     printf("\n\nNode inserted Successfully...!\n");
-
+ fprintf(fp, "%d %s %d %s %s %d", id , name, age, bloodgrp, address, contact);
+   fclose(fp);
 }
 
 

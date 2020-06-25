@@ -67,7 +67,12 @@ void insert_pat(int id, char name[], int age, char address[], int contact)
         newNode->next = NULL;
     }
     printf("\n\nNode inserted Successfully...!\n");
- fprintf(fp, "%d %s %d %s %s %d", id , name, age, bloodgrp, address, contact);
+	//fprintf(fp, "%d %s %d %s %d", id , name, age, address, contact);
+	fprintf(fp, "ID    = %d\n", id);
+	fprintf(fp, "Name    = %s\n", name);
+	fprintf(fp, "AgE    = %d\n", age);
+	fprintf(fp, "Address    = %s\n", address);
+	fprintf(fp, "Contact    = %d\n", contact);
    fclose(fp);
 }
 
@@ -129,19 +134,19 @@ main()
 
                                     printf("\nEnter Patient ID:");
                                     scanf("%d",&id);
-                                    fprintf(fp, "ID    = %d\n", id);
+                                    
                                     printf("\nEnter Patient Name:");
                                     scanf("%s",name);
-                                    fprintf(fp, "Name    = %s\n", name);
+                                    
                                     printf("\nEnter Patient Age:");
                                     scanf("%d",&age);
-                                    fprintf(fp, "AgE    = %d\n", age);
+                                    
                                     printf("\nEnter Patient Address:");
                                     scanf("%s",address);
-                                    fprintf(fp, "Address    = %s\n", address);
+                                    
                                     printf("\nEnter Patient Contact:");
                                     scanf("%d",&contact);
-                                    fprintf(fp, "Contact    = %d\n", contact);
+                                    
                                     insert_pat(id, name, age, address, contact);
                                     break;
 

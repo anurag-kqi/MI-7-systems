@@ -104,9 +104,8 @@ main()
 
     int ch, a, b, id, contact, age;
     char name[30], address[50];
-     FILE *fp;
-    fp = fopen("E:\Hash.txt", "a+");
-    fp = fopen("E:\Hash.txt", "r");
+    
+
 
 
     init();
@@ -182,6 +181,6 @@ main()
 	    default: printf("Wrong Choice!!");
         }
     }while(ch!= -1 && ch!= 3);
-    fclose(fp);
+   
     return 0;
 }

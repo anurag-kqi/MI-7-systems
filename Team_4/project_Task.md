@@ -205,3 +205,33 @@ Task Performed By :
          
         Vaibhav:
          Working on git configuration and its use.
+
+
+ 26 June 2020:
+
+Meeting Time:  1.00pm 
+
+Atendees:
+
+        Ashwini Parab
+        Sagar
+        Shubham
+        Vaibhav
+        Ashwini Garje
+        
+
+        
+        
+Tasks :  Ashwini P :Working on persistancy Layer. Implementing Write Operation.
+         Sagar,Shubham, Ashwini G: .Working on persistancy Layer. Implementing Read Operation.
+         Vaibhav : Working on git configuration.
+
+Task Performed By :
+
+        Ashwini Parab, Sagar, Shubham, Ashwini Garje:
+         Working on Persistancy Layer, Read Operations.
+         Researched on how to implement Read function in code.
+         Implementation of Read fuction in code. 
+          
+        Vaibhav:
+         Working on git configuration and its use.

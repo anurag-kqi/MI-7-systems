@@ -9,6 +9,110 @@ Team Members :
     3. Rupam Dandge
     4. Aishwarya Bhutkar
 _______________________________________________________________________________________________________________
+25 june 2020    
+
+Meeting Time : 12 PM   
+
+Attendees :  
+
+	Shankar
+	Harshada
+	Rupam
+	Aishwarya
+
+Tasks :	
+	
+	For All .
+	
+		. Persistency layer.
+		. Read buffer insert in hashtable.	
+
+24 june 2020    
+
+Meeting Time : 12 PM   
+
+Attendees :  
+
+	Shankar
+	Harshada
+	Rupam
+	Aishwarya
+
+Tasks :	
+	
+	For All .
+	
+		. Persistency layer.
+		. Read buffer insert in hashtable.	
+
+Task Performed By : (yesterday's)
+
+		. Everyone is working on read buffer.
+
+23 june 2020    
+
+Meeting Time : 12 PM   
+
+Attendees :  
+
+	Shankar
+	Harshada
+	Rupam
+	Aishwarya
+
+Tasks :	
+	
+	For All .
+	
+		. Persistency layer.
+		. Read buffer insert in hashtable.	
+
+Task Performed By : (yesterday's)
+
+		. Everyone is working on read buffer.
+
+22 june 2020    
+
+Meeting Time : 12 PM   
+
+Attendees :  
+
+	Shankar
+	Harshada
+	Rupam
+	Aishwarya
+
+Tasks :	
+	
+	For All .
+	
+		.Persistency layer.	
+
+Task Performed By : (yesterday's)
+
+		Shanakr : Read Write done.
+
+20 june 2020    
+
+Meeting Time : 12 PM   
+
+Attendees :  
+
+	Shankar
+	Harshada
+	Rupam
+	Aishwarya
+
+Tasks :	
+	
+	For All .
+	
+		.Persistency layer.	
+
+Task Performed By : (yesterday's)
+
+		Everyone is working on Persistency layer.
+
 19 june 2020    
 
 Meeting Time : 12 PM   

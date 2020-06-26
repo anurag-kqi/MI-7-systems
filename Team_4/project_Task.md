@@ -81,7 +81,7 @@ Atendees:
         Shubham
         
 Tasks :  Ashwini P: .Working on Make File.
-         Ashwini G ,Sagar,Shubham: .Working on persistancy Layer.  
+ Ashwini G ,Sagar,Shubham: .Working on persistancy Layer.  
 
 Task Performed By :
 

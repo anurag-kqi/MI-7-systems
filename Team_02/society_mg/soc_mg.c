@@ -26,6 +26,7 @@ struct maintenance_D
     int new_water_bill;
     int new_electricity_bill;
     int key;
+    int flat_num1;
     struct maintenance_D *next1;
     struct maintenance_D *prev1;
 };
@@ -79,11 +80,11 @@ struct complaints_D *prev3;
 
 /* MAINTENANCE DATA*/
   struct maintenance_D* arr1[1000];
-    void insert_maintenance_D(int water_bill, int electricity_bill);
+    void insert_maintenance_D(int flat_num1, int water_bill, int electricity_bill);
     void display_maintenance_D();
-    void search_maintenance_D(int water_bill, int electricity_bill);
+    void search_maintenance_D(int flat_num1);
     void update_maintenance_D(int water_bill, int electricity_bill,int new_water_bill, int new_electricity_bill) ;
-    void delete_maintenance_D(int water_bill);
+    void delete_maintenance_D(int flat_num1);
 
   /*VISITORS DATA*/
   struct visitors_D* arr2[1000];
@@ -100,9 +101,6 @@ struct complaints_D *prev3;
     void search_complaints_D(int flat_number);
     void update_complaints_D(int flat_number, int new_flat_number);
     void delete_complaints_D(int flat_number);
-
-
-
 
   void init()
   {
@@ -126,14 +124,11 @@ void insert_society_D(char owner_name[], int flat_num, int owner_contact)
     newNode->prev = next;
 
     key = flat_num % size;
-
-
     newNode->next = NULL;
     newNode->prev = NULL;
 
     if(root == NULL) {
-
-        root = newNode;
+       root = newNode;
     }
     else {
         struct society_D* temp = root;
@@ -143,38 +138,36 @@ void insert_society_D(char owner_name[], int flat_num, int owner_contact)
         }
         temp->next = newNode;
         newNode->prev = temp;
-      }
+    }
     printf("Node inserted\n");
 }
 
 /*MAINTENANCE INSERTION*/
-void insert_maintenance_D(int water_bill, int electricity_bill)
+void insert_maintenance_D(int flat_num1, int water_bill, int electricity_bill)
 {
     struct maintenance_D* newNode = (struct maintenance_D*)malloc(sizeof(struct maintenance_D));
+    newNode->flat_num1 = flat_num1;
     newNode->water_bill = water_bill;
     newNode->electricity_bill = electricity_bill;
     newNode->next1 = NULL;
     newNode->prev1 = next1;
 
-    key1= water_bill % size;
-    key1 = electricity_bill % size;
-
+    key1= flat_num1 % size;
     newNode->next1 = NULL;
     newNode->prev1 = NULL;
 
     if(root1 == NULL) {
-
-        root1 = newNode;
+       root1 = newNode;
     }
     else {
         struct maintenance_D* temp1 = root1;
 
-        while(temp1->next1 != NULL){
+        while(temp1->next1 != NULL) {
             temp1 = temp1->next1;
         }
         temp1->next1 = newNode;
         newNode->prev1 = temp1;
-      }
+    }
     printf("Node inserted\n");
 }
 
@@ -195,18 +188,14 @@ void insert_visitors_D(char visitor_name[], int vehicle_num, int visitor_contact
     newNode-> prev2 = NULL;
     newNode-> next2 = NULL;
 
-    if(root2 == NULL)
-    {
+    if(root2 == NULL) {
     root2 = newNode;
     }
-    else
-    {
+    else {
         struct visitors_D *temp2 = root2;
-        while (temp2-> next2 != NULL)
-        {
+        while (temp2-> next2 != NULL) {
             temp2 = temp2-> next2;
         }
-
         temp2-> next2 = newNode;
         newNode-> prev2 = temp2;
     }
@@ -225,7 +214,6 @@ void insert_complaints_D(int flat_number, char complaints_name[] ,char suggestio
     newNode->prev3 = next3;
 
     key3 = flat_number % size;
-
     newNode->next3 = NULL;
     newNode->prev3 = NULL;
 
@@ -256,11 +244,10 @@ void display_society_D()
           temp = temp->next;
       }
     }
-else{
+else {
     printf("society data is empty or deleted");
 }
 }
-
 
 /* MAINTENANCE DISPLAY*/
 void display_maintenance_D()
@@ -269,11 +256,11 @@ void display_maintenance_D()
     temp1 = root1;
     if(temp1!=NULL) {
       while(temp1) {
-          printf("%d, %d ", temp1->water_bill, temp1->electricity_bill);
+          printf("%d, %d %d", temp1->flat_num1, temp1->water_bill, temp1->electricity_bill);
           temp1 = temp1->next1;
       }
     }
-else{
+else {
     printf("maintenance data is empty or deleted");
 }
 }
@@ -283,15 +270,14 @@ void display_visitors_D()
 {
     struct visitors_D *temp2;
     temp2 = root2;
-    if(temp2!=NULL)
-    {
+    if(temp2!=NULL) {
     while(temp2) {
         printf("%s, %d, %d, %d, %d",temp2->visitor_name, temp2->vehicle_num, temp2->visitor_contact, temp2->TimeIn, temp2->TimeOut);
 
-        temp2 = temp2 -> next2;
+        temp2 = temp2-> next2;
     }
 }
-else{
+else {
     printf("visitors data is empty or deleted");
 }
 }
@@ -307,10 +293,11 @@ void display_complaints_D()
           temp3 = temp3->next3;
       }
 }
-else{
+else {
     printf("complaints data is empty or deleted");
 }
 }
+
 /*SOCIETY SEARCH*/
 void search_society_D(int flat_num)
 {
@@ -318,25 +305,26 @@ void search_society_D(int flat_num)
     if(root==NULL) {
       printf("Linked List not initialized");
       return;
-   }
-   prev = root;
-   while(prev!=NULL) {
-      pos++;
-      if(prev->flat_num == flat_num) {
-        printf("%d found at position %d\n", flat_num, pos);
-        printf("\n\towner_name - %s\n\tflat_num - %d\n\towner_contact - %d",
-               root->owner_name, root->flat_num,  root->owner_contact);
-
-        return;
-      }
-      if(prev->next != NULL)
-         prev = prev->next;
-      else
-         break;
-   }
- }
+    }
+    prev = root;
+    while(prev!=NULL) {
+        pos++;
+        if(prev->flat_num == flat_num) {
+          printf("%d found at position %d\n", flat_num, pos);
+          printf("\n\towner_name - %s\n\tflat_num - %d\n\towner_contact - %d",
+                 root->owner_name, root->flat_num,  root->owner_contact);
+          return;
+        }
+        if(prev->next != NULL) {
+           prev = prev->next;
+        }
+        else {
+           break;
+        }
+    }
+}
 /*MAINTENANCE SEARCH*/
-void search_maintenance_D(int water_bill, int electricity_bill)
+void search_maintenance_D(int flat_num1)
 {
     int pos = 0;
     if(root1==NULL) {
@@ -346,14 +334,18 @@ void search_maintenance_D(int water_bill, int electricity_bill)
     prev1 = root1;
     while(prev1!=NULL) {
         pos++;
-        if((prev1->water_bill == water_bill), (prev1->electricity_bill == electricity_bill)) {
-          printf("%d %d found at position %d\n", water_bill, electricity_bill, pos);
+        if(prev1->flat_num1== flat_num1) {
+          printf("%d found at position %d\n", flat_num1, pos);
+          printf("\n\twater_bill - %d\n\tflat_num1 - %d\n\telectricity_bill - %d",
+                 root1->water_bill, root1->flat_num1,  root1->electricity_bill);
           return;
         }
-        if(prev1->next1 != NULL)
+        if(prev1->next1 != NULL) {
            prev1 = prev1->next1;
-      else
+        }
+      else {
          break;
+      }
     }
 }
 
@@ -375,11 +367,13 @@ void search_visitors_D(int vehicle_num)
 
           return;
         }
-        if(prev2->next2 != NULL)
+        if(prev2->next2 != NULL) {
            prev2 = prev2->next2;
-      else
+        }
+      else {
          break;
-    }
+      }
+  }
 }
 
 /*COMPLAINTS SEARCH*/
@@ -399,10 +393,12 @@ void search_complaints_D(int flat_number)
                  root3->flat_number, root3->complaints_name, root3->suggestions_name);
           return;
         }
-        if(prev3->next3 != NULL)
+        if(prev3->next3 != NULL) {
            prev3 = prev3->next3;
-      else
+        }
+      else {
          break;
+      }
     }
 }
 
@@ -425,10 +421,12 @@ void update_society_D(int flat_num, int new_flat_num) {
          return;
       }
 
-      if(prev->next != NULL)
+      if(prev->next != NULL) {
          prev = prev->next;
-      else
+      }
+      else {
          break;
+      }
    }
    printf("%d does not exist in the list\n", flat_num);
 }
@@ -452,15 +450,15 @@ void update_maintenance_D(int water_bill, int electricity_bill,int new_water_bil
          prev1->water_bill = new_water_bill, prev1->electricity_bill = new_electricity_bill;
          printf("\n%d found at position %d, replaced with %d\n",water_bill, pos, new_water_bill);
          printf("\n%d found at position %d, replaced with %d\n",electricity_bill, pos, new_electricity_bill);
-
-
          return;
       }
 
-      if(prev1->next1 != NULL)
+      if(prev1->next1 != NULL) {
          prev1 = prev1->next1;
-      else
+      }
+      else {
          break;
+      }
    }
    printf("%d %d does not exist in the list\n", water_bill, electricity_bill);
 }
@@ -515,10 +513,12 @@ void update_complaints_D(int flat_number, int new_flat_number)
         return;
      }
 
-     if(prev3->next3 != NULL)
+     if(prev3->next3 != NULL) {
         prev3 = prev3->next3;
-     else
+     }
+     else {
         break;
+     }
   }
   printf("%d does not exist in the list\n", flat_number);
 }
@@ -555,15 +555,15 @@ void delete_society_D(int flat_num)
 }
 
 /*MAINTENANCE DELETION*/
-void delete_maintenance_D(int water_bill)
+void delete_maintenance_D(int flat_num1)
 {
-    int key1 = water_bill % size;
+    int key1 = flat_num1% size;
     struct maintenance_D *toDelete;
     struct maintenance_D *temp1 = arr1[key1];
     if(root1 == NULL) {
         printf("\n List is Empty");
     }
-     else if(root1->water_bill == water_bill) {
+     else if(root1->flat_num1 == flat_num1) {
         root1 = NULL;
         arr1[key1] = NULL;
         free(root1);
@@ -571,7 +571,7 @@ void delete_maintenance_D(int water_bill)
     }
     else {
 	  while(root1->next1 != NULL) {
-        if (root1->next1->water_bill == water_bill) {
+        if (root1->next1->flat_num1 == flat_num1) {
           root1 = NULL;
           toDelete = root1->next1;
         	root1->next1 = toDelete->next1;
@@ -579,7 +579,7 @@ void delete_maintenance_D(int water_bill)
         	free(toDelete);
         }
         root1 = root1->next1;
-        }
+    }
         printf("\nnode deleted successfully\n");
     }
 }
@@ -647,7 +647,7 @@ int
 main()
 {
     char owner_name[30], complaints_name[50], suggestions_name[50], visitor_name[30];
-    int flat_num, new_flat_num, flat_number, new_flat_number, owner_contact, visitor_contact,TimeIn,TimeOut, water_bill, electricity_bill, new_water_bill, new_electricity_bill, vehicle_num, new_vehicle_num, ch;
+    int flat_num, flat_num1, new_flat_num, flat_number, new_flat_number, owner_contact, visitor_contact,TimeIn,TimeOut, water_bill, electricity_bill, new_water_bill, new_electricity_bill, vehicle_num, new_vehicle_num, ch;
     while(1) {
 
         printf("\n MANAGEMENT DATA");
@@ -671,11 +671,13 @@ main()
                                 insert_society_D(owner_name, flat_num, owner_contact);
                                 break;
 
-                        case 2: printf("\n\n\tEnter water_bill : ");
+                        case 2: printf("\n\n\tEnter flat_num1 : ");
+                                scanf("\t %d", &flat_num1);
+                                printf("\n\n\tEnter water_bill : ");
                                 scanf("\t %d", &water_bill);
                                 printf("\n\tEnter electricity_bill : ");
                                 scanf("\t %d", &electricity_bill);
-                                insert_maintenance_D(water_bill, electricity_bill);
+                                insert_maintenance_D(flat_num, water_bill, electricity_bill);
                                 break;
 
                         case 3:
@@ -739,11 +741,9 @@ main()
                                 scanf("%d",&flat_num);
         				                search_society_D(flat_num);
                                 break;
-                        case 2: printf("enter water_bill for search:");
-                                scanf("%d",&water_bill);
-                                printf("enter electricity_bill for search:");
-                                scanf("%d",&electricity_bill);
-                				        search_maintenance_D(water_bill, electricity_bill);
+                        case 2: printf("enter flat_num for search:");
+                                scanf("%d",&flat_num1);
+                                search_maintenance_D(flat_num1);
                                 break;
                         case 3: printf("enter vehicle_num for search:");
                                 scanf("%d",&vehicle_num);
@@ -809,9 +809,9 @@ main()
                                 scanf("%d",&flat_num);
 				                        delete_society_D(flat_num);
                                 break;
-                        case 2: printf("enter water_bill for delete:");
-                                scanf("%d", &water_bill);
-				                        delete_maintenance_D(water_bill);
+                        case 2: printf("enter flat_num for delete:");
+                                scanf("%d", &flat_num1);
+				                        delete_maintenance_D(flat_num1);
                                 break;
 
                          case 3:

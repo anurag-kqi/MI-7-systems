@@ -6,8 +6,44 @@ Team Members :
 
 1. Divyani Patidar
 2. Kishori Nikam
-3. Nayan Shrivastava
+3. Prajawal
 4. Nipun Divecha
+
+26June 2020
+Meeting Time:11:00 Am
+
+Attendees:
+1. Divyani Patidar
+2. Kishori Nikam
+3. Prajawal
+
+Tasks:
+  .work on read-write operation.
+  .docker commands.
+
+25June 2020
+Meeting Time:10:30 Am
+
+Attendees:
+1. Divyani Patidar
+2. Kishori Nikam
+
+  .work on read-write operation.
+
+24 June 2020
+Meeting Time:11:20 Am
+
+Attendees:
+1. Divyani Patidar
+2. Kishori Nikam
+
+  .work on read-write operation.
+  .practice of docker commands.
+
+23June 2020
+phone call
+Tasks:
+  .installation of docker
 
 22 June 2020
 Meeting Time:10:30 Am

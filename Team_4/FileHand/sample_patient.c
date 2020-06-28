@@ -102,15 +102,25 @@ int
 main()
 {
 
-    int ch, a, b, id, contact, age;
-    char name[30], address[50];
-    
+   int ch, a, b, id, contact, age;
+   char name[30], address[50];
+   int fd;
+   int n_char=0;
+   char buffer[80];
+   fd = open("E:\Hash.txt",  O_APPEND|O_RDWR| O_CREAT, 0644);
+     if (fd==-1){
+                exit(1);
+        }
+	//Use the read system call to obtain 10 characters from inFile
+        while( (n_char=read(fd, buffer, 80))!=0){
+                //Display the characters read
+                n_char=write(1,buffer,n_char);
 
+        }
 
-
-    init();
-
-        do
+        close (fd);
+  init();
+  do
         {
         printf("\n\n---- HOSPITAL MANAGEMENT SYSTEM MENU ----");
         printf("\n1.PATIENT DATA\n2.DOCTOR DATA\n3.EXIT");
@@ -145,7 +155,7 @@ main()
                                     
                                     printf("\nEnter Patient Contact:");
                                     scanf("%d",&contact);
-                                    
+    
                                     insert_pat(id, name, age, address, contact);
                                     break;
 
@@ -164,9 +174,6 @@ main()
                                     scanf("%d",&id);
                                     //update_pat(id);
                                     break;
-
-                                    // case 5: exit(0);
-
 
                             default: printf("Wrong Choice!!");
                                      break;

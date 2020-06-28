@@ -89,7 +89,7 @@ int main() {
         size --;
     } break; 
   }
-  Businesses = (nodeElement *) realloc (Businesses,sizeof(nodeElement)*size);
+ // Businesses = (nodeElement *) realloc (Businesses,sizeof(nodeElement)*size);
   i = 0;
   do {
     printf("count initial is :%d\n",count);

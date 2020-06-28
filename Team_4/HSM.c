@@ -34,7 +34,7 @@ int main()
     int fd;
     int n_char=0;
     char buffer[80];
-    fd = open("E:\Hash.txt",  O_APPEND|O_RDWR| O_CREAT, 0644);
+    fd = open("Hash.txt",  O_APPEND|O_RDWR| O_CREAT, 0644);
      if (fd==-1){
                 exit(1);
         }

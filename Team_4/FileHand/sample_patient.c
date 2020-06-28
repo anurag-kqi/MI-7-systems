@@ -35,7 +35,7 @@ void display_pat();
 void insert_pat(int id, char name[], int age, char address[], int contact)
 {
     FILE *fp;
-    fp = fopen("E:\Hash.txt", "a+");/*  open for writing */
+    fp = fopen("Hash.txt", "a+");/*  open for writing */
 
     //fp = fopen("E:\Hash.txt", "r");
 
@@ -67,24 +67,22 @@ void insert_pat(int id, char name[], int age, char address[], int contact)
         newNode->next = NULL;
     }
     printf("\n\nNode inserted Successfully...!\n");
-	//fprintf(fp, "%d %s %d %s %d", id , name, age, address, contact);
-	fprintf(fp, "ID    = %d\n", id);
-	fprintf(fp, "Name    = %s\n", name);
-	fprintf(fp, "AgE    = %d\n", age);
-	fprintf(fp, "Address    = %s\n", address);
-	fprintf(fp, "Contact    = %d\n", contact);
-   fclose(fp);
+    //fprintf(fp, "%d %s %d %s %d", id , name, age, address, contact);
+    fprintf(fp, "ID    = %d\n", id);
+    fprintf(fp, "Name    = %s\n", name);
+    fprintf(fp, "AgE    = %d\n", age);
+    fprintf(fp, "Address    = %s\n", address);
+    fprintf(fp, "Contact    = %d\n", contact);
+    fclose(fp);
 }
 
 
 void display_pat()
 {
-    int i;
-    FILE *fp;
-
-    fp = fopen("E:\Hash.txt", "r");
-
-    for(i = 0; i < size; i++) {
+ int i;
+ FILE *fp;
+ fp = fopen("E:\Hash.txt", "r");
+ for(i = 0; i < size; i++) {
         struct patient *temp = index_pat[i];
         printf("Data_of _Patient[%d]-->",i);
         while(temp) {
@@ -92,8 +90,8 @@ void display_pat()
             temp = temp->next;
         }
         printf("NULL\n");
-    }
-    fclose(fp);
+  }
+  fclose(fp);
 }
 
 
@@ -117,11 +115,9 @@ main()
                 n_char=write(1,buffer,n_char);
 
         }
-
-        close (fd);
+  close (fd);
   init();
-  do
-        {
+  do{
         printf("\n\n---- HOSPITAL MANAGEMENT SYSTEM MENU ----");
         printf("\n1.PATIENT DATA\n2.DOCTOR DATA\n3.EXIT");
         printf("\nEnter your choice(1-3) : ");
@@ -134,28 +130,18 @@ main()
                         printf("\n\nEnter your choice to insert(1-5):");
                         scanf("%d", &a);
                         switch(a)
-
-                        {
+			{
                             case 1: printf("\n---- INSERT IN TO PATIENT----\n");
-                                    //printf("\nEnter ID, Name, Age, Address, Contact respectively : ");
-                                    //scanf("%d %s %d %s %d", &id, &name, &age, &address, &contact);
-
-
                                     printf("\nEnter Patient ID:");
                                     scanf("%d",&id);
-                                    
-                                    printf("\nEnter Patient Name:");
-                                    scanf("%s",name);
-                                    
+				    printf("\nEnter Patient Name:");
+                                    scanf("%s",name); 
                                     printf("\nEnter Patient Age:");
-                                    scanf("%d",&age);
-                                    
+                                    scanf("%d",&age); 
                                     printf("\nEnter Patient Address:");
                                     scanf("%s",address);
-                                    
                                     printf("\nEnter Patient Contact:");
                                     scanf("%d",&contact);
-    
                                     insert_pat(id, name, age, address, contact);
                                     break;
 

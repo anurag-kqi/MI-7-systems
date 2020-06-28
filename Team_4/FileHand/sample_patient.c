@@ -81,7 +81,7 @@ void display_pat()
 {
  int i;
  FILE *fp;
- fp = fopen("E:\Hash.txt", "r");
+ fp = fopen("Hash.txt", "r");
  for(i = 0; i < size; i++) {
         struct patient *temp = index_pat[i];
         printf("Data_of _Patient[%d]-->",i);

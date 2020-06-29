@@ -131,7 +131,7 @@ Task Performed By :
          Working on Linux and git installation.
          
          
-         23 June 2020:
+23 June 2020:
 
 Meeting Time: 1.30am
 
@@ -167,7 +167,8 @@ Task Performed By :
         Vaibhav:
          Working on git installation. Done with Linux installation and docker.
          
-          25 June 2020:
+
+25 June 2020:
 
 Meeting Time: 
 First Meeting: 10.30am 
@@ -203,5 +204,67 @@ Task Performed By :
          Researched on how to implement read function in code.
          Implementation of read fuction in code. 
          
+        Vaibhav:
+         Working on git configuration and its use.
+
+
+26 June 2020:
+
+Meeting Time: 1.00pm 
+
+Atendees:
+
+        Ashwini P
+        Sagar
+        Shubham
+        Vaibhav
+        Ashwini G
+        
+
+        
+        
+Tasks :  Ashwini P:Working on persistancy Layer. Implementing Write Operation.
+Sagar,Shubham, Ashwini G : .Working on persistancy Layer. Implementing Read Operation.
+Vaibhav : Working on git configuration.
+
+Task Performed By :
+
+        Ashwini Parab, Sagar, Shubham, Ashwini Garje:
+         Working on Persistancy Layer, Read Operations.
+         Researched on how to implement Read function in code.
+         Implementation of Read fuction in code. 
+         
+
+        Vaibhav:
+         Working on git configuration and its use.
+
+
+27 June 2020:
+
+Meeting Time: 3.00pm 
+
+Atendees:
+
+        Ashwini P
+        Sagar
+        Shubham
+        Vaibhav
+        Ashwini G
+        
+
+        
+        
+Tasks :  Ashwini P:Working on persistancy Layer. Implementing Write Operation.
+Sagar,Shubham, Ashwini G : .Working on persistancy Layer. Implementing Read Operation.
+Vaibhav : Working on git configuration.
+
+Task Performed By :
+
+        Ashwini Parab, Sagar, Shubham, Ashwini Garje:
+         Working on Persistancy Layer, Read Operations.
+         Researched on how to implement Read function in code.
+         Implementation of Read fuction in code. 
+         
+
         Vaibhav:
          Working on git configuration and its use.

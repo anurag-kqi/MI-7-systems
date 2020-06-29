@@ -74,7 +74,7 @@ void read_society_D()
   }
 
   /*Write the society data*/
-void write_stud(char owner_name[], int flat_num, int owner_contact)
+void write_society_D(char owner_name[], int flat_num, int owner_contact)
 {
     int fd;
     fd = open("society_D.txt", O_RDWR | O_CREAT | O_APPEND, 0644);

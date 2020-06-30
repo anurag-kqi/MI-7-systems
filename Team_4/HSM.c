@@ -1,7 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+#include <fcntl.h>
+#include<unistd.h>
+#include <sys/types.h>
+#include <sys/stat.h>
 
 #define size 10
 
@@ -28,18 +31,29 @@ int main()
 {
     int ch, a, b, id, contact, age;
     char name[20], address[50], bloodgrp[10], symptoms[40];
+    int fd;
+    int n_char=0;
+    char buffer[80];
+    fd = open("Hash.txt",  O_APPEND|O_RDWR| O_CREAT, 0644);
+    if (fd==-1){
+	    exit(1);
+    }
+    //Use the read system call to obtain 80 characters from File
+    while( (n_char=read(fd, buffer, 80))!=0){
+	    //Display the characters read
+            n_char=write(1,buffer,n_char);
 
-
+    }
+    close (fd);
     init_pat();
     init_doc();
-
-        do
-        {
+    do{
         printf("\n\n---- HOSPITAL MANAGEMENT SYSTEM MENU ----\n\n");
         printf("\n1.PATIENT DATA\n2.DOCTOR DATA\n3.EXIT");
         printf("\n\nEnter your choice(1-3) : ");
         scanf("%d", &ch);
-        switch(ch) {
+        switch(ch)
+	{
             case 1:
                     do{
                         printf("\n----PATIENT DEPARTMENT----");
@@ -47,8 +61,7 @@ int main()
                         printf("\n\nEnter your choice to insert(1-5):");
                         scanf("%d", &a);
                         switch(a)
-
-                        {
+			{
                             case 1: printf("\n---- INSERT IN TO PATIENT----\n");
                                     //printf("\nEnter ID, Name, Age, Address, Contact respectively : ");
                                     printf("\nEnter Patient ID:");
@@ -85,25 +98,17 @@ int main()
                                     scanf("%d",&id);
                                     update_pat(id);
                                     break;
-
-                           // case 5: exit(0);
-
-
-                            //default: printf("Wrong Choice!!");
-                                     break;
                         }
-                    }while(a != -1 && a !=5);
-                           // default: printf("Wrong Choice!!");
-                    break;
-          case 2:
+                      }while(a != -1 && a !=5);
+			break;
+            case 2:
                     do{
                         printf("\n----DOCTOR DEPARTMENT----");
                         printf("\n\n1.INSERT DATA\n2.DISPLAY DATA\n3.DELETE DATA\n4.UPDATE DATA\n5.EXIT\n\n");
                         printf("\n\nEnter your choice to insert(1-5):");
                         scanf("%d", &b);
                         switch(b)
-
-                        {
+			{
                             case 1: printf("\n---- INSERT IN TO DOCTOR----\n");
                                    // printf("\nEnter ID, Name, Clinic Address, Contact respectively : ");
                                     printf("\nEnter Doctor ID:");
@@ -134,20 +139,11 @@ int main()
                                     scanf("%d",&id);
                                     update_doc(id);
                                     break;
-
-                            //case 5: exit(0);
-                            //default: printf("Wrong Choice!!");
-                                     break;
                         }
-                    }while(b != -1 && b != 5);
-
-                break;
-
-       // case 3: exit(0);
-
-	    //default: printf("Wrong Choice!!");
+                      }while(b != -1 && b != 5);
+			break;
         }
-    }while(ch!= -1 && ch!= 3);
+      }while(ch!= -1 && ch!= 3);
     return 0;
 }
 

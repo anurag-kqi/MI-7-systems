@@ -9,6 +9,110 @@ Team Members :
     3. Rupam Dandge
     4. Aishwarya Bhutkar
 _______________________________________________________________________________________________________________
+02 july 2020
+
+Meeting Time : 12 PM
+
+Attendees : 
+
+		Shankar
+		Harshada
+		Rupam
+		Aishwarya
+
+Tasks : 
+
+		. Project Persistency.
+		. Create project Docker Image, run project on Docker.
+		
+Task Performed By : (yesterday's)
+
+		. Everyone is working on Persistency layer.
+		. Team1 Dockerhub account, Dockerhub Repository.
+		
+
+01 july 2020
+
+Meeting Time : 12 PM
+
+Attendees : 
+
+		Shankar
+		Harshada
+		Rupam
+		Aishwarya
+
+
+Tasks : 
+
+		. everyone is workink on Persistency.
+		. creating project Docker Image.
+		. Team1 Dockerhub account, Dockerhub Repository.
+		
+
+29 june 2020
+
+Meeting Time : 12 PM
+
+Attendees : 
+
+		Shankar
+		Harshada
+		Rupam	
+		Aishwarya
+
+Tasks : 
+
+		. everyone is workink on Persistency.
+		. creating project Docker Image.
+
+28 june 2020
+
+Meeting Time : 12 PM
+
+Attendees : 
+
+		Shankar
+		Harshada
+		Rupam
+		Aishwarya
+
+Tasks : 
+
+		. everyone is workink on Persistency.
+		. creating project Docker Image.
+
+27 june 2020
+
+Meeting Time : 12 PM
+
+Attendees : (Oncall)
+
+		Shankar
+		Harshada
+		Rupam
+		Aishwarya
+
+Tasks : 
+
+		.everyone is workink on Persistency.
+
+26 june 2020
+
+Meeting Time : 12 PM
+
+Attendees :
+
+		Shankar
+		Harshada
+		Rupam
+		Aishwarya
+
+Tasks : 
+		
+		.everyone is workink on Persistency.
+
+
 25 june 2020    
 
 Meeting Time : 12 PM   

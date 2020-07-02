@@ -66,7 +66,7 @@ void read_stud()
     buff[siz-1] = '\0';
     printf("%s", buff);
     close(fd);
-}
+
 
 
 }

@@ -10,4 +10,4 @@ void write_in(nodeElement B);
 
 void read_in(nodeElement Businesses[],int fd1);
 
-void delete(int del_id, int size, nodeElement Businesses[]); 
+void delete_it(int del_id, int size, nodeElement Businesses[]);

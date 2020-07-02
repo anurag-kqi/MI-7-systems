@@ -9,6 +9,33 @@ Team Members :
 3. Prajawal
 4. Nipun Divecha
 
+2 July 2020
+Meeting Time:11:00 am
+
+Attendees:
+1. Divyani Patidar
+2. Kishori Nikam
+3. Prajawal
+
+Tasks:
+  .Create binary of project file and converted into docker iamge and tag in docker hub account.
+  .Push dockerfile, project code and makefile on the github.
+  .Read - write operation of code.
+
+Task performed by yesterday:
+  .Created docker iamge and tag in docker hub account.
+
+1 July 2020
+Meeting Time:11:00 am
+
+Attendees:
+1. Divyani Patidar
+2. Kishori Nikam
+3. Prajawal
+
+Tasks:
+  .Create docker iamge and tag in docker hub account.
+
 30 June 2020
 Meeting Time:6:00 pm
 

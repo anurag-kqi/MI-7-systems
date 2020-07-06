@@ -374,7 +374,7 @@ Atendees:
         
         
 Tasks :  Ashwini P:Working on persistancy Layer. Implementing Write Operation.
-         Sagar,Shubham, Ashwini G : .Working on persistancy Layer. Implementing Read Operation.
+         Sagar,Shubham, Ashwini G : .Working on persistancy Layer. Implementing Read Operation. Work on docker.
 Vaibhav : Working on git configuration.
 
 Task Performed By :
@@ -414,6 +414,7 @@ Task Performed By :
          Working on Persistancy Layer, Read Operations.
          Researched on how to implement Read function in code.
          Implementation of Read fuction in code. 
+         Docker ubuntu image created.
          
 
 
@@ -442,6 +443,7 @@ Task Performed By :
          Working on Persistancy Layer, Read Operations.
          Researched on how to implement Read function in code.
          Implementation of Read fuction in code. 
+         Docker issue resolveing.
          
          
 06 July 2020:
@@ -469,4 +471,4 @@ Task Performed By :
          Working on Persistancy Layer, Read Operations.
          Researched on how to implement Read function in code.
          Implementation of Read fuction in code.
-         Doccker Image creation.
+         Docker Image creation.

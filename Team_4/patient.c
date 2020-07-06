@@ -165,11 +165,7 @@ void update_pat(int id)
                 scanf("%d",&age);
                 printf("\nEnter Patient Blood Group:");
                 scanf("%s", bloodgrp);
-<<<<<<< HEAD
-                printf("\nEnter Patient Address:");
-=======
           	printf("\nEnter Patient Address:");
->>>>>>> fd53d69f5b93c5a99562ac744608f0f1456af4af
                 scanf("%s", address);
                 printf("\nEnter Patient Contact:");
                 scanf("%d",&contact);
@@ -181,21 +177,13 @@ void update_pat(int id)
     		strcpy(ptr->bloodgrp, bloodgrp);
     		strcpy(ptr->address, address);
     		ptr->contact = contact;
-<<<<<<< HEAD
 		strcpy(ptr->symptoms, symptoms);
            	printf("\n\nPatient Id - %d\nPatient Name - %s\nAge - %d\n Address - %s\n Contact - %d\n Symptoms - %s",ptr->id, ptr->name, ptr->age, ptr->address, ptr->contact, ptr->symptoms);
             	printf("\n Record Updated Successfully !!!");
                 flag = 0;
                 break;
             	}else {
-=======
-                strcpy(ptr->symptoms, symptoms);
-                printf("\n\nPatient Id - %d\nPatient Name - %s\nAge - %d\n Address - %s\n Contact - %d\n Symptoms - %s",ptr->id, ptr->name, ptr->age, ptr->address, ptr->contact, ptr->symptoms);
-                printf("\n Record Updated Successfully !!!");
-                flag = 0;
-                break;
-            }else {
->>>>>>> fd53d69f5b93c5a99562ac744608f0f1456af4af
+
                 flag=1;
             	}
             	i++;

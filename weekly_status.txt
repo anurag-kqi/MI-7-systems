@@ -1,0 +1,285 @@
+Team1:
+- Harshada: No here 
+- Rupam: 10 hrs per day: Yes
+- Shankar: 10 hrs per day: Yes
+- Aishwarya: Not there
+Project status:
+- Validation
+- Makefile
+
+Team2:
+- Divya: 10 hrs per day: Yes
+- Kishori: 10 hrs per day: Yes
+- Nayan: Not responding
+- Nipun: Not there
+- Prajwal Yadav: Not there
+Project status:
+- insert is working
+- delete still has some problem
+
+Team3:
+- Vinay: Not there
+- Sakshi: Not there
+- Siddhant Gupta: Not there
+- Swapnil: Not there
+Project status:
+- Need to do coding style changes
+
+Team4:
+- Ashwini Garje: 10 hrs per day: Yes
+- Ashwini-2: 10 hrs per day: yes
+- Shubham : 10 hrs per day: yes
+- Sagar Mahajan: 10 hrs per day: yes
+- Vaibhav: 10 hrs per day: yes
+Project status:
+- still not at the demo stage
+
+1. Harshada:
+  27 June
+  - docker working, no work yesterday
+  - 1 day missed
+  20 June, 2020:
+  - Persistency layer
+  - containers begin to understand
+  - all the sessions
+  - all good
+   30 May, 2020:
+   - hash table, lilnked role_list
+   - attended all sessions
+   - Looks good
+   23 May, 2020:
+   - overall good
+   9 May, 2020:
+   - C lang: pointers, function, array, control, data types
+   - git
+   - ubuntu
+   - buuble sort and selection sort, pattern
+   - Code review
+2. Divyani:
+  27 June
+  - ubuntu is giving problem
+  - read/write code, still not working
+  - 8 hrs / 10 hrs
+  20 June:
+  - attended all sessions
+  - persistency WIP
+  - making progress
+   30 May, 2020:
+   - learning hash tables
+   - attended all sessions
+   23 May, 2020:
+   - linked list, basic hash table
+   - 3-4 submissions
+   - attended all sessions
+   9 May, 2020:
+   - C lang: pointers, function, data types, string, control
+   - git
+   - ubuntu
+   - selection sort, palindrome,
+   - code review
+3. Shankar:
+  27 June, 2020:
+  - all days
+  - 10 - 11 hrs
+  20 JUne, 2020:
+  - persistency layer working with fread/fwrite not with read/write
+
+   30 May, 2020
+   - hash table, single/double linked list
+   - increase the pace
+   - missed 2 days
+   23 May, 2020:
+   - 3-4 programs
+   - getting comfortable
+   9 May, 2020:
+   - C lang: pointers, function, data types, string, array
+   - git
+   - ubuntu
+   - palindrome, binary search, linear search, string
+   - code review
+4. Kishori:
+  27 June, 2020
+  - read / write, docker
+  - 1 missed
+  - 10 hrs
+  20 June, 2020:
+  - working on persistency
+  - 1 day Missing
+  - all good
+   30 May, 2020:
+   - union, linked list, hash table
+   -
+   23 May, 2020:
+   - tree programs, linked list, hash table work in progress
+   - 3-4 submission
+   - missed 1 session this week
+   9 May, 2020:
+   - C lang: data types, operators
+   - git
+   - ubuntu
+   - lower to upper, positve / -ve number
+   - code review
+5. Nayan:
+  27 June, 2020:
+  He migth be dropped out, not responding
+  20 June, 2020:
+    - was not keeping well, back in the team now
+   30 May, 2020:
+   - part of team 2
+   -
+   23 May, 2020:
+   - linked list
+   - missed one day
+   9 May, 2020:
+   - C lang: data types, operators, pointer, function
+   - git
+6. Rupam:
+  27 June, 2020:
+  - persistecy layer, docker
+  - 1 day missed
+  - 8 hrs
+  20 June, 2020:
+  - working on persistency layer
+  - 1 day missed
+   30 May, 2020:
+   - union, double linked role
+   - team 1
+   - all days last week
+   23rd May, 2020:
+   - 4 programs,
+   6 May, 2020:
+   - C lang: function, data types, string, array
+
+7. Vinay
+  27 June, 2020:
+  Not attending meeting, not attending class, mostly lost cause
+  20 June, 2020:
+  missed 2 classes
+   30 May, 2020:
+   - project doc
+   - attended all sessions
+   23rd May, 2020:
+   - working on linked list
+   -
+   9 May, 2020:
+   - does not have machine
+   - work on paper
+8. Sakshi:
+  27 June, 2020:
+  - She is responding, not attending class, but attending team meeting
+  - She is contributing to the team
+  20 June, 2020:
+  - Persistency layer work
+  - 4 days missed
+   30 May, 2020
+   - sorted linke list, linear search
+   - hash table concept not clear
+   - all days
+   23 May, 2020:
+
+   9 May, 2020:
+   - C lang: comfortable with C lang concepts
+   - arranging machine, will get mid next week
+   - work on paper
+
+9. Ashwini Garje
+  27 June, 2020:
+  - Docker, Persistency work in progress
+  - 2 days missed
+  - 10 hrs
+  20 June, 2020:
+  - Need to get some help and solve the problem
+  - 2 missed
+
+   30 May, 2020:
+   - Part of team 4
+   23 May, 2020:
+   - 3-4 programs
+   9 May, 2020:
+   - git
+   - linux machine
+   - c language: basic concepts
+10. Ashwini Parab
+  27 June, 2020:
+  - docker, persistency work in progress
+  - 10 Hrs
+  20 June, 2020:
+  - working on Makefile
+  - working on persistency layer
+   30 May, 2020:
+   - part of team 4
+   - struct, array, simple array, address, size
+   - 5 days attended
+   23 May, 2020:
+   - simple linked list, hash table without linked list
+   - all days in week
+   -
+11. Shubham
+  27 June, 2020:
+  - Missing
+  - Attending team work, doing some work
+  - has some other class in morning
+  20 June, 2020
+  Missing
+   30 May, 2020
+   - ubuntu installation done
+   - git hub set
+   - basic C program
+   - learning hash table
+    25 May, 2020
+    - Linux still not working
+12. Swapnil
+  27 June, 2020:
+  - docker work
+  - missed classes, working on project
+  - 10 hrs
+  20 June, 2020:
+  Attended all days
+  Makefile working
+   30 May, 2020
+   - missed 2 days
+   - looking good
+    not responding
+
+13. Siddhant Gupta
+  27 June, 2020:
+  - 1 day missed
+  - 10 hrs
+  20 June, 2020:
+  Missing
+  30 May, 2020
+  - all good
+  - attended all sessions
+   23 May, 2020:
+   - hash table program
+   - Git is setup
+   - ubuntu
+14. Aishwarya Bhutkar
+  27 June, 2020
+  - Docker install, persisting layer
+  20 June, 2020:
+  - work on persistence layer
+  - all good
+  30 May, 2020
+  - BE computer
+15. Sagar Mahajan
+  27 June:
+  - Docker installation
+  - 10 hrs
+  - all days
+  20th June:
+  - working on persisency
+  30 May, 2020
+  - Attended 4 session
+16.  Nipun
+  27 June, 2020:
+    Team 4, worked only for 2 days
+  20 June, 2020:
+    Missing
+17. Prajwal
+  27 June, 2020
+  - docker installation
+  - 1 day missed
+  - 7 hrs
+  20 June, 2020:
+    Missing

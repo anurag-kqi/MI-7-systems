@@ -32,6 +32,8 @@ void init_pat()
 
 void insert_pat(int id, char name[], int age, char bloodgrp[], char address[], int contact, char symptoms[])
 {
+    FILE *fp;
+    fp = fopen("Hash.txt", "a+");/*  open for writing */
     struct patient *newNode = malloc(sizeof(struct patient));
     newNode->id = id;
     strcpy(newNode->name, name);
@@ -60,7 +62,15 @@ void insert_pat(int id, char name[], int age, char bloodgrp[], char address[], i
         newNode->prev = temp;
         newNode->next = NULL;
     }
-    printf("\n\nNode inserted Successfully...!\n");
+   printf("\n\nNode inserted Successfully...!\n");
+   fprintf(fp, "ID    = %d\n", id);
+   fprintf(fp, "Name    = %s\n", name);
+   fprintf(fp, "Age    = %d\n", age);
+   fprintf(fp, "BloodGroup    = %s\n", bloodgrp);
+   fprintf(fp, "Address    = %s\n", address);
+   fprintf(fp, "Contact    = %d\n", contact);
+   fprintf(fp, "symptoms    = %s\n", symptoms);
+   fclose(fp);
 }
 
 
@@ -100,7 +110,7 @@ void delete_pat(int id)
         }
 
     } else {
-	        while (ptr->next != NULL) {
+	      while (ptr->next != NULL) {
               if (ptr->next->id == id) {
                   toDelete = ptr->next;
                   if (toDelete->next == NULL) {
@@ -111,9 +121,9 @@ void delete_pat(int id)
                         ptr->next = toDelete->next;
                         toDelete->next->prev = toDelete->prev;
                         free(toDelete);
-                    }
-              }
-              ptr = ptr->next;
+                        }
+                }
+                ptr = ptr->next;
           }
           printf("\n\n\tnode not found\n");
       }
@@ -155,7 +165,11 @@ void update_pat(int id)
                 scanf("%d",&age);
                 printf("\nEnter Patient Blood Group:");
                 scanf("%s", bloodgrp);
+<<<<<<< HEAD
                 printf("\nEnter Patient Address:");
+=======
+          	printf("\nEnter Patient Address:");
+>>>>>>> fd53d69f5b93c5a99562ac744608f0f1456af4af
                 scanf("%s", address);
                 printf("\nEnter Patient Contact:");
                 scanf("%d",&contact);
@@ -167,12 +181,21 @@ void update_pat(int id)
     		strcpy(ptr->bloodgrp, bloodgrp);
     		strcpy(ptr->address, address);
     		ptr->contact = contact;
+<<<<<<< HEAD
 		strcpy(ptr->symptoms, symptoms);
            	printf("\n\nPatient Id - %d\nPatient Name - %s\nAge - %d\n Address - %s\n Contact - %d\n Symptoms - %s",ptr->id, ptr->name, ptr->age, ptr->address, ptr->contact, ptr->symptoms);
             	printf("\n Record Updated Successfully !!!");
                 flag = 0;
                 break;
             	}else {
+=======
+                strcpy(ptr->symptoms, symptoms);
+                printf("\n\nPatient Id - %d\nPatient Name - %s\nAge - %d\n Address - %s\n Contact - %d\n Symptoms - %s",ptr->id, ptr->name, ptr->age, ptr->address, ptr->contact, ptr->symptoms);
+                printf("\n Record Updated Successfully !!!");
+                flag = 0;
+                break;
+            }else {
+>>>>>>> fd53d69f5b93c5a99562ac744608f0f1456af4af
                 flag=1;
             	}
             	i++;

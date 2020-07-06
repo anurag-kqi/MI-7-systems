@@ -177,16 +177,17 @@ void update_pat(int id)
     		strcpy(ptr->bloodgrp, bloodgrp);
     		strcpy(ptr->address, address);
     		ptr->contact = contact;
-                strcpy(ptr->symptoms, symptoms);
-                printf("\n\nPatient Id - %d\nPatient Name - %s\nAge - %d\n Address - %s\n Contact - %d\n Symptoms - %s",ptr->id, ptr->name, ptr->age, ptr->address, ptr->contact, ptr->symptoms);
-                printf("\n Record Updated Successfully !!!");
+		strcpy(ptr->symptoms, symptoms);
+           	printf("\n\nPatient Id - %d\nPatient Name - %s\nAge - %d\n Address - %s\n Contact - %d\n Symptoms - %s",ptr->id, ptr->name, ptr->age, ptr->address, ptr->contact, ptr->symptoms);
+            	printf("\n Record Updated Successfully !!!");
                 flag = 0;
                 break;
-            }else {
+            	}else {
+
                 flag=1;
-            }
-            i++;
-            ptr = ptr -> next;
+            	}
+            	i++;
+            	ptr = ptr -> next;
         }
 
         if(flag==1) {

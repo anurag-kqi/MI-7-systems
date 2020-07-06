@@ -148,36 +148,35 @@ void update_pat(int id)
 		//printf("Enter ID, Name, Age, Address, Contact respectively : ");
 		//scanf("%d %s %d %s %s %d", &id, &name, &age, &bloodgrp, &address, &contact);
 		printf("\nEnter Patient ID:");
-                                 	scanf("%d",&id);
-                                    	printf("\nEnter Patient Name:");
-                                    	scanf("%s", name);
-                                    	printf("\nEnter Patient Age:");
-                                    	scanf("%d",&age);
-                                    	printf("\nEnter Patient Blood Group:");
-                                    	scanf("%s", bloodgrp);
-                                        printf("\nEnter Patient Address:");
-                                    	scanf("%s", address);
-                                    	printf("\nEnter Patient Contact:");
-                                    	scanf("%d",&contact);
-                                    	printf("\nEnter Disease Symptoms:");
-                                    	scanf("%s", symptoms);
-            		ptr->id = id;
+                scanf("%d",&id);
+                printf("\nEnter Patient Name:");
+                scanf("%s", name);
+                printf("\nEnter Patient Age:");
+                scanf("%d",&age);
+                printf("\nEnter Patient Blood Group:");
+                scanf("%s", bloodgrp);
+                printf("\nEnter Patient Address:");
+                scanf("%s", address);
+                printf("\nEnter Patient Contact:");
+                scanf("%d",&contact);
+                printf("\nEnter Disease Symptoms:");
+                scanf("%s", symptoms);
+            	ptr->id = id;
     		strcpy(ptr->name, name);
     		ptr->age = age;
     		strcpy(ptr->bloodgrp, bloodgrp);
     		strcpy(ptr->address, address);
     		ptr->contact = contact;
-            strcpy(ptr->symptoms, symptoms);
-            printf("\n\nPatient Id - %d\nPatient Name - %s\nAge - %d\n Address - %s\n Contact - %d\n Symptoms - %s",ptr->id, ptr->name, ptr->age, ptr->address, ptr->contact, ptr->symptoms);
-            printf("\n Record Updated Successfully !!!");
+		strcpy(ptr->symptoms, symptoms);
+           	printf("\n\nPatient Id - %d\nPatient Name - %s\nAge - %d\n Address - %s\n Contact - %d\n Symptoms - %s",ptr->id, ptr->name, ptr->age, ptr->address, ptr->contact, ptr->symptoms);
+            	printf("\n Record Updated Successfully !!!");
                 flag = 0;
                 break;
-            }
-	    else {
+            	}else {
                 flag=1;
-            }
-            i++;
-            ptr = ptr -> next;
+            	}
+            	i++;
+            	ptr = ptr -> next;
         }
 
         if(flag==1) {

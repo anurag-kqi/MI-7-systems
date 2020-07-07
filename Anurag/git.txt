@@ -1,5 +1,0 @@
-git clone https://github.com/anurag-kqi/MI-7-systems.git
-git add .
-git commit
-git push
-

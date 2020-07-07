@@ -389,3 +389,12 @@ Task Performed By :
          Working on git configuration and its use.
 
 
+07 July 2020:
+
+Meeting Time: 11.00am 
+
+Atendees:
+
+        Ashwini P
+        
+        

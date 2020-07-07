@@ -1,6 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <fcntl.h>
+#include<unistd.h>
+#include <sys/types.h>
+#include <sys/stat.h>
 #define size 10
 struct doctor
 {
@@ -22,6 +26,19 @@ struct doctor
 void init_doc()
 {
     int i;
+    struct doctor *newNode = malloc(sizeof(struct doctor));
+    struct doctor D1;
+    int id, contact, count;
+    char name[30], address[50], buf[100];
+    int fd = open("Doc.txt", O_RDONLY );
+    if(fd < 0){
+        perror("open failed");
+        exit(-1);
+    }
+    while(read(fd ,(void*)&D1, sizeof(struct doctor))){
+    printf("\n%d %s %s %d\n", D1.id, D1.name, D1.address, D1.contact);
+    }
+    close(fd);
     for(i = 0; i < size; i++) {
         //index_pat[i] = NULL;
         index_doc[i] = NULL;
@@ -58,7 +75,18 @@ void insert_doc(int id, char name[], char address[], int contact)
         newNode->prev = temp;
         newNode->next = NULL;
     }
+    int fd = open("Doc.txt", O_RDWR | O_CREAT | O_APPEND);
+    if (fd < 0) {
+            perror("file open failed");
+            exit(1);
+    }
+    int count = write(fd, newNode ,sizeof(struct doctor));
+    if (count < 0) {
+            perror("write failed");
+            exit(1);
+    }
     printf("\n\nNode inserted Successfully...!\n");
+    close(fd);
 }
 
 void display_doc()

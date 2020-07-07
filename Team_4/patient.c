@@ -1,7 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+#include <fcntl.h>
+#include<unistd.h>
+#include <sys/types.h>
+#include <sys/stat.h>
 #define size 10
 struct patient
 {
@@ -23,6 +26,19 @@ struct patient
 void init_pat()
 {
     int i;
+    struct patient *newNode = malloc(sizeof(struct patient));
+    struct patient P1;
+    int id, contact, age, data, count;
+    char name[30], address[50], buf[100];
+    int fd = open("Hash.txt", O_RDONLY );
+    if(fd < 0){
+        perror("open failed");
+        exit(-1);
+    }
+    while(read(fd ,(void*)&P1, sizeof(struct patient))){
+    printf("%d %s %d %s %s %d %s", P1.id, P1.name, P1.age, P1.bloodgrp, P1.address, P1.contact, P1.symptoms);
+    }
+    close(fd);
     for(i = 0; i < size; i++) {
         index_pat[i] = NULL;
         //index_doc[i] = NULL;
@@ -32,8 +48,8 @@ void init_pat()
 
 void insert_pat(int id, char name[], int age, char bloodgrp[], char address[], int contact, char symptoms[])
 {
-    FILE *fp;
-    fp = fopen("Hash.txt", "a+");/*  open for writing */
+    //FILE *fp;
+    //fp = fopen("Hash.txt", "a+");/*  open for writing */
     struct patient *newNode = malloc(sizeof(struct patient));
     newNode->id = id;
     strcpy(newNode->name, name);
@@ -62,15 +78,28 @@ void insert_pat(int id, char name[], int age, char bloodgrp[], char address[], i
         newNode->prev = temp;
         newNode->next = NULL;
     }
-   printf("\n\nNode inserted Successfully...!\n");
-   fprintf(fp, "ID    = %d\n", id);
-   fprintf(fp, "Name    = %s\n", name);
-   fprintf(fp, "Age    = %d\n", age);
-   fprintf(fp, "BloodGroup    = %s\n", bloodgrp);
-   fprintf(fp, "Address    = %s\n", address);
-   fprintf(fp, "Contact    = %d\n", contact);
-   fprintf(fp, "symptoms    = %s\n", symptoms);
-   fclose(fp);
+    int fd = open("Hash.txt", O_RDWR | O_CREAT | O_APPEND);
+    if (fd < 0) {
+            perror("file open failed");
+            exit(1);
+    }
+    int count = write(fd, newNode ,sizeof(struct patient));
+    if (count < 0) {
+            perror("write failed");
+            exit(1);
+    }
+    printf("\n\nNode inserted Successfully...!\n");
+    close(fd);
+
+   //fprintf(fp, "ID    = %d\n", id);
+   //fprintf(fp, "Name    = %s\n", name);
+   //fprintf(fp, "Age    = %d\n", age);
+   //fprintf(fp, "BloodGroup    = %s\n", bloodgrp);
+   //fprintf(fp, "Address    = %s\n", address);
+   //fprintf(fp, "Contact    = %d\n", contact);
+   //fprintf(fp, "symptoms    = %s\n", symptoms);
+   //fclose(fp);
+
 }
 
 

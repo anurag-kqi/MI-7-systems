@@ -9,7 +9,6 @@
 #include <sys/stat.h>
 
 #define size 9
-
 struct student
 {
     int id;
@@ -23,13 +22,6 @@ struct student
 
 struct student *chain[size];
 
-//file write functions
-void write_stud(int id, char name[], char class[], char address[], int contact);
-extern void insert_stud(int id, char name[], char class[], char address[], int contact);
-
-//File pointer
-FILE *fptr;
-
 //init array of list to NULL
 void init_stud()
 {
@@ -39,78 +31,20 @@ void init_stud()
     }
 }
 
-//Read the student data
-void read_stud()
-{
-    int fd;
-    int id, contact;
-    char name[30], class[30], address[50];
-
-    fptr = fopen("Student.txt", "r");
-    while (( fscanf(fptr, "%d %[^\n]%*c %s %[^\n]%*c %d", &id, name, class, address, &contact)) != EOF) {
-      insert_stud(id, name, class, address, contact);
-    }
-    fclose(fptr);
-    //Reading file data using UNIX file descriptor
-    fd = open("Student.txt", O_RDONLY | O_CREAT);
-    if (fd < 0)
-    {
-       perror("Open failed");
-    }
-    struct stat st;
-    stat("Student.txt", &st);
-    int siz = st.st_size;
-
-    char buff[siz];
-    read(fd, buff, sizeof(buff));
-    buff[siz-1] = '\0';
-    printf("%s", buff);
-    close(fd);
-
-
-
-}
-
-//Write the student data
-void write_stud(int id, char name[], char class[], char address[], int contact)
-{
-    int fd;
-    fd = open("Student.txt", O_RDWR | O_CREAT | O_APPEND, 0644);
-    if (fd < 0)
-    {
-       perror("file open failed...");
-    }
-
-    dprintf(fd, "%d", id);
-    //write(fd, &id, sizeof(id));
-    write(fd,"\n", strlen("\n"));
-    write(fd,name, strlen(name));
-    write(fd,"\n", strlen("\n"));
-    write(fd,class, strlen(class));
-    write(fd,"\n", strlen("\n"));
-    write(fd,address, strlen(address));
-    write(fd,"\n", strlen("\n"));
-    dprintf(fd, "%d", contact);
-    //write(fd, &contact, sizeof(contact));
-    write(fd,"\n", strlen("\n"));
-
-    close(fd);
-}
-
 //insert values into STUDENT hash table
-void insert_stud(int id, char name[], char class[], char address[], int contact)
+void insert_stud(struct student stud_data)
 {
     //create a newnode with value
     struct student *newNode = malloc(sizeof(struct student));
-    newNode->id = id;
-    strcpy(newNode->name, name);
-    strcpy(newNode->class, class);
-    strcpy(newNode->address, address);
-    newNode->contact = contact;
+    newNode->id = stud_data.id;
+    strcpy(newNode->name, stud_data.name);
+    strcpy(newNode->class, stud_data.class);
+    strcpy(newNode->address, stud_data.address);
+    newNode->contact = stud_data.contact;
     newNode->next = NULL;
     newNode->prev = NULL;
     //calculate hash key
-    int key = id % size;
+    int key = stud_data.id % size;
 
     if (chain[key] == NULL) {
         newNode->next = NULL;
@@ -126,7 +60,6 @@ void insert_stud(int id, char name[], char class[], char address[], int contact)
         newNode->prev = temp;
         newNode->next = NULL;
     }
-    //printf("\n\n\tNode inserted Successfully...!\n");
 }
 
 //DELETE values from STUDENT hash table

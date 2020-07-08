@@ -328,3 +328,73 @@ Task Performed By :
 
         Vaibhav:
          Working on git configuration and its use.
+
+
+01 July 2020:
+
+Meeting Time: 10.00am 
+
+Atendees:
+
+        Ashwini P
+        Sagar
+        Shubham
+        Vaibhav
+        
+
+        
+        
+Tasks :  Ashwini P:Working on persistancy Layer. Implementing Write Operation.
+         Sagar,Shubham, Ashwini G : .Working on persistancy Layer. Implementing Read Operation.
+Vaibhav : Working on git configuration.
+
+Task Performed By :
+
+        Ashwini Parab, Sagar, Shubham, Ashwini Garje:
+         Working on Persistancy Layer, Read Operations.
+         Researched on how to implement Read function in code.
+         Implementation of Read fuction in code. 
+         
+
+        Vaibhav:
+         Working on git configuration and its use.
+
+02 July 2020:
+
+Meeting Time: 11.00am 
+
+Atendees:
+
+        Ashwini P
+        Sagar
+        Shubham
+        Vaibhav
+        
+
+        
+        
+Tasks :  Ashwini P:Working on persistancy Layer. Implementing Write Operation.
+         Sagar,Shubham, Ashwini G : .Working on persistancy Layer. Implementing Read Operation. Work on docker.
+Vaibhav : Working on git configuration.
+
+Task Performed By :
+
+        Ashwini Parab, Sagar, Shubham, Ashwini Garje:
+         Working on Persistancy Layer, Read Operations.
+         Researched on how to implement Read function in code.
+         Implementation of Read fuction in code. 
+         
+
+        Vaibhav:
+         Working on git configuration and its use.
+
+
+07 July 2020:
+
+Meeting Time: 11.00am 
+
+Atendees:
+
+        Ashwini P
+        
+        

@@ -19,7 +19,7 @@ struct doctor
     void delete_doc(int id);
     void update_doc(int id);
 
-void init()
+void init_doc()
 {
     int i;
     for(i = 0; i < size; i++) {

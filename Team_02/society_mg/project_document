@@ -1,0 +1,29 @@
+Team Members :
+1.Divyani Patidar
+2.Kishori Nikam
+3.Nayan Shrivastava
+4.NIpun Divecha
+5.Prajwal
+
+PROJECT : SOCIETY MANAGEMENT SYSTEM
+    The basic idea of our project is to deal with the society management
+with different modules based on daily to daily life.
+After the execution of program, the user can select the following option
+present in Main Menu.
+
+Main Menu :
+a) Society Data - This module contain the data regarding the society
+like Number of flats, which flats are vacant or occupied, No. of
+floors, Wings, No. of parking etc.
+
+b) Maintenance – This module contain the data related to the
+maintenance of the society like maintenance of lift, electricity,
+water, gardening etc.
+
+c) Visitors – This module will keep records of the visitor who visit to a
+particular resident. Records will be like vehicle No., Mobile No., In
+time, Out time etc.
+
+d) Complaints & Suggestion – This module will take all the complaints
+faced by the resident of the society and they can also give their
+feedback.

@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -225,7 +224,7 @@ void update_stud(int id)
         while (ptr != NULL) {
             if (ptr->id == id) {
                 printf("\n\n\tStudent old Data !!!\n");
-                printf("\n\n\tStudent Id - %d\n\tStudent Nmae - %s\n\tStudent Class - %s\n\tStudent Address - %s\n\tStudent Contact - %d",
+                printf("\n\n\tStudent Id - %d\n\tStudent Name - %s\n\tStudent Class - %s\n\tStudent Address - %s\n\tStudent Contact - %d",
                        ptr->id, ptr->name, ptr->class, ptr->address, ptr->contact);
 
 		printf("\n\n\tStudent New Data !!!\n");

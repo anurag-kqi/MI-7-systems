@@ -1,3 +1,4 @@
+/*School Mnagement Systems.*/
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -23,9 +24,6 @@ extern void search_teacher(int id);
 //file read functions
 extern void read_stud();
 extern void read_teacher();
-
-extern void write_stud();
-
 
 //main menu function
 void menus()
@@ -62,10 +60,8 @@ void menus()
 				scanf("\t %d", &contact);
 				//fprintf(fptr, " %d\n %s\n %s\n %s\n %d\n", id, name, class, address, contact);
                                 //fclose(fptr);
-        //insert_stud( id, name, class, address, contact);
-        write_stud(id, name, class, address, contact);
-				read_stud();
-
+        insert_stud( id, name, class, address, contact);
+				//read_stud();
                                 break;
 
                         case 2: //fptr = (fopen("Teacher.txt","a+"));

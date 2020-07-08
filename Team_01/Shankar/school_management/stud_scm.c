@@ -1,11 +1,10 @@
+/*School Mnagement Systems*/
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <fcntl.h>
 #include<unistd.h>
-#include <sys/types.h>
-#include <sys/stat.h>
 
 #define size 9
 
@@ -41,56 +40,39 @@ void init_stud()
 //Read the student data
 void read_stud()
 {
-    int fd;
     int id, contact;
-    char name[30], class[30], address[50];
-
+    char name[30], class [30], address[50];
     fptr = fopen("Student.txt", "r");
     while (( fscanf(fptr, "%d %[^\n]%*c %s %[^\n]%*c %d", &id, name, class, address, &contact)) != EOF) {
       insert_stud(id, name, class, address, contact);
+      //printf("%d %s %s %s %d\n", id, name, class, address, contact);
     }
     fclose(fptr);
-    //Reading file data using UNIX file descriptor
-    fd = open("Student.txt", O_RDONLY | O_CREAT);
-    if (fd < 0)
-    {
-       perror("Open failed");
-    }
-    struct stat st;
-    stat("Student.txt", &st);
-    int siz = st.st_size;
-
-    char buff[siz];
-    read(fd, buff, sizeof(buff));
-    buff[siz-1] = '\0';
-    printf("%s", buff);
-    close(fd);
 }
 
 //Write the student data
 void write_stud(int id, char name[], char class[], char address[], int contact)
 {
+    //fprintf(fptr, " %d\n %s\n %s\n %s\n %d\n", temp->id, temp->name, temp->class, temp->address, temp->contact);
+
     int fd;
-    fd = open("Student.txt", O_RDWR | O_CREAT | O_APPEND, 0644);
+    //char buff[100] = name;
+    int buff[100];
+  
+    fd = open("Student.txt", O_WRONLY | O_CREAT | O_APPEND, 0644);
     if (fd < 0)
     {
-       perror("file open failed...");
+       perror("r1");
     }
 
-    dprintf(fd, "%d", id);
-    //write(fd, &id, sizeof(id));
-    write(fd,"\n", strlen("\n"));
-    write(fd,name, strlen(name));
-    write(fd,"\n", strlen("\n"));
-    write(fd,class, strlen(class));
-    write(fd,"\n", strlen("\n"));
-    write(fd,address, strlen(address));
-    write(fd,"\n", strlen("\n"));
-    dprintf(fd, "%d", contact);
-    //write(fd, &contact, sizeof(contact));
-    write(fd,"\n", strlen("\n"));
-
+    write(fd, id, sizeof(id));
+    write(fd, name, strlen(name));
+    write(fd, class, strlen(class));
+    write(fd, address, strlen(address));
+    write(fd, contact, sizeof(contact));
+    
     close(fd);
+
 }
 
 //insert values into STUDENT hash table
@@ -105,6 +87,7 @@ void insert_stud(int id, char name[], char class[], char address[], int contact)
     newNode->contact = contact;
     newNode->next = NULL;
     newNode->prev = NULL;
+    write_stud(id, name, class, address, contact);
     //calculate hash key
     int key = id % size;
 
@@ -123,6 +106,7 @@ void insert_stud(int id, char name[], char class[], char address[], int contact)
         newNode->next = NULL;
     }
     //printf("\n\n\tNode inserted Successfully...!\n");
+    //write_stud();
 }
 
 //DELETE values from STUDENT hash table

@@ -3,29 +3,32 @@
 #include <stdlib.h>
 #include <string.h>
 
-//file pointer
-FILE *fptr;
+struct studData
+{
+  int id;
+  char name[30];
+  char class[10];
+  char address[50];
+  int contact;
+};
 
-//student operations
-extern void insert_stud(int id, char name[], char class[], char address[], int contact);
+struct studData stud;
+
+//student hashtable operations
 extern void display_stud();
 extern void delete_stud(int id);
 extern void update_stud(int id);
 extern void search_stud(int id);
-
-//teacher operations
+//teacher hashtable operations
 extern void insert_teacher(int id, char name[], char department[], int contact);
 void display_teacher();
 //extern delete_teacher();
 extern void update_teacher(int id);
 extern void search_teacher(int id);
-
 //file read functions
 extern void read_stud();
 extern void read_teacher();
-
-extern void write_stud();
-
+extern void write_stud(struct studData stud);
 
 //main menu function
 void menus()
@@ -49,26 +52,23 @@ void menus()
 
                     switch (ch)
                     {
-                        case 1: //fptr = (fopen("Student.txt","a+"));
+                        case 1:
 				printf("\n\n\tEnter ID : ");
-				scanf("\t %d", &id);
+				scanf("\t %d", &stud.id);
 				printf("\n\tEnter Name : ");
-				scanf("\t %[^\n]%*c", name);
+				scanf("\t %[^\n]%*c", stud.name);
 				printf("\n\tEnter Class : ");
-				scanf("\t %s", class);
+				scanf("\t %s", stud.class);
 				printf("\n\tEnter Address : ");
-				scanf("\t %[^\n]%*c", address);
+				scanf("\t %[^\n]%*c", stud.address);
 				printf("\n\tEnter Contact : ");
-				scanf("\t %d", &contact);
-				//fprintf(fptr, " %d\n %s\n %s\n %s\n %d\n", id, name, class, address, contact);
-                                //fclose(fptr);
-        //insert_stud( id, name, class, address, contact);
-        write_stud(id, name, class, address, contact);
+				scanf("\t %d", &stud.contact);
+        write_stud(stud);
 				read_stud();
 
                                 break;
 
-                        case 2: //fptr = (fopen("Teacher.txt","a+"));
+                        case 2:
 				printf("\n\n\tEnter ID : ");
 				scanf("\t %d", &id);
 				printf("\n\tEnter Name : ");
@@ -77,8 +77,6 @@ void menus()
 				scanf("\t %[^\n]%*c", department);
 				printf("\n\tEnter Contact : ");
 				scanf("\t %d", &contact);
-				//fprintf(fptr, " %d\n %s\n %s\n %d\n", id, name, department, contact);
-                                //fclose(fptr);
 				read_teacher();
                                 break;
 

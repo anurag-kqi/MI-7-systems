@@ -157,6 +157,8 @@ void insert_society_D(char owner_name[], int flat_num, int owner_contact)
 /*MAINTENANCE INSERTION*/
 void insert_maintenance_D(int flat_num1, int water_bill, int electricity_bill)
 {
+    FILE *fp;
+    fp = fopen("maintenance.txt", "a+");
     struct maintenance_D* newNode = (struct maintenance_D*)malloc(sizeof(struct maintenance_D));
     newNode->flat_num1 = flat_num1;
     newNode->water_bill = water_bill;
@@ -181,11 +183,17 @@ void insert_maintenance_D(int flat_num1, int water_bill, int electricity_bill)
         newNode->prev1 = temp1;
     }
     printf("Node inserted\n");
+    fprintf(fp, "flat_num1 = %d\n", flat_num1);
+    fprintf(fp, "water_bill = %d\n", water_bill);
+    fprintf(fp, "electricity_bill = %d\n", electricity_bill);
+    fclose(fp);
 }
 
 /* VISITORS INSERTION*/
 void insert_visitors_D(char visitor_name[], int vehicle_num, int visitor_contact, int TimeIn, int TimeOut)
 {
+    FILE *fp;
+    fp = fopen("visitors.txt", "a+");
     struct visitors_D* newNode = (struct visitors_D*)malloc(sizeof(struct visitors_D));
     strcpy(newNode->visitor_name, visitor_name);
 
@@ -212,11 +220,19 @@ void insert_visitors_D(char visitor_name[], int vehicle_num, int visitor_contact
         newNode-> prev2 = temp2;
     }
     printf("Node inserted\n");
+    fprintf(fp, "visitor_name = %s\n", visitor_name);
+    fprintf(fp, "vehicle_num = %d\n", vehicle_num);
+    fprintf(fp, "visitor_contact = %d\n", visitor_contact);
+    fprintf(fp, "TimeInIN = %d\n", TimeIn);
+    fprintf(fp, "TimeOut = %d\n", TimeOut);
+    fclose(fp);
 }
 
 /* COMPLAINTS INSERTION*/
 void insert_complaints_D(int flat_number, char complaints_name[] ,char suggestions_name[])
 {
+    FILE *fp;
+    fp = fopen("complaints.txt", "a+");
     struct complaints_D* newNode = (struct complaints_D*)malloc(sizeof(struct complaints_D));
     strcpy(newNode->complaints_name, complaints_name);
     strcpy(newNode->suggestions_name, suggestions_name);
@@ -243,6 +259,10 @@ void insert_complaints_D(int flat_number, char complaints_name[] ,char suggestio
         //newNode->next = NULL;
     }
     printf("Node inserted\n");
+    fprintf(fp, "flat_number = %d\n", flat_number);
+    fprintf(fp, "complaints_name = %s\n", complaints_name);
+    fprintf(fp, "suggestions_name = %s\n", suggestions_name);
+    fclose(fp);
 }
 
 /* SOCIETY DISPLAY*/

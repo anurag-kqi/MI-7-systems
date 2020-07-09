@@ -10,7 +10,6 @@ Project status:
 Team2:
 - Divya: 10 hrs per day: Yes
 - Kishori: 10 hrs per day: Yes
-- Nayan: Not responding
 - Nipun: Not there
 - Prajwal Yadav: Not there
 Project status:
@@ -35,6 +34,8 @@ Project status:
 - still not at the demo stage
 
 1. Harshada:
+  4th July:
+  - no here
   27 June
   - docker working, no work yesterday
   - 1 day missed
@@ -56,6 +57,12 @@ Project status:
    - buuble sort and selection sort, pattern
    - Code review
 2. Divyani:
+  4th July:
+  - docker
+  - Ubuntu working
+  - read / write
+  - 10 hrs per day
+  - attended all days
   27 June
   - ubuntu is giving problem
   - read/write code, still not working
@@ -78,6 +85,11 @@ Project status:
    - selection sort, palindrome,
    - code review
 3. Shankar:
+  4th July:
+  - docker, project file
+  - read write working
+  - all days
+  - 10 hrs per day
   27 June, 2020:
   - all days
   - 10 - 11 hrs
@@ -98,6 +110,10 @@ Project status:
    - palindrome, binary search, linear search, string
    - code review
 4. Kishori:
+  4th July:
+  - some family issues, not in the classs today
+  - all days last week
+
   27 June, 2020
   - read / write, docker
   - 1 missed
@@ -119,21 +135,12 @@ Project status:
    - ubuntu
    - lower to upper, positve / -ve number
    - code review
-5. Nayan:
-  27 June, 2020:
-  He migth be dropped out, not responding
-  20 June, 2020:
-    - was not keeping well, back in the team now
-   30 May, 2020:
-   - part of team 2
-   -
-   23 May, 2020:
-   - linked list
-   - missed one day
-   9 May, 2020:
-   - C lang: data types, operators, pointer, function
-   - git
-6. Rupam:
+
+5. Rupam:
+  4th July:
+  - Not present today
+  - missed 1 day
+
   27 June, 2020:
   - persistecy layer, docker
   - 1 day missed
@@ -150,7 +157,9 @@ Project status:
    6 May, 2020:
    - C lang: function, data types, string, array
 
-7. Vinay
+6. Vinay
+  4th July:
+  - Did not attend most of the last week, lost cause, remove him next week
   27 June, 2020:
   Not attending meeting, not attending class, mostly lost cause
   20 June, 2020:
@@ -164,7 +173,9 @@ Project status:
    9 May, 2020:
    - does not have machine
    - work on paper
-8. Sakshi:
+7. Sakshi:
+  4th July:
+  - Last week, was not active, ping her
   27 June, 2020:
   - She is responding, not attending class, but attending team meeting
   - She is contributing to the team
@@ -182,7 +193,11 @@ Project status:
    - arranging machine, will get mid next week
    - work on paper
 
-9. Ashwini Garje
+8. Ashwini Garje
+  4th July:
+  - Not in the class today
+  - File read/write work in progress
+  - 
   27 June, 2020:
   - Docker, Persistency work in progress
   - 2 days missed
@@ -199,7 +214,9 @@ Project status:
    - git
    - linux machine
    - c language: basic concepts
-10. Ashwini Parab
+9. Ashwini Parab
+  4th July:
+  Not in the class today, although active in the team
   27 June, 2020:
   - docker, persistency work in progress
   - 10 Hrs
@@ -214,7 +231,9 @@ Project status:
    - simple linked list, hash table without linked list
    - all days in week
    -
-11. Shubham
+10. Shubham
+  4th July
+  Not in the class today, although active in the team
   27 June, 2020:
   - Missing
   - Attending team work, doing some work
@@ -228,7 +247,10 @@ Project status:
    - learning hash table
     25 May, 2020
     - Linux still not working
-12. Swapnil
+11. Swapnil
+  4th July
+  - in-consistent in class / team
+  - 
   27 June, 2020:
   - docker work
   - missed classes, working on project
@@ -241,7 +263,11 @@ Project status:
    - looking good
     not responding
 
-13. Siddhant Gupta
+12. Siddhant Gupta
+  4th July
+  - Persistent part working
+  - New logic need to get working
+  - missed one class last week
   27 June, 2020:
   - 1 day missed
   - 10 hrs
@@ -254,7 +280,10 @@ Project status:
    - hash table program
    - Git is setup
    - ubuntu
-14. Aishwarya Bhutkar
+13. Aishwarya Bhutkar
+  Docker: work in progress
+  Missed one
+  10 hrs per day  
   27 June, 2020
   - Docker install, persisting layer
   20 June, 2020:
@@ -262,7 +291,10 @@ Project status:
   - all good
   30 May, 2020
   - BE computer
-15. Sagar Mahajan
+14. Sagar Mahajan
+  4th July  
+  - File read/write
+  - Docker work in progress
   27 June:
   - Docker installation
   - 10 hrs
@@ -271,12 +303,18 @@ Project status:
   - working on persisency
   30 May, 2020
   - Attended 4 session
-16.  Nipun
+15.  Nipun
+  4th July:
+  - mostly inactive
+
   27 June, 2020:
     Team 4, worked only for 2 days
   20 June, 2020:
     Missing
-17. Prajwal
+16. Prajwal
+  4th July
+  - all days last week
+  - docker basic things
   27 June, 2020
   - docker installation
   - 1 day missed

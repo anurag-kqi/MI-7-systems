@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -291,7 +290,7 @@ void display_maintenance_D()
     temp1 = root1;
     if(temp1!=NULL) {
       while(temp1) {
-          printf("%d, %d %d", temp1->flat_num1, temp1->water_bill, temp1->electricity_bill);
+          printf("%d, %d, %d", temp1->flat_num1, temp1->water_bill, temp1->electricity_bill);
           temp1 = temp1->next1;
       }
     }
@@ -324,7 +323,7 @@ void display_complaints_D()
     temp3 = root3;
     if(temp3!=NULL) {
       while(temp3) {
-          printf("%d,%s,%s",temp3->flat_number, temp3->complaints_name, temp3->suggestions_name);
+          printf("%d, %s, %s",temp3->flat_number, temp3->complaints_name, temp3->suggestions_name);
           temp3 = temp3->next3;
       }
 }
@@ -347,7 +346,7 @@ void search_society_D(int flat_num)
         if(prev->flat_num == flat_num) {
           printf("%d found at position %d\n", flat_num, pos);
           printf("\n\towner_name - %s\n\tflat_num - %d\n\towner_contact - %d",
-                 root->owner_name, root->flat_num,  root->owner_contact);
+                prev->owner_name, prev->flat_num, prev->owner_contact);
           return;
         }
         if(prev->next != NULL) {
@@ -369,10 +368,10 @@ void search_maintenance_D(int flat_num1)
     prev1 = root1;
     while(prev1!=NULL) {
         pos++;
-        if(prev1->flat_num1== flat_num1) {
+        if(prev1->flat_num1 == flat_num1) {
           printf("%d found at position %d\n", flat_num1, pos);
           printf("\n\twater_bill - %d\n\tflat_num1 - %d\n\telectricity_bill - %d",
-                 root1->water_bill, root1->flat_num1,  root1->electricity_bill);
+                 prev1->water_bill, prev1->flat_num1, prev1->electricity_bill);
           return;
         }
         if(prev1->next1 != NULL) {
@@ -398,8 +397,7 @@ void search_visitors_D(int vehicle_num)
         if(prev2->vehicle_num == vehicle_num) {
           printf("%d found at position %d\n", vehicle_num, pos);
           printf("\n\tvisitor_name - %s\n\tvehicle_num - %d\n\tvisitor_contact - %d\n\tTimeIn -%d\n\tTimeOut - %d",
-                root2->visitor_name, root2->vehicle_num, root2->visitor_contact, root2->TimeIn, root2->TimeOut);
-
+                prev2->visitor_name, prev2->vehicle_num, prev2->visitor_contact, prev2->TimeIn, prev2->TimeOut);
           return;
         }
         if(prev2->next2 != NULL) {
@@ -425,7 +423,7 @@ void search_complaints_D(int flat_number)
         if(prev3->flat_number == flat_number) {
           printf("%d found at position %d\n", flat_number, pos);
           printf("\n\tflat_number - %d\n\tcomplaints_name - %s\n\tsuggestions_name - %s",
-                 root3->flat_number, root3->complaints_name, root3->suggestions_name);
+                 prev3->flat_number, prev3->complaints_name, prev3->suggestions_name);
           return;
         }
         if(prev3->next3 != NULL) {
@@ -699,30 +697,30 @@ main()
 
                     switch(ch)
                     {
-                        case 1: printf("\n\n\tEnter owner_name : ");
+                        case 1: printf("\n\tEnter owner_name: ");
                                 scanf("\t %s", owner_name);
-                                printf("\n\tEnter flat_num : ");
+                                printf("\n\tEnter flat_num: ");
                                 scanf("\t %d", &flat_num);
-                                printf("\n\tEnter owner_contact : ");
+                                printf("\n\tEnter owner_contact: ");
                                 scanf("\t %d", &owner_contact);
                                 insert_society_D(owner_name, flat_num, owner_contact);
                                 break;
 
-                        case 2: printf("\n\n\tEnter flat_num1 : ");
+                        case 2: printf("\n\tEnter flat_num1: ");
                                 scanf("\t %d", &flat_num1);
-                                printf("\n\n\tEnter water_bill : ");
+                                printf("\n\tEnter water_bill: ");
                                 scanf("\t %d", &water_bill);
-                                printf("\n\tEnter electricity_bill : ");
+                                printf("\n\tEnter electricity_bill: ");
                                 scanf("\t %d", &electricity_bill);
                                 insert_maintenance_D(flat_num1, water_bill, electricity_bill);
                                 break;
 
                         case 3:
-                                printf("\n\n\tEnter Visitors Name: ");
+                                printf("\n\tEnter Visitors Name: ");
               								  scanf("\t%s",visitor_name);
-                                printf("\n\t Enter Vehicle Number: ");
+                                printf("\n\tEnter Vehicle Number: ");
               								  scanf("\t%d",&vehicle_num);
-                                printf("\n\t Enter visitor contact: ");
+                                printf("\n\tEnter visitor contact: ");
               								  scanf("\t%d",&visitor_contact);
                                 printf("\n\tEnter Visitor TimeIn: ");
                                 scanf("\t%d",&TimeIn);
@@ -731,11 +729,11 @@ main()
                                 insert_visitors_D(visitor_name, vehicle_num, visitor_contact, TimeIn, TimeOut);
                                 break;
 
-                        case 4:printf("\n\tEnter complainter's flat_number : ");
+                        case 4:printf("\n\tEnter complainter's flat_number: ");
                                 scanf("\t %d", &flat_number);
-                                printf("\n\n\t Enter the complaints_name : ");
+                                printf("\n\tEnter the complaints_name: ");
                                 scanf("\t %s", complaints_name);
-                                printf("\n\n\t Enter the suggestions_name : ");
+                                printf("\n\tEnter the suggestions_name: ");
                                 scanf("\t %s", suggestions_name);
                                 insert_complaints_D(flat_number, complaints_name, suggestions_name);
                                break;

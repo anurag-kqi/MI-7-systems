@@ -571,7 +571,6 @@ void update_complaints_D(int flat_number, int new_flat_number)
 void delete_society_D(int flat_num)
 {
     int key = flat_num % size;
-  //struct society_D *toDelete =  (struct society_D*)malloc(sizeof(struct society_D));
     struct society_D *toDelete;
     struct society_D *temp = arr[key];
     if(root == NULL) {

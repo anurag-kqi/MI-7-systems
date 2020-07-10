@@ -1,12 +1,10 @@
+
+# the name of the target program
 TARGET = socm
 
 
 # other source files and the associated object files (this can be blank)
-<<<<<<< HEAD
- SRC = society.c maintenance.c  visitors.c complaints.c menu.c 
-=======
- SRC = society.c maintenance.c  visitors.c complaints.c menu.c
->>>>>>> 1809af629eccceded4b723fc319562b3d6bb446d
+ SRC = society.c maintenance.c visitors.c complaints.c menu.c
  OBJ = $(SRC:.c=.o)
 
 
@@ -32,12 +30,12 @@ all: $(TARGET)
 $(TARGET): $(OBJ)
 	$(CC) $(CFLAGS) $(INCLUDE)  $(OBJ) $(LIB) -o $(TARGET)
 
-	# remove binaries
+# remove binaries
 clean:
 	rm -f $(OBJ) $(TARGET)
-	# echo "clean all"
+# echo "clean all"
 
-	# remove binaries and other junk
+# remove binaries and other junk
 clobber:
 	make clean
 	rm -f core *~

@@ -277,16 +277,18 @@ void display_society_D()
           temp = temp->next;
       }
     }
-else {
-    printf("society data is empty or deleted");
-}
+    else {
+      printf("society data is empty or deleted");
+    }
     fclose(fp);
 }
 
 /* MAINTENANCE DISPLAY*/
 void display_maintenance_D()
 {
-    struct maintenance_D *temp1;
+  FILE *fp;
+  fp = fopen("maintenance.txt", "r");
+  struct maintenance_D *temp1;
     temp1 = root1;
     if(temp1!=NULL) {
       while(temp1) {
@@ -294,32 +296,38 @@ void display_maintenance_D()
           temp1 = temp1->next1;
       }
     }
-else {
-    printf("maintenance data is empty or deleted");
-}
+    else {
+      printf("maintenance data is empty or deleted");
+    }
+    fclose(fp);
 }
 
 /* VISITORS DISPLAY*/
 void display_visitors_D()
 {
-    struct visitors_D *temp2;
+  FILE *fp;
+  fp = fopen("visitors.txt", "r");
+  struct visitors_D *temp2;
     temp2 = root2;
     if(temp2!=NULL) {
-    while(temp2) {
+     while(temp2) {
         printf("%s, %d, %d, %d, %d",temp2->visitor_name, temp2->vehicle_num, temp2->visitor_contact, temp2->TimeIn, temp2->TimeOut);
 
         temp2 = temp2-> next2;
     }
 }
-else {
-    printf("visitors data is empty or deleted");
-}
+    else {
+      printf("visitors data is empty or deleted");
+    }
+    fclose(fp);
 }
 
 /* COMPLAINTS DISPLAY*/
 void display_complaints_D()
 {
-    struct complaints_D *temp3;
+  FILE *fp;
+  fp = fopen("maintenance.txt", "r");
+  struct complaints_D *temp3;
     temp3 = root3;
     if(temp3!=NULL) {
       while(temp3) {
@@ -327,9 +335,10 @@ void display_complaints_D()
           temp3 = temp3->next3;
       }
 }
-else {
-    printf("complaints data is empty or deleted");
-}
+      else {
+        printf("complaints data is empty or deleted");
+      }
+      fclose(fp);
 }
 
 /*SOCIETY SEARCH*/

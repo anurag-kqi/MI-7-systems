@@ -1,0 +1,83 @@
+1.What is the meaning of SOCK_STREAM in the socket System Call?
+     -Sockets of type SOCK_STREAM are full-duplex byte streams.  They do
+       not preserve record boundaries.  A stream socket must be in a
+       connected state before any data may be sent or received on it.  A
+       connection to another socket is created with a connect (2) call.
+-Provides sequenced, reliable, two-way, connection-based byte streams. 
+ An out-of-band data transmission  mechanism may be supported.
+
+2.what does socket system call do?
+
+-the  socket system call is used to obtain a socket Descripiter on both the client and the server.
+-the server and client application use to various system calls to connect which use the basic construct called socket.
+-int sockfd = socket(int domain,int type,int protocol).
+
+3.what is htons() ?
+-The htons() function translates a short integer from host byte order to network byte order. htons() 
+   -returns the translated short integer.
+- The unsigned short integer to be put into network byte order.
+- 
+Ex: : #define _OE_SOCKETS
+#include <sys/types.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+
+unsigned short htons(unsigned short a);
+
+
+4.What is Bind()?
+-bind() is function.
+- int bind (int sockfd, const struct sockaddr *myaddr, socklen_t addrlen);
+-bind assigns a local protocol address to a socket. protocol address: a 32 bit IPv4 address and a 16 bit TCP or UDP port number. 
+-sockfd: a socket descriptor returned by the socket function. 
+-*myaddr: a pointer to a protocol-specific address. 
+-addrlen: the size of the socket address structure. Servers bind their “well-known port” when they start. -returns on success: 0. 
+on error: -1.
+- Example: If (bind (sd, (struct sockaddr *) &servaddr, sizeof (servaddr)) != 0) errsys (“bind call error”).
+
+5.what is accept() ?
+-accept function
+-int accept (int sockfd, struct sockaddr *cliaddr, socklen_t *addrlen);
+-accept is called by the TCP server to return the next completed connection from the front of the completed connection queue.
+- sockfd: this is the same socket descriptor as in listen call.
+- *cliaddr: used to return the protocol address of the connected peer process (i.e., the client process).
+- *addrlen: {this is a value-result argument} before the accept call: we set the integer value pointed to by *addrlen to the size of the socket address structure pointed to by cliaddr; 
+-on return from accept call: this integer value contains the actual number of bytes stored in the socket address structure. returns on success: a new socket descriptor on error: -1
+-For accept the first argument sockfd is the listening socket and the returned value is the connected socket. 
+-The server will have one connected socket for each client connection accepted.
+- When the server is finished with a client, the connected socket must be closed. 
+-Example: sfd = accept (sd, NULL, NULL); if (sfd == -1) err_sys (“accept error”);
+
+6.what is connect() ?
+-int connect (int sockfd, const struct sockaddr *servaddr, socklen_t addrlen); 
+- sockfd: a socket descriptor returned by the socket function
+- *servaddr: a pointer to a socket address structure 
+-addrlen: the size of the socket address structure The socket address structure must contain the IP address and the port number for the connection wanted. 
+-In TCP connect initiates a three-way handshake.
+- connect returns only when the connection is established or when an error occurs. 
+-returns on success: 0 on error: -1-
+- Example: if ( connect (sd, (struct sockaddr *) &servaddr, sizeof (servaddr)) != 0) err_sys(“connect call error”);
+7.what is listen()?
+-int listen (int sockfd, int backlog); 
+-listen is called only by a TCP server and performs two actions:
+- 1. Converts an unconnected socket into a passive socket. 
+-2. Specifies the maximum number of connections that the kernel should queue for this socket. 
+-listen is normally called before the accept function. 
+-returns on success: 0 on error: -1 
+-Example: If (listen (sd, 2) != 0) errsys (“listen call error”); 
+
+7.why there are multiple socket in server v/s there is only one socket in the client?
+-A server socket listens on a single port. 
+All established client connections on that server are associated with that same listening port on the server side of the connection. 
+-An established connection is uniquely identified by the combination of client-side and server-side IP/Port pairs. 
+-Multiple connections on the same server can share the same server-side IP/Port pair as long as they are associated with different client-side IP/Port pairs, and the server would be able to handle as many clients as available system resources allow it to.
+-On the client-side, it is common practice for new outbound connections to use a random client-side port, in which case it is possible to run out of available ports if you make a lot of connections in a short amount of time.
+
+
+6. How does server manage communication?
+-The server OS will match the packets against sockets by the combination of source IP, source port, destination IP and destination port and deliver them to the appropriate socket.
+-
+-
+
+
+

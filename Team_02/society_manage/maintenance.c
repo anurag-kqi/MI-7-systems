@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+
+=======
+>>>>>>> 1809af629eccceded4b723fc319562b3d6bb446d
 /*maintenance data*/
 
 #include <stdio.h>
@@ -28,6 +32,16 @@ struct maintenance_D *next1;
 struct maintenance_D *prev1;
 
 struct maintenance_D *arr1[size];
+<<<<<<< HEAD
+void insert_maintenance_D(int flat_num1, int water_bill, int electricity_bill);
+void display_maintenance_D();
+void search_maintenance_D(int flat_num1);
+void update_maintenance_D(int water_bill, int electricity_bill,int new_water_bill, int new_electricity_bill) ;
+void delete_maintenance_D(int flat_num1);
+
+/*File pointer*/
+FILE *fp;
+=======
 
 
 
@@ -35,6 +49,7 @@ extern void insert_maintenance_D(int flat_num1, int water_bill, int electricity_
 
 /*File pointer*/
 FILE *fptr;
+>>>>>>> 1809af629eccceded4b723fc319562b3d6bb446d
 
 /*init array of list to NULL*/
 void init_maintenance_D()
@@ -83,7 +98,13 @@ void init_maintenance_D()
   /* MAINTENANCE DISPLAY*/
   void display_maintenance_D()
   {
+<<<<<<< HEAD
+    FILE *fp;
+    fp = fopen("maintenance.txt", "r");
+    struct maintenance_D *temp1;
+=======
       struct maintenance_D *temp1;
+>>>>>>> 1809af629eccceded4b723fc319562b3d6bb446d
       temp1 = root1;
       if(temp1!=NULL) {
         while(temp1) {
@@ -91,9 +112,16 @@ void init_maintenance_D()
             temp1 = temp1->next1;
         }
       }
+<<<<<<< HEAD
+      else {
+        printf("maintenance data is empty or deleted");
+      }
+      fclose(fp);
+=======
   else {
       printf("maintenance data is empty or deleted");
   }
+>>>>>>> 1809af629eccceded4b723fc319562b3d6bb446d
   }
 
   /*MAINTENANCE SEARCH*/
@@ -116,9 +144,15 @@ void init_maintenance_D()
           if(prev1->next1 != NULL) {
              prev1 = prev1->next1;
           }
+<<<<<<< HEAD
+      else {
+           break;
+      }
+=======
         else {
            break;
         }
+>>>>>>> 1809af629eccceded4b723fc319562b3d6bb446d
       }
   }
 

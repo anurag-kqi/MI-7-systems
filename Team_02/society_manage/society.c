@@ -28,10 +28,18 @@ struct society_D *prev;
 struct society_D *current;
 
 struct society_D *arr[size];
+<<<<<<< HEAD
+void insert_society_D(char owner_name[], int flat_num, int owner_contact);
+void display_society_D();
+void search_society_D(int flat_num);
+void update_society_D(int flat_num, int new_flat_num);
+void delete_society_D(int flat_num);
+=======
 extern void insert_society_D(char owner_name[], int flat_num, int owner_contact);
 
 /*File pointer*/
 FILE *fptr;
+>>>>>>> 1809af629eccceded4b723fc319562b3d6bb446d
 
 /*init array of list to NULL*/
 void init_society_D()
@@ -92,9 +100,15 @@ void display_society_D()
           temp = temp->next;
       }
     }
+<<<<<<< HEAD
+    else {
+    printf("society data is empty or deleted");
+    }
+=======
 else {
     printf("society data is empty or deleted");
 }
+>>>>>>> 1809af629eccceded4b723fc319562b3d6bb446d
     fclose(fp);
 }
 

@@ -1,9 +1,17 @@
+<<<<<<< HEAD
+
+=======
+>>>>>>> 1809af629eccceded4b723fc319562b3d6bb446d
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
 /*file pointer*/
+<<<<<<< HEAD
+FILE *fp;
+=======
 FILE *fptr;
+>>>>>>> 1809af629eccceded4b723fc319562b3d6bb446d
 
 /*society operations*/
 extern void insert_society_D(char owner_name[], int flat_num, int owner_contact);
@@ -52,8 +60,12 @@ int main()
 
                   switch(ch)
                   {
+<<<<<<< HEAD
+                      case 1: printf("\n\n\tEnter owner_name : ");
+=======
                       case 1: //fptr = (fopen("society_D.txt","a+"));
                               printf("\n\n\tEnter owner_name : ");
+>>>>>>> 1809af629eccceded4b723fc319562b3d6bb446d
                               scanf("\t %[^\n]%*c", owner_name);
                               printf("\n\tEnter flat_num : ");
                               scanf("\t %d", &flat_num);
@@ -63,18 +75,29 @@ int main()
 
         	                    break;
 
+<<<<<<< HEAD
+                      case 2: printf("\n\n\tEnter flat_num1 : ");
+=======
                       case 2: //fptr = (fopen("maintenance_D.txt","a+"));
                               printf("\n\n\tEnter flat_num1 : ");
+>>>>>>> 1809af629eccceded4b723fc319562b3d6bb446d
                               scanf("\t %d", &flat_num1);
                               printf("\n\n\tEnter water_bill : ");
                               scanf("\t %d", &water_bill);
                               printf("\n\tEnter electricity_bill : ");
                               scanf("\t %d", &electricity_bill);
+<<<<<<< HEAD
+                              insert_maintenance_D(flat_num1, water_bill, electricity_bill);
+                              break;
+
+                      case 3: printf("\n\n\tEnter Visitors Name: ");
+=======
 
                               break;
 
                       case 3: //fptr = (fopen("visitors_D.txt","a+"));
                               printf("\n\n\tEnter Visitors Name: ");
+>>>>>>> 1809af629eccceded4b723fc319562b3d6bb446d
                               scanf("\t%[^\n]%*c",visitor_name);
                               printf("\n\t Enter Vehicle Number: ");
                               scanf("\t%d",&vehicle_num);
@@ -84,17 +107,28 @@ int main()
                               scanf("\t%d",&TimeIn);
                               printf("\n\tEnter Visitor TimeOut: ");
                               scanf("\t%d",&TimeOut);
+<<<<<<< HEAD
+                              insert_visitors_D(visitor_name, vehicle_num, visitor_contact, TimeIn, TimeOut);
+                              break;
+
+                      case 4: printf("\n\tEnter complainter's flat_number : ");
+=======
 
                               break;
 
                       case 4: //fptr = (fopen("complaints_D.txt","a+"));
                               printf("\n\tEnter complainter's flat_number : ");
+>>>>>>> 1809af629eccceded4b723fc319562b3d6bb446d
                               scanf("\t %d", &flat_number);
                               printf("\n\n\t Enter the complaints_name : ");
                               scanf("\t %[^\n]%*c", complaints_name);
                               printf("\n\n\t Enter the suggestions_name : ");
                               scanf("\t %[^\n]%*c", suggestions_name);
+<<<<<<< HEAD
+                              insert_complaints_D(flat_number, complaints_name, suggestions_name);
+=======
 
+>>>>>>> 1809af629eccceded4b723fc319562b3d6bb446d
                               break;
                       case 5: exit(0);
 

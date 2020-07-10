@@ -27,11 +27,19 @@ struct complaints_D *next3;
 struct complaints_D *prev3;
 
 struct complaints_D *arr3[size];
+<<<<<<< HEAD
+void insert_complaints_D(int flat_number, char complaints_name[],char suggestions_name[]);
+void display_complaints_D();
+void search_complaints_D(int flat_number);
+void update_complaints_D(int flat_number, int new_flat_number);
+void delete_complaints_D(int flat_number);
+=======
 
 extern void insert_complaints_D(int flat_number, char complaints_name[],char suggestions_name[]);
 
 /*File pointer*/
 FILE *fptr;
+>>>>>>> 1809af629eccceded4b723fc319562b3d6bb446d
 
 /*init array of list to NULL*/
 void init_complaints_D()
@@ -42,7 +50,10 @@ void init_complaints_D()
     }
 }
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> 1809af629eccceded4b723fc319562b3d6bb446d
 /*COMPLAINTS INSERTION*/
 void insert_complaints_D(int flat_number, char complaints_name[] ,char suggestions_name[])
 {
@@ -83,7 +94,13 @@ void insert_complaints_D(int flat_number, char complaints_name[] ,char suggestio
 /* COMPLAINTS DISPLAY*/
 void display_complaints_D()
 {
+<<<<<<< HEAD
+  FILE *fp;
+  fp = fopen("visitors.txt", "r");
+  struct complaints_D *temp3;
+=======
     struct complaints_D *temp3;
+>>>>>>> 1809af629eccceded4b723fc319562b3d6bb446d
     temp3 = root3;
     if(temp3!=NULL) {
       while(temp3) {
@@ -91,9 +108,16 @@ void display_complaints_D()
           temp3 = temp3->next3;
       }
 }
+<<<<<<< HEAD
+   else {
+      printf("complaints data is empty or deleted");
+   }
+    fclose(fp);
+=======
 else {
     printf("complaints data is empty or deleted");
 }
+>>>>>>> 1809af629eccceded4b723fc319562b3d6bb446d
 }
 
 /*COMPLAINTS SEARCH*/

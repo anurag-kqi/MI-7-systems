@@ -29,12 +29,20 @@ struct visitors_D *next2;
 struct visitors_D *prev2;
 
 struct visitors_D *arr2[size];
+<<<<<<< HEAD
+void insert_visitors_D(char visitor_name[], int vehicle_num, int visitor_contact, int TimeIn, int TimeOut);
+void display_visitors_D();
+void search_visitors_D(int vehicle_num);
+void update_visitors_D(int vehicle_num, int new_vehicle_num);
+void delete_visitors(int vehicle_num);
+=======
 
 
 extern void insert_visitors_D(char visitor_name[], int vehicle_num, int visitor_contact, int TimeIn, int TimeOut);
 
 /*File pointer*/
 FILE *fptr;
+>>>>>>> 1809af629eccceded4b723fc319562b3d6bb446d
 
 /*init array of list to NULL*/
 void init_visitors_D()
@@ -45,7 +53,10 @@ void init_visitors_D()
     }
 }
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> 1809af629eccceded4b723fc319562b3d6bb446d
   /* VISITORS INSERTION*/
   void insert_visitors_D(char visitor_name[], int vehicle_num, int visitor_contact, int TimeIn, int TimeOut)
   {
@@ -88,7 +99,13 @@ void init_visitors_D()
   /* VISITORS DISPLAY*/
   void display_visitors_D()
   {
+<<<<<<< HEAD
+    FILE *fp;
+    fp = fopen("visitors.txt", "r");
+    struct visitors_D *temp2;
+=======
       struct visitors_D *temp2;
+>>>>>>> 1809af629eccceded4b723fc319562b3d6bb446d
       temp2 = root2;
       if(temp2!=NULL) {
       while(temp2) {
@@ -96,11 +113,20 @@ void init_visitors_D()
 
           temp2 = temp2-> next2;
       }
+<<<<<<< HEAD
+      }
+      else {
+        printf("visitors data is empty or deleted");
+      }
+      fclose(fp);
+ }
+=======
   }
   else {
       printf("visitors data is empty or deleted");
   }
   }
+>>>>>>> 1809af629eccceded4b723fc319562b3d6bb446d
 
   /*VISITORS SEARCH*/
   void search_visitors_D(int vehicle_num)

@@ -2,7 +2,11 @@ TARGET = socm
 
 
 # other source files and the associated object files (this can be blank)
+<<<<<<< HEAD
+ SRC = society.c maintenance.c  visitors.c complaints.c menu.c 
+=======
  SRC = society.c maintenance.c  visitors.c complaints.c menu.c
+>>>>>>> 1809af629eccceded4b723fc319562b3d6bb446d
  OBJ = $(SRC:.c=.o)
 
 

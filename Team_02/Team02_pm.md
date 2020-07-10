@@ -9,6 +9,72 @@ Team Members :
 3. Prajawal
 4. Nipun Divecha
 
+10 July 2020
+Meeting Time:11:00 am
+
+Attendees:
+1. Divyani Patidar
+2. Kishori Nikam
+3. Prajawal
+
+Tasks:
+  .Read write operation of code.
+
+9 July 2020
+Meeting Time:11:00 am
+
+Attendees:
+1. Divyani Patidar
+2. Kishori Nikam
+3. Prajawal
+
+Tasks:
+  .networking question and answer.
+
+8 July 2020
+Meeting Time:11:00 am
+
+Attendees:
+1. Divyani Patidar
+2. Kishori Nikam
+3. Prajawal
+
+Tasks:
+  .Read - write operation of code.
+
+7 July 2020
+Meeting Time:11:00 am
+
+Attendees:
+1. Divyani Patidar
+2. Kishori Nikam
+3. Prajawal
+
+Tasks:
+  .server client daytime operation.
+
+6 July 2020
+Meeting Time:11:00 am
+
+Attendees:
+1. Divyani Patidar
+2. Kishori Nikam
+3. Prajawal
+
+Tasks:
+  .networking concept.
+
+4 July 2020
+Meeting Time:11:00 am
+
+Attendees:
+1. Divyani Patidar
+2. Kishori Nikam
+3. Prajawal
+
+Tasks:
+  .Read - write operation of code.
+
 3 July 2020
 Meeting Time:11:00 am
 

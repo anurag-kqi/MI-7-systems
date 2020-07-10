@@ -129,6 +129,42 @@ void delete_stud(int id)
         printf("\n\n\tList is Empty !!!\n");
     }
     else if (ptr->id == id) {
+<<<<<<< HEAD
+        if (ptr->prev == NULL && ptr->next == NULL) {
+            free(ptr);
+            chain[key] = NULL;
+            printf("\n\n\tFirst node id deleted\n");
+        } else {
+            chain[key] = ptr->next;
+            chain[key]->prev = NULL;
+            ptr->next = NULL;
+            free(ptr);
+            printf("\n\n\tFirst node deleted\n");
+            return ;
+        }
+
+    } else {
+	        while (ptr->next != NULL) {
+              if (ptr->next->id == id) {
+                  toDelete = ptr->next;
+                  if (toDelete->next == NULL) {
+                      ptr->next = NULL;
+                      printf("\n\n\tnode is deleted\n");
+                      free(toDelete);
+                      return ;
+                  } else {
+                        ptr->next = toDelete->next;
+                        toDelete->next->prev = toDelete->prev;
+                        printf("\n\n\tnode is deleted\n");
+                        free(toDelete);
+                    }
+              }
+              ptr = ptr->next;
+          }
+          printf("\n\n\tnode not found\n");
+      }
+  }
+=======
         printf("\n\n\tFirst node deleted\n");
         chain[key] = chain[key]->next;
 
@@ -198,6 +234,7 @@ void delete_stud(int id)
 //         printf("\n\n\tnode deleted successfully\n");
 //     }
 // }
+>>>>>>> 829a4cb5c170660044a3ea72639e2cb382a1c58e
 
 
 //DISPLAY data of STUDENT hash table

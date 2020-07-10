@@ -1,4 +1,3 @@
-/*School Mnagement Systems*/
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -31,6 +30,64 @@ void init_stud()
     }
 }
 
+<<<<<<< HEAD
+//Read the student data
+void read_stud()
+{
+    int fd;
+    int id, contact;
+    char name[30], class[30], address[50];
+
+    fptr = fopen("Student.txt", "r");
+    while (( fscanf(fptr, "%d %[^\n]%*c %s %[^\n]%*c %d", &id, name, class, address, &contact)) != EOF) {
+      insert_stud(id, name, class, address, contact);
+    }
+    fclose(fptr);
+    //Reading file data using UNIX file descriptor
+    fd = open("Student.txt", O_RDONLY | O_CREAT);
+    if (fd < 0)
+    {
+       perror("Open failed");
+    }
+    struct stat st;
+    stat("Student.txt", &st);
+    int siz = st.st_size;
+
+    char buff[siz];
+    read(fd, buff, sizeof(buff));
+    buff[siz-1] = '\0';
+    printf("%s", buff);
+    close(fd);
+}
+
+//Write the student data
+void write_stud(int id, char name[], char class[], char address[], int contact)
+{
+    int fd;
+    fd = open("Student.txt", O_RDWR | O_CREAT | O_APPEND, 0644);
+    if (fd < 0)
+    {
+       perror("file open failed...");
+    }
+
+    dprintf(fd, "%d", id);
+    //write(fd, &id, sizeof(id));
+    write(fd,"\n", strlen("\n"));
+    write(fd,name, strlen(name));
+    write(fd,"\n", strlen("\n"));
+    write(fd,class, strlen(class));
+    write(fd,"\n", strlen("\n"));
+    write(fd,address, strlen(address));
+    write(fd,"\n", strlen("\n"));
+    dprintf(fd, "%d", contact);
+    //write(fd, &contact, sizeof(contact));
+    write(fd,"\n", strlen("\n"));
+
+    close(fd);
+}
+
+=======
+>>>>>>> 42c57357c02b1947489ddc920029e6514414924d
 //insert values into STUDENT hash table
 void insert_stud(struct student stud_data)
 {

@@ -3,32 +3,55 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <ctype.h>
-//file pointer
-FILE *fptr;
 
-//student operations
-extern void insert_stud(int id, char name[], char class[], char address[], int contact);
+/*struct studData
+{
+  int id;
+  char name[30];
+  char class[10];
+  char address[50];
+  int contact;
+};*/
+
+//on disk structure
+struct student_disk {
+    int id;
+    int index;
+    char name[30];
+    char class[10];
+    char address[50];
+    int contact;
+};
+
+//in memory structure
+struct student {
+    struct student_disk std;
+    struct student *next;
+    struct student *prev;
+};
+
+struct student stud;
+
+//student hashtable operations
 extern void display_stud();
 extern void delete_stud(int id);
 extern void update_stud(int id);
 extern void search_stud(int id);
-
-//teacher operations
+//teacher hashtable operations
 extern void insert_teacher(int id, char name[], char department[], int contact);
 void display_teacher();
 //extern delete_teacher();
 extern void update_teacher(int id);
 extern void search_teacher(int id);
-
 //file read functions
 extern void read_stud();
 extern void read_teacher();
+extern void write_stud(struct student stud);
 
-//main menu function	
+//main menu function
 void menus()
 {
-    int ch, id, contact,j,digit,alpha;
+    int ch, id, contact;
     char name[30], address[50], class[10], department[30];
 
     while (1) {
@@ -44,65 +67,35 @@ void menus()
                     printf("\n\n\t1.STUDENT DATA\n\t2.TEACHER DATA\n\t3.EXIT");
                     printf("\n\n\tEnter your choice to insert(1-3) : ");
                     scanf("\t %d", &ch);
- 
+
                     switch (ch)
                     {
-                        case 1: fptr = (fopen("Student.txt","aw+"));
+                        case 1:
 				printf("\n\n\tEnter ID : ");
-				scanf("\t %d", &id);
+				scanf("\t %d", &stud.std.id);
 				printf("\n\tEnter Name : ");
-				scanf("\t %[^\n]%*c", name);
-				for (j=0; name[j]!= '\0'; j++) 
-    				{ 
-       		    		    if (isalpha(name[j]) != 0) 
-            	        		alpha++; 
-  
-  	      	    		    else if (isdigit(name[j]) != 0) 
-            				digit++; 
-    				} 
-    				if(alpha == 0 && digit > 0)
-    				{
-		    		    printf("Enter characters only\n");
-    				} else{
+				scanf("\t %[^\n]%*c", stud.std.name);
+				printf("\n\tEnter Class : ");
+				scanf("\t %s", stud.std.class);
+				printf("\n\tEnter Address : ");
+				scanf("\t %[^\n]%*c", stud.std.address);
+				printf("\n\tEnter Contact : ");
+				scanf("\t %d", &stud.std.contact);
+        			write_stud(stud);
+				read_stud();
 
-				    printf("\n\tEnter Class : ");
-				    scanf("\t %s", class);
-				    printf("\n\tEnter Address : ");
-				    scanf("\t %[^\n]%*c", address);
-				    printf("\n\tEnter Contact : ");
-				    scanf("\t %d", &contact);
-				    fprintf(fptr, " %d\n %s\n %s\n %s\n %d\n", id, name, class, address, contact);
-                                    fclose(fptr);
-				    read_stud();
-				}
                                 break;
 
-                        case 2: fptr = (fopen("Teacher.txt","aw+")); 
+                        case 2:
 				printf("\n\n\tEnter ID : ");
 				scanf("\t %d", &id);
 				printf("\n\tEnter Name : ");
 				scanf("\t %[^\n]%*c", name);
-				for (j=0; name[j]!= '\0'; j++) 
-    				{ 
-       		    		    if (isalpha(name[j]) != 0) 
-            	        		alpha++; 
-  
-  	      	    		    else if (isdigit(name[j]) != 0) 
-            				digit++; 
-    				} 
-    				if(alpha == 0 && digit > 0)
-    				{
-		    		    printf("Enter characters only\n");
-    				} else{
-
-				    printf("\n\tEnter Department : ");
-				    scanf("\t %[^\n]%*c", department);
-				    printf("\n\tEnter Contact : ");
-				    scanf("\t %d", &contact);
-				    fprintf(fptr, " %d\n %s\n %s\n %d\n", id, name, department, contact);
-                                    fclose(fptr);
-				    read_teacher();
-				}
+				printf("\n\tEnter Department : ");
+				scanf("\t %[^\n]%*c", department);
+				printf("\n\tEnter Contact : ");
+				scanf("\t %d", &contact);
+				read_teacher();
                                 break;
 
                         case 3: exit(0);
@@ -110,12 +103,12 @@ void menus()
                         default: printf("\n\n\tWrong Choice!!\n");
                     }
                     break;
- 
+
             case 2: printf("\n\n\t---- DISPLAY DATA ----");
                     printf("\n\n\t1.STUDENT DATA\n\t2.TEACHER DATA\n\t3.EXIT");
                     printf("\n\n\tEnter your choice to display(1-3) : ");
                     scanf("\t%d", &ch);
- 
+
                     switch (ch)
                     {
                         case 1: display_stud();
@@ -129,12 +122,12 @@ void menus()
                         default: printf("\n\n\tWrong Choice!!\n");
                     }
                     break;
- 
+
             case 3: printf("\n\n\t---- DELETE FROM ----");
                     printf("\n\n\t1.STUDENT DATA\n\t2.TEACHER DATA\n\t3.EXIT");
                     printf("\n\n\tEnter your choice to delete(1-3) : ");
                     scanf("\t %d", &ch);
- 
+
                     switch(ch)
                     {
                         case 1: printf("\n\n\tEnter Student ID for Delete : ");
@@ -153,12 +146,15 @@ void menus()
                     printf("\n\n\t1.STUDENT DATA\n\t2.TEACHER DATA\n\t3.EXIT");
                     printf("\n\n\tEnter your choice to update(1-3) : ");
                     scanf("\t %d", &ch);
- 
+
                     switch(ch)
                     {
                         case 1: printf("\n\n\tEnter Student ID for Update : ");
                                 scanf("\t %d", &id);
 				update_stud(id);
+				read_stud();
+				write_stud(stud);
+				
                                 break;
 
                         case 2: printf("\n\n\tEnter Teacher ID for Update : ");
@@ -175,7 +171,7 @@ void menus()
                     printf("\n\n\t1.STUDENT DATA\n\t2.TEACHER DATA\n\t3.EXIT");
                     printf("\n\n\tEnter your choice to search(1-3) : ");
                     scanf("\t %d", &ch);
- 
+
                     switch(ch)
                     {
                         case 1: printf("\n\n\tEnter Student ID for Search : ");
@@ -194,7 +190,7 @@ void menus()
                     break;
 
             case 6: exit(0);
-                    
+
 	    default: printf("\n\n\tWrong Choice!!\n");
         }
     }

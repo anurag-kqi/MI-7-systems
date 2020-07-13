@@ -5,29 +5,23 @@
 #include <string.h>
 
 //main menus
-extern void menus();	
+extern void menus();
 
 //init array of list to NULL
 extern void init_stud();
 extern void init_teacher();
-
-int 
+extern void read_stud();
+int
 main()
-{ 
+{
     //init array of list to NULL
     init_stud();
-
     init_teacher();
-	
+
+    read_stud();
+
     //calling main menu function
     menus();
-   
-
-    init_teacher();
-	
-    //calling main menu function
-    menus();
-  
 
     return 0;
 }

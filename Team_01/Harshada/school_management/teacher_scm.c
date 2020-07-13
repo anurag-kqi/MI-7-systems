@@ -3,7 +3,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <ctype.h>
 
 #define size 9
 
@@ -14,7 +13,7 @@ struct teacher
     char department[30];
     int contact;
     struct teacher *next;
-    struct teacher *prev; 
+    struct teacher *prev;
 };
 
 struct teacher *chaint[size];
@@ -51,7 +50,7 @@ void read_teacher()
 void write_teacher()
 {
     int i;
-    fptr = (fopen("Teacher.txt", "w+"));
+    fptr = (fopen("Teacher.txt", "a+"));
     for (i = 0; i < size; i++) {
         struct teacher *temp = chaint[i];
         //fprintf(fptr,"\tchaint[%d]-->", i);
@@ -149,7 +148,7 @@ void search_teacher(int id)
 void update_teacher(int id)
 {
     struct teacher *ptr;
-    int i=0, flag,j,digit,alpha;
+    int i=0, flag;
 
     int key = id % size;
 
@@ -173,18 +172,6 @@ void update_teacher(int id)
 		scanf("\t %d", &id);
 		printf("\n\tEnter New Name : ");
 		scanf("\t %[^\n]%*c", name);
-		for (j=0; name[j]!= '\0'; j++) 
-    		{ 
-       		    if (isalpha(name[j]) != 0) 
-            		alpha++; 
-  
-        	    else if (isdigit(name[j]) != 0) 
-            		digit++; 
-    		} 
-    		if(alpha == 0 && digit > 0)
-    		{
-		    printf("Enter characters only\n");
-    		} else{
 		    printf("\n\tEnter New Department : ");
 		    scanf("\t %s", department);
 		    printf("\n\tEnter New Contact : ");
@@ -199,7 +186,7 @@ void update_teacher(int id)
                            ptr->id, ptr->name, ptr->department, ptr->contact);
 		    printf("\n\n\tTeacher Record Updated Successfully !!!\n");
                     flag = 0;
-		}
+
                 break;
             } else {
                 flag = 1;
@@ -213,5 +200,3 @@ void update_teacher(int id)
         }
     }
 }
-
-

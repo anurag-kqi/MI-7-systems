@@ -1,45 +1,6 @@
- 2
- dipu
- be
- shirwal
- 7775
- 1
- aishu
- be
- shirwal
- 7887
- 4
- didi
- be
- shirwal
- 9156
- 4
- didi
- be
- shirwal
- 9156
- 4
- didi
- be
- shirwal
- 9156
- 4
- didi
- be
- shirwal
- 9156
- 4
- didi
- be
- shirwal
- 9156
- 4
- didi
- be
- shirwal
- 9156
- 4
- didi
- be
- shirwal
- 9156
+this is the starting od the file 
+so there is no data in the file 
+harshasa londhal 
+shankar
+awshwarya
+rupam

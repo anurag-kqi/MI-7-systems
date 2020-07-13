@@ -12,7 +12,7 @@
 //on disk structure
 struct student_disk {
     int id;
-    int index;
+    //int index;
     char name[30];
     char class[10];
     char address[50];
@@ -41,9 +41,8 @@ void init_stud()
 
 //Read the student data
 void read_stud() {
-  printf("read function\n");
     int fd;
-    fd = open("Student.txt",O_RDONLY);
+    fd = open("Student.txt",O_RDONLY | O_CREAT);
 
     struct student *student;
     struct student_disk std; // allocating memory on the stack or you might do malloc
@@ -52,13 +51,13 @@ void read_stud() {
     if(fd < 0) {
         perror("read failed");
     }
-    while (read(fd, &std, sizeof(struct student_disk))) {
-        student = (struct student *)malloc(sizeof (struct student));
-        student->std = std;
-        student->next = NULL;
-        student->prev = NULL;
-        printf("%d %s %s %s %d\n", student->std.id, student->std.name, student->std.class, student->std.address, student->std.contact);
-        insert_stud(student->std);
+    while (read(fd, (void *)&std, sizeof(struct student_disk))) {
+        // student = (struct student *)malloc(sizeof (struct student));
+        // student->std = std;
+        // student->next = NULL;
+        // student->prev = NULL;
+        printf("%d %s %s %s %d\n", std.id, std.name, std.class, std.address, std.contact);
+        //insert_stud(std);
 	      num_record++;
     }
     //p = (struct student_disk *)malloc(num_record,sizeof(struct student_disk));
@@ -71,7 +70,7 @@ void write_stud(struct student stud)
 {
 
    struct student *student;
-   student->std.index = num_record;
+   //student->std.index = num_record;
    num_record++;
    int fd;
    fd = open("Student.txt", O_RDWR | O_CREAT | O_APPEND, 0644);

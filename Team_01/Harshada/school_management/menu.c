@@ -154,7 +154,7 @@ void menus()
 				update_stud(id);
 				read_stud();
 				write_stud(stud);
-				
+
                                 break;
 
                         case 2: printf("\n\n\tEnter Teacher ID for Update : ");

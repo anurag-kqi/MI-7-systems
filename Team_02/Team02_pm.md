@@ -7,7 +7,6 @@ Team Members :
 1. Divyani Patidar
 2. Kishori Nikam
 3. Prajawal
-4. Nipun Divecha
 
 10 July 2020
 Meeting Time:11:00 am

@@ -4,32 +4,31 @@ Team1:
 - Shankar: 10 hrs per day: Yes
 - Aishwarya: Not there
 Project status:
+- working on delete and update
 - Validation
 - Makefile
 
 Team2:
 - Divya: 10 hrs per day: Yes
 - Kishori: 10 hrs per day: Yes
-- Nipun: Not there
 - Prajwal Yadav: Not there
 Project status:
+- update and delete
 - insert is working
 - delete still has some problem
 
 Team3:
-- Vinay: Not there
-- Sakshi: Not there
-- Siddhant Gupta: Not there
-- Swapnil: Not there
+- Siddhant Gupta: 
+- Swapnil: Siddhant to check
+- Vaibhav: 10 hrs per day: yes
+
 Project status:
 - Need to do coding style changes
 
 Team4:
 - Ashwini Garje: 10 hrs per day: Yes
 - Ashwini-2: 10 hrs per day: yes
-- Shubham : 10 hrs per day: yes
 - Sagar Mahajan: 10 hrs per day: yes
-- Vaibhav: 10 hrs per day: yes
 Project status:
 - still not at the demo stage
 

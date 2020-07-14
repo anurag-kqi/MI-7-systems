@@ -28,6 +28,8 @@ Detailed Design:
             struct student_disk std;
             struct student *next, *prev;
         }
+        - num_record in the hash table header, not in the each element
+        - each element has only the index for that element, not the num_record
 
 2. Reading of records at the start of the program:
 
@@ -103,3 +105,23 @@ Test cases:
 - test3:
     start, delete, stop, start, list
 
+Create a detailed design document each of your module
+1. data structure:
+    structure for hash table header
+    hash table element
+    on disk structure
+    file name
+2. Control flow of the code:
+    write the pseudo code with the number of functions
+     - alloc / free of memory
+     - updating of incore data structure
+     - open / closing of the files
+     - read / write to/from files
+    function signatures: name of function, input parameters, output parameters
+3. file structures: what code in which file, name of the files, Makefile etc
+4. Test cases (text files)
+    - testing with no existing data
+    - testing with existing data
+    - testing with few small number of records (1-5)
+    - testing with 10-20 records
+    - different failure scenarios

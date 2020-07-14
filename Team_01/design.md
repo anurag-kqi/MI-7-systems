@@ -34,6 +34,8 @@ A. Project Modules :
           struct teacher prev*;
         }
 
+  Comment: Where are you keeping track of num_record? What is your hash header structure?
+
   2. Reading of records at the start of the program:
 
     - read_stud/read_teacher function, taking student data file as
@@ -54,7 +56,7 @@ A. Project Modules :
       set index for the new recor (student.std.index = num_records)
       2. Increment the global num_record by 1
       3. open the file with O_CREATE | O_RDWR | O_APPEND, 0644
-      4. write(fd, &student.std, sizeof(struct student_disk))
+      4. write(fd, &student.stud, sizeof(struct student_disk))
       5. close the file
 
   4. Update of the record:
@@ -140,7 +142,7 @@ B. Project Files:
           - modify_stud();
           - del_stud();
 
- 6. stud_persistency.c
+ 6. stud_persistency.c AA:>> wrong file name
     - it contains functions used for persistency
           - read_teacher();
           - write_teacher();

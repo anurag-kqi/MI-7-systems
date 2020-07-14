@@ -12,6 +12,7 @@ Team2:
 - Divya: 10 hrs per day: Yes
 - Kishori: 10 hrs per day: Yes
 - Prajwal Yadav: Not there
+- Nipun: Wants to continue
 Project status:
 - update and delete
 - insert is working
@@ -29,6 +30,7 @@ Team4:
 - Ashwini Garje: 10 hrs per day: Yes
 - Ashwini-2: 10 hrs per day: yes
 - Sagar Mahajan: 10 hrs per day: yes
+- Shankar: Temporary helping the team
 Project status:
 - still not at the demo stage
 

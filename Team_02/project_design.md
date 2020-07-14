@@ -63,13 +63,15 @@ A. Project Modules :
           struct complaints prev*;
           }
 
+  AA>> Please mention the structure to keep track of num_records
+
   2. Reading of records at the start of the program:
 
-    - read_soc/read_main/read_visit/read_comp function, taking society data file as
-      an argument.
+    - read_soc/read_main/read_visit/read_comp function, taking society data files as
+      an argument. 
     - open the data file using open(fiename, O_RDONLY).
     - read all the records using following structure
-      struct soDisk std;
+      struct soDisk std; AA>> change the name of the field
     - insert record into hash table using function insert_society()/insert_maintenance()/insert_visitors()/insert_complaints();
     - close the file
 
@@ -191,7 +193,7 @@ B. Project Files:
           - read_society();
           - write_society();
           - modify_society();
-          - del_socirty();
+          - del_society();
 
  8. maintenance_persistency.c
     - it contains functions used for persistency

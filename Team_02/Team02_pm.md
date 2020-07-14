@@ -8,6 +8,20 @@ Team Members :
 2. Kishori Nikam
 3. Prajawal
 
+
+13 July 2020
+Meeting Time:11:00 am
+
+Attendees:
+1. Divyani Patidar
+2. Kishori Nikam
+3. Prajawal
+
+Tasks:
+  .Design project documentation.
+  .Read write operation of code.
+
+
 10 July 2020
 Meeting Time:11:00 am
 

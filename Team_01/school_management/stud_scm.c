@@ -30,19 +30,11 @@ void init_stud()
     }
 }
 
-<<<<<<< HEAD
 //Read the student data
 void read_stud()
 {
     int fd;
-    int id, contact;
-    char name[30], class[30], address[50];
 
-    fptr = fopen("Student.txt", "r");
-    while (( fscanf(fptr, "%d %[^\n]%*c %s %[^\n]%*c %d", &id, name, class, address, &contact)) != EOF) {
-      insert_stud(id, name, class, address, contact);
-    }
-    fclose(fptr);
     //Reading file data using UNIX file descriptor
     fd = open("Student.txt", O_RDONLY | O_CREAT);
     if (fd < 0)

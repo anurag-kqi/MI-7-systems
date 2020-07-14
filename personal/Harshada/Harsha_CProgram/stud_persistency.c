@@ -1,5 +1,4 @@
 /*School Mnagement Systems*/
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -7,6 +6,7 @@
 #include<unistd.h>
 #include <sys/types.h>
 #include <sys/stat.h>
+#include <ctype.h>
 
 struct studData
 {
@@ -15,6 +15,7 @@ struct studData
   char class[10];
   char address[50];
   int contact;
+  int index;
 };
 
 void write_stud(struct studData stud);
@@ -24,20 +25,29 @@ void delete_stud();
 
 //Read the student data
 void read_stud() {
-  struct studData readStud[5];
-  int fd = open("Student.txt",O_RDWR);
+  // struct studData readData;
+  // int id, contact;
+  // char name[30], class [30], address[50];
+  // int fd =open("Student.txt", O_RDONLY);
+  // if (fd < 0) {
+  //   perror("open failed");
+  //   exit(-1);
+  // }
+  // while (read(fd, (void*)&readData, sizeof(struct studData))) {
+  //   printf("%d\n%s\n%s\n%s\n%d\n%d\n\n", readData.id, readData.name, readData.class, readData.address, readData.contact, readData.index);
+  // }
+  // close(fd);
 
-  int i = 0;
-  int count1;
-  do {
-  //while ( fd != EOF ){
-    count1 = read(fd, (void *)&readStud[i], sizeof(struct studData));
-    if(count1 < 0) {
-       perror("read failed");
-    }
-    printf("%d\n%s\n%s\n%s\n%d\n", readStud[i].id, readStud[i].name, readStud[i].class, readStud[i].address, readStud[i].contact);
-    i++;
-  }while ( count1 !=0 ) ;
+  struct studData readStud;
+  int fd = open("Student.txt",O_RDWR);
+  int num_record = 0;
+
+  while (read(fd, (void *)&readStud, sizeof(struct studData)) != EOF)
+  {
+    printf("\n%d\n%d\n%s\n%s\n%s\n%d\n", readStud.index, readStud.id, readStud.name, readStud.class, readStud.address, readStud.contact);
+    num_record++;
+  }
+  printf("\n------number of records: %d------\n\n", num_record);
   free(readStud);
   close(fd);
 }
@@ -51,21 +61,23 @@ void write_stud(struct studData stud)
   }
   write(fd, (void *)&stud, sizeof(struct studData));
   close(fd);
+
 }
 
-void delete_stud()
+void delete_stud(int num_record)
 {
-  // int fd;
-  // fd = open("Student.data", O_TRUNC | O_WRONLY);
+   int fd;
+   fd = open("Student.txt", O_RDWR);
+  // lseek ((num_record - 1) * sizeof (struct studData), 0);
   // if (fd == NULL) {
   //   perror("could not open file");
   // }
   // close(fd);
-  printf("deleting data \n");
-  if (truncate("/home/harshada/Downloads/Student.txt", 88) == -1) {
-    perror("could not truncate");
-  }
-  printf("data deleted\n");
+  // printf("deleting data \n");
+  // if (truncate("/home/harshada/Harshada1/MI-7-systems/personal/Harshada/Harsha_CProgram/Student.txt", sizeof(struct studData)) == -1) {
+  //   perror("could not truncate");
+  // }
+  // printf("data deleted\n");
 
 }
 
@@ -75,6 +87,8 @@ int main()
 
   struct studData stud;
 
+  printf("\n\tEnter Index : ");
+  scanf("\t %d", &stud.index);
   printf("\n\n\tEnter ID : ");
   scanf("\t %d", &stud.id);
   printf("\n\tEnter Name : ");
@@ -87,7 +101,7 @@ int main()
   scanf("\t %d", &stud.contact);
 
   write_stud(stud);
-  delete_stud();
+  //delete_stud();
   read_stud();
     //calling main menu function
     //menus();

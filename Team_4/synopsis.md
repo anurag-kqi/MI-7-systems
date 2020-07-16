@@ -47,10 +47,10 @@ Sub-Modules:
 Doctor Management System allows registering the doctors, working in a hospital as well as their clinic details. It helps in the duty management of doctors and updates them complete appointment details with a patient health history. 
 Sub-Modules: 
   
-    • Doctor name: 
-    • Specialist: 
-    • 
+    • Doctor ID: 
+    • Doctor Name:
     • Clinic Address:
+    • Doctor Contact:
 
 This project mainly uses file handling to perform basic operations like how to add, edit, search and delete record using file.  
 Functions : 

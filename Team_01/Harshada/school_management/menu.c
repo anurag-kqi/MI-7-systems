@@ -55,7 +55,7 @@ void menus()
                     {
                         case 1:
                         printf("\n\n\tEnter Index : ");
-                				scanf("\t %d", &stud.index);
+                		scanf("\t %d", &stud.index);
 				printf("\n\n\tEnter ID : ");
 				scanf("\t %d", &stud.id);
 				printf("\n\tEnter Name : ");
@@ -66,7 +66,7 @@ void menus()
 				scanf("\t %[^\n]%*c", stud.address);
 				printf("\n\tEnter Contact : ");
 				scanf("\t %d", &stud.contact);
-        write_stud(stud);
+                                write_stud(stud);
 				read_stud();
 
                                 break;

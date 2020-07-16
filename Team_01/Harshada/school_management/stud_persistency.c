@@ -20,11 +20,11 @@ struct studDataa
 
 extern void insert_stud(struct studDataa readStud);
 struct studDataa readStud;
-int num_records ;
+int num_records = 0;
+
 //Read the student data
 void read_stud() {
   int fd;
-  num_records = 0;
   fd = open("Student.txt",O_RDWR | O_CREAT, 0644);
   if(fd < 0) {
      perror("read failed");
@@ -33,11 +33,8 @@ void read_stud() {
     printf("%d\n%d\n%s\n%s\n%s\n%d\n\n", readStud.index, readStud.id, readStud.name, readStud.class, readStud.address, readStud.contact);
     insert_stud(readStud);
     num_records = ++num_records;
-    printf("num_records w = %d\n", num_records);
   }
-  printf("num_records = %d\n", num_records);
   close(fd);
-  printf("num_records = %d\n", num_records);
 }
 
 //Write the student data
@@ -55,7 +52,7 @@ void write_stud(struct studDataa stud)
 //Delete the Student
 void delete_stud_file()
 {
-  printf("num_records = %d\n", num_records);
+  printf("delete num_records = %d\n", num_records);
   struct studDataa readStud;
   int fd;
   fd = open("Student.txt", O_RDWR);

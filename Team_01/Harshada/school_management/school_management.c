@@ -16,9 +16,8 @@ main()
     //init array of list to NULL
     init_stud();
     init_teacher();
-    delete_stud_file();
     read_stud();
-
+    delete_stud_file();
     //calling main menu function
     menus();
 

@@ -11,8 +11,8 @@
 #define size 9
 //on disk structure
 struct student_disk {
-    int id;
     int index;
+    int id;
     char name[30];
     char class[10];
     char address[50];
@@ -27,9 +27,9 @@ struct student {
 };
 
 struct student *chain[size];
-//struct studDataa readStud;
+struct student_disk readStud;
 
-int num_record = 0;
+int num_records;
 //init array of list to NULL
 void init_stud()
 {
@@ -41,44 +41,60 @@ void init_stud()
 
 //Read the student data
 void read_stud() {
-    struct student_disk std; // allocating memory on the stack or you might do malloc
-    
-    int i = 0;
-    int fd;
-    struct student *student;
-    fd = open("Student.txt",O_RDWR | O_CREAT, 0644);
-    if(fd < 0) {
-        perror("read failed");
-    }
-    while (read(fd, &std, sizeof(struct student_disk))) {
-        student = (struct student *)malloc(sizeof (struct student));
-        student->std = std;
-        student->next = NULL;
-        student->prev = NULL;
-        printf("%d %s %s %s %d\n", student->std.id, student->std.name, student->std.class, student->std.address, student->std.contact);
-        insert_stud(student->std);
-	num_record++;
-    }
-    //p = (struct student_disk *)malloc(num_record,sizeof(struct student_disk));
-    
-    close(fd);
+  num_records = 0; 
+  int fd;
+  fd = open("Student.txt",O_RDWR | O_CREAT, 0644);
+  if(fd < 0) {
+     perror("read failed");
+  }
+  while (read(fd, (void *)&readStud, sizeof(struct student_disk))) {
+    printf("%d %d %s %s %s %d\n", readStud.index, readStud.id, readStud.name, readStud.class, readStud.address, readStud.contact);
+    insert_stud(readStud);
+    num_records = ++num_records;
+  }
+  printf("num_records = %d\n", num_records);
+  //readStud.index = num_records;
+  close(fd);
 }
 
 //Write the student data
-void write_stud(struct student stud)
+void write_stud(struct student_disk stud)
 {
-   
-   struct student *student;
-   student->std.index = num_record;
-   num_record++;
-   int fd;
-   fd = open("Student.txt", O_RDWR | O_CREAT | O_APPEND, 0644);
-   if (fd < 0) {
-       perror("file open failed...");
-   }
-   write(fd, (void *)&student->std, sizeof(struct student_disk));
-   
-   close(fd);
+  int fd;
+  
+  
+  fd = open("Student.txt", O_RDWR | O_CREAT | O_APPEND, 0644);
+  if (fd < 0) {
+    perror("file open failed...");
+  }
+  write(fd, (void *)&stud, sizeof(struct student_disk));
+  //num_records = num_records + 1;
+  close(fd);
+  
+}
+
+//Delete the Student
+void delete_stud_file()
+{
+  printf("delete num_records = %d\n", num_records);
+  struct student_disk readStud;
+  int fd;
+  fd = open("Student.txt", O_RDWR);
+  lseek (fd, 2 * sizeof (readStud), 0);
+  char buff;
+  read(fd, &buff, sizeof(buff));
+  if (buff == 1) {
+    printf("delete if\n");
+    int replace = 2;
+    write(fd, &replace, 1);
+  }
+  while (read(fd, (void *)&readStud, sizeof(struct student_disk))) {
+    printf("delete while\n");
+    printf("%d\n%d\n%s\n%s\n%s\n%d\n\n", readStud.index, readStud.id, readStud.name, readStud.class, readStud.address, readStud.contact);
+    insert_stud(readStud);
+    num_records++;
+  }
+  close(fd);
 }
 
 //insert values into STUDENT hash table
@@ -86,6 +102,7 @@ void insert_stud(struct student_disk stud_data)
 {
     //create a newnode with value
     struct student *newNode = malloc(sizeof(struct student));
+    newNode->std.index = stud_data.index;
     newNode->std.id = stud_data.id;
     strcpy(newNode->std.name, stud_data.name);
     strcpy(newNode->std.class, stud_data.class);

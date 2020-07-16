@@ -155,13 +155,13 @@ main()
                             case 3: printf("\n---- DELETE PATIENT DATA ----");
                                     printf("Enter Patient ID for Delete : ");
                                     scanf("%d",&id);
-                                    //delete_pat(id);
+                                    delete_pat(id);
                                     break;
 
                             case 4: printf("\n---- UPDATE PATIENT DATA ----");
                                     printf("Enter Pateint id for Update : ");
                                     scanf("%d",&id);
-                                    //update_pat(id);
+                                    update_pat(id);
                                     break;
 
                                     // case 5: exit(0);

@@ -10,6 +10,7 @@
 
 struct studDataa
 {
+  int index;
   int id;
   char name[30];
   char class[10];
@@ -18,39 +19,20 @@ struct studDataa
 };
 
 extern void insert_stud(struct studDataa readStud);
-extern void update_stud(int );
 struct studDataa readStud;
+int num_records = 0;
 
 //Read the student data
 void read_stud() {
-  int i = 0;
   int fd;
-
   fd = open("Student.txt",O_RDWR | O_CREAT, 0644);
   if(fd < 0) {
      perror("read failed");
   }
   while (read(fd, (void *)&readStud, sizeof(struct studDataa))) {
-    printf("%d %s %s %s %d\n", readStud.id, readStud.name, readStud.class, readStud.address, readStud.contact);
+    printf("%d\n%d\n%s\n%s\n%s\n%d\n\n", readStud.index, readStud.id, readStud.name, readStud.class, readStud.address, readStud.contact);
     insert_stud(readStud);
-  }
-  close(fd);
-}
-
-void up_stud() {
-  int i = 0;
-  int fd;
-  int id;
-  printf("\n\n\tEnter Student ID for Update : ");
-  scanf("\t %d", &id);
-  update_stud(id);
-  fd = open("Student.txt",O_RDWR | O_CREAT, 0644);
-  if(fd < 0) {
-     perror("read failed");
-  }
-  while (read(fd, (void *)&readStud, sizeof(struct studDataa))) {
-    printf("%d %s %s %s %d\n", readStud.id, readStud.name, readStud.class, readStud.address, readStud.contact);
-    insert_stud(readStud);
+    num_records = ++num_records;
   }
   close(fd);
 }
@@ -64,5 +46,29 @@ void write_stud(struct studDataa stud)
     perror("file open failed...");
   }
   write(fd, (void *)&stud, sizeof(struct studDataa));
+  close(fd);
+}
+
+//Delete the Student
+void delete_stud_file()
+{
+  printf("delete num_records = %d\n", num_records);
+  struct studDataa readStud;
+  int fd;
+  fd = open("Student.txt", O_RDWR);
+  lseek (fd, 2 * sizeof (readStud), 0);
+  char buff;
+  read(fd, &buff, sizeof(buff));
+  if (buff == 1) {
+    printf("delete if\n");
+    int replace = 2;
+    write(fd, &replace, 1);
+  }
+  while (read(fd, (void *)&readStud, sizeof(struct studDataa))) {
+    printf("delete while\n");
+    printf("%d\n%d\n%s\n%s\n%s\n%d\n\n", readStud.index, readStud.id, readStud.name, readStud.class, readStud.address, readStud.contact);
+    insert_stud(readStud);
+    num_records++;
+  }
   close(fd);
 }

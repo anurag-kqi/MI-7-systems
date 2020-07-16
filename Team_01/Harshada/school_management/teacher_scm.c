@@ -1,5 +1,3 @@
-/*School Mnagement Systems*/
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

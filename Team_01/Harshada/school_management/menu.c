@@ -30,11 +30,12 @@ extern void search_teacher(int id);
 extern void read_stud();
 extern void read_teacher();
 extern void write_stud(struct studData stud);
+extern int num_records;
 
 //main menu function
 void menus()
 {
-    int ch, id, contact, index;
+    int ch, id, contact,index;
     char name[30], address[50], class[10], department[30];
 
     while (1) {
@@ -53,9 +54,10 @@ void menus()
 
                     switch (ch)
                     {
-                        case 1:
-                        printf("\n\n\tEnter Index : ");
-                		scanf("\t %d", &stud.index);
+                        case 1: num_records++;
+                                printf("\n\n\tEnter Index : %d" ,num_records);
+                                stud.index = num_records;
+                		//scanf("\t %d", &stud.index);
 				printf("\n\n\tEnter ID : ");
 				scanf("\t %d", &stud.id);
 				printf("\n\tEnter Name : ");
@@ -66,14 +68,14 @@ void menus()
 				scanf("\t %[^\n]%*c", stud.address);
 				printf("\n\tEnter Contact : ");
 				scanf("\t %d", &stud.contact);
-                                write_stud(stud);
+        			write_stud(stud);
 				read_stud();
 
                                 break;
 
                         case 2:
-                        printf("\n\n\tEnter Index : ");
-                				scanf("\t %d", &stud.index);
+                        	//printf("\n\n\tEnter Index : ");
+                		//scanf("\t %d", &stud.index);
 				printf("\n\n\tEnter ID : ");
 				scanf("\t %d", &id);
 				printf("\n\tEnter Name : ");

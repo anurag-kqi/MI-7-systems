@@ -32,22 +32,25 @@ Main Modules: • Patient Management • Doctor Management
 1. Patient Management System:
 
 In the module of the patient management system, there is a facility to register patients and view their reports and history. Patient management system allows getting detail information of patient’s health condition. 
+\n
 Sub-Modules: 
-  • Patient Name:  
-  • Patient Age: 
-  • Blood Group: 
-  • Contact number: 
-  • Address: 
-  • Diseases:
+   
+    • Patient Name:  
+    • Patient Age: 
+    • Blood Group: 
+    • Contact number: 
+    • Address: 
+    • Diseases:
 
 2. Doctor Management System:
 
 Doctor Management System allows registering the doctors, working in a hospital as well as their clinic details. It helps in the duty management of doctors and updates them complete appointment details with a patient health history. 
 Sub-Modules: 
-  • Doctor name: 
-  • Specialist: 
-  • 
-  • Clinic Address:
+  
+    • Doctor name: 
+    • Specialist: 
+    • 
+    • Clinic Address:
 
 This project mainly uses file handling to perform basic operations like how to add, edit, search and delete record using file.  
 Functions : 

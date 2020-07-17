@@ -2,8 +2,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
-struct studData
+#include "stud.h"
+/*struct studData
 {
   int index;
   int id;
@@ -11,9 +11,9 @@ struct studData
   char class[10];
   char address[50];
   int contact;
-};
+};*/
 
-struct studData stud;
+struct student_disk stud;
 
 //student hashtable operations
 extern void display_stud();
@@ -29,7 +29,7 @@ extern void search_teacher(int id);
 //file read functions
 extern void read_stud();
 extern void read_teacher();
-extern void write_stud(struct studData stud);
+extern void write_stud(struct student_disk stud);
 extern int num_records;
 
 //main menu function

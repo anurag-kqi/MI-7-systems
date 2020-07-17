@@ -7,10 +7,10 @@
 #include<unistd.h>
 #include <sys/types.h>
 #include <sys/stat.h>
-
+#include "stud.h"
 #define size 9
 //on disk structure
-struct student_disk {
+/*struct student_disk {
     int index;
     int id;
     char name[30];
@@ -24,7 +24,7 @@ struct student {
     struct student_disk std;
     struct student *next;
     struct student *prev;
-};
+};*/
 
 struct student *chain[size];
 struct student_disk readStud;
@@ -44,7 +44,7 @@ void init_stud()
 void read_stud() {
   num_records = 0;
   int fd;
-  fd = open("Student.txt",O_RDWR | O_CREAT, 0644);
+  fd = open(STUDENT_DATAFILE,O_RDWR | O_CREAT, 0644);
   if(fd < 0) {
      perror("read failed");
   }
@@ -63,7 +63,7 @@ void write_stud(struct student_disk stud)
 {
   int fd;
 
-  fd = open("Student.txt", O_RDWR | O_CREAT | O_APPEND, 0644);
+  fd = open(STUDENT_DATAFILE, O_RDWR | O_CREAT | O_APPEND, 0644);
   if (fd < 0) {
     perror("file open failed...");
   }
@@ -79,7 +79,7 @@ void delete_stud_file(struct student_disk stud_data)
     struct student_disk temp;
     //struct student_disk stud_data;
     int fd;
-    fd = open("Student.txt", O_RDWR);
+    fd = open(STUDENT_DATAFILE, O_RDWR);
     lseek (fd, (num_records - 1) * sizeof (struct student_disk), 0);
     read(fd, &stud_data, sizeof(struct student_disk));
     
@@ -100,12 +100,10 @@ void delete_stud_file(struct student_disk stud_data)
 
 void update_stud_file(struct student_disk stu_data)
 {
-   
-  struct student_disk temp;
- //   printf("update num_records = %d\n", num_records);
+   struct student_disk temp;
+//   printf("update num_records = %d\n", num_records);
   int fd;
-  fd = open("Student.txt", O_RDWR , 0644);
-  
+  fd = open(STUDENT_DATAFILE, O_RDWR , 0644);
   temp.index = stu_data.index;
   lseek (fd, stu_data.index * sizeof (struct student_disk), SEEK_CUR);
   lseek (fd, (num_records - 1) * sizeof (struct student_disk), 0);
@@ -192,7 +190,7 @@ void display_stud()
   int i;
   int index = 1;
   struct student *temp;
-  printf("\n==================================================================\n\n");
+  printf("\n_______________________________________________________________________________\n\n");
   printf("INDEX. SR.   STUD_NAME  CLASS  ADDRESS  CONTACT\n\n");
   for(i = 0; i < size; i++) {
     temp = chain[i];

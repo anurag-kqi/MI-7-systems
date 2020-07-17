@@ -71,9 +71,9 @@ void menus()
 
                   switch(ch)
                   {
-                      case 1: 
-                      read_soc();
+                      case 1:
                       
+
                       display_soc();
                 //       read_soc();
                               break;

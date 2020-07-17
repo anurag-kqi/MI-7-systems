@@ -65,7 +65,7 @@ void insert_soc(struct socData soc_data)
           temp->next = newNode;
           newNode->prev = temp;
         }
-        printf("Node inserted\n");
+        //printf("Node inserted\n");
 }
 
 /*void delete_soc(int flat_num)
@@ -106,14 +106,14 @@ void insert_soc(struct socData soc_data)
 /*display data*/
 void display_soc()
 {
-  int i;  
+  int i;
   struct society *temp;
   for(i = 0; i < size; i++) {
     temp = arr[i];
     while(temp) {
         printf("%d, %s, %d, %d \n", temp->index, temp->owner_name, temp->flat_num, temp->owner_contact);
         temp = temp->next;
-    } 
+    }
   }
 }
 

@@ -25,21 +25,21 @@ int num_records = 0;
 void read_soc() {
   int fd;
   //int num_records = 0;
-  fd = open(SOCIETY_DATAFILE, O_RDWR);
+  fd = open(SOCIETY_DATAFILE, O_RDWR | O_CREAT, 0644);
   if(fd < 0) {
      perror("read failed");
   }
-  printf("In the read_soc %s %d\n", __FILE__, __LINE__);
+  //printf("In the read_soc %s %d\n", __FILE__, __LINE__);
 
   while (read(fd, (void *)&readsoc, sizeof(struct socData))) {
-    printf("In the read_soc %d\n", __LINE__);
-  
-    printf("%d\n%s\n%d\n%d\n\n", readsoc.index, readsoc.owner_name, readsoc.flat_num, readsoc.owner_contact);
+  //  printf("In the read_soc %d\n", __LINE__);
+
+    printf("%d %s %d %d\n", readsoc.index, readsoc.owner_name, readsoc.flat_num, readsoc.owner_contact);
     insert_soc(readsoc);
     num_records++;
   }
-  printf("In the read_soc %d\n", __LINE__);
-  
+  //printf("In the read_soc %d\n", __LINE__);
+
   close(fd);
 }
 

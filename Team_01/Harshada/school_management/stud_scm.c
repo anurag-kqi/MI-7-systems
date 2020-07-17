@@ -63,7 +63,6 @@ void write_stud(struct student_disk stud)
 {
   int fd;
 
-
   fd = open("Student.txt", O_RDWR | O_CREAT | O_APPEND, 0644);
   if (fd < 0) {
     perror("file open failed...");
@@ -71,12 +70,23 @@ void write_stud(struct student_disk stud)
   write(fd, (void *)&stud, sizeof(struct student_disk));
   //num_records = num_records + 1;
   close(fd);
-
 }
 
 //Delete the Student
-void delete_stud_file()
+void delete_stud_file(stud_data)
 {
+
+    struct student_disk     temp;
+
+    // stud_data.index
+    // read the last record from the file
+    // lseek (num_records - 1) * student_data
+    // read the stud_data from that location into a new local variable
+    read(fd, &temp, sizeof(struct stue...))
+    temp.index = stud_data.index
+    //lseek to temp.index * sizeof student_disk
+    write(fd, &temp, ....) 
+
   printf("delete num_records = %d\n", num_records);
   struct student_disk readStud;
   int fd;
@@ -97,6 +107,27 @@ void delete_stud_file()
   // }
   close(fd);
 }
+
+void update_stud_file(struct student_disk stu_data)
+{
+//   printf("update num_records = %d\n", num_records);
+  int fd;
+  fd = open("Student.txt", O_RDWR);
+  lseek (fd, stu_data.index * sizeof (struct student_disk), 0);
+  if (write(fd, &stu_data, sizeof(struct student_disk)) < 0) {
+      perror("write failed");
+      exit(1);
+  }
+  
+  // while (read(fd, (void *)&readStud, sizeof(struct student_disk))) {
+  //   printf("delete while\n");
+  //   printf("%d\n%d\n%s\n%s\n%s\n%d\n\n", readStud.index, readStud.id, readStud.name, readStud.class, readStud.address, readStud.contact);
+  //   insert_stud(readStud);
+  //   num_records++;
+  // }
+  close(fd);
+}
+
 
 //insert values into STUDENT hash table
 void insert_stud(struct student_disk readStud)
@@ -233,33 +264,34 @@ void update_stud(int id)
                 printf("\n\n\tStudent Id - %d\n\tStudent Nmae - %s\n\tStudent Class - %s\n\tStudent Address - %s\n\tStudent Contact - %d",
                        ptr->std.id, ptr->std.name, ptr->std.class, ptr->std.address, ptr->std.contact);
 
-		printf("\n\n\tStudent New Data !!!\n");
+		        printf("\n\n\tStudent New Data !!!\n");
 
-		int id, contact;
-    		char name[30], class[10], address[50];
+                int id, contact;
+                    char name[30], class[10], address[50];
 
-		printf("\n\tEnter Same ID : ");
-		scanf("\t %d", &id);
-		printf("\n\tEnter New Name : ");
-		scanf("\t %[^\n]%*c", name);
-		    printf("\n\tEnter New Class : ");
-		    scanf("\t %s", class);
-		    printf("\n\tEnter New Address : ");
-		    scanf("\t %s", address);
-		    printf("\n\tEnter New Contact : ");
-		    scanf("\t %d", &contact);
+                printf("\n\tEnter Same ID : ");
+                scanf("\t %d", &id);
+                printf("\n\tEnter New Name : ");
+                scanf("\t %[^\n]%*c", name);
+                printf("\n\tEnter New Class : ");
+                scanf("\t %s", class);
+                printf("\n\tEnter New Address : ");
+                scanf("\t %s", address);
+                printf("\n\tEnter New Contact : ");
+                scanf("\t %d", &contact);
 
-		    ptr->std.id = id;
+    		    ptr->std.id = id;
     		    strcpy(ptr->std.name, name);
     		    strcpy(ptr->std.class, class);
     		    strcpy(ptr->std.address, address);
     		    ptr->std.contact = contact;
 
-		    printf("\n\n\tStudent Id - %d\n\tStudent Nmae - %s\n\tStudent Class - %s\n\tStudent Address - %s\n\tStudent Contact - %d",
+		        printf("\n\n\tStudent Id - %d\n\tStudent Nmae - %s\n\tStudent Class - %s\n\tStudent Address - %s\n\tStudent Contact - %d",
                            ptr->std.id, ptr->std.name, ptr->std.class, ptr->std.address, ptr->std.contact);
-		    printf("\n\n\tStudent Record Updated Successfully !!!\n");
+		        printf("\n\n\tStudent Record Updated Successfully !!!\n");
                     flag = 0;
 
+                update_stud_file(ptr->std);
                 break;
             } else {
                 flag = 1;

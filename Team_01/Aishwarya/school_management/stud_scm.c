@@ -6,10 +6,16 @@
 #include<unistd.h>
 #include <sys/types.h>
 #include <sys/stat.h>
-
+#include "stud.h"
 #define size 9
+<<<<<<< HEAD
 struct student
 {
+=======
+//on disk structure
+/*struct student_disk {
+    int index;
+>>>>>>> 3b3454a74439499cf389c8cda43e9ee765f85feb
     int id;
     char name[30];
     char class[10];
@@ -17,10 +23,15 @@ struct student
     int contact;
     struct student *next;
     struct student *prev;
-};
+};*/
 
 struct student *chain[size];
 
+<<<<<<< HEAD
+=======
+
+int num_records;
+>>>>>>> 3b3454a74439499cf389c8cda43e9ee765f85feb
 //init array of list to NULL
 void init_stud()
 {
@@ -31,6 +42,7 @@ void init_stud()
 }
 
 //Read the student data
+<<<<<<< HEAD
 void read_stud()
 {
     int fd;
@@ -50,11 +62,29 @@ void read_stud()
     buff[siz-1] = '\0';
     printf("%s", buff);
     close(fd);
+=======
+void read_stud() {
+  num_records = 0;
+  int fd;
+  fd = open(STUDENT_DATAFILE,O_RDWR | O_CREAT, 0644);
+  if(fd < 0) {
+     perror("read failed");
+  }
+  while (read(fd, (void *)&readStud, sizeof(struct student_disk))) {
+    printf("%d %d %s %s %s %d\n", readStud.index, readStud.id, readStud.name, readStud.class, readStud.address, readStud.contact);
+    insert_stud(readStud);
+    num_records = ++num_records;
+  }
+  printf("num_records = %d\n", num_records);
+  //readStud.index = num_records;
+  close(fd);
+>>>>>>> 3b3454a74439499cf389c8cda43e9ee765f85feb
 }
 
 //Write the student data
 void write_stud(int id, char name[], char class[], char address[], int contact)
 {
+<<<<<<< HEAD
     int fd;
     fd = open("Student.txt", O_RDWR | O_CREAT | O_APPEND, 0644);
     if (fd < 0)
@@ -90,10 +120,77 @@ void insert_stud(struct student stud_data)
     strcpy(newNode->class, stud_data.class);
     strcpy(newNode->address, stud_data.address);
     newNode->contact = stud_data.contact;
+=======
+  int fd;
+
+  fd = open(STUDENT_DATAFILE, O_RDWR | O_CREAT | O_APPEND, 0644);
+  if (fd < 0) {
+    perror("file open failed...");
+  }
+  write(fd, (void *)&stud, sizeof(struct student_disk));
+  //num_records = num_records + 1;
+  close(fd);
+}
+
+//Delete the Student
+void delete_stud_file(struct student_disk stud_data)
+{
+
+    struct student_disk temp;
+    //struct student_disk stud_data;
+    int fd;
+    fd = open(STUDENT_DATAFILE, O_RDWR);
+    lseek (fd, (num_records - 1) * sizeof (struct student_disk), 0);
+    read(fd, &stud_data, sizeof(struct student_disk));
+    
+    // stud_data.index
+    // read the last record from the file
+    // lseek (num_records - 1) * student_data
+    // read the stud_data from that location into a new local variable
+    read(fd, &temp, sizeof(struct student_disk));
+    temp.index = stud_data.index;
+    lseek(fd, temp.index * sizeof(struct student_disk), SEEK_CUR);
+    write(fd, &temp, sizeof(struct student_disk));
+    num_records --;
+    ftruncate(fd, num_records * sizeof(struct student_disk));
+    printf("delete successful");
+  
+  close(fd);
+}
+
+void update_stud_file(struct student_disk stu_data)
+{
+//   printf("update num_records = %d\n", num_records);
+  int fd;
+  fd = open(STUDENT_DATAFILE, O_RDWR , 0644);
+  //stu_data.index = index;
+  lseek (fd, stu_data.index * sizeof (struct student_disk), SEEK_CUR);
+  lseek (fd, (num_records - 1) * sizeof (struct student_disk), 0);
+  if (write(fd, &stu_data, sizeof(struct student_disk)) < 0) {
+      perror("write failed");
+      exit(1);
+  }
+  
+  close(fd);
+}
+
+
+//insert values into STUDENT hash table
+void insert_stud(struct student_disk readStud)
+{
+    //create a newnode with value
+    struct student *newNode = malloc(sizeof(struct student));
+    newNode->std.index = readStud.index;
+    newNode->std.id = readStud.id;
+    strcpy(newNode->std.name, readStud.name);
+    strcpy(newNode->std.class, readStud.class);
+    strcpy(newNode->std.address, readStud.address);
+    newNode->std.contact = readStud.contact;
+>>>>>>> 3b3454a74439499cf389c8cda43e9ee765f85feb
     newNode->next = NULL;
     newNode->prev = NULL;
     //calculate hash key
-    int key = stud_data.id % size;
+    int key = readStud.id % size;
 
     if (chain[key] == NULL) {
         newNode->next = NULL;
@@ -110,7 +207,7 @@ void insert_stud(struct student stud_data)
         newNode->next = NULL;
     }
 }
-
+/*
 //DELETE values from STUDENT hash table
 void delete_stud(int id)
 {
@@ -145,11 +242,12 @@ void delete_stud(int id)
             ptr = ptr->next;
         }
     }
-}
+}*/
 
 //DISPLAY data of STUDENT hash table
 void display_stud()
 {
+<<<<<<< HEAD
     int i;
     for (i = 0; i < size; i++) {
         struct student *temp = chain[i];
@@ -159,9 +257,23 @@ void display_stud()
             temp = temp->next;
         }
         printf("NULL\n");
+=======
+  int i;
+  int index = 1;
+  struct student *temp;
+  printf("\n_______________________________________________________________________________\n\n");
+  printf("INDEX. SR.   STUD_NAME  CLASS  ADDRESS  CONTACT\n\n");
+  for(i = 0; i < size; i++) {
+    temp = chain[i];
+    while(temp) {
+        printf("%d. ", index);
+        printf("  %d \t%s \t%s \t%s\t%d\n", temp->std.id, temp->std.name, temp->std.class, temp->std.address, temp->std.contact);
+        temp = temp->next;
+        index++;
+>>>>>>> 3b3454a74439499cf389c8cda43e9ee765f85feb
     }
+  }
 }
-
 //SEARCH Student data from STUDENT hash table
 void search_stud(int id)
 {
@@ -214,22 +326,23 @@ void update_stud(int id)
                 printf("\n\n\tStudent Id - %d\n\tStudent Nmae - %s\n\tStudent Class - %s\n\tStudent Address - %s\n\tStudent Contact - %d",
                        ptr->id, ptr->name, ptr->class, ptr->address, ptr->contact);
 
-		printf("\n\n\tStudent New Data !!!\n");
+		        printf("\n\n\tStudent New Data !!!\n");
 
-		int id, contact;
-    		char name[30], class[10], address[50];
+                int id, contact;
+                    char name[30], class[10], address[50];
 
-		printf("\n\tEnter Same ID : ");
-		scanf("\t %d", &id);
-		printf("\n\tEnter New Name : ");
-		scanf("\t %[^\n]%*c", name);
-		    printf("\n\tEnter New Class : ");
-		    scanf("\t %s", class);
-		    printf("\n\tEnter New Address : ");
-		    scanf("\t %s", address);
-		    printf("\n\tEnter New Contact : ");
-		    scanf("\t %d", &contact);
+                printf("\n\tEnter Same ID : ");
+                scanf("\t %d", &id);
+                printf("\n\tEnter New Name : ");
+                scanf("\t %[^\n]%*c", name);
+                printf("\n\tEnter New Class : ");
+                scanf("\t %s", class);
+                printf("\n\tEnter New Address : ");
+                scanf("\t %s", address);
+                printf("\n\tEnter New Contact : ");
+                scanf("\t %d", &contact);
 
+<<<<<<< HEAD
 		    ptr->id = id;
     		    strcpy(ptr->name, name);
     		    strcpy(ptr->class, class);
@@ -239,8 +352,20 @@ void update_stud(int id)
 		    printf("\n\n\tStudent Id - %d\n\tStudent Nmae - %s\n\tStudent Class - %s\n\tStudent Address - %s\n\tStudent Contact - %d",
                            ptr->id, ptr->name, ptr->class, ptr->address, ptr->contact);
 		    printf("\n\n\tStudent Record Updated Successfully !!!\n");
+=======
+    		    ptr->std.id = id;
+    		    strcpy(ptr->std.name, name);
+    		    strcpy(ptr->std.class, class);
+    		    strcpy(ptr->std.address, address);
+    		    ptr->std.contact = contact;
+
+		        printf("\n\n\tStudent Id - %d\n\tStudent Nmae - %s\n\tStudent Class - %s\n\tStudent Address - %s\n\tStudent Contact - %d",
+                           ptr->std.id, ptr->std.name, ptr->std.class, ptr->std.address, ptr->std.contact);
+		        printf("\n\n\tStudent Record Updated Successfully !!!\n");
+>>>>>>> 3b3454a74439499cf389c8cda43e9ee765f85feb
                     flag = 0;
 
+                
                 break;
             } else {
                 flag = 1;
@@ -253,4 +378,9 @@ void update_stud(int id)
             printf("\n\n\tStudent id not found\n");
         }
     }
+<<<<<<< HEAD
+=======
+update_stud_file(ptr->std);
+
+>>>>>>> 3b3454a74439499cf389c8cda43e9ee765f85feb
 }

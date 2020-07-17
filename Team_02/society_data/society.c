@@ -33,7 +33,7 @@ struct society *arr[size];
 void init_soc()
 {
     int i;
-    for(i = 0; i < size; i++) {
+    for(i = 1; i < size; i++) {
         arr[i] = NULL;
     }
 }
@@ -107,12 +107,17 @@ void insert_soc(struct socData soc_data)
 void display_soc()
 {
   int i;
+  int index = 1;
   struct society *temp;
+  printf("\n==================================================================\n\n");
+  printf("SR. OW_NAME    FLAT_NO  OW_CONTACT\n\n");
   for(i = 0; i < size; i++) {
     temp = arr[i];
     while(temp) {
-        printf("%d, %s, %d, %d \n", temp->index, temp->owner_name, temp->flat_num, temp->owner_contact);
+        printf("%d. ", index);
+        printf(" %s\t %d\t%d\n", temp->owner_name, temp->flat_num, temp->owner_contact);
         temp = temp->next;
+        index++;
     }
   }
 }
@@ -133,8 +138,8 @@ void search_soc(int flat_num)
 
         while (ptr != NULL) {
             if (ptr->flat_num == flat_num) {
-                printf("\n\n\tSociety flat number found at location %d ", i+1);
-                printf("\n\n\tsociety Prev - %p\n\tsociety owner_name - %s\n\tsociety flat_num - %d\n\tsociety owner_contact - %d\n\twrite_society next - %p", ptr->prev, ptr->owner_name, ptr->flat_num, ptr->owner_contact, ptr->next);
+                printf("\n\n\tSociety flat number found at location : %d ", key-1 );
+                printf("\n\n\towner_name\t -\t %s\n\tflat_num\t -\t %d\n\towner_contact\t -\t %d\n", ptr->owner_name, ptr->flat_num, ptr->owner_contact);
                 flag = 0;
                 break;
             } else {

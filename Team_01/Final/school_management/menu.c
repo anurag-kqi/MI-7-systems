@@ -2,17 +2,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "stud.h"
-/*struct studData
+
+struct studData
 {
   int id;
   char name[30];
   char class[10];
   char address[50];
   int contact;
-};*/
+};
 
-struct student_disk stud;
+struct studData stud;
 
 //student hashtable operations
 extern void display_stud();
@@ -28,8 +28,7 @@ extern void search_teacher(int id);
 //file read functions
 extern void read_stud();
 extern void read_teacher();
-extern void write_stud(struct student_disk stud);
-extern int num_records;
+extern void write_stud(struct studData stud);
 
 //main menu function
 void menus()
@@ -53,14 +52,7 @@ void menus()
 
                     switch (ch)
                     {
-<<<<<<< HEAD
                         case 1:
-=======
-                        case 1: num_records++;
-                                printf("\n\n\tEnter Index : %d" ,num_records);
-                                stud.index = num_records;
-                		//scanf("\t %d", &stud.index);
->>>>>>> 3b3454a74439499cf389c8cda43e9ee765f85feb
 				printf("\n\n\tEnter ID : ");
 				scanf("\t %d", &stud.id);
 				printf("\n\tEnter Name : ");
@@ -71,14 +63,8 @@ void menus()
 				scanf("\t %[^\n]%*c", stud.address);
 				printf("\n\tEnter Contact : ");
 				scanf("\t %d", &stud.contact);
-<<<<<<< HEAD
         write_stud(stud);
 				read_stud();
-=======
-				insert_stud(stud);
-        			write_stud(stud);
-				//read_stud();
->>>>>>> 3b3454a74439499cf389c8cda43e9ee765f85feb
 
                                 break;
 
@@ -126,12 +112,9 @@ void menus()
 
                     switch(ch)
                     {
-                        case 1: //printf("\n\n\tEnter Student ID for Delete : ");
-                                //scanf("\t %d", &id);
-				printf("\n\n\tEnter Student index for Delete : ");
-                                scanf("\t %d", &index);
-    				delete_stud_file(stud.index);
-				//delete_stud(id);
+                        case 1: printf("\n\n\tEnter Student ID for Delete : ");
+                                scanf("\t %d", &id);
+				delete_stud(id);
                                 break;
                         //case 2: delete_teacher();
                                 //break;

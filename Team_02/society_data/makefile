@@ -23,7 +23,8 @@ CFLAGS = -g
 # specify how to compile the .c files
 .c.o:
 	$(CC) $(CFLAGS) $(INCLUDE) -c $<
-	# if you type 'make' without arguments, this is the default
+
+# if you type 'make' without arguments, this is the default
 all: $(TARGET)
 
 # specify how to compile the target

@@ -5,6 +5,7 @@
 #include "stud.h"
 /*struct studData
 {
+  int index;
   int id;
   char name[30];
   char class[10];
@@ -20,7 +21,7 @@ extern void delete_stud(int id);
 extern void update_stud(int id);
 extern void search_stud(int id);
 //teacher hashtable operations
-extern void insert_teacher(int id, char name[], char department[], int contact);
+extern void insert_teacher(int index, int id, char name[], char department[], int contact);
 void display_teacher();
 //extern delete_teacher();
 extern void update_teacher(int id);
@@ -34,7 +35,7 @@ extern int num_records;
 //main menu function
 void menus()
 {
-    int ch, id, contact;
+    int ch, id, contact,index;
     char name[30], address[50], class[10], department[30];
 
     while (1) {
@@ -53,14 +54,10 @@ void menus()
 
                     switch (ch)
                     {
-<<<<<<< HEAD
-                        case 1:
-=======
                         case 1: num_records++;
                                 printf("\n\n\tEnter Index : %d" ,num_records);
                                 stud.index = num_records;
                 		//scanf("\t %d", &stud.index);
->>>>>>> 3b3454a74439499cf389c8cda43e9ee765f85feb
 				printf("\n\n\tEnter ID : ");
 				scanf("\t %d", &stud.id);
 				printf("\n\tEnter Name : ");
@@ -71,18 +68,15 @@ void menus()
 				scanf("\t %[^\n]%*c", stud.address);
 				printf("\n\tEnter Contact : ");
 				scanf("\t %d", &stud.contact);
-<<<<<<< HEAD
-        write_stud(stud);
-				read_stud();
-=======
 				insert_stud(stud);
         			write_stud(stud);
 				//read_stud();
->>>>>>> 3b3454a74439499cf389c8cda43e9ee765f85feb
 
                                 break;
 
                         case 2:
+                        	//printf("\n\n\tEnter Index : ");
+                		//scanf("\t %d", &stud.index);
 				printf("\n\n\tEnter ID : ");
 				scanf("\t %d", &id);
 				printf("\n\tEnter Name : ");

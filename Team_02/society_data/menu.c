@@ -1,18 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
-struct socData
-{
-  int index;
-  char owner_name[30];
-  int flat_num;
-  int owner_contact;
-};
+#include "soc.h"//headher file which contains structure
 
 struct socData soc;
-//extern void insert_soc(owner_name, flat_num, owner_contact);
-extern void insert_soc();
+
+extern void insert_soc(struct socData soc_data);
+extern void search_soc(int flat_num);
+
 extern void display_soc();
 extern void delete_soc(int flat_num);
 extern void update_soc(int flat_num);
@@ -24,7 +19,6 @@ extern void write_soc(struct socData soc);
 
 //main menu function
 void menus()
-//void menu()
 {
   int flat_num, owner_contact, index, ch;
   char owner_name;
@@ -32,113 +26,187 @@ void menus()
   //int flat_num, flat_num1, new_flat_num, flat_number, new_flat_number, owner_contact, visitor_contact,TimeIn,TimeOut, water_bill, electricity_bill, new_water_bill, new_electricity_bill, vehicle_num, new_vehicle_num, ch;
   while(1) {
 
-      printf("\n MANAGEMENT DATA");
-      printf("\n1.insert data\n2.Display data\n3.update data\n4.search data\n6.Exit");
-      printf("\nEnter your choice(1-6) : ");
+      printf("\n==================================================================");
+      printf("\n\t\t MANAGEMENT DATA\n");
+      printf("\n\t1. Insert Data\n\t2. Display Data\n\t3. Search Data\n\t4. Update Data\n\t5. Delete Data\n\t6. Exit");
+      printf("\n\n\tEnter your choice(1-6) : ");
       scanf("%d", &ch);
       switch(ch) {
-          case 1:printf("\nINSERT IN TO");
-                 printf("\n1.Society data\n2.Maintenance data\n3.visitor data\n4.complaints data\n5.Exit(0)");
-                 printf("\n\nEnter your choice to insert(1-5):");
-                 scanf("%d", &ch);
+          case 1:
+                printf("\n==================================================================");
+                printf("\n\t\tINSERT IN TO\n");
+                printf("\n\t1. Society Data\n\t2. Maintenance Data\n\t3. Visitor Data\n\t4. Complaints Cata\n\t5. Exit(0)");
+                printf("\n\n\tEnter your choice to insert(1-5):");
+                scanf("%d", &ch);
 
                   switch(ch)
                   {
-                      case 1: printf("\n\tEnter Index : ");
-                				      scanf("\t\n %d", &soc.index);
+                      case 1:
+                              printf("\n==================================================================");
+                              printf("\n\t\tINSERT SOCIETY DATA\n");
                               printf("\n\tEnter owner_name : ");
                               scanf("\t\n %[^\n]%*c", soc.owner_name);
                               printf("\n\tEnter flat_num : ");
                               scanf("\t\n%d", &soc.flat_num);
                               printf("\n\tEnter owner_contact : ");
                               scanf("\t\n %d", &soc.owner_contact);
-                              //insert_soc(struct society soc_data);
-                              insert_soc();
+                              insert_soc(soc);
                               write_soc(soc);
-				                      //read_soc();
-        	                    break;
-                              case 5: exit(0);
+				                      break;
+                      /*case 2:
+                              printf("\n\n\tEnter flat_num1 : ");
+                              scanf("\t %d", &flat_num1);
+                              printf("\n\n\tEnter water_bill : ");
+                              scanf("\t %d", &water_bill);
+                              printf("\n\tEnter electricity_bill : ");
+                              scanf("\t %d", &electricity_bill);
+                              //write_maintenance_D(flat_num1, water_bill, electricity_bill);
+				                      //read_maintenance_D();
+                              break;
+
+                      case 3: //fptr = (fopen("visitors_D.txt","a+"));
+                              printf("\n\n\tEnter Visitors Name: ");
+                              scanf("\t%[^\n]%*c",visitor_name);
+                              printf("\n\t Enter Vehicle Number: ");
+                              scanf("\t%d",&vehicle_num);
+                              printf("\n\t Enter visitor contact: ");
+                              scanf("\t%d",&visitor_contact);
+                              printf("\n\tEnter Visitor TimeIn: ");
+                              scanf("\t%d",&TimeIn);
+                              printf("\n\tEnter Visitor TimeOut: ");
+                              scanf("\t%d",&TimeOut);
+                              //fprintf(fptr, "%s\n %d\n %d\n %d\n %d\n", visitor_name, vehicle_num, visitor_contact, TimeIn, TimeOut);
+                              //fclose(fptr);
+                              //write_visitors_D(visitor_name, vehicle_num, visitor_contact, TimeIn, TimeOut);
+				                      //read_visitors_D();
+                              break;
+
+                      case 4: //fptr = (fopen("complaints_D.txt","a+"));
+                              printf("\n\tEnter complainter's flat_number : ");
+                              scanf("\t %d", &flat_number);
+                              printf("\n\n\t Enter the complaints_name : ");
+                              scanf("\t %[^\n]%*c", complaints_name);
+                              printf("\n\n\t Enter the suggestions_name : ");
+                              scanf("\t %[^\n]%*c", suggestions_name);
+                              //write_complaints_D(flat_number, complaints_name, suggestions_name);
+				                      //read_complaints_D();
+                              break;*/
+                      case 5: exit(0);
 
                       default: printf("\n\n\tWrong Choice!!\n");
                   }
                       break;
 
-          case 2:printf("\nDISPLAY SOCIETY DATA");
-                 printf("\n1.society data\n2.maintenance data\n3.visitor data\n4.complaint data\n5.Exit(0)");
-                 printf("\n\nEnter your choice to display(1-4):");
-                 scanf("%d", &ch);
+          case 2:
+                printf("\n==================================================================");
+                printf("\n\t\tDISPLAY DATA\n");
+                printf("\n\t1. Society Data\n\t2. Maintenance Data\n\t3. Visitor Data\n\t4. Complaint Data\n\t5. Exit(0)");
+                printf("\n\n\tEnter your choice to display(1-4):");
+                scanf("%d", &ch);
 
                   switch(ch)
                   {
-                      case 1: display_soc();
-                      read_soc();
-                              break;
+                      case 1:
+                            display_soc();
+                            break;
 
-                                        /*  case 2: display_maintenance_D();
-                                                  break;
-                                          case 3: display_visitors_D();
-                                                  break;
-                                          case 4: display_complaints_D();
-                                                  break;*/
+                      /*case 2:
+                            display_maintenance_D();
+                            break;
+
+                      case 3:
+                            display_visitors_D();
+                            break;
+
+                      case 4:
+                            display_complaints_D();
+                            break;*/
+
                       case 5: exit(0);
 
                       default: printf("Wrong Choice!!");
                   }
                       break;
 
-        /*  case 3: printf("\n\n\t---- DELETE FROM ----");
-                  printf("\n\n\t1.SOCIETY DATA\n\t3.EXIT");
-                  printf("\n\n\tEnter your choice to delete(1-3) : ");
+            case 3:
+                  printf("\n==================================================================");
+                  printf("\n\t\tSEARCH DATA FROM\n");
+                  printf("\n\t1. Society Data\n\t2. Maintenance Data\n\t3. Visitor Data\n\t4. Complaint Data\n\t5. Exit(0)");
+                  printf("\n\n\tEnter your choice to search(1-3) : ");
                   scanf("\t %d", &ch);
 
-                    switch(ch)
-                    {
-                        case 1: printf("\n\n\tEnter flat  number for Delete : ");
-                                scanf("\t %d", &flat_num);
-        				                delete_soc(flat_num);
-                                break;
-                                //case 2: delete_teacher();
-                                        //break;
-                                case 3: exit(0);
+                  switch(ch)
+                  {
+                      case 1:
+                            printf("\n==================================================================");
+                            printf("\n\n\tEnter flat number for Search : ");
+                            scanf("\t%d", &flat_num);
+                            search_soc(flat_num);
+                            break;
 
-                                default: printf("\n\n\tWrong Choice!!\n");
-                            }
+                      /*case 2:
+                            printf("enter flat_num1 for search:");
+                            scanf("%d",&flat_num1);
+                            search_maintenance_D(flat_num1);
+                            break;
+
+                      case 3:
+                            printf("enter vehicle_num for search:");
+                            scanf("%d",&vehicle_num);
+                            search_visitors_D(vehicle_num);
+                            break;
+
+                      case 4:
+                            printf("enter complainter's flat_number for search:");
+                            scanf("%d", &flat_number);
+                            search_complaints_D(flat_number);
                             break;*/
 
-            case 3: printf("\n\n\t---- UPDATE FROM ----");
-                    printf("\n\n\t1.SOCIETY DATA\n\t3.EXIT");
-                    printf("\n\n\tEnter your choice to update(1-3) : ");
+                      case 5:
+                            exit(0);
+
+                      default: printf("\n\n\tWrong Choice!!\n");
+                  }
+                        break;
+
+            case 4:
+                  printf("\n==================================================================");
+                  printf("\n\t\tUPDATE DATA FROM\n");
+                  printf("\n\t1. Society Data\n\t2. Maintenance Data\n\t3. Visitor Data\n\t4. Complaint Data\n\t5. Exit(0)");
+                  printf("\n\n\tEnter your choice to update(1-5) : ");
+                  scanf("\t %d", &ch);
+                    switch(ch)
+                    {
+                        case 1: printf("\n\n\tEnter flat number for Update : ");
+                                scanf("\t %d", &flat_num);
+      				                  //update_soc(flat_num);
+                                break;
+
+                        case 5: exit(0);
+
+                        default: printf("\n\n\tWrong Choice!!\n");
+                    }
+                        break;
+
+            case 5:
+                    printf("\n==================================================================");
+                    printf("\n\t\tDELETE DATA FROM\n");
+                    printf("\n\t1. Society Data\n\t2. Maintenance Data\n\t3. Visitor Data\n\t4. Complaint Data\n\t5. Exit(0)");
+                    printf("\n\n\tEnter your choice to delete(1-5) : ");
                     scanf("\t %d", &ch);
+
                       switch(ch)
                       {
-                          case 1: printf("\n\n\tEnter flat number for Update : ");
+                          case 1: printf("\n\n\tEnter flat  number for Delete : ");
                                   scanf("\t %d", &flat_num);
-        				                  update_soc(flat_num);
+          				                //delete_soc(flat_num);
                                   break;
 
-                          case 3: exit(0);
+                          case 5: exit(0);
 
-                          default: printf("\n\n\tWrong Choice!!\n");
-                      }
-                          break;
-
-        	  case 4: printf("\n\n\t---- SEARCH FROM ----");
-                    printf("\n\n\t1.SOCIETY DATA\n\t3.EXIT");
-                    printf("\n\n\tEnter your choice to search(1-3) : ");
-                    scanf("\t %d", &ch);
-
-                      switch(ch)
-                      {
-                            case 1: printf("\n\n\tEnter flat number for Search : ");
-                                    scanf("\t%d", &flat_num);
-        				                    search_soc(flat_num);
-                                    break;
-
-                            case 3: exit(0);
-
-                            default: printf("\n\n\tWrong Choice!!\n");
-                            }
-                            break;
+                                  default: printf("\n\n\tWrong Choice!!\n");
+                              }
+                              break;
 
             case 6: exit(0);
 

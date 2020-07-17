@@ -6,32 +6,41 @@
 #include<unistd.h>
 #include <sys/types.h>
 #include <sys/stat.h>
+#include "soc.h"
 
-struct socData
-{
-  int index;
-  char owner_name[30];
-  int flat_num;
-  int owner_contact;
-};
+// struct socData
+// {
+//   int index;
+//   char owner_name[30];
+//   int flat_num;
+//   int owner_contact;
+// };
+
+
 
 extern void insert_soc(struct socData readsoc);
 struct socData readsoc;
-int num_records = 0;
 
-//Read the student data
+
 void read_soc() {
   int fd;
-  //int num_records = 0;
-  fd = open("Sociery.txt",O_RDWR | O_CREAT, 0644);
+  int num_records = 1;
+  fd = open(SOCIETY_DATAFILE, O_RDWR | O_CREAT, 0644);
   if(fd < 0) {
      perror("read failed");
   }
+  //printf("In the read_soc %s %d\n", __FILE__, __LINE__);
+
   while (read(fd, (void *)&readsoc, sizeof(struct socData))) {
-    printf("%d\n%s\n%d\n%d\n\n", readsoc.index, readsoc.owner_name, readsoc.flat_num, readsoc.owner_contact);
+  //  printf("In the read_soc %d\n", __LINE__);
+
+    printf("%d. ", num_records);
+    printf("%s\t%d\t%d\n", readsoc.owner_name, readsoc.flat_num, readsoc.owner_contact);
     insert_soc(readsoc);
     num_records++;
   }
+  //printf("In the read_soc %d\n", __LINE__);
+
   close(fd);
 }
 
@@ -39,7 +48,7 @@ void read_soc() {
 void write_soc(struct socData soc)
 {
   int fd;
-  fd = open("Society.txt", O_RDWR | O_CREAT | O_APPEND, 0644);
+  fd = open(SOCIETY_DATAFILE, O_RDWR | O_CREAT | O_APPEND, 0644);
   if (fd < 0) {
     perror("file open failed...");
   }

@@ -1,12 +1,9 @@
-
 # the name of the target program
-TARGET = socm
-
+TARGET = scm
 
 # other source files and the associated object files (this can be blank)
- SRC = society.c maintenance.c visitors.c complaints.c menu.c
- OBJ = $(SRC:.c=.o)
-
+SRC	= school_management.c stud_scm.c teacher_scm.c menu.c stud_persistency.c
+OBJ	= $(SRC:.c=.o)
 
 # special include directories
 INCLUDE = -I.
@@ -23,8 +20,9 @@ CFLAGS = -g
 # specify how to compile the .c files
 .c.o:
 	$(CC) $(CFLAGS) $(INCLUDE) -c $<
-	# if you type 'make' without arguments, this is the default
-all: $(TARGET)
+
+# if you type 'make' without arguments, this is the default
+build: $(TARGET)
 
 # specify how to compile the target
 $(TARGET): $(OBJ)
@@ -33,7 +31,6 @@ $(TARGET): $(OBJ)
 # remove binaries
 clean:
 	rm -f $(OBJ) $(TARGET)
-# echo "clean all"
 
 # remove binaries and other junk
 clobber:

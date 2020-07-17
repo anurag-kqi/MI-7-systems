@@ -8,6 +8,52 @@ Team Members :
 2. Kishori Nikam
 3. Prajawal
 
+17 July 2020
+Meeting Time:11:00 am
+
+Attendees:
+1. Divyani Patidar
+2. Kishori Nikam
+3. Prajawal
+
+Tasks:
+  .work on updation of read write code.
+
+16 July 2020
+Meeting Time:11:00 am
+
+Attendees:
+1. Divyani Patidar
+2. Kishori Nikam
+3. Prajawal
+
+Tasks:
+  .Read write operation of code by using the design.
+
+15 July 2020
+Meeting Time:11:00 am
+
+Attendees:
+1. Divyani Patidar
+2. Kishori Nikam
+3. Prajawal
+
+Tasks:
+  .Read write operation of code.
+
+14 July 2020
+Meeting Time:11:00 am
+
+Attendees:
+1. Divyani Patidar
+2. Kishori Nikam
+3. Prajawal
+
+Tasks:
+  .Read write operation of code.
+
+Task performed by yesterday:
+  .Design project documentation.
 
 13 July 2020
 Meeting Time:11:00 am

@@ -80,15 +80,19 @@ void delete_stud_file()
   printf("delete num_records = %d\n", num_records);
   struct student_disk readStud;
   int fd;
-  fd = open("Student.txt", O_RDWR);
+  fd = open("Student.txt", O_RDWR | O_TRUNC);
   lseek (fd, num_records * sizeof (readStud), 0);
-  char buff;
-  read(fd, &buff, sizeof(buff));
-  if (buff == 1) {
-    printf("delete if\n");
-    int replace = 2;
-    write(fd, &replace, 1);
-  }
+
+  ftruncate(fd,  sizeof (struct student_disk));
+  read_stud();
+
+  // char buff;
+  // read(fd, &buff, sizeof(buff));
+  // if (buff == 1) {
+  //   printf("delete if\n");
+  //   int replace = 2;
+  //   write(fd, &replace, 1);
+  // }
   // while (read(fd, (void *)&readStud, sizeof(struct student_disk))) {
   //   printf("delete while\n");
   //   printf("%d\n%d\n%s\n%s\n%s\n%d\n\n", readStud.index, readStud.id, readStud.name, readStud.class, readStud.address, readStud.contact);

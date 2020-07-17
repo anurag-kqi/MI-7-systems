@@ -6,7 +6,7 @@
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/stat.h>
-
+#include "soc.h"
 #define size 9
 struct society
 {
@@ -18,6 +18,14 @@ struct society
     struct society *next;
     struct society *prev;
 };
+
+// struct society {
+//     struct socityData ondisk;
+//     struct society *next;
+//     struct society *prev;
+
+// }
+
 
 struct society *arr[size];
 
@@ -31,7 +39,7 @@ void init_soc()
 }
 
 /*society insertion*/
-void insert_soc(struct society soc_data)
+void insert_soc(struct socData soc_data)
 {
       //create a newnode with value
       struct society *newNode = (struct society*)malloc(sizeof(struct society));
@@ -58,7 +66,6 @@ void insert_soc(struct society soc_data)
           newNode->prev = temp;
         }
         printf("Node inserted\n");
-
 }
 
 /*void delete_soc(int flat_num)
@@ -99,16 +106,14 @@ void insert_soc(struct society soc_data)
 /*display data*/
 void display_soc()
 {
+  int i;  
   struct society *temp;
-  //temp = root;
-  if(temp!=NULL) {
+  for(i = 0; i < size; i++) {
+    temp = arr[i];
     while(temp) {
-      printf("%d, %s, %d, %d ", temp->index, temp->owner_name, temp->flat_num, temp->owner_contact);
-      temp = temp->next;
-  }
-}
-  else {
-  printf("society data is empty or deleted");
+        printf("%d, %s, %d, %d \n", temp->index, temp->owner_name, temp->flat_num, temp->owner_contact);
+        temp = temp->next;
+    } 
   }
 }
 

@@ -1,18 +1,20 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "soc.h"
 
-struct socData
-{
-  int index;
-  char owner_name[30];
-  int flat_num;
-  int owner_contact;
-};
+// struct socData
+// {
+//   int index;
+//   char owner_name[30];
+//   int flat_num;
+//   int owner_contact;
+// };
 
 struct socData soc;
 //extern void insert_soc(owner_name, flat_num, owner_contact);
-extern void insert_soc();
+extern void insert_soc(struct socData soc_data);
+
 extern void display_soc();
 extern void delete_soc(int flat_num);
 extern void update_soc(int flat_num);
@@ -24,7 +26,6 @@ extern void write_soc(struct socData soc);
 
 //main menu function
 void menus()
-//void menu()
 {
   int flat_num, owner_contact, index, ch;
   char owner_name;
@@ -45,7 +46,7 @@ void menus()
                   switch(ch)
                   {
                       case 1: printf("\n\tEnter Index : ");
-                				      scanf("\t\n %d", &soc.index);
+                	      scanf("\t\n %d", &soc.index);
                               printf("\n\tEnter owner_name : ");
                               scanf("\t\n %[^\n]%*c", soc.owner_name);
                               printf("\n\tEnter flat_num : ");
@@ -53,7 +54,7 @@ void menus()
                               printf("\n\tEnter owner_contact : ");
                               scanf("\t\n %d", &soc.owner_contact);
                               //insert_soc(struct society soc_data);
-                              insert_soc();
+                              insert_soc(soc);
                               write_soc(soc);
 				                      //read_soc();
         	                    break;
@@ -70,8 +71,11 @@ void menus()
 
                   switch(ch)
                   {
-                      case 1: display_soc();
+                      case 1: 
                       read_soc();
+                      
+                      display_soc();
+                //       read_soc();
                               break;
 
                                         /*  case 2: display_maintenance_D();

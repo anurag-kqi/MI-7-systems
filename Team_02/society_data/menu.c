@@ -7,15 +7,13 @@ struct socData soc;
 
 extern void insert_soc(struct socData soc_data);
 extern void search_soc(int flat_num);
-
-extern void display_soc();
-extern void delete_soc(int flat_num);
-extern void update_soc(int flat_num);
-extern void search_soc(int flat_num);
-
-//file read functions
+extern void update_stud_file(struct socData update);
 extern void read_soc();
 extern void write_soc(struct socData soc);
+extern int num_records;
+extern void display_soc();
+extern void update_soc(int flat_num);
+//extern void delete_soc(int flat_num);
 
 //main menu function
 void menus()
@@ -44,6 +42,8 @@ void menus()
                       case 1:
                               printf("\n==================================================================");
                               printf("\n\t\tINSERT SOCIETY DATA\n");
+                              printf("Index: %d", num_records);
+                              soc.index = num_records;
                               printf("\n\tEnter owner_name : ");
                               scanf("\t\n %[^\n]%*c", soc.owner_name);
                               printf("\n\tEnter flat_num : ");
@@ -52,6 +52,7 @@ void menus()
                               scanf("\t\n %d", &soc.owner_contact);
                               insert_soc(soc);
                               write_soc(soc);
+                              num_records++;
 				                      break;
                       /*case 2:
                               printf("\n\n\tEnter flat_num1 : ");
@@ -179,7 +180,7 @@ void menus()
                     {
                         case 1: printf("\n\n\tEnter flat number for Update : ");
                                 scanf("\t %d", &flat_num);
-      				                  //update_soc(flat_num);
+      				                  update_soc(flat_num);
                                 break;
 
                         case 5: exit(0);

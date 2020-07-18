@@ -9,6 +9,338 @@ Team Members :
     3. Rupam Dandge
     4. Aishwarya Bhutkar
 _______________________________________________________________________________________________________________
+18 july 2020
+
+Meeting Time : 1 PM
+
+Attendees : 
+
+		Shankar
+		Harshada
+		Rupam
+		Aishwarya
+
+Tasks : 
+
+		. Work on Coding Style 
+                . Work on Teacher Code.
+		
+Task Performed By : (yesterday's)
+
+	Aishwarya :  
+		. perform Read and write file opration to store data into file. 
+		(Update data into file completed);
+
+	Harshada :  
+		. perform Read and write file opration to store data into file.
+		(delete data into file completed);
+ 
+	Rupam :  
+		. Work on AWS S3. 
+
+17 july 2020
+
+Meeting Time : 11 PM
+
+Attendees : 
+
+		Shankar
+		Harshada
+		Rupam
+		Aishwarya
+
+Tasks : 
+
+		. Project Persistency.
+                . Working on Update and Delete.
+		
+Task Performed By : (yesterday's)
+
+	Aishwarya :  
+		. perform Read and write file opration to store data into file. 
+		(Update data into file and header file created and added into file);
+
+	Harshada :  
+		. perform Read and write file opration to store data into file.
+		(delete data into file and generated index and num record);
+ 
+	Rupam :  
+		. Work on AWS VPC. 
+
+
+16 july 2020
+
+Meeting Time : 3 PM
+
+Attendees : 
+
+		Shankar
+		Harshada
+		Rupam
+		Aishwarya
+
+Tasks : 
+
+		. Project Persistency.
+                . Working on Update and Delete.
+                . Create header file of structure and add in file.
+		
+Task Performed By : (yesterday's)
+
+	Aishwarya :  
+		. perform Read and write file opration to store data into file. 
+		(Update data into file);
+
+	Harshada :  
+		. perform Read and write file opration to store data into file.
+		(delete data into file and generated index and num record);
+ 
+	Rupam :  
+		. Work on AWS VPC.
+
+
+15 july 2020
+
+Meeting Time : 12 PM
+
+Attendees : 
+
+		Shankar
+		Harshada
+		Rupam
+		Aishwarya
+
+Tasks : 
+
+		. Project Persistency.
+                . Working on Update and Delete.
+                . Generate index and num record in file. 
+		
+Task Performed By : (yesterday's)
+
+	Aishwarya :  
+		. perform Read and write file opration to store data into file. 
+		(Update data into file);
+
+	Harshada :  
+		. perform Read and write file opration to store data into file.
+		(delete data into file);
+ 
+	Rupam :  
+		. Work on AWS instance and EBS.
+
+
+14 july 2020
+
+Meeting Time : 1 PM
+
+Attendees : 
+
+		Shankar
+		Harshada
+		Rupam
+		Aishwarya
+
+Tasks : 
+
+		. Project Persistency.
+                . Working on Update and Delete.
+		
+Task Performed By : (yesterday's)
+
+	Aishwarya :  
+		. perform Read and write file opration to store data into file. 
+		(Update data into file);
+                . Design.md file created.
+
+	Harshada :  
+		. perform Read and write file opration to store data into file.
+		(delete data into file);
+                . Design.md file created.
+ 
+	Rupam :  
+		. Docker file created and pushed into docker hub.
+                . Design.md file created. 
+   
+       Shankar :  
+		. Read and write file opration to store data into file.
+                . Design.md file created. 
+		
+
+13 july 2020
+
+Meeting Time : 12 PM
+
+Attendees : 
+
+		Shankar
+		Harshada
+		Rupam
+		Aishwarya
+
+Tasks : 
+
+		. Project Persistency.
+                . Work on Update and Delete.
+                . Create design.md file of project.
+		
+Task Performed By : (yesterday's)
+
+                . Everyone is working on Persistency layer.
+	
+
+11 july 2020
+
+Meeting Time : 12 PM
+
+Attendees : 
+
+		Shankar
+		Harshada
+		Rupam
+		Aishwarya
+
+Tasks : 
+
+		. Project Persistency.
+                . Working on Update and Delete.
+		
+Task Performed By : (yesterday's)
+
+		. Everyone is working on Persistency layer.
+		
+
+
+09 july 2020
+
+Meeting Time : 12 PM
+
+Attendees : 
+
+		Shankar
+		Harshada
+		Rupam
+		Aishwarya
+
+Tasks : 
+
+		. Project Persistency(Update Search).
+		. Work on client server.
+		
+Task Performed By : (yesterday's)
+
+		. Everyone is working on Persistency layer.
+		. Everyone is studying networking concepts.
+		
+
+08 july 2020
+
+Meeting Time : 3 PM
+
+Attendees : 
+
+		Shankar
+		Harshada
+		Rupam
+		Aishwarya
+
+Tasks : 
+
+		. Project Persistency(Display).
+		. Work on client server.
+		
+Task Performed By : (yesterday's)
+
+		. Everyone is working on Persistency layer.
+		. Everyone is working on client server.
+		
+
+
+07 july 2020
+
+Meeting Time : 10 PM
+
+Attendees : 
+
+		Shankar
+		Harshada
+		Rupam
+		Aishwarya
+
+Tasks : 
+
+		. Project Persistency(read/write).
+		. Studying networking concepts and write client server code.
+		
+Task Performed By : (yesterday's)
+
+		. Everyone is working on Persistency layer.
+		. Everyone is studying networking concepts.
+		
+
+06 july 2020
+
+Meeting Time : 12 PM
+
+Attendees : 
+
+		Shankar
+		Harshada
+		Rupam
+		Aishwarya
+
+Tasks : 
+
+		. Project Persistency(Insert).
+		. Studying Networking.
+		
+Task Performed By : (yesterday's)
+
+		. Everyone is working on Persistency layer.
+		. Everyone is studying networking concepts.
+		
+
+
+04 july 2020
+
+Meeting Time : 12 PM
+
+Attendees : 
+
+		Shankar
+		Harshada
+		Rupam
+		Aishwarya
+
+Tasks : 
+
+		. Project Persistency.
+		. Create project Docker Image, run project on Docker.
+		
+Task Performed By : (yesterday's)
+
+		. Everyone is working on Persistency layer.
+		. Everyone is studying networking concepts.
+		
+
+03 july 2020
+
+Meeting Time : 12 PM
+
+Attendees : 
+
+		Shankar
+		Harshada
+		Rupam
+		Aishwarya
+
+
+Tasks : 
+
+		. everyone is workink on Persistency.
+		. creating project Docker Image.
+		
+
 02 july 2020
 
 Meeting Time : 12 PM

@@ -89,13 +89,8 @@ void delete_stud_file(struct student_disk stud_data)
     //struct student_disk stud_data;
     int fd;
     fd = open(STUDENT_DATAFILE, O_RDWR);
-<<<<<<< HEAD
-    lseek (fd, (num_records - 1) * sizeof (struct student_disk), 0);
-    read(fd, &stud_data, sizeof(struct student_disk));
-=======
     lseek (fd, (num_records - 1) * sizeof (struct student_disk), SEEK_SET);
     // read(fd, &stud_data, sizeof(struct student_disk));
->>>>>>> 4797d948e6a76f29470b90efcd855ee4cf7a0588
 
     // stud_data.index
     // read the last record from the file
@@ -121,10 +116,6 @@ void update_stud_file(struct student_disk stu_data)
       perror("write failed");
       exit(1);
   }
-<<<<<<< HEAD
-
-=======
->>>>>>> 4797d948e6a76f29470b90efcd855ee4cf7a0588
   close(fd);
 }
 
@@ -291,12 +282,7 @@ void update_stud(int id)
                 ptr->std.id, ptr->std.name, ptr->std.class, ptr->std.address, ptr->std.contact);
 		            printf("\n\n\tStudent Record Updated Successfully !!!\n");
                     flag = 0;
-<<<<<<< HEAD
-
-
-=======
                 printf("AAA: %d id %d index %d name %s\n", __LINE__, ptr->std.id, ptr->std.index, ptr->std.name);
->>>>>>> 4797d948e6a76f29470b90efcd855ee4cf7a0588
                 break;
             } else {
                 flag = 1;

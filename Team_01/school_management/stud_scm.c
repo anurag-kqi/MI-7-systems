@@ -82,7 +82,7 @@ void delete_stud_file(struct student_disk stud_data)
     fd = open(STUDENT_DATAFILE, O_RDWR);
     lseek (fd, (num_records - 1) * sizeof (struct student_disk), 0);
     read(fd, &stud_data, sizeof(struct student_disk));
-    
+
     // stud_data.index
     // read the last record from the file
     // lseek (num_records - 1) * student_data
@@ -94,7 +94,7 @@ void delete_stud_file(struct student_disk stud_data)
     num_records --;
     ftruncate(fd, num_records * sizeof(struct student_disk));
     printf("delete successful");
-  
+
   close(fd);
 }
 
@@ -110,7 +110,7 @@ void update_stud_file(struct student_disk stu_data)
       perror("write failed");
       exit(1);
   }
-  
+
   close(fd);
 }
 
@@ -280,7 +280,7 @@ void update_stud(int id)
 		        printf("\n\n\tStudent Record Updated Successfully !!!\n");
                     flag = 0;
 
-                
+
                 break;
             } else {
                 flag = 1;

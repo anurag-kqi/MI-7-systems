@@ -4,7 +4,7 @@ TARGET = socm
 
 
 # other source files and the associated object files (this can be blank)
- SRC = menu.c society.c soc_mgnt.c persis.c
+ SRC = menu.c society.c soc_mgnt.c
  OBJ = $(SRC:.c=.o)
 
 

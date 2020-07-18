@@ -8,4 +8,9 @@ struct socData
    int owner_contact;
 };
 
- 
+struct society
+{
+     struct socData sd;
+     struct society *next;
+     struct society *prev;
+ };

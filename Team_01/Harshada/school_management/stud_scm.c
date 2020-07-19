@@ -157,7 +157,7 @@ delete_stud(int id)
     }
     else if (ptr->std.id == id) {
         chain[key] = chain[key]->next;
-        chain[key]->prev = NULL;
+      //  chain[key]->prev = NULL;
         ptr->next = NULL;
         free(ptr);
 	      printf("\n\n\tFirst node deleted\n");

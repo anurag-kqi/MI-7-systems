@@ -9,6 +9,33 @@ Team Members :
     3. Rupam Dandge
     4. Aishwarya Bhutkar
 _______________________________________________________________________________________________________________
+20 july 2020
+
+Meeting Time : 9.30 AM
+
+Attendees : 
+                Aishwarya
+		Shankar
+		Harshada
+		Rupam
+		
+
+Tasks : 
+
+		. Work on Delete Function from hash table 
+                		
+Task Performed By : (yesterday's)
+
+	Aishwarya :  
+		. Work on Delete Function from hash table 
+
+	Harshada :  
+		. Work on Delete Function from hash table 
+
+	Rupam :  
+		. Work on Delete Function from hash table 
+
+
 18 july 2020
 
 Meeting Time : 1 PM

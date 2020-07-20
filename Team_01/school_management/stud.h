@@ -16,4 +16,3 @@ struct student {
     struct student *next;
     struct student *prev;
 };
-

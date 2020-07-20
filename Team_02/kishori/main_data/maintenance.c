@@ -46,29 +46,46 @@ void read_maint() {
 }
 
 //Write the student data
-void write_maint(struct maintData maint)
+void write_maint(struct maintData maint_data)
 {
   int fd;
   fd = open(MAINTENANCE_DATAFILE, O_RDWR | O_CREAT | O_APPEND, 0644);
   if (fd < 0) {
     perror("file open failed...");
   }
-  write(fd, (void *)&maint, sizeof(struct maintData));
+  write(fd, (void *)&maint_data, sizeof(struct maintData));
   close(fd);
 }
 
 
 //update to file
-void update_maint_file(struct maintData update)
+void update_maint_file(struct maintData maint_data)
 {
   int fd;
   fd = open(MAINTENANCE_DATAFILE, O_RDWR, 0644);
-  lseek (fd, update.index * sizeof (struct maintData), SEEK_SET);
-  if (write(fd, &update, sizeof(struct maintData)) < 0) {
+  lseek (fd, maint_data.index * sizeof (struct maintData), SEEK_SET);
+  if (write(fd, &maint_data, sizeof(struct maintData)) < 0) {
       perror("write failed");
       exit(1);
   }
   close(fd);
+}
+
+/*delete in file*/
+void delete_maint_file(struct maintData maint_data)
+{
+    int fd;
+    struct maintData sd;
+    fd = open(MAINTENANCE_DATAFILE, O_RDWR);
+    lseek (fd, (num_records - 1) * sizeof (struct maintData), SEEK_SET);
+    read(fd, &sd, sizeof(struct maintData));
+    sd.index = sd.index;
+    lseek(fd, sd.index * sizeof(struct maintData), SEEK_SET);
+    write(fd, &sd, sizeof(struct maintData));
+    num_records --;
+    ftruncate(fd, num_records * sizeof(struct maintData));
+    printf("\n\n\tdelete successful\n");
+    close(fd);
 }
 
 /*society insertion*/
@@ -84,57 +101,19 @@ void insert_maint(struct maintData maint_data)
       newNode->prev = NULL;
       //calculate hash key
       int key = maint_data.flat_num1 % size;
-
       if (arr1[key] == NULL) {
-          newNode->next = NULL;
-          newNode->prev = NULL;
-          arr1[key] = newNode;
+        newNode->next = NULL;
+        newNode->prev = NULL;
+        arr1[key] = newNode;
       } else {
-          struct maintenance *temp = arr1[key];
-
-          while (temp->next != NULL) {
-              temp = temp->next;
-          }
-          temp->next = newNode;
-          newNode->prev = temp;
+        struct maintenance *temp = arr1[key];
+        while (temp->next != NULL) {
+          temp = temp->next;
         }
-        //printf("Node inserted\n");
+        temp->next = newNode;
+        newNode->prev = temp;
+      }
 }
-
-/*void delete_soc(int flat_num)
-{
-    int key = flat_num % size;
-    struct society *ptr = arr[key], *toDelete;
-
-    if (ptr == NULL) {
-        printf("\n\n\tList is Empty !!!\n");
-    }
-    else if (ptr->flat_num == flat_num) {
-        arr[key] = arr[key]->next;
-        arr[key]->prev = NULL;//segmentation fault
-        ptr->next = NULL;
-        free(ptr);
-	printf("\n\n\tFirst node deleted\n");
-    } else {
-	while (ptr->next != NULL) {
-            if (ptr->next->flat_num == flat_num) {
-                toDelete = ptr->next;
-                if (toDelete->next == NULL) {
-                    ptr->next = NULL;
-                    free(toDelete);
-		    printf("\n\n\tLast Node is deleted\n");
-                    return;
-                } else {
-                    ptr->next = toDelete->next;
-                    toDelete->next->prev = toDelete->prev;
-                    printf("\n\n\tnode is deleted\n");
-                    free(toDelete);
-                }
-            }
-            ptr = ptr->next;
-        }
-    }
-}*/
 
 /*display data*/
 void display_maint()
@@ -159,7 +138,8 @@ void display_maint()
 void search_maint(int flat_num1)
 {
     struct maintenance *ptr;
-    int i=0, flag;
+    int flag;
+    int pos = 0;
 
     int key = flat_num1 % size;
 
@@ -167,18 +147,17 @@ void search_maint(int flat_num1)
     if (ptr == NULL) {
         printf("\n\n\tEmpty List\n");
     } else {
-
-
         while (ptr != NULL) {
+          pos++;
             if (ptr->sd.flat_num1 == flat_num1) {
-                printf("\n\n\tmaintenance flat number found at location : %d ", key-1 );
-                printf("\n\n\tflat_num1\t -\t %d\n\twater_bill\t -\t %d\n\telectricity_bill\t -\t %d\n", ptr->sd.flat_num1, ptr->sd.water_bill, ptr->sd.electricity_bill);
+                printf("\n\n\tmaintenance flat number found at location : %d ",key);
+                printf("\n\tflat_num1 - %d\n\twater_bill - %d\n\telectricity_bill - %d", ptr->sd.flat_num1, ptr->sd.water_bill, ptr->sd.electricity_bill);
                 flag = 0;
                 break;
             } else {
                 flag=1;
             }
-            i++;
+
             ptr = ptr -> next;
         }
         if (flag==1) {
@@ -186,7 +165,6 @@ void search_maint(int flat_num1)
         }
     }
 }
-
 
 /*updation*/
 void update_maint(int flat_num1)
@@ -242,3 +220,35 @@ void update_maint(int flat_num1)
         }
     }
 }
+
+/*DELETE values from STUDENT hash table*/
+    void delete_maint(int flat_num1)
+    {
+      printf("\n-----%d flat_num1 \n", flat_num1);
+        int key = flat_num1% size;
+        struct maintenance *ptr = arr1[key], *toDelete;
+        if(ptr == NULL) {
+            printf("\n List is Empty");
+        }
+         else if(ptr->sd.flat_num1 == flat_num1) {
+           delete_maint_file(ptr->sd);
+            ptr= NULL;
+            arr1[key] = NULL;
+            free(ptr);
+            printf("\nnode deleted\n");
+        }
+        else {
+          delete_maint_file(ptr->sd);
+    	  while(ptr->next != NULL) {
+            if (ptr->next->sd.flat_num1 == flat_num1) {
+              ptr = NULL;
+              toDelete = ptr->next;
+            	ptr->next = toDelete->next;
+            	toDelete->next->prev = ptr;
+            	free(toDelete);
+            }
+            ptr = ptr->next;
+        }
+            printf("\nnode deleted successfully\n");
+        }
+      }

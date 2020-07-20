@@ -41,7 +41,7 @@ read_stud()
 {
     num_records = 0;
     int fd;
-    fd = open(STUDENT_DATAFILE,O_RDWR | O_CREAT, 0644);
+    fd = open(STUDENT_DATAFILE, O_RDWR | O_CREAT, 0644);
     if(fd < 0) {
         perror("read failed");
     }
@@ -106,7 +106,7 @@ void
 display_stud()
 {
     int i;
-    int index = 1;
+    int index = 0;
     struct student *temp;
     printf("\n_______________________________________________________________________________\n\n");
     printf("INDEX. SR.   STUD_NAME  CLASS  ADDRESS  CONTACT\n\n");
@@ -129,6 +129,7 @@ delete_stud_file(struct student_disk stud)
     struct student_disk temp;
 
     fd = open(STUDENT_DATAFILE, O_RDWR);
+
     lseek (fd, (num_records - 1) * sizeof (struct student_disk), SEEK_SET);
     read(fd, &temp, sizeof(struct student_disk));
     temp.index = stud.index;
@@ -136,19 +137,16 @@ delete_stud_file(struct student_disk stud)
     write(fd, &temp, sizeof(struct student_disk));
     num_records --;
     ftruncate(fd, num_records * sizeof(struct student_disk));
-    printf("delete successful");
-
-    //printf("student id %d\n", temp.id);
-    delete_stud(temp.id);
+    printf("\n\n\tdelete successful\n");
 
     close(fd);
 }
-
 
 //DELETE values from STUDENT hash table
 void
 delete_stud(int id)
 {
+  printf("\n-----%d id \n", id);
     int key = id % size;
     struct student *ptr = chain[key], *toDelete;
 
@@ -156,12 +154,14 @@ delete_stud(int id)
         printf("\n\n\tList is Empty !!!\n");
     }
     else if (ptr->std.id == id) {
+      delete_stud_file(ptr->std);
         chain[key] = chain[key]->next;
-      //  chain[key]->prev = NULL;
+        //chain[key]->prev = NULL;
         ptr->next = NULL;
         free(ptr);
 	      printf("\n\n\tFirst node deleted\n");
     } else {
+      delete_stud_file(ptr->next->std);
       	  while (ptr->next != NULL) {
               if (ptr->next->std.id == id) {
                   toDelete = ptr->next;
@@ -181,8 +181,6 @@ delete_stud(int id)
           }
       }
 }
-
-
 
 //SEARCH Student data from STUDENT hash table
 void

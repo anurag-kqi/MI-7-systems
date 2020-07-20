@@ -10,3 +10,12 @@ Review process:
     - Shankar needs to review each PR and approve before it is allowed to merged in the master
     - Shankar will be available for any team level meeting / debugging on daily basis
     - Shankar will provide me weekly report for each team and invididual
+3. Everyone should be working on their own branch:
+    - master.harshada01:
+        - You will commit code in your branch only, and create PR
+        - PR needs to be reviewed by team members and Shankar
+        - Only after approval, the PR gets merged in the master
+        - code style
+        - namimg style
+        - logical errors
+        

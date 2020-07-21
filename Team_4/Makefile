@@ -1,9 +1,8 @@
-
 # the name of the target program
 TARGET = hms
 
 # other source files and the associated object files (this can be blank)
-SRC	= HSM.c patient.c doctor.c
+SRC	= HSM.c patient.c doctor.c 
 OBJ	= $(SRC:.c=.o)
 
 # special include directories
@@ -18,7 +17,16 @@ CFLAGS = -g
 
 # .SUFFIXES: .c
 
+# specify how to compile the .c files
+.c.o:
+	$(CC) $(CFLAGS) $(INCLUDE) -c $<
 
+# if you type 'make' without arguments, this is the default
+build: $(TARGET)
+
+# specify how to compile the target
+$(TARGET): $(OBJ)
+	$(CC) $(CFLAGS) $(INCLUDE)  $(OBJ) $(LIB) -o $(TARGET)
 
 # remove binaries
 clean:
@@ -28,5 +36,3 @@ clean:
 clobber:
 	make clean
 	rm -f core *~
-
-

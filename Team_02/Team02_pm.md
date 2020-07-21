@@ -7,7 +7,174 @@ Team Members :
 1. Divyani Patidar
 2. Kishori Nikam
 3. Prajawal
-4. Nipun Divecha
+
+18 July 2020
+Meeting Time:11:00 am
+
+Attendees:
+1. Divyani Patidar
+2. Kishori Nikam
+3. Prajawal
+
+Tasks:
+  .Divyani: work on read write function of complaints.
+  .Kishori: work on read write function of maintenance.
+  .Prajwal: work on read write function of visitors.
+
+Task perform by yesterday:
+  .All: Work on updation of read write code.
+
+17 July 2020
+Meeting Time:11:00 am
+
+Attendees:
+1. Divyani Patidar
+2. Kishori Nikam
+3. Prajawal
+
+Tasks:
+  .All: work on updation of read write code.
+
+Task perform by yesterday:
+  .All: Work on read write operation of code.
+
+16 July 2020
+Meeting Time:11:00 am
+
+Attendees:
+1. Divyani Patidar
+2. Kishori Nikam
+3. Prajawal
+
+Tasks:
+  .All: Read write operation of code by using the design.
+
+Task perform by yesterday:   
+  .All: Work on read write code.
+
+15 July 2020
+Meeting Time:11:00 am
+
+Attendees:
+1. Divyani Patidar
+2. Kishori Nikam
+3. Prajawal
+
+Tasks:
+  .All: Read write operation of code.
+
+Task perform by yesterday:
+  .All: Work on read write code.
+
+14 July 2020
+Meeting Time:11:00 am
+
+Attendees:
+1. Divyani Patidar
+2. Kishori Nikam
+3. Prajawal
+
+Tasks:
+  .All: Read write operation of code.
+
+Task performed by yesterday:
+  .Design project documentation.
+
+13 July 2020
+Meeting Time:11:00 am
+
+Attendees:
+1. Divyani Patidar
+2. Kishori Nikam
+3. Prajawal
+
+Tasks:
+  .Kishori: Design project documentation.
+  .All: Read write operation of code.
+
+Tasks performed by yesterday:
+  .All: Read write operation of code.
+
+
+10 July 2020
+Meeting Time:11:00 am
+
+Attendees:
+1. Divyani Patidar
+2. Kishori Nikam
+3. Prajawal
+
+Tasks:
+  .All: Read write operation of code.
+
+Task perform by yesterday:
+  .All: networking question and answer.
+
+
+9 July 2020
+Meeting Time:11:00 am
+
+Attendees:
+1. Divyani Patidar
+2. Kishori Nikam
+3. Prajawal
+
+Tasks:
+  .networking question and answer.
+
+Task perform by yesterday:
+  .All: read write operation of code.
+
+
+8 July 2020
+Meeting Time:11:00 am
+
+Attendees:
+1. Divyani Patidar
+2. Kishori Nikam
+3. Prajawal
+
+Tasks:
+  .Read - write operation of code.
+
+Task perform by yesterday:
+  .All: server client daytime operation.
+
+7 July 2020
+Meeting Time:11:00 am
+
+Attendees:
+1. Divyani Patidar
+2. Kishori Nikam
+3. Prajawal
+
+Tasks:
+  .server client daytime operation.
+
+Task perform by yesterday:
+  .All: Work on networking concept.
+
+6 July 2020
+Meeting Time:11:00 am
+
+Attendees:
+1. Divyani Patidar
+2. Kishori Nikam
+3. Prajawal
+
+Tasks:
+  .networking concept.
+
+4 July 2020
+Meeting Time:11:00 am
+
+Attendees:
+1. Divyani Patidar
+2. Kishori Nikam
+3. Prajawal
+
+Tasks:
+  .Read - write operation of code.
 
 3 July 2020
 Meeting Time:11:00 am

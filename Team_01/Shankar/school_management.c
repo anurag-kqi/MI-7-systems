@@ -129,7 +129,7 @@ void delete_stud(int id)
         printf("\n\n\tList is Empty !!!\n");
     }
     else if (ptr->id == id && ptr->next == NULL) {
-      
+
         ptr = NULL;
         free(ptr);
         printf("\n\n\tnode deleted\n");

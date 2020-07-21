@@ -1,0 +1,127 @@
+Project : Hospital Management System
+
+A. Project Modules :
+
+structure :
+- There should be two parts for each type of records,   
+  on disk and in memory
+- There are two structures patient and docter
+
+ struct patDisk {
+    int id;
+    int index;
+    char name[30];
+    int age;
+    char address[50];
+    int contact;
+  }
+  struct patient {
+    struct patDisk patie;
+    struct patient next*;
+    struct patient prev*;
+  }
+
+  struct docterDisk {
+      int id;
+      int index;
+      char name[30];
+      char department[50];
+      int contact;
+    }
+    struct docter {
+      struct dpcterDisk dtr;
+      struct docter next*;
+      struct docter prev*;
+    }
+
+
+Reading of records at the start of the program:
+- read_pat/read_docter function, taking student data file as
+  an argument.
+- open the data file using open(fiename, O_RDONLY).
+- read all the records using following structure
+  struct patDisk patie;
+- insert record into hash table using function insert_pat()/insert_docter();
+- close the file
+Add / insert of new record:
+record should not be exist in the hash table with the same id
+- you will have incore patient record where you have
+  collected data based on the input from user
+- you need to first set the index of this record. T
+  1. You know the number of records (num_records)already    present.
+  set index for the new recor (patient.pat.index = num_records)
+  2. Increment the global num_record by 1
+  3. open the file with O_CREATE | O_RDWR | O_APPEND, 0644
+  4. write(fd, &patient.pat, sizeof(struct patient_disk))
+  5. close the file
+Update of the record:
+- First update the data in the hash table element
+- You open the file in the O_RDWR mode
+- Get the index from patient record (index = patient.std.index)
+- lseek(fd, index * sizeof(struct patient_disk), 0)
+- write (fd, &patient.pat, sizeof(...))
+- close the file
+Delete of the record:
+- open the file open(file, O_RDWR)
+- swap you record with the last record
+- make sure you update the index for the last record properly
+- truncate the file by one record
+- close the file        
+
+Display Records:
+- you can display hash table or file Records
+- to display file records use function read_pat() /
+  read_docter();
+- to display hash table travers the hash table upto end
+  display all the records.
+B. Project Files:
+
+hospital_management.c
+
+it contains main() function and function calls
+init_pat();
+init_docter();
+read_pat();
+read_docter();
+menus();
+menu.c
+
+it contains switch statement of menus and function
+calls
+main menus :
+INSERT
+DISPLAY
+DELETE
+UPDATE
+EXIT
+sub menus :
+PATIENT
+DOCTER
+EXIT - every main menu contain sub menu
+pat_hms.c
+
+it contains defination of functions used in project
+init_pat();
+insert_pat();
+delete_pat();
+display_pat();
+update_pat();
+docter_hms.c
+
+it contains defination of functions used in project
+init_docter();
+insert_docter();
+delete_docter();
+display_docter();
+update_docter();
+pat_persistency.c
+
+it contains functions used for persistency - read_pat(); - write_pat(); - modify_pat(); - del_pat();
+pat_persistency.c AA:>> wrong file name
+
+it contains functions used for persistency - read_docter(); - write_docter(); - modify_docter(); - del_docter();
+
+Makefile
+
+it contain commands required for compile and run the program
+commands : - make build (for compile) - ./hms (for run) - make clean (to remove .

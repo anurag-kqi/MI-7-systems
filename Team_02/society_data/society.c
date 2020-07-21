@@ -31,8 +31,8 @@ void read_soc() {
      perror("read failed");
   }
 
-  while (read(fd, (void *)&readsoc, sizeof(struct socData))) {
-
+   while (read(fd, (void *)&readsoc, sizeof(struct socData))) {
+  
     printf("%d.\t%s\t\t%d\t%d\n", readsoc.index, readsoc.owner_name, readsoc.flat_num, readsoc.owner_contact);
     insert_soc(readsoc);
     num_records++;
@@ -121,7 +121,7 @@ void display_soc()
   //int index = 1;
   struct society *temp;
   printf("\n==================================================================\n\n");
-  printf("SR. OW_NAME    FLAT_NO    OW_CONTACT\n\n");
+  printf("SR. OW_NAME    FLAT_NO  OW_CONTACT\n\n");
   for(i = 0; i < size; i++) {
     temp = arr[i];
     while(temp) {
@@ -222,6 +222,7 @@ void update_soc(int flat_num)
     }
 }
 
+
 /*deletion*/
 void delete_soc(int flat_num)
 {
@@ -254,3 +255,4 @@ void delete_soc(int flat_num)
           printf("\nnode deleted successfully\n");
       }
     }
+

@@ -8,7 +8,23 @@
 #include <sys/stat.h>
 #include "soc.h"
 #define size 9
+/*struct society
+{
+    int index;
+    char owner_name[30];
+    int flat_num;
+    int owner_contact;
+    struct society *temp;
+    struct society *next;
+    struct society *prev;
+};*/
 
+// struct society {
+//     struct socityData ondisk;
+//     struct society *next;
+//     struct society *prev;
+
+// }
 struct socData readsoc;
 extern void insert_soc(struct socData);
 struct society *arr[size];
@@ -30,13 +46,17 @@ void read_soc() {
   if(fd < 0) {
      perror("read failed");
   }
+  //printf("In the read_soc %s %d\n", __FILE__, __LINE__);
 
-   while (read(fd, (void *)&readsoc, sizeof(struct socData))) {
-  
+  while (read(fd, (void *)&readsoc, sizeof(struct socData))) {
+  //  printf("In the read_soc %d\n", __LINE__);
+
+    //printf("%d. ", num_records);
     printf("%d.\t%s\t\t%d\t%d\n", readsoc.index, readsoc.owner_name, readsoc.flat_num, readsoc.owner_contact);
     insert_soc(readsoc);
     num_records++;
   }
+  //printf("In the read_soc %d\n", __LINE__);
 
   close(fd);
 }
@@ -65,23 +85,6 @@ void update_stud_file(struct socData update)
       exit(1);
   }
   close(fd);
-}
-
-/*delete in file*/
-void delete_soc_file(struct socData soc_data)
-{
-    int fd;
-    struct socData sd;
-    fd = open(SOCIETY_DATAFILE, O_RDWR);
-    lseek (fd, (num_records - 1) * sizeof (struct socData), SEEK_SET);
-    read(fd, &sd, sizeof(struct socData));
-    sd.index = sd.index;
-    lseek(fd, sd.index * sizeof(struct socData), SEEK_SET);
-    write(fd, &sd, sizeof(struct socData));
-    num_records --;
-    ftruncate(fd, num_records * sizeof(struct socData));
-    printf("\n\n\tdelete successful\n");
-    close(fd);
 }
 
 /*society insertion*/
@@ -113,6 +116,41 @@ void insert_soc(struct socData soc_data)
         }
         //printf("Node inserted\n");
 }
+
+/*void delete_soc(int flat_num)
+{
+    int key = flat_num % size;
+    struct society *ptr = arr[key], *toDelete;
+
+    if (ptr == NULL) {
+        printf("\n\n\tList is Empty !!!\n");
+    }
+    else if (ptr->flat_num == flat_num) {
+        arr[key] = arr[key]->next;
+        arr[key]->prev = NULL;//segmentation fault
+        ptr->next = NULL;
+        free(ptr);
+	printf("\n\n\tFirst node deleted\n");
+    } else {
+	while (ptr->next != NULL) {
+            if (ptr->next->flat_num == flat_num) {
+                toDelete = ptr->next;
+                if (toDelete->next == NULL) {
+                    ptr->next = NULL;
+                    free(toDelete);
+		    printf("\n\n\tLast Node is deleted\n");
+                    return;
+                } else {
+                    ptr->next = toDelete->next;
+                    toDelete->next->prev = toDelete->prev;
+                    printf("\n\n\tnode is deleted\n");
+                    free(toDelete);
+                }
+            }
+            ptr = ptr->next;
+        }
+    }
+}*/
 
 /*display data*/
 void display_soc()
@@ -221,38 +259,3 @@ void update_soc(int flat_num)
         }
     }
 }
-
-
-/*deletion*/
-void delete_soc(int flat_num)
-{
-    printf("\n-----%d flat_num \n", flat_num);
-    int key = flat_num % size;
-    struct society *ptr = arr[key], *toDelete;
-
-    if (ptr == NULL) {
-        printf("\n\n\tList is Empty !!!\n");
-      }
-       else if(ptr->sd.flat_num == flat_num) {
-         delete_soc_file(ptr->sd);
-          ptr= NULL;
-          arr[key] = NULL;
-          free(ptr);
-          printf("\nnode deleted\n");
-      }
-      else {
-        delete_soc_file(ptr->sd);
-      while(ptr->next != NULL) {
-          if (ptr->next->sd.flat_num == flat_num) {
-            ptr = NULL;
-            toDelete = ptr->next;
-            ptr->next = toDelete->next;
-            toDelete->next->prev = ptr;
-            free(toDelete);
-          }
-          ptr = ptr->next;
-      }
-          printf("\nnode deleted successfully\n");
-      }
-    }
-

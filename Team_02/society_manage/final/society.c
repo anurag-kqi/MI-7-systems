@@ -15,7 +15,7 @@ struct society *arr[size];
 int num_records;
 
 //init array of list to NULL
-void init_soc(){
+void init_soc() {
     int i;
     for(i = 1; i < size; i++) {
         arr[i] = NULL;
@@ -27,7 +27,7 @@ void read_soc() {
     int fd;
     num_records = 0;
     fd = open(SOCIETY_DATAFILE, O_RDWR | O_CREAT, 0644);
-    if(fd < 0) {
+    if (fd < 0) {
         perror("read failed");
     }
     while (read(fd, (void *)&readsoc, sizeof(struct socData))) {
@@ -39,7 +39,7 @@ void read_soc() {
 }
 
 //Write to student datafile
-void write_soc(struct socData soc){
+void write_soc(struct socData soc) {
     int fd;
     fd = open(SOCIETY_DATAFILE, O_RDWR | O_CREAT | O_APPEND, 0644);
     if (fd < 0) {
@@ -50,7 +50,7 @@ void write_soc(struct socData soc){
 }
 
 //update to file
-void update_soc_file(struct socData update){
+void update_soc_file(struct socData update) {
     int fd;
     fd = open(SOCIETY_DATAFILE, O_RDWR, 0644);
     lseek (fd, update.index * sizeof (struct socData), SEEK_SET);
@@ -62,7 +62,7 @@ void update_soc_file(struct socData update){
 }
 
 //delete from file
-void delete_soc_file(struct socData delete){
+void delete_soc_file(struct socData delete) {
     int fd;
     struct socData temp;
 
@@ -79,7 +79,7 @@ void delete_soc_file(struct socData delete){
 }
 
 /*society insertion*/
-void insert_soc(struct socData soc_data){
+void insert_soc(struct socData soc_data) {
     struct society *newNode = (struct society*)malloc(sizeof(struct society));
     newNode->sd.index = soc_data.index;
     strcpy(newNode->sd.owner_name, soc_data.owner_name);
@@ -94,8 +94,7 @@ void insert_soc(struct socData soc_data){
         newNode->next = NULL;
         newNode->prev = NULL;
         arr[key] = newNode;
-    }
-    else {
+    } else {
         struct society *temp = arr[key];
 
         while (temp->next != NULL) {
@@ -107,7 +106,7 @@ void insert_soc(struct socData soc_data){
 }
 
 /*display data*/
-void display_soc(){
+void display_soc() {
     int i;
     int index = 0;
     struct society *temp;
@@ -126,16 +125,14 @@ void display_soc(){
 }
 
 /*serch data*/
-void search_soc(int flat_num)
-{
+void search_soc(int flat_num) {
     struct society *ptr;
     int i=0, flag;
     int key = flat_num % size;
     ptr = arr[key];
     if (ptr == NULL) {
         printf("\n\n\tEmpty List\n");
-    }
-    else {
+    } else {
         while (ptr != NULL) {
             if (ptr->sd.flat_num == flat_num) {
                 printf("\n\n\tSociety flat number found at location : %d ", i+1);
@@ -157,8 +154,7 @@ void search_soc(int flat_num)
 
 
 /*updation*/
-void update_soc(int flat_num)
-{
+void update_soc(int flat_num) {
     struct society *ptr;
     int i=0, flag;
 
@@ -195,8 +191,7 @@ void update_soc(int flat_num)
                 flag = 0;
                 update_soc_file(ptr->sd);
                 break;
-            }
-            else {
+            } else {
                 flag = 1;
             }
             i++;
@@ -209,22 +204,19 @@ void update_soc(int flat_num)
 }
 
 //delete operation
-void delete_soc(int flat_num)
-{
+void delete_soc(int flat_num) {
     int key = flat_num % size;
     struct society *toDelete;
     struct society *ptr = arr[key];
 
     if(ptr == NULL) {
         printf("\n List is Empty");
-    }
-    else if(ptr->sd.flat_num == flat_num) {
+    } else if(ptr->sd.flat_num == flat_num) {
         delete_soc_file(ptr->sd);
         ptr = NULL;
         arr[key] = NULL;
         free(ptr);
-    }
-    else {
+    } else {
         delete_soc_file(ptr->sd);
         while(ptr->next != NULL) {
             if (ptr->next->sd.flat_num == flat_num) {

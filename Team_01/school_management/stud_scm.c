@@ -7,7 +7,7 @@
 #include<unistd.h>
 #include <sys/types.h>
 #include <sys/stat.h>
-#include "stud.h"
+#include "structure.h"
 #define size 9
 
 struct student *chain[size];
@@ -138,8 +138,8 @@ delete_stud_file(struct student_disk stud)
     num_records --;
     ftruncate(fd, num_records * sizeof(struct student_disk));
     printf("\n\n\tdelete successful\n");
-
     close(fd);
+    
 }
 
 //DELETE values from STUDENT hash table
@@ -250,9 +250,9 @@ update_stud(int id)
 
   		            printf("\n\n\tStudent Id - %d\n\tStudent Nmae - %s\n\tStudent Class - %s\n\tStudent Address - %s\n\tStudent Contact - %d",
                   ptr->std.id, ptr->std.name, ptr->std.class, ptr->std.address, ptr->std.contact);
-  		            printf("\n\n\tStudent Record Updated Successfully !!!\n");
+  		            printf("\n\n\tStudent Record Updated Successfully !!!\n\n");
                       flag = 0;
-                  printf("AAA: %d id %d index %d name %s\n", __LINE__, ptr->std.id, ptr->std.index, ptr->std.name);
+                  //printf("AAA: %d id %d index %d name %s\n", __LINE__, ptr->std.id, ptr->std.index, ptr->std.name);
                   break;
               } else {
                     flag = 1;

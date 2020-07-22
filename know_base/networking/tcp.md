@@ -65,6 +65,7 @@ Q3. What is TCP and how it is different from UDP?
  Q6. How TCP coonection is teared down?
 
  Q7. What are the well known ports? And how does one find them?
+ 
  --Shankar
  
  how to find port
@@ -122,6 +123,7 @@ Q3. What is TCP and how it is different from UDP?
 1080 	Socks
 
 Q8. What are the registered ports ranges?
+
 --Shankar
 - Port numbers above 1023 can be either registered or dynamic (also called private or non-reserved). 
 Registered ports are in the range 1024 to 49151. Dynamic ports are in the range 49152 to 65535. As mentioned, 

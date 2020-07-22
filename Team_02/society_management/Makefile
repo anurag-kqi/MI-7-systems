@@ -2,12 +2,11 @@
 # the name of the target program
 TARGET = socm
 
-# other source files and the associated object files (this can be blank)
- SRC = server.c
- SRC1 = Client.c
 
+
+# other source files and the associated object files (this can be blank)
+ SRC =  soc_mgnt.c menu.c society.c maintenance.c visitors.c complaints.c 
  OBJ = $(SRC:.c=.o)
- OBJ1 = $(SRC:.c=.o)
 
 # special include directories
 INCLUDE = -I.
@@ -29,8 +28,9 @@ CFLAGS = -g
 all: $(TARGET)
 
 # specify how to compile the target
-$(TARGET): $(OBJ) $(OBJ1)
-	$(CC) $(CFLAGS) $(INCLUDE)  $(OBJ) $(OBJ1) $(LIB) -o $(TARGET)
+
+$(TARGET): $(OBJ)
+	$(CC) $(CFLAGS) $(INCLUDE)  $(OBJ) $(LIB) -o $(TARGET)
 
 # remove binaries
 clean:

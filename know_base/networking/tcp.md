@@ -11,12 +11,12 @@ Q1. What is UPD?
  -User Datagram Protocol (UDP) is more efficient in terms of both latency and bandwidth.
 
 Q2. How does one transfer the data using UDP?
- ---Harshada 
+ ---Harshada
  -UDP is used to transfer large files accrose the internet.
  -UDP break the large file into individual packets.
  -these packets are transfered from source to destination
  -after reciving all packets at destination, packages are reconstructed and the
-  file is back to its original state. 
+  file is back to its original state.
 
 Q3. What is TCP and how it is different from UDP?
  -TCP is a connection-oriented protocol while UDP is a connectionless protocol.
@@ -29,3 +29,24 @@ Q3. What is TCP and how it is different from UDP?
  Q4. How does one transfer data using TCP?
  - server (socket, bind, listen, accept, read/write)
  - client (socket, connect, read/write)
+
+ Q5. What is TCP 3way hand shake protocol?
+  ---Aishwarya
+  - TCP 3way is a process which is used in TCP/IP network.
+  - This process is used to establish a connection between client and server.
+  - This is a three step process.
+    1. SYN - used to establish a connection.
+    2. ACK - used to confirm that SYN received msg or not.
+    3. SYN-ACK - SYN means the message from local side and ACK is the packet.
+  - It requires both client and server which can used to exchange the synchronization and 
+    acknowledgement packets.
+
+ Q6. How TCP coonection is teared down?
+
+ Q7. What are the well known ports? And how does one find them?
+
+ Q8. What are the registered ports ranges?
+
+ Q9. What is dynamic / ephemeral ports?
+
+ Q10. Given a socket, how can I find the associated port number?

@@ -8,6 +8,20 @@ Team Members :
 2. Kishori Nikam
 3. Prajawal
 
+22 July 2020
+Meeting Time:10:00 am
+
+Attendees:
+1. Divyani Patidar
+2. Kishori Nikam
+3. Prajawal
+
+Tasks:
+  .All: work on client-server code.
+
+Task perform by yesterday:
+  .All: work on coding style and search function of code.
+
 21 July 2020
 Meeting Time:10:00 am
 

@@ -33,7 +33,7 @@ main(int argc, char **argv)
     servaddr.sin_port = htons(13); 
     servaddr.sin_addr.s_addr = htonl(INADDR_ANY);
  
-    if (bind(listenfd, (struct sockaddr *)&servaddr, sizeof(servaddr)) < 0) {
+    if (bind(listenfd,(struct sockaddr *)&servaddr, sizeof(servaddr)) < 0) {
         perror("bind error");
         exit(1);
     }

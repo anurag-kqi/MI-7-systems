@@ -23,9 +23,9 @@ Team Meeting: 10:00 AM
 
 Team3:
 - Siddhant Gupta: (Will not be able to continue)
-- Swapnil: Shankar to confirm
-- Vaibhav: Shankar to confirm
-- Shakshi: Shankar to confirm
+- Swapnil: Should start again
+- Vaibhav: Should start again
+- Shakshi: Not sure
 
 Project status:
 - Need to do coding style changes

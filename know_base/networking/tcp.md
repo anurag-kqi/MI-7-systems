@@ -31,6 +31,15 @@ Q3. What is TCP and how it is different from UDP?
  - client (socket, connect, read/write)
 
  Q5. What is TCP 3way hand shake protocol?
+  ---Aishwarya
+  - TCP 3way is a process which is used in TCP/IP network.
+  - This process is used to establish a connection between client and server.
+  - This is a three step process.
+    1. SYN - used to establish a connection.
+    2. ACK - used to confirm that SYN received msg or not.
+    3. SYN-ACK - SYN means the message from local side and ACK is the packet.
+  - It requires both client and server which can used to exchange the synchronization and 
+    acknowledgement packets.
 
  Q6. How TCP coonection is teared down?
 

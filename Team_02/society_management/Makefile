@@ -1,0 +1,43 @@
+
+# the name of the target program
+TARGET = socm
+
+# other source files and the associated object files (this can be blank)
+ SRC = server.c
+ SRC1 = Client.c
+
+ OBJ = $(SRC:.c=.o)
+ OBJ1 = $(SRC:.c=.o)
+
+# special include directories
+INCLUDE = -I.
+
+# special libraries (none for now)
+LIB	=
+
+# select the compiler and flags
+CC = /usr/bin/gcc
+CFLAGS = -g
+
+# .SUFFIXES: .c
+
+# specify how to compile the .c files
+.c.o:
+	$(CC) $(CFLAGS) $(INCLUDE) -c $<
+
+# if you type 'make' without arguments, this is the default
+all: $(TARGET)
+
+# specify how to compile the target
+$(TARGET): $(OBJ) $(OBJ1)
+	$(CC) $(CFLAGS) $(INCLUDE)  $(OBJ) $(OBJ1) $(LIB) -o $(TARGET)
+
+# remove binaries
+clean:
+	rm -f $(OBJ) $(TARGET)
+# echo "clean all"
+
+# remove binaries and other junk
+clobber:
+	make clean
+	rm -f core *~

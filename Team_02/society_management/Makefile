@@ -1,9 +1,10 @@
+
 # the name of the target program
 TARGET = socm
 
 
 # other source files and the associated object files (this can be blank)
- SRC = project.c
+ SRC =  soc_mgnt.c menu.c society.c maintenance.c visitors.c complaints.c 
  OBJ = $(SRC:.c=.o)
 
 
@@ -22,7 +23,8 @@ CFLAGS = -g
 # specify how to compile the .c files
 .c.o:
 	$(CC) $(CFLAGS) $(INCLUDE) -c $<
-	# if you type 'make' without arguments, this is the default
+
+# if you type 'make' without arguments, this is the default
 all: $(TARGET)
 
 # specify how to compile the target

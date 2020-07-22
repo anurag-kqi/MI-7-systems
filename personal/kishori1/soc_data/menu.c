@@ -1,25 +1,27 @@
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "maint.h"//headher file which contains structure
+#include "soc.h"//headher file which contains structure
 
-struct maintData maint;
+struct socData soc;
 
-extern void insert_maint(struct maintData maint_data);
-extern void search_maint(int flat_num1);
-extern void update_maint_file(struct maintData update);
-extern void read_maint();
-extern void write_maint(struct maintData maint);
+extern void insert_soc(struct socData soc_data);
+extern void search_soc(int flat_num);
+extern void update_stud_file(struct socData update);
+extern void read_soc();
+extern void write_soc(struct socData soc);
 extern int num_records;
-extern void display_maint();
-extern void update_maint(int flat_num1);
+extern void display_soc();
+extern void update_soc(int flat_num);
 //extern void delete_soc(int flat_num);
 
 //main menu function
 void menus()
 {
-  int flat_num1, water_bill, electricity_bill, index, ch;
-    //char owner_name[30], complaints_name[50], suggestions_name[50], visitor_name[30];
+  int flat_num, owner_contact, index, ch;
+  char owner_name;
+  //char owner_name[30], complaints_name[50], suggestions_name[50], visitor_name[30];
   //int flat_num, flat_num1, new_flat_num, flat_number, new_flat_number, owner_contact, visitor_contact,TimeIn,TimeOut, water_bill, electricity_bill, new_water_bill, new_electricity_bill, vehicle_num, new_vehicle_num, ch;
   while(1) {
 
@@ -38,19 +40,19 @@ void menus()
 
                   switch(ch)
                   {
-                      case 2:
+                      case 1:
                               printf("\n==================================================================");
-                              printf("\n\t\tINSERT MAINTENANCE DATA\n");
+                              printf("\n\t\tINSERT SOCIETY DATA\n");
                               printf("Index: %d", num_records);
-                              maint.index = num_records;
+                              soc.index = num_records;
+                              printf("\n\tEnter owner_name : ");
+                              scanf("\t\n %[^\n]%*c", soc.owner_name);
                               printf("\n\tEnter flat_num : ");
-                              scanf("\t\n %d", &maint.flat_num1);
-                              printf("\n\tEnter water_bill : ");
-                              scanf("\t\n %d", &maint.water_bill);
-                              printf("\n\tEnter electricity_bill :");
-                              scanf("\t\n %d", &maint.electricity_bill);
-                              insert_maint(maint);
-                              write_maint(maint);
+                              scanf("\t\n%d", &soc.flat_num);
+                              printf("\n\tEnter owner_contact : ");
+                              scanf("\t\n %d", &soc.owner_contact);
+                              insert_soc(soc);
+                              write_soc(soc);
                               num_records++;
 				                      break;
                       /*case 2:
@@ -106,8 +108,8 @@ void menus()
 
                   switch(ch)
                   {
-                      case 2:
-                            display_maint();
+                      case 1:
+                            display_soc();
                             break;
 
                       /*case 2:
@@ -137,11 +139,11 @@ void menus()
 
                   switch(ch)
                   {
-                      case 2:
+                      case 1:
                             printf("\n==================================================================");
                             printf("\n\n\tEnter flat number for Search : ");
-                            scanf("\t%d", &flat_num1);
-                            search_maint(flat_num1);
+                            scanf("\t%d", &flat_num);
+                            search_soc(flat_num);
                             break;
 
                       /*case 2:
@@ -177,9 +179,9 @@ void menus()
                   scanf("\t %d", &ch);
                     switch(ch)
                     {
-                        case 2: printf("\n\n\tEnter flat number for Update : ");
-                                scanf("\t %d", &flat_num1);
-      				                  update_maint(flat_num1);
+                        case 1: printf("\n\n\tEnter flat number for Update : ");
+                                scanf("\t %d", &flat_num);
+      				                  update_soc(flat_num);
                                 break;
 
                         case 5: exit(0);
@@ -197,8 +199,8 @@ void menus()
 
                       switch(ch)
                       {
-                          case 2: printf("\n\n\tEnter flat  number for Delete : ");
-                                  scanf("\t %d", &flat_num1);
+                          case 1: printf("\n\n\tEnter flat  number for Delete : ");
+                                  scanf("\t %d", &flat_num);
           				                //delete_soc(flat_num);
                                   break;
 

@@ -46,7 +46,7 @@ void menus()
                 scanf("\t %d", &ch);
 
                 switch (ch) {
-                    case 1: printf("\n\n\tEnter Index : %d" ,num_records);
+                    case 1: printf("\n\n\tIndex : %d" ,num_records);
                             stud.index = num_records;
                           	//scanf("\t %d", &stud.index);
                         		printf("\n\n\tEnter ID : ");
@@ -100,9 +100,9 @@ void menus()
 
                     switch(ch)
                     {
-                        case 1: printf("\n\n\tEnter Student index for Delete : ");
-                                scanf("\t %d", &stud.index);
-    				                    delete_stud_file(stud);
+                        case 1: printf("\n\n\tEnter Student id for Delete : ");
+                                scanf("\t %d", &stud.id);
+    				                    delete_stud(stud.id);
                                 break;
                         case 3: exit(0);
                         default: printf("\n\n\tWrong Choice!!\n");

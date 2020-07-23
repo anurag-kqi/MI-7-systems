@@ -2,8 +2,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
-struct studData
+#include "stud.h"
+/*struct studData
 {
   int index;
   int id;
@@ -11,9 +11,9 @@ struct studData
   char class[10];
   char address[50];
   int contact;
-};
+};*/
 
-struct studData stud;
+struct student_disk stud;
 
 //student hashtable operations
 extern void display_stud();
@@ -29,7 +29,12 @@ extern void search_teacher(int id);
 //file read functions
 extern void read_stud();
 extern void read_teacher();
-extern void write_stud(struct studData stud);
+extern void write_stud(struct student_disk stud);
+extern int num_records;
+extern void delete_stud_file(struct student_disk stud_data);
+extern void insert_stud(struct student_disk readStud);
+
+
 
 //main menu function
 void menus()
@@ -54,20 +59,23 @@ void menus()
                     switch (ch)
                     {
                         case 1:
-                                printf("\n\n\tEnter Index : ");
-                		scanf("\t %d", &stud.index);
-				printf("\n\n\tEnter ID : ");
-				scanf("\t %d", &stud.id);
-				printf("\n\tEnter Name : ");
-				scanf("\t %[^\n]%*c", stud.name);
-				printf("\n\tEnter Class : ");
-				scanf("\t %s", stud.class);
-				printf("\n\tEnter Address : ");
-				scanf("\t %[^\n]%*c", stud.address);
-				printf("\n\tEnter Contact : ");
-				scanf("\t %d", &stud.contact);
-        			write_stud(stud);
-				read_stud();
+                      printf("\n\n\tEnter Index : %d" ,num_records);
+                                stud.index = num_records;
+                		//scanf("\t %d", &stud.index);
+              				printf("\n\n\tEnter ID : ");
+              				scanf("\t %d", &stud.id);
+              				printf("\n\tEnter Name : ");
+              				scanf("\t %[^\n]%*c", stud.name);
+              				printf("\n\tEnter Class : ");
+              				scanf("\t %s", stud.class);
+              				printf("\n\tEnter Address : ");
+              				scanf("\t %[^\n]%*c", stud.address);
+              				printf("\n\tEnter Contact : ");
+              				scanf("\t %d", &stud.contact);
+              				insert_stud(stud);
+                      write_stud(stud);
+                      num_records++;
+				//read_stud();
 
                                 break;
 
@@ -117,9 +125,12 @@ void menus()
 
                     switch(ch)
                     {
-                        case 1: printf("\n\n\tEnter Student ID for Delete : ");
-                                scanf("\t %d", &id);
-				delete_stud(id);
+                        case 1: //printf("\n\n\tEnter Student ID for Delete : ");
+                                //scanf("\t %d", &id);
+				                printf("\n\n\tEnter Student index for Delete : ");
+                                scanf("\t %d", &index);
+    				            delete_stud_file(stud);
+				//delete_stud(id);
                                 break;
                         //case 2: delete_teacher();
                                 //break;

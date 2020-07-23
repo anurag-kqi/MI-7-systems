@@ -1,5 +1,3 @@
-/*School Mnagement Systems*/
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -11,13 +9,13 @@ extern void menus();
 extern void init_stud();
 extern void init_teacher();
 extern void read_stud();
-
 int
 main()
 {
     //init array of list to NULL
     init_stud();
     init_teacher();
+
     read_stud();
 
     //calling main menu function

@@ -10,12 +10,15 @@
 
 #define MAXLINE 1024
 
-int 
+int
 main(int argc, char **argv)
 {
     int listenfd, connfd;
     char buff[MAXLINE + 1];
     struct sockaddr_in servaddr;
+    struct sockaddr_in client_addr;
+    int size_addr;
+
     time_t ticks;
 
     if (argc != 1) {
@@ -30,9 +33,11 @@ main(int argc, char **argv)
 
     bzero(&servaddr, sizeof(servaddr));
     servaddr.sin_family = AF_INET;
-    servaddr.sin_port = htons(13); 
+    servaddr.sin_port = htons(13);
     servaddr.sin_addr.s_addr = htonl(INADDR_ANY);
- 
+
+
+
     if (bind(listenfd, (struct sockaddr *)&servaddr, sizeof(servaddr)) < 0) {
         perror("bind error");
         exit(1);
@@ -42,12 +47,15 @@ main(int argc, char **argv)
         exit(1);
     }
 
+    size_addr = sizeof(client_addr);
+
     for ( ; ;) {
-        connfd = accept(listenfd, (struct sockaddr *)NULL, NULL);
+        connfd = accept(listenfd, (struct sockaddr *)&client_addr, &size_addr);
         if (connfd < 0) {
             perror("accept failed");
             exit(1);
         }
+        printf("client_addr sin_family %d port %d s_addr %d\n",         client_addr.sin_family, client_addr.sin_port, client_addr.sin_addr.s_addr);
         ticks = time(NULL);
         snprintf(buff, sizeof(buff), "%.24s\r\n", ctime(&ticks));
         if (write(connfd, buff, strlen(buff)) < 0) {
@@ -57,6 +65,6 @@ main(int argc, char **argv)
         fprintf(stdout, "wrote %s\n", buff);
         close(connfd);
     }
- 
+
     exit(0);
 }

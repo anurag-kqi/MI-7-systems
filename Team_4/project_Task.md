@@ -10,8 +10,53 @@ Team Members:
         3. Shubham Tankhiwale
         4. Sagar Mahajan 
         5. Vaibhav Mehtre
-        
+ 24 July 2020:
 
+Meeting Time: 10.30pm
+
+Atendees:
+
+    Ashwini P
+    Sagar
+    Ashwini G
+
+Tasks :
+	All Team members working on update file and delete.
+
+Task Performed By :
+
+    Sagar:
+	working on operation.
+    
+    Ashwini G:
+	working on update operation.
+
+    Ashwini P:
+	working on main menu file and all operations.        
+
+22 July 2020:
+
+Meeting Time: 10.30pm
+
+Atendees:
+
+    Ashwini P
+    Sagar
+    Ashwini G
+
+Tasks :
+	All Team members working on Delete, Update Operations.
+
+Task Performed By :
+
+    Sagar:
+	working on all operation.
+    
+    Ashwini G:
+	working on Doctor.c file.
+
+    Ashwini P:
+	working on main menu file and all operations. 
 
 
 20 July 2020:
@@ -185,7 +230,9 @@ Atendees:
     Ashwini G
 
 Tasks :
-All team Working on Persistancy layer read write.
+ 
+        All team Working on Persistancy layer read write.
+
 
 Task Performed By :
 
@@ -268,8 +315,8 @@ Atendees:
     Vaibhav
 
 Second Meeting: 3.00pm
-
 Atendees:
+
 
     Ashwini P
     Sagar
@@ -295,7 +342,9 @@ Task Performed By :
     Vaibhav:
      Working on git configuration and its use.
 
-23 June 2020:
+
+ 
+ 23 June 2020:
 
 Meeting Time: 1.30am
 
@@ -394,29 +443,33 @@ Task Performed By :
     Sagar:
      Working on persisancy Layer.
 
+
 19 June 2020:
 
 Meeting Time: 12.00Pm
 
 Atendees:
 
-    Ashwini P
-    Ashwini G
+        Ashwini P
+        Ashwini G
+        
+Tasks :  
 
-Tasks :
-
-    Ashwini P : Working on Make File. 
-    Ashwini G : Perform on Errors. 
+        Ashwini P : Working on Make File. 
+        Ashwini G : Perform on Errors. 
+        
 
 Task Performed By :
 
-    Ashwini Parab:
-     Resolving git push issue. 
-     Generate Make file.
-    
-    Ashwini Garje:
-     Working on Error.
-     Working on persistancy Layer.
+        Ashwini Parab:
+         Resolving git push issue. 
+         Generate Make file.
+        
+        Ashwini Garje:
+         Working on Error.
+         Working on persistancy Layer.
+
+
 
 18 June 2020:
 
@@ -424,27 +477,28 @@ Meeting Time: 1.00Pm
 
 Atendees:
 
-    Ashwini P
-    Ashwini G
-    Shubham
-    Sagar
-
-Tasks : All Team member's working on persistancy and Make File.
+        Ashwini P
+        Ashwini G
+        Shubham
+        Sagar
+        
+Tasks :  All Team member's working on persistancy and Make File.
 
 Task Performed By :
 
-    Ashwini Parab:
-     Resolving git push issue. 
-     Generate Make file.
-     Working on Persistancy Layer, Read And Write Operations.
-       
-    Ashwini Garje:
-     Working on Error.
-     Working on persistancy Layer.
-     
-    Shubham:
-     Working on persisancy Layer.
-     
-    Sagar:
-     Working on persisancy Layer. 
+        Ashwini Parab:
+         Resolving git push issue. 
+         Generate Make file.
+         Working on Persistancy Layer, Read And Write Operations.
+           
+        Ashwini Garje:
+         Working on Error.
+         Working on persistancy Layer.
+         
+        Shubham:
+         Working on persisancy Layer.
+         
+        Sagar:
+         Working on persisancy Layer. 
+         
 

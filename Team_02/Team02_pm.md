@@ -8,6 +8,36 @@ Team Members :
 2. Kishori Nikam
 3. Prajawal
 
+24 July 2020
+Meeting Time:10:00 am
+
+Attendees:
+1. Divyani Patidar
+2. Kishori Nikam
+3. Prajawal
+
+Tasks:
+  .All: concept of networking and project work.
+
+Task perform by yesterday:
+  .All: work on client-server code.
+        client server design of society management.
+
+23 July 2020
+Meeting Time:10:00 am
+
+Attendees:
+1. Divyani Patidar
+2. Kishori Nikam
+3. Prajawal
+
+Tasks:
+  .All: work on client-server code.
+        client server design of society management.
+
+Task perform by yesterday:
+  .All: work on client-server code.
+
 22 July 2020
 Meeting Time:10:00 am
 

@@ -31,8 +31,8 @@ extern void insert_stud(struct student_disk readStud);
 //main menu function
 void menus()
 {
-    int ch, id, index,j,digit,alpha;
-    char name[30], address[50], class[10], department[30],contact[10]={0};
+    int ch, id, index,contact,j,digit,alpha;
+    char name[30], address[50], class[10], department[30];
 
     while (1) {
 	      printf("\n_______________________________________________________________________________");
@@ -56,12 +56,12 @@ void menus()
                         		scanf("\t %d", &stud.id);
                         		printf("\n\tEnter Name : ");
                         		scanf("\t %[^\n]%*c", stud.name);
-					                  for (j=0; name[j]!= '\0'; j++)
+					                  for (j=0; stud.name[j]!= '\0'; j++)
     				                {
-       		    		              if (isalpha(name[j]) != 0)
+       		    		              if (isalpha(stud.name[j]) != 0)
             	        		          alpha++;
 
-  	      	    		            else if (isdigit(name[j]) != 0)
+  	      	    		            else if (isdigit(stud.name[j]) != 0)
             				                digit++;
     				                }
     				                if(alpha == 0 && digit > 0)
@@ -73,17 +73,11 @@ void menus()
                         		    scanf("\t %s", stud.class);
                         		    printf("\n\tEnter Address : ");
                         		    scanf("\t %[^\n]%*c", stud.address);
-                        		        do{
-                                        printf("\n\tEnter Contact : ");
-                        		            scanf("\t %d", &stud.contact);
-                                        if(strnlen(contact, 10) != 10)
-				                                {
-					                                  printf("You Entered Invalid Contact\nPlz Enter 10 Digit Valid contact number!\n");
-				                                }
-				                            }while(strnlen(contact, 10) != 10);
-                        		        insert_stud(stud);
-                                    write_stud(stud);
-                                    num_records++;
+                                printf("\n\tEnter Contact : ");
+                        		    scanf("\t %d", &stud.contact);
+                                insert_stud(stud);
+                                write_stud(stud);
+                                num_records++;
                             }
                             break;
                     case 2: printf("\n\n\tIndex : %d" ,num_record);
@@ -92,12 +86,12 @@ void menus()
                         		scanf("\t %d", &teach.id);
                         		printf("\n\tEnter Name : ");
                         		scanf("\t %[^\n]%*c", teach.name);
-                            for (j=0; name[j]!= '\0'; j++)
+                            for (j=0; teach.name[j]!= '\0'; j++)
     				                {
-       		    		              if (isalpha(name[j]) != 0)
+       		    		              if (isalpha(teach.name[j]) != 0)
             	        		          alpha++;
 
-  	      	    		            else if (isdigit(name[j]) != 0)
+  	      	    		            else if (isdigit(teach.name[j]) != 0)
             				                digit++;
     				                }
     				                if(alpha == 0 && digit > 0)
@@ -107,14 +101,8 @@ void menus()
 
                         		    printf("\n\tEnter Department : ");
                         		    scanf("\t %[^\n]%*c", teach.department);
-                        		    do{
-                                    printf("\n\tEnter Contact : ");
-                        		        scanf("\t %d", &teach.contact);
-                                    if(strnlen(contact, 10) != 10)
-				                            {
-					                              printf("You Entered Invalid Contact\nPlz Enter 10 Digit Valid contact number!\n");
-				                            }
-				                        }while(strnlen(contact, 10) != 10);
+                        		    printf("\n\tEnter Contact : ");
+                        		    scanf("\t %d", &teach.contact);
                         		    insert_teach(teach);
 			                          write_teach(teach);
                                 num_record++;

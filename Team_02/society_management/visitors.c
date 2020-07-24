@@ -7,7 +7,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include "soc.h"
-#define size 9
+#define size 1000
 
 struct visData readvis;
 extern void insert_vis(struct visData);
@@ -15,7 +15,7 @@ struct visitor *arr2[size];
 int num_records2;
 
 /*init array of list to NULL*/
-void init_vis(){
+void init_vis() {
     int i;
     for(i = 0; i < size; i++) {
         arr2[i] = NULL;
@@ -27,7 +27,7 @@ void read_vis() {
     int fd2;
     num_records2 = 0;
     fd2 = open(VISITOR_DATAFILE, O_RDWR | O_CREAT, 0644);
-    if(fd2 < 0) {
+    if (fd2 < 0) {
         perror("read failed");
     }
     while (read(fd2, (void *)&readvis, sizeof(struct visData))) {
@@ -39,7 +39,7 @@ void read_vis() {
 }
 
 //write data into visitor datafile
-void write_vis(struct visData vis){
+void write_vis(struct visData vis) {
     int fd2;
     fd2 = open(VISITOR_DATAFILE, O_RDWR | O_CREAT | O_APPEND, 0644);
     if (fd2 < 0) {
@@ -50,7 +50,7 @@ void write_vis(struct visData vis){
 }
 
 //update visitor datafile
-void update_vis_file(struct visData update){
+void update_vis_file(struct visData update) {
     int fd2;
     fd2 = open(VISITOR_DATAFILE, O_RDWR, 0644);
     lseek (fd2, update.index2 * sizeof (struct visData), SEEK_SET);
@@ -62,7 +62,7 @@ void update_vis_file(struct visData update){
 }
 
 //delete record from datafile
-void delete_vis_file(struct visData delete){
+void delete_vis_file(struct visData delete) {
     int fd2;
     struct visData temp2;
 
@@ -80,7 +80,7 @@ void delete_vis_file(struct visData delete){
 }
 
 //insert visitor data
-void insert_vis(struct visData vis_data){
+void insert_vis(struct visData vis_data) {
     struct visitor *newNode2 = (struct visitor*)malloc(sizeof(struct visitor));
     newNode2->vd.index2 = vis_data.index2;
     strcpy(newNode2->vd.visitor_name, vis_data.visitor_name);
@@ -96,8 +96,7 @@ void insert_vis(struct visData vis_data){
         newNode2->next2 = NULL;
         newNode2->prev2 = NULL;
         arr2[key2] = newNode2;
-    }
-    else {
+    } else {
         struct visitor *temp2 = arr2[key2];
         while (temp2->next2 != NULL) {
             temp2 = temp2->next2;
@@ -108,7 +107,7 @@ void insert_vis(struct visData vis_data){
 }
 
 //display visitor data
-void display_vis(){
+void display_vis() {
     int i;
     int index = 0;
     struct visitor *temp2;
@@ -126,15 +125,14 @@ void display_vis(){
 }
 
 //update visitor data
-void update_vis(int vehicle_num){
+void update_vis(int vehicle_num) {
     struct visitor *ptr2;
     int i=0, flag;
     int key2 = vehicle_num % size;
     ptr2 = arr2[key2];
     if (ptr2 == NULL) {
         printf("\n\n\tEmpty List\n");
-    }
-    else {
+    } else {
         while (ptr2 != NULL) {
             if (ptr2->vd.vehicle_num == vehicle_num) {
                 printf("\n\n\tVisitor old Data !!!\n");
@@ -166,8 +164,7 @@ void update_vis(int vehicle_num){
                 flag = 0;
                 update_vis_file(ptr2->vd);
                 break;
-            }
-            else {
+            } else {
                 flag = 1;
             }
             i++;
@@ -180,23 +177,21 @@ void update_vis(int vehicle_num){
 }
 
 //search visitor data
-void search_vis(int vehicle_num){
+void search_vis(int vehicle_num) {
     struct visitor *ptr2;
     int i=0, flag;
     int key2 = vehicle_num % size;
     ptr2 = arr2[key2];
     if (ptr2 == NULL) {
         printf("\n\n\tEmpty List\n");
-    }
-    else {
+    } else {
         while (ptr2 != NULL) {
             if (ptr2->vd.vehicle_num == vehicle_num) {
                 printf("found at position : %d\n", i+1);
                 printf("\n\n\tvisitor Index\t - \t%d\n\tvisitor_name\t - \t%s\n\tvisitor vehicle_num\t - \t%d\n\tvisitor_contact\t - \t%d\n\tvisitor TIMEIN\t - \t%d\n\tvisitor TimeOut\t - \t%d\n", ptr2->vd.index2, ptr2->vd.visitor_name, ptr2->vd.vehicle_num, ptr2->vd.visitor_contact, ptr2->vd.TimeIn, ptr2->vd.TimeOut);
                 flag = 0;
                 break;
-            }
-            else {
+            } else {
                 flag = 1;
             }
             i++;
@@ -209,24 +204,22 @@ void search_vis(int vehicle_num){
 }
 
 /*VISITORS DELETION*/
-void delete_vis(int vehicle_num){
+void delete_vis(int vehicle_num) {
     int key2 = vehicle_num % size;
     struct visitor *toDelete;
     struct visitor *ptr2 = arr2[key2];
 
     if(ptr2 == NULL) {
         printf("\n List is Empty");
-    }
-    else if(ptr2->vd.vehicle_num == vehicle_num) {
+    } else if (ptr2->vd.vehicle_num == vehicle_num) {
         delete_vis_file(ptr2->vd);
         ptr2 = NULL;
         arr2[key2] = NULL;
         free(ptr2);
         printf("\n\n\tfirst node deleted\n");
-    }
-    else {
+    } else {
         delete_vis_file(ptr2->vd);
-        while(ptr2->next2 != NULL) {
+        while (ptr2->next2 != NULL) {
             if (ptr2->next2->vd.vehicle_num == vehicle_num) {
                 ptr2 = NULL;
                 toDelete = ptr2->next2;

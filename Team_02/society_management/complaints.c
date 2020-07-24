@@ -130,7 +130,7 @@ void display_complaints_D() {
 /*COMPLAINTS SEARCH*/
 void search_complaints_D(int flat_num3) {
     struct complaint *ptr3;
-    int i=0, flag;
+    int flag;
     int key3 = flat_num3 % size;
     ptr3 = arr3[key3];
     if (ptr3 == NULL) {
@@ -138,14 +138,12 @@ void search_complaints_D(int flat_num3) {
     } else {
         while(ptr3 !=NULL) {
             if(ptr3->cd.flat_num3 == flat_num3) {
-                printf("\n\n\tfound at position : %d", i+1);
                 printf("\n\n\tflat_number\t -\t %d\n\tcomplaints_name\t -\t %s\n\tsuggestions_name -\t %s\n", ptr3->cd.flat_num3, ptr3->cd.complaints_name, ptr3->cd.suggestions_name);
                 flag = 0;
                 break;
             } else {
                 flag=1;
-            }
-            i++;
+            }            
             ptr3 = ptr3 -> next3;
         }
         if (flag==1) {

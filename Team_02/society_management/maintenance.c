@@ -126,7 +126,7 @@ void display_maint() {
 void search_maint(int flat_num1) {
 
     struct maintenance *ptr1;
-    int i=0, flag;
+    int flag;
     int key1 = flat_num1 % size;
     ptr1 = arr1[key1];
     if (ptr1 == NULL) {
@@ -134,14 +134,12 @@ void search_maint(int flat_num1) {
     } else {
         while (ptr1 != NULL) {
             if (ptr1->md.flat_num1 == flat_num1) {
-                printf("\n\n\tmaintenance flat number found at location : %d ", i+1);
                 printf("\n\n\tflat_num\t -\t %d\n\twater_bill\t -\t %d\n\telectricity_bill\t -\t %d\n", ptr1->md.flat_num1, ptr1->md.water_bill, ptr1->md.electricity_bill);
                 flag = 0;
                 break;
             } else {
                 flag=1;
-            }
-            i++;
+            }            
             ptr1 = ptr1 -> next1;
         }
         if (flag==1) {

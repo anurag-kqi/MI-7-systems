@@ -179,7 +179,7 @@ void update_vis(int vehicle_num) {
 //search visitor data
 void search_vis(int vehicle_num) {
     struct visitor *ptr2;
-    int i=0, flag;
+    int flag;
     int key2 = vehicle_num % size;
     ptr2 = arr2[key2];
     if (ptr2 == NULL) {
@@ -187,14 +187,12 @@ void search_vis(int vehicle_num) {
     } else {
         while (ptr2 != NULL) {
             if (ptr2->vd.vehicle_num == vehicle_num) {
-                printf("found at position : %d\n", i+1);
                 printf("\n\n\tvisitor Index\t - \t%d\n\tvisitor_name\t - \t%s\n\tvisitor vehicle_num\t - \t%d\n\tvisitor_contact\t - \t%d\n\tvisitor TIMEIN\t - \t%d\n\tvisitor TimeOut\t - \t%d\n", ptr2->vd.index2, ptr2->vd.visitor_name, ptr2->vd.vehicle_num, ptr2->vd.visitor_contact, ptr2->vd.TimeIn, ptr2->vd.TimeOut);
                 flag = 0;
                 break;
             } else {
                 flag = 1;
             }
-            i++;
             ptr2 = ptr2 -> next2;
         }
         if (flag == 1) {

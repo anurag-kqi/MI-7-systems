@@ -3,16 +3,16 @@ School Management System :
 *CLIENT-SERVER Architecture
 
 Client-server architecture for school Management system architecture of a computer network
-in which many clients (remote processors) request and receive service from a centralized
+in which many clients (remote processes) request and receive service from a centralized
 server (host computer). Client computers provide an interface to allow a computer user to
-request services of the server and to display the results the server returns. Servers wait
+request services of the server and to display the results the server returns. Server waits
 for requests to arrive from clients and then respond to them.
 Ideally, a server provides a standardized transparent interface to clients so that clients
-need not be aware of the specifics of the system (i.e., the hardware and software) that
+need not be aware of the specifics of the system that
 is providing the service. Clients are often situated at workstations or on personal computers,
 while servers are located elsewhere on the network, usually on more powerful machines.
-This computing model is especially effective when clients and the server each have distinct
-tasks that they routinely perform. In school management syetem data processing, for example,
+
+In school management syetem data processing, for example,
 a client computer can be running an application program for student information while the
 server computer is running another program that manages the database in which the information
 is permanently stored.Many clients can access the server’s information simultaneously, and, at
@@ -20,7 +20,6 @@ the same time, a client computer can perform other tasks, such as sending e-mail
 client and server computers are considered intelligent devices, the client-server model is
 completely different from the old “mainframe” model, in which a centralized mainframe computer
 performed all.
-
 
 SERVER Architecture
       1.ASKING PORT NUMBER
@@ -56,10 +55,11 @@ Client Architecture
 			   3. Enter Class
 			   4. Enter Address
 			   5. Enter Contact
-	  CLIENT SEND DATA TO THE SERVER
+	     5. CLIENT SEND DATA TO THE SERVER:
 
-	//AFTER ADDING ALL DATA
 
+
+         //AFTER ADDING ALL DATA
 		 6.SHOW ON CLIENT SIDE
 	            1.SCHOOL MANAGEMENT SYSTEM
     		 	    1.ADD ENTRY
@@ -91,7 +91,7 @@ Client Architecture
 
 			   1.Enter Student iD for Delete :
           CLIENT REQUEST TO THE SERVER FOR DELETE ENTRY
-        
+
 	                  2.ID NUMBER DELETED SUCCESSFULLY
 
 		   8.SHOW ON CLIENT SIDE
@@ -148,3 +148,17 @@ Client Architecture
            			   3.DELETE ENTRY
            			   4.UPDATE ENTRY
            			   5.SEARCH
+
+Server side code will look like following:
+    - read opertion: What operation to perform
+    - based on the operation value, server knows if it needs more data from client or not. If more data needed, read the extra data from client.
+    - perform the operations
+    - write the result data back to client
+
+Client side code will look like following:
+    - menu taking input
+    - write to server what operation to perform
+    - write to server any extra data needed for the operation
+    - wait for the data from server
+    - display the data
+    - wait in the menu 

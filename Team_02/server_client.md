@@ -24,7 +24,7 @@ B.send(choice:1)
 
 SERVER:
 A. accept choice 1
-B.ask client to enter next choice.
+B. ask client to enter next choice.
 
 CLIENT:
 A.submenu
@@ -48,6 +48,7 @@ B.send (entities)
 SERVER:
 A.receive(aaa, 101, 9378456985)
 B.put these data in hashtable and in text file.
+C.write the result back to client
 
 CLIENT:
 A.menu

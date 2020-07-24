@@ -16,7 +16,7 @@ extern void insert_complaints_D(struct comData);
 int num_records3;
 
 /*init array of list to NULL*/
-void init_complaints_D(){
+void init_complaints_D() {
     int i;
     for(i = 1; i < size; i++) {
     arr3[i] = NULL;
@@ -24,11 +24,11 @@ void init_complaints_D(){
 }
 
 /*Read the complaints datafile*/
-void read_complaints_D(){
+void read_complaints_D() {
     int fd3;
     num_records3 = 0;
     fd3 = open(COMPLAINT_DATAFILE, O_RDWR | O_CREAT, 0644);
-    if(fd3 < 0) {
+    if (fd3 < 0) {
         perror("read failed");
     }
     while (read(fd3, (void *)&readcom, sizeof(struct comData))) {
@@ -40,7 +40,7 @@ void read_complaints_D(){
 }
 
 /*write to complaints datafile*/
-void write_complaints_D(struct comData com){
+void write_complaints_D(struct comData com) {
     int fd3;
     fd3 = open(COMPLAINT_DATAFILE, O_RDWR | O_CREAT | O_APPEND, 0644);
     if (fd3 < 0) {
@@ -51,7 +51,7 @@ void write_complaints_D(struct comData com){
 }
 
 //update records from complaint datafile
-void update_com_file(struct comData update){
+void update_com_file(struct comData update) {
     int fd3;
     fd3 = open(COMPLAINT_DATAFILE, O_RDWR, 0644);
     lseek (fd3, update.index3 * sizeof (struct comData), SEEK_SET);
@@ -63,25 +63,25 @@ void update_com_file(struct comData update){
 }
 
 //delete record from complaint datafile
-void delete_com_file(struct comData delete){
+void delete_com_file(struct comData delete) {
     int fd3;
     struct comData temp3;
 
-    fd3 = open(COMPLAINT_DATAFILE, O_RDWR);
+    fd3 = open (COMPLAINT_DATAFILE, O_RDWR);
 
     lseek (fd3, (num_records3 - 1) * sizeof (struct comData), SEEK_SET);
-    read(fd3, &temp3, sizeof(struct comData));
+    read (fd3, &temp3, sizeof(struct comData));
     temp3.index3 = delete.index3;
-    lseek(fd3, temp3.index3 * sizeof(struct comData), SEEK_SET);
-    write(fd3, &temp3, sizeof(struct comData));
+    lseek (fd3, temp3.index3 * sizeof(struct comData), SEEK_SET);
+    write (fd3, &temp3, sizeof(struct comData));
     num_records3 --;
-    ftruncate(fd3, num_records3 * sizeof(struct comData));
+    ftruncate (fd3, num_records3 * sizeof(struct comData));
     printf("\n\n\tdelete successful...\n");
     close(fd3);
 }
 
 /*COMPLAINTS INSERTION*/
-void insert_complaints_D(struct comData com_data){
+void insert_complaints_D(struct comData com_data) {
     struct complaint* newNode3 = (struct complaint*)malloc(sizeof(struct complaint));
     newNode3->cd.index3 = com_data.index3;
     strcpy(newNode3->cd.complaints_name, com_data.complaints_name);
@@ -98,10 +98,9 @@ void insert_complaints_D(struct comData com_data){
         newNode3->next3 = NULL;
         newNode3->prev3 = NULL;
         arr3[key3] = newNode3;
-    }
-    else {
+    } else {
         struct complaint* temp3 = arr3[key3];
-        while(temp3->next3 != NULL){
+        while(temp3->next3 != NULL) {
             temp3 = temp3->next3;
         }
         temp3->next3 = newNode3;
@@ -110,15 +109,14 @@ void insert_complaints_D(struct comData com_data){
 }
 
 /* COMPLAINTS DISPLAY*/
-void display_complaints_D()
-{
+void display_complaints_D() {
     int i;
     int index = 0;
     struct complaint *temp3;
     printf("\n==================================================================\n\n");
     printf("\t\tCOMPLAINT DATAFILE\n\n");
     printf("SR.\tFLAT_NO\tCOMPLAINT\tSUGGESSTION\n\n");
-    for(i =0; i < size; i++){
+    for(i =0; i < size; i++) {
         temp3 = arr3[i];
         while(temp3) {
             printf("%d. ",index);
@@ -130,26 +128,22 @@ void display_complaints_D()
 }
 
 /*COMPLAINTS SEARCH*/
-void search_complaints_D(int flat_num3){
+void search_complaints_D(int flat_num3) {
     struct complaint *ptr3;
-    int i=0, flag;
+    int flag;
     int key3 = flat_num3 % size;
     ptr3 = arr3[key3];
     if (ptr3 == NULL) {
         printf("\n\n\tEmpty List\n");
-    }
-    else {
+    } else {
         while(ptr3 !=NULL) {
             if(ptr3->cd.flat_num3 == flat_num3) {
-                printf("\n\n\tfound at position : %d", i+1);
                 printf("\n\n\tflat_number\t -\t %d\n\tcomplaints_name\t -\t %s\n\tsuggestions_name -\t %s\n", ptr3->cd.flat_num3, ptr3->cd.complaints_name, ptr3->cd.suggestions_name);
                 flag = 0;
                 break;
-            }
-            else {
+            } else {
                 flag=1;
-            }
-            i++;
+            }            
             ptr3 = ptr3 -> next3;
         }
         if (flag==1) {
@@ -159,15 +153,14 @@ void search_complaints_D(int flat_num3){
 }
 
 /*COMPLAINTS UPDATION*/
-void update_complaints_D(int flat_num3){
+void update_complaints_D(int flat_num3) {
     struct complaint *ptr3;
     int i=0, flag;
     int key3 = flat_num3 % size;
     ptr3 = arr3[key3];
     if (ptr3 == NULL) {
         printf("\n\n\tEmpty List\n");
-    }
-    else {
+    } else {
         while(ptr3 !=NULL) {
             if(ptr3->cd.flat_num3 == flat_num3) {
                 printf("\n\n\tComplaints Old Data!!!");
@@ -195,8 +188,7 @@ void update_complaints_D(int flat_num3){
                 flag = 0;
                 update_com_file(ptr3->cd);
                 break;
-            }
-            else {
+            } else {
                 flag = 1;
             }
             i++;
@@ -209,22 +201,19 @@ void update_complaints_D(int flat_num3){
 }
 
 /*COMPLAINTS DELETION*/
-void delete_complaints_D(int flat_num3)
-{
+void delete_complaints_D(int flat_num3) {
     int key3 = flat_num3 % size;
     struct complaint *toDelete;
     struct complaint *ptr3 = arr3[key3];
 
     if(ptr3 == NULL) {
         printf("\n List is Empty");
-    }
-    else if(ptr3->cd.flat_num3 == flat_num3) {
+    } else if(ptr3->cd.flat_num3 == flat_num3) {
         delete_com_file(ptr3->cd);
         ptr3 = NULL;
         arr3[key3] = NULL;
         free(ptr3);
-    }
-    else {
+    } else {
         delete_com_file(ptr3->cd);
         while(ptr3->next3 != NULL) {
             if (ptr3->next3->cd.flat_num3 == flat_num3) {

@@ -127,7 +127,7 @@ void display_soc() {
 /*serch data*/
 void search_soc(int flat_num) {
     struct society *ptr;
-    int i=0, flag;
+    int flag;
     int key = flat_num % size;
     ptr = arr[key];
     if (ptr == NULL) {
@@ -135,7 +135,6 @@ void search_soc(int flat_num) {
     } else {
         while (ptr != NULL) {
             if (ptr->sd.flat_num == flat_num) {
-                printf("\n\n\tSociety flat number found at location : %d ", i+1);
                 printf("\n\n\towner_name\t -\t %s\n\tflat_num\t -\t %d\n\towner_contact\t -\t %d\n", ptr->sd.owner_name, ptr->sd.flat_num, ptr->sd.owner_contact);
                 flag = 0;
                 break;
@@ -143,7 +142,6 @@ void search_soc(int flat_num) {
             else {
                 flag=1;
             }
-            i++;
             ptr = ptr -> next;
         }
         if (flag==1) {

@@ -59,7 +59,7 @@ extern void delete_complaints_D(int flat_num3);
 void menus()
 {
     char owner_name[30], complaints_name[50], suggestions_name[50], visitor_name[30];
-    int flat_num, flat_num1, flat_num2, flat_num3, owner_contact, visitor_contact,TimeIn,TimeOut, water_bill, electricity_bill, new_water_bill, new_electricity_bill, vehicle_num, new_vehicle_num, ch;
+    int flat_num, flat_num1, flat_num2, flat_num3, owner_contact, visitor_contact, TimeIn, TimeOut, water_bill, electricity_bill, new_water_bill, new_electricity_bill, vehicle_num, new_vehicle_num, ch;
     while(1) {
         printf("\n==================================================================");
         printf("\n\t\t MANAGEMENT DATA\n");
@@ -227,11 +227,11 @@ void menus()
                     break;
 
             case 4:
-                  printf("\n==================================================================");
-                  printf("\n\t\tUPDATE DATA FROM\n");
-                  printf("\n\t1. Society Data\n\t2. Maintenance Data\n\t3. Visitor Data\n\t4. Complaint Data\n\t5. Exit(0)");
-                  printf("\n\n\tEnter your choice to update(1-5) : ");
-                  scanf("\t %d", &ch);
+                    printf("\n==================================================================");
+                    printf("\n\t\tUPDATE DATA FROM\n");
+                    printf("\n\t1. Society Data\n\t2. Maintenance Data\n\t3. Visitor Data\n\t4. Complaint Data\n\t5. Exit(0)");
+                    printf("\n\n\tEnter your choice to update(1-5) : ");
+                    scanf("\t %d", &ch);
                     switch(ch)
                     {
                         case 1:
@@ -239,21 +239,25 @@ void menus()
                                 scanf("\t %d", &flat_num);
       				            update_soc(flat_num);
                                 break;
+
                         case 2:
                                 printf("\n\n\tEnter flat number for Update : ");
                                 scanf("\t %d", &flat_num1);
       				            update_maint(flat_num1);
                                 break;
+
                         case 3:
                                 printf("\n\n\tEnter vehicle number for Update : ");
                                 scanf("\t %d", &vehicle_num);
                                 update_vis(vehicle_num);
                                 break;
+
                         case 4:
                                 printf("\n\n\tEnter flat number for Update : ");
                                 scanf("\t %d", &flat_num3);
       				            update_complaints_D(flat_num3);
                                 break;
+                                
                         case 5:
                                 exit(0);
 

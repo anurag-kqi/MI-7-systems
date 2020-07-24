@@ -15,8 +15,7 @@ struct maintenance *arr1[size];
 int num_records1;
 
 //init array of list to NULL
-void init_maint()
-{
+void init_maint() {
     int i;
     for(i = 1; i < size; i++) {
         arr1[i] = NULL;
@@ -40,7 +39,7 @@ void read_maint() {
 }
 
 //Write to maintenance datafile
-void write_maint(struct maintData maint){
+void write_maint(struct maintData maint) {
     int fd1;
     fd1 = open(MAINTENANCE_DATAFILE, O_RDWR | O_CREAT | O_APPEND, 0644);
     if (fd1 < 0) {
@@ -51,7 +50,7 @@ void write_maint(struct maintData maint){
 }
 
 //update to file
-void update_maint_file(struct maintData update){
+void update_maint_file(struct maintData update) {
     int fd1;
     fd1 = open(MAINTENANCE_DATAFILE, O_RDWR, 0644);
     lseek (fd1, update.index1 * sizeof (struct maintData), SEEK_SET);
@@ -63,7 +62,7 @@ void update_maint_file(struct maintData update){
 }
 
 //delete record from maintenance datafile
-void delete_maint_file(struct maintData delete){
+void delete_maint_file(struct maintData delete) {
     int fd1;
     struct maintData temp2;
     fd1 = open(MAINTENANCE_DATAFILE, O_RDWR);
@@ -79,7 +78,7 @@ void delete_maint_file(struct maintData delete){
 }
 
 /*maintenance insertion*/
-void insert_maint(struct maintData maint_data){
+void insert_maint(struct maintData maint_data) {
     struct maintenance *newNode1 = (struct maintenance*)malloc(sizeof(struct maintenance));
     newNode1->md.index1 = maint_data.index1;
     newNode1->md.flat_num1 = maint_data.flat_num1;
@@ -94,8 +93,7 @@ void insert_maint(struct maintData maint_data){
         newNode1->next1 = NULL;
         newNode1->prev1 = NULL;
         arr1[key1] = newNode1;
-    }
-    else {
+    } else {
         struct maintenance *temp1 = arr1[key1];
 
         while (temp1->next1 != NULL) {
@@ -107,7 +105,7 @@ void insert_maint(struct maintData maint_data){
 }
 
 /*display data*/
-void display_maint(){
+void display_maint() {
     int i;
     int index = 0;;
     struct maintenance *temp1;
@@ -125,7 +123,7 @@ void display_maint(){
 }
 
 /*serch data*/
-void search_maint(int flat_num1){
+void search_maint(int flat_num1) {
 
     struct maintenance *ptr1;
     int i=0, flag;
@@ -133,16 +131,14 @@ void search_maint(int flat_num1){
     ptr1 = arr1[key1];
     if (ptr1 == NULL) {
         printf("\n\n\tEmpty List\n");
-    }
-    else {
+    } else {
         while (ptr1 != NULL) {
             if (ptr1->md.flat_num1 == flat_num1) {
                 printf("\n\n\tmaintenance flat number found at location : %d ", i+1);
                 printf("\n\n\tflat_num\t -\t %d\n\twater_bill\t -\t %d\n\telectricity_bill\t -\t %d\n", ptr1->md.flat_num1, ptr1->md.water_bill, ptr1->md.electricity_bill);
                 flag = 0;
                 break;
-            }
-            else {
+            } else {
                 flag=1;
             }
             i++;
@@ -155,7 +151,7 @@ void search_maint(int flat_num1){
 }
 
 /*updation maintenance data*/
-void update_maint(int flat_num1){
+void update_maint(int flat_num1) {
 
     struct maintenance *ptr1;
     int i=0, flag;
@@ -163,8 +159,7 @@ void update_maint(int flat_num1){
     ptr1 = arr1[key1];
     if (ptr1 == NULL) {
         printf("\n\n\tEmpty List\n");
-    }
-    else {
+    } else {
         while (ptr1 != NULL) {
             if (ptr1->md.flat_num1 == flat_num1) {
                 printf("\n\n\tmaintenance old Data !!!\n");
@@ -191,8 +186,7 @@ void update_maint(int flat_num1){
                 flag = 0;
                 update_maint_file(ptr1->md);
                 break;
-            }
-            else {
+            } else {
                 flag = 1;
             }
             i++;
@@ -205,22 +199,20 @@ void update_maint(int flat_num1){
 }
 
 //delete maintenance data
-void delete_maint(int flat_num1){
+void delete_maint(int flat_num1) {
     printf("\n-----%d flat_num1 \n", flat_num1);
     int key1 = flat_num1% size;
     struct maintenance *ptr1 = arr1[key1], *toDelete;
     if(ptr1 == NULL) {
         printf("\n List is Empty");
-    }
-    else if(ptr1->md.flat_num1 == flat_num1) {
+    } else if (ptr1->md.flat_num1 == flat_num1) {
         delete_maint_file(ptr1->md);
         ptr1 = NULL;
         arr1[key1] = NULL;
         free(ptr1);
-    }
-    else {
+    } else {
         delete_maint_file(ptr1->md);
-    	while(ptr1->next1 != NULL) {
+    	while (ptr1->next1 != NULL) {
             if (ptr1->next1->md.flat_num1 == flat_num1) {
                 ptr1 = NULL;
                 toDelete = ptr1->next1;

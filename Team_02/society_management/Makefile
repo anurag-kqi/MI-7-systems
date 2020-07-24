@@ -2,10 +2,8 @@
 # the name of the target program
 TARGET = socm
 
-
-
 # other source files and the associated object files (this can be blank)
- SRC =  soc_mgnt.c menu.c society.c maintenance.c visitors.c complaints.c 
+ SRC =  soc_mgnt.c menu.c society.c maintenance.c visitors.c complaints.c
  OBJ = $(SRC:.c=.o)
 
 # special include directories

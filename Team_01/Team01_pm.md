@@ -9,6 +9,58 @@ Team Members :
     3. Rupam Dandge
     4. Aishwarya Bhutkar
 _______________________________________________________________________________________________________________
+25 july 2020
+
+Meeting Time : 9.30 AM
+
+Attendees : 
+                Aishwarya
+		Shankar
+		Harshada
+		Rupam
+		
+
+Tasks : 
+
+		. Everyone is learning and writing client server program
+                		
+Task Performed By : (yesterday's)
+
+	Aishwarya :  
+		. validation 
+
+	Harshada :  
+		. Teacher Delete Operation 
+
+	Rupam :  
+		. Work on client server
+
+24 july 2020
+
+Meeting Time : 9.30 AM
+
+Attendees : 
+                Aishwarya
+		Shankar
+		Harshada
+		Rupam
+		
+
+Tasks : 
+
+		. Everyone is learning about client and server 
+                		
+Task Performed By : (yesterday's)
+
+	Aishwarya :  
+		. validation
+
+	Harshada :  
+		. Student Delete Operation 
+
+	Rupam :  
+		. Work on client server
+
 23 july 2020
 
 Meeting Time : 9.30 AM

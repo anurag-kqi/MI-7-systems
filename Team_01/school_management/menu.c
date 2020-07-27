@@ -1,10 +1,11 @@
-
+#include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "stud.h"
+#include "structure.h"
 
 struct student_disk stud;
+struct teacher_disk teach;
 
 //student hashtable operations
 extern void display_stud();
@@ -12,23 +13,25 @@ extern void delete_stud(int id);
 extern void update_stud(int id);
 extern void search_stud(int id);
 //teacher hashtable operations
-extern void insert_teacher(int index, int id, char name[], char department[], int contact);
-void display_teacher();
-//extern delete_teacher();
-extern void update_teacher(int id);
-extern void search_teacher(int id);
+extern void insert_teach(struct teacher_disk readTeach);
+extern void display_teach();
+extern void delete_teach(int id);
+extern void update_teach(int id);
+extern void search_teach(int id);
 //file read functions
 extern void read_stud();
-extern void read_teacher();
+extern void read_teach();
 extern void write_stud(struct student_disk stud);
+extern void write_teach(struct teacher_disk teach);
 extern int num_records;
+extern int num_record;
 extern void delete_stud_file(struct student_disk stud_data);
 extern void insert_stud(struct student_disk readStud);
 
 //main menu function
 void menus()
 {
-    int ch, id, contact,index;
+    int ch, id, index,contact,j,digit,alpha;
     char name[30], address[50], class[10], department[30];
 
     while (1) {
@@ -37,6 +40,7 @@ void menus()
         printf("\n\n\t1.ADD ENTRY\n\t2.DISPLAY DATA\n\t3.DELETE ENTRY\n\t4.UPDATE ENTRY\n\t5.SEARCH ENTRY\n\t6.EXIT\n\n");
         printf("\n\tEnter your choice(1-6) : ");
         scanf("\t %d", &ch);
+        //send
 	      printf("\n_______________________________________________________________________________");
         switch (ch) {
             case 1:
@@ -44,6 +48,7 @@ void menus()
                 printf("\n\n\t1.STUDENT DATA\n\t2.TEACHER DATA\n\t3.EXIT");
                 printf("\n\n\tEnter your choice to insert(1-3) : ");
                 scanf("\t %d", &ch);
+                //send
 
                 switch (ch) {
                     case 1: printf("\n\n\tIndex : %d" ,num_records);
@@ -53,25 +58,57 @@ void menus()
                         		scanf("\t %d", &stud.id);
                         		printf("\n\tEnter Name : ");
                         		scanf("\t %[^\n]%*c", stud.name);
-                        		printf("\n\tEnter Class : ");
-                        		scanf("\t %s", stud.class);
-                        		printf("\n\tEnter Address : ");
-                        		scanf("\t %[^\n]%*c", stud.address);
-                        		printf("\n\tEnter Contact : ");
-                        		scanf("\t %d", &stud.contact);
-                        		insert_stud(stud);
-                            write_stud(stud);
-                            num_records++;
-                    break;
-                    case 2: printf("\n\n\tEnter ID : ");
-                        		scanf("\t %d", &id);
+					                  for (j=0; stud.name[j]!= '\0'; j++)
+    				                {
+       		    		              if (isalpha(stud.name[j]) != 0)
+            	        		          alpha++;
+
+  	      	    		            else if (isdigit(stud.name[j]) != 0)
+            				                digit++;
+    				                }
+    				                if(alpha == 0 && digit > 0)
+    				                {
+		    		                    printf("Enter characters only\n");
+    				                } else{
+
+                        		    printf("\n\tEnter Class : ");
+                        		    scanf("\t %s", stud.class);
+                        		    printf("\n\tEnter Address : ");
+                        		    scanf("\t %[^\n]%*c", stud.address);
+                                printf("\n\tEnter Contact : ");
+                        		    scanf("\t %d", &stud.contact);
+                                insert_stud(stud);
+                                write_stud(stud);
+                                num_records++;
+                            }
+                            break;
+                    case 2: printf("\n\n\tIndex : %d" ,num_record);
+                            teach.index = num_record;
+					                  printf("\n\n\tEnter ID : ");
+                        		scanf("\t %d", &teach.id);
                         		printf("\n\tEnter Name : ");
-                        		scanf("\t %[^\n]%*c", name);
-                        		printf("\n\tEnter Department : ");
-                        		scanf("\t %[^\n]%*c", department);
-                        		printf("\n\tEnter Contact : ");
-                        		scanf("\t %d", &contact);
-                        		read_teacher();
+                        		scanf("\t %[^\n]%*c", teach.name);
+                            for (j=0; teach.name[j]!= '\0'; j++)
+    				                {
+       		    		              if (isalpha(teach.name[j]) != 0)
+            	        		          alpha++;
+
+  	      	    		            else if (isdigit(teach.name[j]) != 0)
+            				                digit++;
+    				                }
+    				                if(alpha == 0 && digit > 0)
+    				                {
+		    		                    printf("Enter characters only\n");
+    				                } else{
+
+                        		    printf("\n\tEnter Department : ");
+                        		    scanf("\t %[^\n]%*c", teach.department);
+                        		    printf("\n\tEnter Contact : ");
+                        		    scanf("\t %d", &teach.contact);
+                        		    insert_teach(teach);
+			                          write_teach(teach);
+                                num_record++;
+                            }
                             break;
                     case 3: exit(0);
                     default: printf("\n\n\tWrong Choice!!\n");
@@ -86,7 +123,7 @@ void menus()
                     {
                         case 1: display_stud();
                                 break;
-                        case 2: display_teacher();
+                        case 2: display_teach();
                                 break;
                         case 3: exit(0);
                         default: printf("\n\n\tWrong Choice!!\n");
@@ -104,6 +141,12 @@ void menus()
                                 scanf("\t %d", &stud.id);
     				                    delete_stud(stud.id);
                                 break;
+
+                        case 2: printf("\n\n\tEnter Teacher id for Delete : ");
+                                scanf("\t %d", &teach.id);
+    				                    delete_teach(teach.id);
+                                break;
+
                         case 3: exit(0);
                         default: printf("\n\n\tWrong Choice!!\n");
                     }
@@ -122,7 +165,7 @@ void menus()
                                 break;
                         case 2: printf("\n\n\tEnter Teacher ID for Update : ");
                                 scanf("\t %d", &id);
-				                        update_teacher(id);
+				                        update_teach(id);
                                 break;
                         case 3: exit(0);
                         default: printf("\n\n\tWrong Choice!!\n");
@@ -142,7 +185,7 @@ void menus()
                                 break;
                         case 2: printf("\n\n\tEnter Teacher ID for Search : ");
                                 scanf("\t%d", &id);
-				                        search_teacher(id);
+				                        search_teach(id);
                                 break;
                         case 3: exit(0);
                         default: printf("\n\n\tWrong Choice!!\n");

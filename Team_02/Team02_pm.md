@@ -8,6 +8,84 @@ Team Members :
 2. Kishori Nikam
 3. Prajawal
 
+24 July 2020
+Meeting Time:10:00 am
+
+Attendees:
+1. Divyani Patidar
+2. Kishori Nikam
+3. Prajawal
+
+Tasks:
+  .All: concept of networking and project work.
+
+Task perform by yesterday:
+  .All: work on client-server code.
+        client server design of society management.
+
+23 July 2020
+Meeting Time:10:00 am
+
+Attendees:
+1. Divyani Patidar
+2. Kishori Nikam
+3. Prajawal
+
+Tasks:
+  .All: work on client-server code.
+        client server design of society management.
+
+Task perform by yesterday:
+  .All: work on client-server code.
+
+22 July 2020
+Meeting Time:10:00 am
+
+Attendees:
+1. Divyani Patidar
+2. Kishori Nikam
+3. Prajawal
+
+Tasks:
+  .All: work on client-server code.
+
+Task perform by yesterday:
+  .All: work on coding style and search function of code.
+
+21 July 2020
+Meeting Time:10:00 am
+
+Attendees:
+1. Divyani Patidar
+2. Kishori Nikam
+3. Prajawal
+
+Tasks:
+  .All: work on coding style and search function of code.
+
+Task perform by yesterday:
+  .Divyani: work on update and delete function of complaints.
+  .Kishori: work on update and delete function of maintenance.
+  .Prajwal: work on update and delete function of visitors.
+
+20 July 2020
+Meeting Time:10:00 am
+
+Attendees:
+1. Divyani Patidar
+2. Kishori Nikam
+3. Prajawal
+
+Tasks:
+  .Divyani: work on update and delete function of complaints.
+  .Kishori: work on update and delete function of maintenance.
+  .Prajwal: work on update and delete function of visitors.
+
+Task perform by yesterday:
+  .Divyani: work on read write function of complaints.
+  .Kishori: work on read write function of maintenance.
+  .Prajwal: work on read write function of visitors.
+
 18 July 2020
 Meeting Time:11:00 am
 
@@ -120,7 +198,7 @@ Attendees:
 3. Prajawal
 
 Tasks:
-  .networking question and answer.
+  .All: networking question and answer.
 
 Task perform by yesterday:
   .All: read write operation of code.
@@ -135,7 +213,7 @@ Attendees:
 3. Prajawal
 
 Tasks:
-  .Read - write operation of code.
+  .All: Read - write operation of code.
 
 Task perform by yesterday:
   .All: server client daytime operation.
@@ -149,7 +227,7 @@ Attendees:
 3. Prajawal
 
 Tasks:
-  .server client daytime operation.
+  .All: server client daytime operation.
 
 Task perform by yesterday:
   .All: Work on networking concept.
@@ -163,7 +241,10 @@ Attendees:
 3. Prajawal
 
 Tasks:
-  .networking concept.
+  .All: networking concept.
+
+Task performed by yesterday:
+  .All: Read - write operation of code.
 
 4 July 2020
 Meeting Time:11:00 am
@@ -174,7 +255,10 @@ Attendees:
 3. Prajawal
 
 Tasks:
-  .Read - write operation of code.
+  .All: Read - write operation of code.
+
+Task performed by yesterday:
+  .All: Read - write operation of code.
 
 3 July 2020
 Meeting Time:11:00 am
@@ -185,10 +269,10 @@ Attendees:
 3. Prajawal
 
 Tasks:
-  .Read - write operation of code.
+  .All: Read - write operation of code.
 
 Task performed by yesterday:
-  .Create binary of project file and converted into docker iamge and tag in docker hub account.
+  .All: Create binary of project file and converted into docker iamge and tag in docker hub account.
   .Push dockerfile, project code and makefile on the github.
 
 2 July 2020

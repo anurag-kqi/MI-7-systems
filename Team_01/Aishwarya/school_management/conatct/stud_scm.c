@@ -58,7 +58,7 @@ void read_stud() {
      perror("read failed");
   }
   while (read(fd, (void *)&readStud, sizeof(struct student_disk))) {
-    printf("%d %d %s %s %s %s\n", readStud.index, readStud.id, readStud.name, readStud.class, readStud.address, readStud.contact);
+    printf("%d %d %s %s %s %ls\n", readStud.index, readStud.id, readStud.name, readStud.class, readStud.address, readStud.contact);
     insert_stud(readStud);
     num_records = ++num_records;
   }
@@ -90,6 +90,12 @@ void delete_stud_file(struct student_disk stud_data)
     int fd;
     fd = open(STUDENT_DATAFILE, O_RDWR);
     lseek (fd, (num_records - 1) * sizeof (struct student_disk), SEEK_SET);
+    // read(fd, &stud_data, sizeof(struct student_disk));
+
+    // stud_data.index
+    // read the last record from the file
+    // lseek (num_records - 1) * student_data
+    // read the stud_data from that location into a new local variable
     read(fd, &temp, sizeof(struct student_disk));
     temp.index = stud_data.index;
     lseek(fd, temp.index * sizeof(struct student_disk), SEEK_SET);
@@ -124,7 +130,7 @@ void insert_stud(struct student_disk readStud)
     strcpy(newNode->std.class, readStud.class);
     strcpy(newNode->std.address, readStud.address);
     //newNode->std.contact = readStud.contact;
-    strcpy(newNode->std.contact, readstud.contact);   
+    strcpy(newNode->std.contact, readStud.contact);
 
     newNode->next = NULL;
     newNode->prev = NULL;
@@ -195,7 +201,7 @@ void display_stud()
     temp = chain[i];
     while(temp) {
         printf("%d. ", index);
-        printf("  %d \t%s \t%s \t%s\t%s\n", temp->std.id, temp->std.name, temp->std.class, temp->std.address, temp->std.contact);
+        printf("  %d \t%s \t%s \t%s\t%ls\n", temp->std.id, temp->std.name, temp->std.class, temp->std.address, temp->std.contact);
         temp = temp->next;
         index++;
     }
@@ -218,7 +224,7 @@ void search_stud(int id)
         while (ptr != NULL) {
             if (ptr->std.id == id) {
                 printf("\n\n\tStudent id found at location %d ", i+1);
-                printf("\n\n\tStudent Prev - %p\n\tStudent Id - %d\n\tStudent Nmae - %s\n\tStudent Class - %s\n\tStudent Address - %s\n\tStudent Contact - %s\n\tStudent next - %p", ptr->prev, ptr->std.id, ptr->std.name, ptr->std.class, ptr->std.address, ptr->std.contact, ptr->next);
+                printf("\n\n\tStudent Prev - %p\n\tStudent Id - %d\n\tStudent Nmae - %s\n\tStudent Class - %s\n\tStudent Address - %s\n\tStudent Contact - %ls\n\tStudent next - %p", ptr->prev, ptr->std.id, ptr->std.name, ptr->std.class, ptr->std.address, ptr->std.contact, ptr->next);
                 flag = 0;
                 break;
             } else {
@@ -249,7 +255,7 @@ void update_stud(int id)
         while (ptr != NULL) {
             if (ptr->std.id == id) {
                 printf("\n\n\tStudent old Data !!!\n");
-                printf("\n\n\tStudent Id - %d\n\tStudent Nmae - %s\n\tStudent Class - %s\n\tStudent Address - %s\n\tStudent Contact - %s",
+                printf("\n\n\tStudent Id - %d\n\tStudent Nmae - %s\n\tStudent Class - %s\n\tStudent Address - %s\n\tStudent Contact - %ls",
                        ptr->std.id, ptr->std.name, ptr->std.class, ptr->std.address, ptr->std.contact);
 
 		            printf("\n\n\tStudent New Data !!!\n");
@@ -266,7 +272,7 @@ void update_stud(int id)
                 printf("\n\tEnter New Address : ");
                 scanf("\t %s", address);
                 printf("\n\tEnter New Contact : ");
-                scanf("\t %s", contact);
+                scanf("\t %ls", contact);
 
     		        ptr->std.id = id;
     		        strcpy(ptr->std.name, name);
@@ -274,7 +280,7 @@ void update_stud(int id)
     		        strcpy(ptr->std.address, address);
     		        strcpy(ptr->std.contact, contact);
 
-		            printf("\n\n\tStudent Id - %d\n\tStudent Nmae - %s\n\tStudent Class - %s\n\tStudent Address - %s\n\tStudent Contact - %s",
+		            printf("\n\n\tStudent Id - %d\n\tStudent Nmae - %s\n\tStudent Class - %s\n\tStudent Address - %s\n\tStudent Contact - %ls",
                 ptr->std.id, ptr->std.name, ptr->std.class, ptr->std.address, ptr->std.contact);
 		            printf("\n\n\tStudent Record Updated Successfully !!!\n");
                     flag = 0;

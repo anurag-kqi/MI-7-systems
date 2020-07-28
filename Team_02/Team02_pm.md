@@ -8,6 +8,51 @@ Team Members :
 2. Kishori Nikam
 3. Prajawal
 
+28 July 2020
+Meeting Time:10:00 am
+
+Attendees:
+1. Divyani Patidar
+2. Kishori Nikam
+3. Prajawal
+
+Tasks:
+  .All: concept and implementation of fork()
+        concept of process
+        client server implementation of project.
+
+Task perform by yesterday:
+  .All: client server implementation of project.
+
+27 July 2020
+Meeting Time:10:00 am
+
+Attendees:
+1. Divyani Patidar
+2. Kishori Nikam
+3. Prajawal
+
+Tasks:
+  .All: concept of process
+        client server implementation of project.
+
+Task perform by yesterday:
+  .All: client server implementation of project.
+
+25 July 2020
+Meeting Time:10:00 am
+
+Attendees:
+1. Divyani Patidar
+2. Kishori Nikam
+3. Prajawal
+
+Tasks:
+  .All: client server implementation of project.
+
+Task perform by yesterday:
+  .All: concept of networking and project work.
+
 24 July 2020
 Meeting Time:10:00 am
 

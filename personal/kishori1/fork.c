@@ -7,7 +7,7 @@
 int
 main()
 {
-  int pid,i;
+  int pid, i;
   pid = fork();
   if (pid == 0) {
   /*parent process*/

@@ -90,12 +90,6 @@ void delete_stud_file(struct student_disk stud_data)
     int fd;
     fd = open(STUDENT_DATAFILE, O_RDWR);
     lseek (fd, (num_records - 1) * sizeof (struct student_disk), SEEK_SET);
-    // read(fd, &stud_data, sizeof(struct student_disk));
-
-    // stud_data.index
-    // read the last record from the file
-    // lseek (num_records - 1) * student_data
-    // read the stud_data from that location into a new local variable
     read(fd, &temp, sizeof(struct student_disk));
     temp.index = stud_data.index;
     lseek(fd, temp.index * sizeof(struct student_disk), SEEK_SET);

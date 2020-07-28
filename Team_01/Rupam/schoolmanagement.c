@@ -61,7 +61,7 @@ void insert_stud(int id, char name[], char class[], char address[], char contact
     strcpy(newNode->name, name);
     strcpy(newNode->class, class);
     strcpy(newNode->address, address);
-	strcpy(newNode->contact, contact);   
+	strcpy(newNode->contact, contact);
 
    //newNode->contact = contact;
     newNode->next = NULL;
@@ -130,7 +130,7 @@ void delete_stud(int id)
         printf("\n\n\tList is Empty !!!\n");
     }
     else if (ptr->id == id && ptr->next == NULL) {
-      
+
         ptr = NULL;
         free(ptr);
         printf("\n\n\tnode deleted\n");
@@ -401,17 +401,17 @@ main()
 				scanf("\t %s", class);
 				printf("\n\tEnter Address : ");
 				scanf("\t %s", address);
-				
+
 				do
 				{
 				printf("\n\tEnter Contact : ");
 				scanf("\t %10s", contact);
 				if(strnlen(contact, 10) != 10)
 				    {
-					 printf("You Entered Invalid Contact\nPlz Enter 10 Digit Valid contact number!\n"); 
+					 printf("You Entered Invalid Contact\nPlz Enter 10 Digit Valid contact number!\n");
 				    }
 				}while(strnlen(contact, 10) != 10);
-							
+
 				insert_stud(id, name, class, address, contact);
                                 break;
 
@@ -421,18 +421,18 @@ main()
 				scanf("\t %s", name);
 				printf("\n\tEnter Department : ");
 				scanf("\t %s", department);
-				
+
 				do
   				{
 				printf("\n\tEnter Contact : ");
 				scanf("\t %s", contact);
-				  if(strnlen(contact, 10) != 10)			
+				  if(strnlen(contact, 10) != 10)
 				    {
-					printf("You Entered Invalid Contact\nPlz Enter 10 Digit Valid contact number!\n"); 
+					printf("You Entered Invalid Contact\nPlz Enter 10 Digit Valid contact number!\n");
 				     }
 				}while(strnlen(contact, 10) != 10);
 
-				
+
 				insert_teacher(id, name, department, contact);
                                 break;
 

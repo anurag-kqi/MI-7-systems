@@ -180,7 +180,7 @@ void update_teacher(int id)
 		    ptr->id = id;
     		    strcpy(ptr->name, name);
     		    strcpy(ptr->department, department);
-    		    ptr->contact = contact;
+    		    strcpy(ptr->contact, contact);
 
 		    printf("\n\n\tTeacher Id - %d\n\tTeacher Nmae - %s\n\tTeacher Department - %s\n\tTeacher Contact - %s",
                            ptr->id, ptr->name, ptr->department, ptr->contact);

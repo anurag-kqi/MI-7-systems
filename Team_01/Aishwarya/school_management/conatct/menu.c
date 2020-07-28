@@ -21,7 +21,7 @@ extern void delete_stud(int id);
 extern void update_stud(int id);
 extern void search_stud(int id);
 //teacher hashtable operations
-extern void insert_teacher(int index, int id, char name[], char department[], int contact);
+extern void insert_teacher(int index, int id, char name[], char department[], char contact[]);
 void display_teacher();
 //extern delete_teacher();
 extern void update_teacher(int id);
@@ -70,26 +70,24 @@ void menus()
               				scanf("\t %s", stud.class);
               				printf("\n\tEnter Address : ");
               				scanf("\t %[^\n]%*c", stud.address);
-              				printf("\n\tEnter Contact : ");
-              				scanf("\t %d", &stud.contact);
-                      do
+              			//	printf("\n\tEnter Contact : ");
+                    do
                       {
                       printf("\n\tEnter Contact : ");
-                      scanf("\t %10s", contact);
-                      if(strnlen(contact, 10) != 10)
+                      scanf("\t 10ls", stud.contact;
+                      if(strnlen(stud.contact, 10) != 10)
                           {
                          printf("You Entered Invalid Contact\nPlz Enter 10 Digit Valid contact number!\n");
                           }
-                      }while(strnlen(contact, 10) != 10);
+                      }while(strnlen(stud.contact, 10) != 10);
 
                       //insert_stud(id, name, class, address, contact);
-
               				insert_stud(stud);
                       write_stud(stud);
                       num_records++;
-			             	//read_stud();
-
-                                break;
+			            	  read_stud();
+//
+                             break;
 
                         case 2:
                         	//printf("\n\n\tEnter Index : ");
@@ -104,14 +102,14 @@ void menus()
                 				do
                   				{
                 				printf("\n\tEnter Contact : ");
-                				scanf("\t %s", contact);
+                				scanf("\t %ls", contact);
                 				  if(strnlen(contact, 10) != 10)
                 				    {
                 					printf("You Entered Invalid Contact\nPlz Enter 10 Digit Valid contact number!\n");
                 				     }
                 				}while(strnlen(contact, 10) != 10);
 
-                      //  insert_teacher
+                    //    insert_teacher(teacher);
                 			//	insert_teacher(id, name, department, contact);
                 				read_teacher();
                                 break;

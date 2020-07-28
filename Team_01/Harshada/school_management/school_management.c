@@ -1,8 +1,17 @@
 /*School Mnagement Systems*/
+#include <ctype.h>
+#include "structure.h"
+#include<stdio.h>
+#include<string.h>
+#include<sys/types.h>
+#include<sys/socket.h>
+#include<netinet/in.h>
+#include<arpa/inet.h>
+#include<stdlib.h>
+#include <fcntl.h>
+#include<unistd.h>
+#include <sys/stat.h>
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 
 //main menus
 extern void menus();
@@ -16,19 +25,21 @@ extern void read_teach();
 int
 main()
 {
-    //init array of list to NULL
-    init_stud();
-    init_teacher();
+ 
+    int ch, id, index,contact,j,digit,alpha,s, flag;
+    char name[30], address[50], class[10], department[30];
+
+
 
     //reading student datafile
     printf("\n_______________________________________________________________________________\n");
     printf("\t\tSTUDENT DATAFILE\n\n");
-    read_stud();
+  //  read_stud();
 
     //reading teacher datafile
     printf("\n_______________________________________________________________________________\n");
     printf("\t\tTEACHER DATAFILE\n\n");
-    read_teach();
+   // read_teach();
 
     //calling main menu function
     menus();

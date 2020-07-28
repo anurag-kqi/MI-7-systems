@@ -1,13 +1,17 @@
 /*School Mnagement Systems*/
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include <ctype.h>
+#include "structure.h"
+#include<stdio.h>
+#include<string.h>
+#include<sys/types.h>
+#include<sys/socket.h>
+#include<netinet/in.h>
+#include<arpa/inet.h>
+#include<stdlib.h>
 #include <fcntl.h>
 #include<unistd.h>
-#include <sys/types.h>
 #include <sys/stat.h>
-#include "structure.h"
+
 #define size 9
 
 struct teacher *chaint[size];

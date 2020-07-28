@@ -1,10 +1,14 @@
 # the name of the target program
-TARGET = scm
+TARGET = client
+TARGET1 = server
+
 
 # other source files and the associated object files (this can be blank)
-SRC	= school_management.c stud_scm.c teacher_scm.c menu.c 
+SRC	=  menu-client.c school_management.c  structure.h
+SRC2    =  server.c
 #stud_persistency.c
 OBJ	= $(SRC:.c=.o)
+OBJ2 = $(SRC2:.c=.o)
 
 # special include directories
 INCLUDE = -I.
@@ -23,11 +27,15 @@ CFLAGS = -g
 	$(CC) $(CFLAGS) $(INCLUDE) -c $<
 
 # if you type 'make' without arguments, this is the default
-build: $(TARGET)
+build: $(TARGET) $(TARGET1)
 
 # specify how to compile the target
 $(TARGET): $(OBJ)
 	$(CC) $(CFLAGS) $(INCLUDE)  $(OBJ) $(LIB) -o $(TARGET)
+$(TARGET2): $(OBJ2)
+	$(CC) $(CFLAGS) $(INCLUDE)  $(OBJ2) $(LIB) -o $(TARGET2)
+
+
 
 # remove binaries
 clean:

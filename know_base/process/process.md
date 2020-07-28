@@ -71,8 +71,28 @@ Q8. What is process ID? How does one find it?
     3. ps -af
 
 Q9. What is parent process ID? How does one find it?
+---Aishwarya
+   - A parent process is a process that has created one or more child processes. Each child process is
+     given a Parental Process ID (PPID), and the parent process kills the child when it completes their operation.
+   - In an unique process ID, each process is assigned a parent process ID (PPID) that tells which process started it.
+     The PPID is the PID of the process’s parent.
+
+   - it can be find from following commands:
+      1. echo $PPID
+      2. ps -o ppid=
+      3. ps -efj
+      4. pstree
+      5. ps -af
 
 Q10. How does one create a new process?
+---Aishwarya
+   - A new process can be created by the fork() system call.
+   - The new process consists of a copy of the address space of the original process.
+   - fork() creates new process from existing process.
+   - Existing process is called the parent process and the process is created newly is called child process.
+   - The function is called from parent process. Both the parent and the child processes continue
+     execution at the instruction after the fork(),the return code for the fork() is zero for the new process,
+     whereas the process identifier of the child is returned to the parent. 
 
 Q11. How process is terminated?
 

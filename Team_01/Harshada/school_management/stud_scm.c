@@ -7,7 +7,7 @@
 #include<unistd.h>
 #include <sys/types.h>
 #include <sys/stat.h>
-#include "stud.h"
+#include "structure.h"
 #define size 9
 
 struct student *chain[size];
@@ -46,7 +46,7 @@ read_stud()
         perror("read failed");
     }
     while (read(fd, (void *)&readStud, sizeof(struct student_disk))) {
-        printf("%d %d %s %s %s %d\n", readStud.index, readStud.id, readStud.name, readStud.class, readStud.address, readStud.contact);
+        printf("%d\t%d\t%s\t%s\t%s\t%d\n", readStud.index, readStud.id, readStud.name, readStud.class, readStud.address, readStud.contact);
         insert_stud(readStud);
         num_records = ++num_records;
     }
@@ -109,12 +109,12 @@ display_stud()
     int index = 0;
     struct student *temp;
     printf("\n_______________________________________________________________________________\n\n");
-    printf("INDEX. SR.   STUD_NAME  CLASS  ADDRESS  CONTACT\n\n");
+    printf("INDEX.\tSR.\tSTUD_NAME\tCLASS\tADDRESS\t\tCONTACT\n\n");
     for(i = 0; i < size; i++) {
         temp = chain[i];
         while(temp) {
             printf("%d. ", index);
-            printf("  %d \t%s \t%s \t%s\t%d\n", temp->std.id, temp->std.name, temp->std.class, temp->std.address, temp->std.contact);
+            printf("\t%d\t%s\t\t%s\t%s\t\t%d\n", temp->std.id, temp->std.name, temp->std.class, temp->std.address, temp->std.contact);
             temp = temp->next;
             index++;
         }
@@ -138,15 +138,14 @@ delete_stud_file(struct student_disk stud)
     num_records --;
     ftruncate(fd, num_records * sizeof(struct student_disk));
     printf("\n\n\tdelete successful\n");
-
     close(fd);
+    
 }
 
 //DELETE values from STUDENT hash table
 void
 delete_stud(int id)
 {
-  printf("\n-----%d id \n", id);
     int key = id % size;
     struct student *ptr = chain[key], *toDelete;
 
@@ -159,7 +158,6 @@ delete_stud(int id)
         //chain[key]->prev = NULL;
         ptr->next = NULL;
         free(ptr);
-	      printf("\n\n\tFirst node deleted\n");
     } else {
       delete_stud_file(ptr->next->std);
       	  while (ptr->next != NULL) {
@@ -168,12 +166,10 @@ delete_stud(int id)
                   if (toDelete->next == NULL) {
                       ptr->next = NULL;
                       free(toDelete);
-                      printf("\n\n\tLast Node is deleted\n");
                       return;
                       } else {
                             ptr->next = toDelete->next;
                             toDelete->next->prev = toDelete->prev;
-                            printf("\n\n\tnode is deleted\n");
                             free(toDelete);
                         }
               }
@@ -254,9 +250,9 @@ update_stud(int id)
 
   		            printf("\n\n\tStudent Id - %d\n\tStudent Nmae - %s\n\tStudent Class - %s\n\tStudent Address - %s\n\tStudent Contact - %d",
                   ptr->std.id, ptr->std.name, ptr->std.class, ptr->std.address, ptr->std.contact);
-  		            printf("\n\n\tStudent Record Updated Successfully !!!\n");
+  		            printf("\n\n\tStudent Record Updated Successfully !!!\n\n");
                       flag = 0;
-                  printf("AAA: %d id %d index %d name %s\n", __LINE__, ptr->std.id, ptr->std.index, ptr->std.name);
+                  //printf("AAA: %d id %d index %d name %s\n", __LINE__, ptr->std.id, ptr->std.index, ptr->std.name);
                   break;
               } else {
                     flag = 1;

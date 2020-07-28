@@ -92,9 +92,19 @@ Q10. How does one create a new process?
    - Existing process is called the parent process and the process is created newly is called child process.
    - The function is called from parent process. Both the parent and the child processes continue
      execution at the instruction after the fork(),the return code for the fork() is zero for the new process,
-     whereas the process identifier of the child is returned to the parent. 
+     whereas the process identifier of the child is returned to the parent.
 
 Q11. How process is terminated?
+---Aishwarya
+   - A process may be terminated after its execution is naturally completed.
+   - A child process may be terminated if its parent process requests for its termination.
+   - A process can be terminated if it tries to use a resource that it is not allowed to.
+     For example - A process can be terminated for trying to write into a read only file.
+   - If an I/O failure occurs for a process, it can be terminated.
+   - In most cases, if a parent process is terminated then its child processes are also terminated.
+     This is done because the child process cannot exist without the parent process.
+   - If a process requires more memory than is currently available in the system,
+     then it is terminated because of memory scarcity.
 
 Q12. At the starting of a new process, how does child process gets memory structure to continue execution?
 

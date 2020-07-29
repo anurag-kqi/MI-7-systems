@@ -81,23 +81,21 @@ Client Architecture
 	    2. Enter your choice to update (1-6):
 	         1. Enter Patient ID for Update: \\CLIENT REQUEST TO THE SERVER
                  2. Patient old Data!!!
-                      	Patient Id -
+			Patient Id -
       			Patient Name -
-      			Age -
+			Age -
 			Bloodgroup -
       			Patient Address -
       			Patient Contact -
 			Disease - 
-
-                 3. Patient New Data!!!
-
-      				ID:
-      				Enter New Name:
-      				Enter New Age:
-				Enter New Bloodgroup:
-      				Enter New Address:
-      				Enter New Contact:
-				Enter New Disease/Symptms: \\CLIENT SEND UPDATED DATA TO THE SERVER
+	   3. Patient New Data!!!
+			ID:
+      			Enter New Name:
+      			Enter New Age:
+			Enter New Bloodgroup:
+      			Enter New Address:
+      			Enter New Contact:
+			Enter New Disease/Symptms: \\CLIENT SEND UPDATED DATA TO THE SERVER
 
 
 10.SHOW ON CLIENT SIDE

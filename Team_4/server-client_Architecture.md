@@ -21,20 +21,21 @@ Client Architecture
 
 1. ASKING IP ADDRESS AND PORT NUMBER 
 2. SHOW ON CLIENT SIDE 
-	1. HOSPITAL MANAGEMENT SYSTEM 
 
-		1. PATIENT DATA 
-		2. DOCTER DATA 
-		3. EXIT
+		1. HOSPITAL MANAGEMENT SYSTEM 
+			1. PATIENT DATA 
+			2. DOCTER DATA 
+			3. EXIT
 	
-	2. ENTER YOUR CHOICE (1-3)
+		2. ENTER YOUR CHOICE (1-3)
 3. INSERT INTO 
-			1.ADD ENTRY
-			2.DISPLAY DATA
-			3.SEARCH ENTRY
-			4.UPDATE ENTRY
-			5.DELETE ENTRY
-			6.EXIT 
+
+		1.ADD ENTRY
+		2.DISPLAY DATA
+		3.SEARCH ENTRY
+		4.UPDATE ENTRY
+		5.DELETE ENTRY
+		6.EXIT 
 4. Enter your choice to insert (1-6): 
 5. ADD PATIENT INFORMATION 
 	
@@ -82,19 +83,19 @@ Client Architecture
 	         1. Enter Patient ID for Update: \\CLIENT REQUEST TO THE SERVER
                  2. Patient old Data!!!
 			Patient Id -
-      			Patient Name -
+			Patient Name -
 			Age -
 			Bloodgroup -
-      			Patient Address -
-      			Patient Contact -
+			Patient Address -
+			Patient Contact -
 			Disease - 
 	   3. Patient New Data!!!
 			ID:
-      			Enter New Name:
-      			Enter New Age:
+			Enter New Name:
+			Enter New Age:
 			Enter New Bloodgroup:
-      			Enter New Address:
-      			Enter New Contact:
+			Enter New Address:
+			Enter New Contact:
 			Enter New Disease/Symptms: \\CLIENT SEND UPDATED DATA TO THE SERVER
 
 

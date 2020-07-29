@@ -14,6 +14,7 @@
 struct socData soc;
 extern void insert_soc(struct socData);
 extern void write_soc(struct socData soc);
+extern void display_soc();
 
 extern void init_soc();
 extern void init_complaints_D();
@@ -89,12 +90,39 @@ main(int argc, char *argv[])
     int ch, flat_num, owner_contact;
 	char owner_name[30];
 
-	read(newsockfd, &soc, sizeof(struct socData));
-	printf("%d. \t%s\t\t%d\t%d\n", soc.index, soc.owner_name, soc.flat_num, soc.owner_contact);
-	insert_soc(soc);
-	write_soc(soc);
-	
+	while(1){
+		read(newsockfd, &ch, sizeof(int));//main menu choice
+		switch(ch){
+			case 1:
+				read(newsockfd, &ch, sizeof(int));//submenu choice
 
+				switch(ch){
+					case 1:
+						read(newsockfd, &soc, sizeof(struct socData));
+						printf("%d. \t%s\t\t%d\t%d\n", soc.index, soc.owner_name, soc.flat_num, soc.owner_contact);
+						insert_soc(soc);
+						write_soc(soc);
+						break;
+				}
+				break;
+
+			case 2:
+				read(newsockfd, &ch, sizeof(int));//submenu choice
+
+				switch(ch){
+					case 1:
+						display_soc();
+						break;
+
+
+
+				}
+				break;
+
+		}
+
+
+	};
     close(newsockfd);
     close(sockfd);
     return 0;

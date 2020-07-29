@@ -12,6 +12,7 @@
 
 struct socData soc;
 int num_records = 0;
+extern void display_soc();
 
 void error(const char *msg) {
 	perror(msg);
@@ -141,7 +142,7 @@ int main(int argc, char *argv[])
                     }
                     break;
 
-            /*case 2:
+            case 2:
                     printf("\n==================================================================");
                     printf("\n\t\tDISPLAY DATA\n");
                     printf("\n\t1. Society Data\n\t2. Maintenance Data\n\t3. Visitor Data\n\t4. Complaint Data\n\t5. Exit(0)");
@@ -154,7 +155,7 @@ int main(int argc, char *argv[])
                                 //display_soc();
                                 break;
 
-                        case 2:
+                        /*case 2:
                                 display_maint();
                                 break;
 
@@ -164,14 +165,14 @@ int main(int argc, char *argv[])
 
                         case 4:
                                 display_complaints_D();
-                                break;
+                                break;*/
 
                         case 5:
                                 exit(0);
 
                         default: printf("Wrong Choice!!");
                     }
-                    break;*/
+                    break;
 
             /*case 3:
                     printf("\n==================================================================");

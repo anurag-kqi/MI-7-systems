@@ -8,10 +8,92 @@ Team Members :
     2. Harshada Londhal
     3. Rupam Dandge
     4. Aishwarya Bhutkar
-_________________________________________________________________27 july 2020
+----------------------------------------------------------------------------
 
-Meeting Time : 1st Meeting - 9.30 AM
-               2nd Meeting - 2.00 PM to 4.00
+30 july 2020
+
+Meeting Time : 9.30 AM
+
+Attendees :
+                Aishwarya
+		Shankar
+		Harshada
+		Rupam
+
+
+Tasks :
+
+		. Solving Error on client server program
+
+Task Performed By : (yesterday's)
+
+	Aishwarya :  
+		. Work on client server and process id program
+
+	Harshada :  
+		. Work on client server and process id program
+
+	Rupam :  
+		. Work on client server and process id program
+
+
+29 july 2020
+
+Meeting Time : 9.30 AM
+
+Attendees :
+                Aishwarya
+		Shankar
+		Harshada
+		Rupam
+
+
+Tasks :
+
+		. Everyone is writing own client server program
+
+Task Performed By : (yesterday's)
+
+	Aishwarya :  
+		. Work on client server and process id program
+
+	Harshada :  
+		. Work on client server and process id program
+
+	Rupam :  
+		. Work on client server and process id program
+
+
+28 july 2020
+
+Meeting Time : 9.30 AM
+
+Attendees :
+                Aishwarya
+		Shankar
+		Harshada
+		Rupam
+
+
+Tasks :
+
+		. Everyone is writing own client server program
+
+Task Performed By : (yesterday's)
+
+	Aishwarya :  
+		. Work on client server
+
+	Harshada :  
+		. Work on client server
+
+	Rupam :  
+		. Work on client server
+
+
+27 july 2020
+
+Meeting Time : 9.30 AM
 
 Attendees :
                 Aishwarya
@@ -26,8 +108,15 @@ Tasks :
 
 Task Performed By : (yesterday's)
 
-	  . Everyone is working on client server program
-______________________________________________
+	Aishwarya :  
+		. Work on client server
+
+	Harshada :  
+		. Work on client server
+
+	Rupam :  
+		. Work on client server
+
 25 july 2020
 
 Meeting Time : 9.30 AM

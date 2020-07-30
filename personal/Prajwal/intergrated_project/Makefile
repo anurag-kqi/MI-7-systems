@@ -1,4 +1,3 @@
-
 # the name of the target program
 TARGET = socm
 TARGET1 = client

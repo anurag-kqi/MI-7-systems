@@ -11,7 +11,7 @@
 #include "soc.h"
 
 struct socData soc;
-int num_records = 0;
+int ch,num_records = 0;
 extern void display_soc();
 
 void error(const char *msg) {
@@ -21,11 +21,11 @@ void error(const char *msg) {
 
 int main(int argc, char *argv[])
 {
-	int sockfd, portno, n;
+	int sockfd, portno;
     struct sockaddr_in serv_addr;
     struct hostent *server;
 
-    char buffer[1024];
+    //char buffer[1024];
     if (argc < 3)
     {
        fprintf(stderr,"usage %s hostname port\n", argv[0]);
@@ -50,14 +50,15 @@ int main(int argc, char *argv[])
         error("ERROR connecting");
 
 
-    char owner_name[30], complaints_name[50], suggestions_name[50], visitor_name[30];
-    int flat_num, flat_num1, flat_num2, flat_num3, owner_contact, visitor_contact, TimeIn, TimeOut, water_bill, electricity_bill, new_water_bill, new_electricity_bill, vehicle_num, new_vehicle_num, ch;
+    //char owner_name[30], complaints_name[50], suggestions_name[50], visitor_name[30];
+    //int flat_num, flat_num1, flat_num2, flat_num3, owner_contact, visitor_contact, TimeIn, TimeOut, water_bill, electricity_bill, new_water_bill, new_electricity_bill, vehicle_num, new_vehicle_num, ch;
     while(1) {
         printf("\n==================================================================");
         printf("\n\t\t MANAGEMENT DATA\n");
         printf("\n\t1. Insert Data\n\t2. Display Data\n\t3. Search Data\n\t4. Update Data\n\t5. Delete Data\n\t6. Exit");
         printf("\n\n\tEnter your choice(1-6) : ");
         scanf("%d", &ch);
+					write(sockfd, &ch, sizeof(int));
         switch(ch) {
             case 1:
                     printf("\n==================================================================");
@@ -65,6 +66,7 @@ int main(int argc, char *argv[])
                     printf("\n\t1. Society Data\n\t2. Maintenance Data\n\t3. Visitor Data\n\t4. Complaints Data\n\t5. Exit(0)");
                     printf("\n\n\tEnter your choice to insert(1-5):");
                     scanf("%d", &ch);
+										write(sockfd, &ch, sizeof(int));
 
                     switch(ch)
                     {
@@ -80,7 +82,7 @@ int main(int argc, char *argv[])
                                 printf("\n\tEnter owner_contact : ");
                                 scanf("\t\n %d", &soc.owner_contact);
 
-								write(sockfd, &soc, sizeof(struct socData));
+							                  write(sockfd, &soc, sizeof(struct socData));
                                 num_records++;
     			                break;
 

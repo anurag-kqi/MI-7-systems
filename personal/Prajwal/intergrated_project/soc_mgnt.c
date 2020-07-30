@@ -36,9 +36,9 @@ main(int argc, char *argv[])
 {
     int sockfd, newsockfd, portno;
     socklen_t clilen;
-    char buffer[1024];
+    //char buffer[1024];
     struct sockaddr_in serv_addr, cli_addr;
-    int n;
+    //int n;
     if (argc < 2) {
         fprintf(stderr,"ERROR, no port provided\n");
         exit(1);
@@ -59,9 +59,9 @@ main(int argc, char *argv[])
     newsockfd = accept(sockfd,
                 (struct sockaddr *) &cli_addr,
                 &clilen);
-    if (newsockfd < 0)
+    if (newsockfd < 0) {
          error("ERROR on accept");
-
+    }
 	 init_soc();
      // init_maint();
      // init_complaints_D();
@@ -87,8 +87,7 @@ main(int argc, char *argv[])
      printf("\t\tCOMPLAINT DATAFILE\n\n");
      //read_complaints_D();
 
-    int ch, flat_num, owner_contact;
-	char owner_name[30];
+    int ch;
 
 	while(1){
 		read(newsockfd, &ch, sizeof(int));//main menu choice
@@ -114,15 +113,10 @@ main(int argc, char *argv[])
 						display_soc();
 						break;
 
-
-
-				}
+        }
 				break;
-
-		}
-
-
-	};
+			}
+};
     close(newsockfd);
     close(sockfd);
     return 0;

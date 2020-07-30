@@ -7,10 +7,58 @@ Team Members:
 
         1. Ashwini Parab
         2. Ashwini Garje
-        3. Shubham Tankhiwale
-        4. Sagar Mahajan 
-        5. Vaibhav Mehtre
- 24 July 2020:
+        3. Sagar Mahajan 
+29 July 2020:
+
+Meeting Time: 10.30pm
+
+Atendees:
+
+    Ashwini P
+    Sagar
+    Ashwini G
+
+Tasks :
+	 Everyone is working and writing client server program
+
+Task Performed By : (yesterday's task)
+	 
+	 Ashwini P: Created Server-client Architecture flow and work on .md file.
+    	 Sagar    : work on Server-client Architecture file
+
+27 July 2020:
+
+Meeting Time: 10.30pm
+
+Atendees:
+
+    Ashwini P
+    Sagar
+    Ashwini G
+
+Tasks :
+	 Everyone is learning and writing client server program
+
+Task Performed By : (yesterday's task)
+	Everyone is working on client server program
+	
+25 July 2020:
+
+Meeting Time: 10.30pm
+
+Atendees:
+
+    Ashwini P
+    Sagar
+    Ashwini G
+
+Tasks :
+	 Everyone is learning and writing client server program
+
+Task Performed By : (yesterday's task)
+	Everyone is working on update and delete from file program
+
+24 July 2020:
 
 Meeting Time: 10.30pm
 
@@ -23,7 +71,7 @@ Atendees:
 Tasks :
 	All Team members working on update file and delete.
 
-Task Performed By :
+Task Performed By : (yesterday's task)
 
     Sagar:
 	working on operation.

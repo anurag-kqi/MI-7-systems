@@ -9,6 +9,28 @@ Team Members :
     3. Rupam Dandge
     4. Aishwarya Bhutkar
 ----------------------------------------------------------------------------
+31 july 2020
+
+Meeting Time : 9.30 AM
+
+Attendees :
+                Aishwarya
+		Shankar
+		Rupam
+
+
+Tasks :
+
+		. working on client server program
+
+Task Performed By : (yesterday's)
+
+	Aishwarya :  
+		. Work on client server and process id program
+
+	Rupam :  
+		. Work on client server and process id program
+
 
 30 july 2020
 
@@ -17,7 +39,6 @@ Meeting Time : 9.30 AM
 Attendees :
                 Aishwarya
 		Shankar
-		Harshada
 		Rupam
 
 
@@ -28,9 +49,6 @@ Tasks :
 Task Performed By : (yesterday's)
 
 	Aishwarya :  
-		. Work on client server and process id program
-
-	Harshada :  
 		. Work on client server and process id program
 
 	Rupam :  

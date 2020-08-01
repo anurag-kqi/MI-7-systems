@@ -58,6 +58,7 @@ int main(int argc, char *argv[])
         printf("\n\t1. Insert Data\n\t2. Display Data\n\t3. Search Data\n\t4. Update Data\n\t5. Delete Data\n\t6. Exit");
         printf("\n\n\tEnter your choice(1-6) : ");
         scanf("%d", &ch);
+        write(sockfd, &ch, sizeof(int));
         switch(ch) {
             case 1:
                     printf("\n==================================================================");
@@ -65,7 +66,8 @@ int main(int argc, char *argv[])
                     printf("\n\t1. Society Data\n\t2. Maintenance Data\n\t3. Visitor Data\n\t4. Complaints Data\n\t5. Exit(0)");
                     printf("\n\n\tEnter your choice to insert(1-5):");
                     scanf("%d", &ch);
-
+                    write(sockfd, &ch, sizeof(int));
+                                
                     switch(ch)
                     {
                         case 1:

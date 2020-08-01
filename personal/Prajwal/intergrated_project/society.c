@@ -10,9 +10,13 @@
 #define size 1000
 
 struct socData readsoc;
+struct socData soc;
 extern void insert_soc(struct socData);
 struct society *arr[size];
 int num_records;
+extern void display1_soc(struct socData socd);
+extern void update_soc(struct socData upsd);
+
 
 //init array of list to NULL
 void init_soc() {
@@ -118,8 +122,12 @@ void display_soc() {
         while(temp) {
             printf("%d. ",index);
             printf("%s\t %d\t%d\n", temp->sd.owner_name, temp->sd.flat_num, temp->sd.owner_contact);
+            // strcpy(soc.owner_name, temp->sd.owner_name);
+            // soc.flat_num = temp->sd.flat_num;
+            // soc.owner_contact = temp->sd.owner_contact;
             temp = temp->next;
             index++;
+            // display1_soc(soc);
         }
     }
 }
@@ -152,18 +160,18 @@ void search_soc(int flat_num) {
 
 
 /*updation*/
-void update_soc(int flat_num) {
+void update_soc(struct socData upsd) {
     struct society *ptr;
     int i=0, flag;
 
-    int key = flat_num % size;
+    int key = upsd.flat_num % size;
 
     ptr = arr[key];
     if (ptr == NULL) {
         printf("\n\n\tEmpty List\n");
     } else {
         while (ptr != NULL) {
-            if (ptr->sd.flat_num == flat_num) {
+            if (ptr->sd.flat_num == upsd.flat_num) {
                 printf("\n\n\tSociety old Data !!!\n");
                 printf("\n\n\tsociety Index - %d\n\tsociety owner_name - %s\n\tsociety flat_num - %d\n\tsociety owner_contact - %d", ptr->sd.index, ptr->sd.owner_name, ptr->sd.flat_num, ptr->sd.owner_contact);
         		printf("\n\n\tSociety New Data !!!\n");
@@ -171,20 +179,20 @@ void update_soc(int flat_num) {
         		int flat_num, owner_contact, index;
                 char owner_name[30];
 
-                printf("\n\tEnter Same Index : ");
-                scanf("\t %d", &index);
-        		printf("\n\tEnter New owner Name : ");
-        		scanf("\t %[^\n]%*c", owner_name);
-                printf("\n\tEnter Same flat number : ");
-        		scanf("\t %d", &flat_num);
-                printf("\n\tEnter New Contact : ");
-        		scanf("\t %d", &owner_contact);
+                // printf("\n\tEnter Same Index : ");
+                // scanf("\t %d", &index);
+        		// printf("\n\tEnter New owner Name : ");
+        		// scanf("\t %[^\n]%*c", owner_name);
+                // printf("\n\tEnter Same flat number : ");
+        		// scanf("\t %d", &flat_num);
+                // printf("\n\tEnter New Contact : ");
+        		// scanf("\t %d", &owner_contact);
 
-                ptr->sd.index = index;
-                ptr->sd.flat_num = flat_num;
-        		strcpy(ptr->sd.owner_name, owner_name);
-    		    ptr->sd.owner_contact = owner_contact;
-    		    printf("\n\n\tsociety Index - %d\n\tsociety owner_name- %s\n\tsociety flat_num- %d\n\tsociety owner_contact - %d", ptr->sd.index, ptr->sd.owner_name, ptr->sd.flat_num, ptr->sd.owner_contact);
+                // ptr->sd.index = index;
+                // ptr->sd.flat_num = upsd.flat_num;
+        		strcpy(ptr->sd.owner_name, upsd.owner_name);
+    		    ptr->sd.owner_contact = upsd.owner_contact;
+    		    printf("\n\n\tsociety owner_name- %s\n\tsociety owner_contact - %d", ptr->sd.owner_name, ptr->sd.owner_contact);
     		    printf("\n\n\tSociety Record Updated Successfully !!!\n");
                 flag = 0;
                 update_soc_file(ptr->sd);

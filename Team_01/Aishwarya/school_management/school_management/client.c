@@ -11,9 +11,7 @@
 #include "soc.h"
 
 struct socData soc;
-struct socData socd;
-int ch, num_records = 0, flat_num;
-extern void display_soc();
+int num_records = 0;
 
 void error(const char *msg) {
 	perror(msg);
@@ -22,11 +20,11 @@ void error(const char *msg) {
 
 int main(int argc, char *argv[])
 {
-	int sockfd, portno;
+	int sockfd, portno, n;
     struct sockaddr_in serv_addr;
     struct hostent *server;
 
-    //char buffer[1024];
+    char buffer[1024];
     if (argc < 3)
     {
        fprintf(stderr,"usage %s hostname port\n", argv[0]);
@@ -51,15 +49,14 @@ int main(int argc, char *argv[])
         error("ERROR connecting");
 
 
-    //char owner_name[30], complaints_name[50], suggestions_name[50], visitor_name[30];
-    //int flat_num, flat_num1, flat_num2, flat_num3, owner_contact, visitor_contact, TimeIn, TimeOut, water_bill, electricity_bill, new_water_bill, new_electricity_bill, vehicle_num, new_vehicle_num, ch;
+    char owner_name[30], complaints_name[50], suggestions_name[50], visitor_name[30];
+    int flat_num, flat_num1, flat_num2, flat_num3, owner_contact, visitor_contact, TimeIn, TimeOut, water_bill, electricity_bill, new_water_bill, new_electricity_bill, vehicle_num, new_vehicle_num, ch;
     while(1) {
         printf("\n==================================================================");
         printf("\n\t\t MANAGEMENT DATA\n");
         printf("\n\t1. Insert Data\n\t2. Display Data\n\t3. Search Data\n\t4. Update Data\n\t5. Delete Data\n\t6. Exit");
         printf("\n\n\tEnter your choice(1-6) : ");
         scanf("%d", &ch);
-        write(sockfd, &ch, sizeof(int));
         switch(ch) {
             case 1:
                     printf("\n==================================================================");
@@ -67,8 +64,7 @@ int main(int argc, char *argv[])
                     printf("\n\t1. Society Data\n\t2. Maintenance Data\n\t3. Visitor Data\n\t4. Complaints Data\n\t5. Exit(0)");
                     printf("\n\n\tEnter your choice to insert(1-5):");
                     scanf("%d", &ch);
-                    write(sockfd, &ch, sizeof(int));
-                                
+
                     switch(ch)
                     {
                         case 1:
@@ -83,7 +79,7 @@ int main(int argc, char *argv[])
                                 printf("\n\tEnter owner_contact : ");
                                 scanf("\t\n %d", &soc.owner_contact);
 
-							    write(sockfd, &soc, sizeof(struct socData));
+								write(sockfd, &soc, sizeof(struct socData));
                                 num_records++;
     			                break;
 
@@ -145,21 +141,20 @@ int main(int argc, char *argv[])
                     }
                     break;
 
-            case 2:
+            /*case 2:
                     printf("\n==================================================================");
                     printf("\n\t\tDISPLAY DATA\n");
                     printf("\n\t1. Society Data\n\t2. Maintenance Data\n\t3. Visitor Data\n\t4. Complaint Data\n\t5. Exit(0)");
                     printf("\n\n\tEnter your choice to display(1-4):");
                     scanf("%d", &ch);
-					write(sockfd, &ch, sizeof(int));
+
                     switch(ch)
                     {
                         case 1:
-                                // read(sockfd, &socd, sizeof(struct socData));
-								// printf("%s\t%d\t%d", socd.owner_name, socd.flat_num, socd.owner_contact);
+                                //display_soc();
                                 break;
 
-                        /*case 2:
+                        case 2:
                                 display_maint();
                                 break;
 
@@ -169,14 +164,14 @@ int main(int argc, char *argv[])
 
                         case 4:
                                 display_complaints_D();
-                                break;*/
+                                break;
 
                         case 5:
                                 exit(0);
 
                         default: printf("Wrong Choice!!");
                     }
-                    break;
+                    break;*/
 
             /*case 3:
                     printf("\n==================================================================");
@@ -222,27 +217,21 @@ int main(int argc, char *argv[])
                     }
                     break;*/
 
-            case 4:
+            /*case 4:
                     printf("\n==================================================================");
                     printf("\n\t\tUPDATE DATA FROM\n");
                     printf("\n\t1. Society Data\n\t2. Maintenance Data\n\t3. Visitor Data\n\t4. Complaint Data\n\t5. Exit(0)");
                     printf("\n\n\tEnter your choice to update(1-5) : ");
                     scanf("\t %d", &ch);
-					write(sockfd, &ch, sizeof(int));
                     switch(ch)
                     {
                         case 1:
                                 printf("\n\n\tEnter flat number for Update : ");
-                                scanf("\t %d", &soc.flat_num);
-				        		printf("\n\tEnter New owner Name : ");
-				        		scanf("\t %[^\n]%*c", soc.owner_name);
-				                printf("\n\tEnter New Contact : ");
-				        		scanf("\t %d", &soc.owner_contact);
-								write(sockfd, &soc, sizeof(struct socData));
-      				            // update_soc(flat_num);
+                                scanf("\t %d", &flat_num);
+      				            update_soc(flat_num);
                                 break;
 
-                        /*case 2:
+                        case 2:
                                 printf("\n\n\tEnter flat number for Update : ");
                                 scanf("\t %d", &flat_num1);
       				            update_maint(flat_num1);
@@ -258,32 +247,31 @@ int main(int argc, char *argv[])
                                 printf("\n\n\tEnter flat number for Update : ");
                                 scanf("\t %d", &flat_num3);
       				            update_complaints_D(flat_num3);
-                                break;*/
+                                break;
 
                         case 5:
                                 exit(0);
 
                         default: printf("\n\n\tWrong Choice!!\n");
                     }
-                        break;
+                        break;*/
 
-            case 5:
+            /*case 5:
                     printf("\n==================================================================");
                     printf("\n\t\tDELETE DATA FROM\n");
                     printf("\n\t1. Society Data\n\t2. Maintenance Data\n\t3. Visitor Data\n\t4. Complaint Data\n\t5. Exit(0)");
                     printf("\n\n\tEnter your choice to delete(1-5) : ");
                     scanf("\t %d", &ch);
-					write(sockfd, &ch, sizeof(int));
+
                     switch(ch)
                     {
                         case 1:
                                 printf("\n\n\tEnter flat  number for Delete : ");
                                 scanf("\t %d", &flat_num);
-								write(sockfd, &flat_num, sizeof(int));
-        				        // delete_soc(flat_num);
+        				        delete_soc(flat_num);
                                 break;
 
-                        /*case 2:
+                        case 2:
                                 printf("\n\n\tEnter flat  number for Delete : ");
                                 scanf("\t %d", &flat_num1);
                                 delete_maint(flat_num1);
@@ -299,14 +287,14 @@ int main(int argc, char *argv[])
                                 printf("\n\n\tEnter flat  number for Delete : ");
                                 scanf("\t %d", &flat_num3);
                                 delete_complaints_D(flat_num3);
-                                break;*/
+                                break;
 
                         case 5:
                                 exit(0);
 
                         default: printf("\n\n\tWrong Choice!!\n");
                     }
-                    break;
+                    break;*/
 
             case 6:
                     exit(0);

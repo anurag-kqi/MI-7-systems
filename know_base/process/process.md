@@ -93,13 +93,17 @@ Q10. How does one create a new process?
      whereas the process identifier of the child is returned to the parent.
 
 Q11. How process is terminated?
-   - A process may be terminated after its execution is naturally completed.
-   - A child process may be terminated if its parent process requests for its termination. This is done by sending a kill signal to the process.
-   - A process can be terminated if it tries to use a resource that it is not allowed to.
-     For example - A process can be terminated for trying to write into a read only file.
-   - If an I/O failure occurs for a process, it can be terminated.
-   - In most cases, if a parent process is terminated then its child processes are also terminated.
-   - If a process requires more memory than is currently available in the system, then it is terminated because of memory scarcity.
+    - Explicit terminaition by calling Exit:
+            A process may be terminated after its execution is naturally completed.
+    - Implicit termination by main function calling returns
+    - Some internal exception occurs:
+        - illegal Address
+        - divide by zoro
+    - Someone sends process a kill signal or some other signal, that expects the process to die
+   - A process can be terminated if it tries to use a resource that it is not allowed to. This is not entirely true.
+     For example - A process can be terminated for trying to write into a read only file. Read will return into EACCESS, but process will not die.
+   - If an I/O failure occurs for a process, it can be terminated. This will not result into proces dying, you will get an ioerror from read/write
+   - For example: you are making a call to malloc, and system is running low on memory resources, then malloc might return null. And if you are not checking for null value from malloc, and then trying to access it in future, you will have memory violation
 
 Q12. At the starting of a new process, how does child process gets memory structure to continue execution?
 
@@ -121,3 +125,16 @@ Q19: What is typical life cycle for a process?
     child process can start running a new program, using exec system call.
 - process can terminate using return from main or exit call any where in the programs. While terminating, it can pass a status to the parent process.
 - parent process can wait for the child process to terminate using wait system call.
+
+Q20: assignment: Create 10 children processes, and wait for 5 of them, and then parent will do some thing for some time and then wait for the remaining 5 proceses.
+
+Q21: How does wait work?
+- for example:
+    - parent process id 1001 has created a new procees 1020 using fork
+    - Both parent process and child process are doing something
+    - Now if parent process wants to figure out completion of child process, then it will make wait system call
+    - wait system call with block until the child 1020 terminates (exit, or return or signal or excetion)
+    - child process can pass exit code to parent, provided parent has given the address to memory location
+
+Q22: How does a process starts running a new program?
+- Process needs to call exec system call, that takes path of the executable as paramter and argument

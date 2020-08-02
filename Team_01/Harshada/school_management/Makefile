@@ -4,7 +4,7 @@ TARGET1 = client
 
 
 # other source files and the associated object files (this can be blank)
-SRC	= stud_server.c
+SRC	= stud_server.c 
 SRC1 = school_management.c menu-client.c stud_scm.c
 #stud_persistency.c
 OBJ	= $(SRC:.c=.o)

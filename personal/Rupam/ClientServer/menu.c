@@ -1,29 +1,26 @@
 
-#include <ctype.h>
-#include <arpa/inet.h>
-#include <netinet/in.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <sys/socket.h>
-#include <sys/types.h>
-#include <unistd.h>
-#include <netdb.h>
-#include "structure.h"
+#include "head.h"
 
 struct student_disk stud;
 struct teacher_disk teach;
-int num_records;
-int num_record;
+int
+num_records;
+int
+num_record;
 
-void error(const char *msg) {
+
+void
+error(const char *msg) {
 	perror(msg);
 	exit(1);
 }
 
-int main(int argc, char *argv[])
+int
+main(int argc, char *argv[])
 {
-	int sockfd, portno, n;
+		int sockfd, newsockfd, portno, n;
+		int ch,i, id, index,contact,j,digit,alpha;
+		char name[30], address[50], class[10], department[30];
     struct sockaddr_in serv_addr;
     struct hostent *server;
 
@@ -51,18 +48,13 @@ int main(int argc, char *argv[])
     if (connect(sockfd,(struct sockaddr *) &serv_addr,sizeof(serv_addr)) < 0)
         error("ERROR connecting");
 
-
-
-    int ch, id, index,contact,j,digit,alpha;
-    char name[30], address[50], class[10], department[30];
-
     while (1) {
-	      printf("\n_______________________________________________________________________________");
+        printf("\n_______________________________________________________________________________");
         printf("\n\n\t---- SCHOOL MANAGEMENT SYSTEM MENU ----");
         printf("\n\n\t1.ADD ENTRY\n\t2.DISPLAY DATA\n\t3.DELETE ENTRY\n\t4.UPDATE ENTRY\n\t5.SEARCH ENTRY\n\t6.EXIT\n\n");
         printf("\n\tEnter your choice(1-6) : ");
         scanf("\t %d", &ch);
-        //send(s,&ch,sizeof(int),0);
+        write(sockfd, &ch, sizeof(ch));
 	      printf("\n_______________________________________________________________________________");
         switch (ch) {
             case 1:
@@ -70,7 +62,7 @@ int main(int argc, char *argv[])
                 printf("\n\n\t1.STUDENT DATA\n\t2.TEACHER DATA\n\t3.EXIT");
                 printf("\n\n\tEnter your choice to insert(1-3) : ");
                 scanf("\t %d", &ch);
-                //send(s,&ch,sizeof(int),0);
+                write(sockfd, &ch, sizeof(ch));
                 switch (ch) {
                     case 1:
                             printf("\n\n\tIndex : %d" ,num_records);
@@ -104,28 +96,30 @@ int main(int argc, char *argv[])
                                 //insert_stud(stud);
                                 //write_stud(stud);
                                 // num_records++;
+																printf("\n\tYour DATA RECORDED successful");
                             }
                             break;
-                    case 2: printf("\n\n\tIndex : %d" ,num_record);
-                            teach.index = num_record;
-					                  printf("\n\n\tEnter ID : ");
-                        		scanf("\t %d", &teach.id);
-                        		printf("\n\tEnter Name : ");
-                        		scanf("\t %[^\n]%*c", teach.name);
-                            for (j=0; teach.name[j]!= '\0'; j++)
-    				                {
-       		    		              if (isalpha(teach.name[j]) != 0)
-            	        		          alpha++;
+                    case 2:
+																printf("\n\n\tIndex : %d" ,num_record);
+		                            teach.index = num_record;
+							                  printf("\n\n\tEnter ID : ");
+		                        		scanf("\t %d", &teach.id);
+		                        		printf("\n\tEnter Name : ");
+		                        		scanf("\t %[^\n]%*c", teach.name);
+		                            for (j=0; teach.name[j]!= '\0'; j++)
+		    				                {
+		       		    		              if (isalpha(teach.name[j]) != 0)
+		            	        		          alpha++;
 
-  	      	    		            else if (isdigit(teach.name[j]) != 0)
-            				                digit++;
-    				                }
-    				                if(alpha == 0 && digit > 0)
-    				                {
-		    		                    printf("Enter characters only\n");
-    				                } else{
+		  	      	    		            else if (isdigit(teach.name[j]) != 0)
+		            				                digit++;
+		    				                }
+		    				                if(alpha == 0 && digit > 0)
+		    				                {
+				    		                    printf("Enter characters only\n");
+		    				                } else{
 
-                        		    printf("\n\tEnter Department : ");
+		                        		    printf("\n\tEnter Department : ");
                         		    scanf("\t %[^\n]%*c", teach.department);
                         		    printf("\n\tEnter Contact : ");
                         		    scanf("\t %d", &teach.contact);
@@ -133,21 +127,27 @@ int main(int argc, char *argv[])
                         		    //insert_teach(teach);
 			                          //write_teach(teach);
                                 // num_record++;
-                            }
+																printf("\n\tYour DATA RECORED successful");
+                                }
                             break;
                     case 3: exit(0);
                     default: printf("\n\n\tWrong Choice!!\n");
                 }
             break;
-           case 2: printf("\n\n\t---- DISPLAY DATA ----");
+           case 2:
+					          printf("\n\n\t---- DISPLAY DATA ----");
                     printf("\n\n\t1.STUDENT DATA\n\t2.TEACHER DATA\n\t3.EXIT");
                     printf("\n\n\tEnter your choice to display(1-3) : ");
                     scanf("\t%d", &ch);
-
+              			write(sockfd, &ch, sizeof(ch));
                     switch (ch)
                     {
-                          case 1: //display_stud();
+											//read(newsockfd, &ch, sizeof(ch));
 
+                        case 1:
+                             //        display_stud();
+                                       //    read(sockfd, &stud, sizeof(stud));
+                  // read(sockfd, &display_stud, sizeof(void display_stud));
                                 break;
                         case 2: //display_teach();
                                 break;
@@ -155,73 +155,79 @@ int main(int argc, char *argv[])
                         default: printf("\n\n\tWrong Choice!!\n");
                     }
                     break;
-
-          /*case 3: printf("\n\n\t---- DELETE FROM ----");
+            case 3:
+						        printf("\n\n\t---- DELETE FROM ----");
                     printf("\n\n\t1.STUDENT DATA\n\t2.TEACHER DATA\n\t3.EXIT");
                     printf("\n\n\tEnter your choice to delete(1-3) : ");
                     scanf("\t %d", &ch);
-
+                    write(sockfd, &ch, sizeof(ch));
                     switch(ch)
                     {
                         case 1: printf("\n\n\tEnter Student id for Delete : ");
                                 scanf("\t %d", &stud.id);
-    				                    delete_stud(stud.id);
+    				                   	write(sockfd, &stud.id, sizeof(stud.id));
                                 break;
 
                         case 2: printf("\n\n\tEnter Teacher id for Delete : ");
                                 scanf("\t %d", &teach.id);
-    				                    delete_teach(teach.id);
+																write(sockfd, &stud.id, sizeof(stud.id));
                                 break;
 
                         case 3: exit(0);
                         default: printf("\n\n\tWrong Choice!!\n");
-                    }*/
+                    }
                     break;
 
-          /*  case 4: printf("\n\n\t---- UPDATE FROM ----");
+           case 4:
+					          printf("\n\n\t---- UPDATE FROM ----");
                     printf("\n\n\t1.STUDENT DATA\n\t2.TEACHER DATA\n\t3.EXIT");
                     printf("\n\n\tEnter your choice to update(1-3) : ");
                     scanf("\t %d", &ch);
-
+                    write(sockfd, &ch, sizeof(ch));
                     switch(ch)
                     {
                         case 1: printf("\n\n\tEnter Student ID for Update : ");
                                 scanf("\t %d", &id);
-				                        update_stud(id);
+                                write(sockfd, &id, sizeof(id));
+				                 //       update_stud(id);
                                 break;
                         case 2: printf("\n\n\tEnter Teacher ID for Update : ");
                                 scanf("\t %d", &id);
-				                        update_teach(id);
+                                write(sockfd, &id, sizeof(id));
+				                   //     update_teach(id);
                                 break;
                         case 3: exit(0);
                         default: printf("\n\n\tWrong Choice!!\n");
                     }
                     break;
 
-  	        case 5: printf("\n\n\t---- SEARCH FROM ----");
+  	        case 5:
+						        printf("\n\n\t---- SEARCH FROM ----");
                     printf("\n\n\t1.STUDENT DATA\n\t2.TEACHER DATA\n\t3.EXIT");
                     printf("\n\n\tEnter your choice to search(1-3) : ");
                     scanf("\t %d", &ch);
-
+              	    write(sockfd, &ch, sizeof(ch));
                     switch(ch)
                     {
                         case 1: printf("\n\n\tEnter Student ID for Search : ");
                                 scanf("\t%d", &id);
-				                        search_stud(id);
+                                write(sockfd, &id, sizeof(id));
+			       //  search_stud(id);
                                 break;
                         case 2: printf("\n\n\tEnter Teacher ID for Search : ");
                                 scanf("\t%d", &id);
-				                        search_teach(id);
+                                write(sockfd, &id, sizeof(id));
+			         //search_teach(id);
                                 break;
                         case 3: exit(0);
                         default: printf("\n\n\tWrong Choice!!\n");
                     }
-                    break;*/
+                    break;
 
           case 6: exit(0);
       	  default: printf("\n\n\tWrong Choice!!\n");
         }
-    }
+    };
 		close(sockfd);
 		return 0;
 }

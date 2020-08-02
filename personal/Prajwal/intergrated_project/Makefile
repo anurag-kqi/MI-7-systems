@@ -1,21 +1,12 @@
-
 # the name of the target program
-TARGET = server
+TARGET = socm
 TARGET1 = client
 
 # other source files and the associated object files (this can be blank)
-<<<<<<< HEAD
-SRC	=  menu-client.c school_management.c  structure.h
-SRC2 = server.c
-#stud_persistency.c
-OBJ	= $(SRC:.c=.o)
-OBJ2 = $(SRC2:.c=.o)
-=======
- SRC =  school_management.c stud_scm.c teacher_scm.c
- SRC1 =  menu.c
+ SRC =  soc_mgnt.c society.c
+ SRC1 =  client.c 
  OBJ = $(SRC:.c=.o)
  OBJ1 = $(SRC1:.c=.o)
->>>>>>> 816c4351a969c5b401fd23cf1ebf62ce684df81d
 
 # special include directories
 INCLUDE = -I.
@@ -34,7 +25,7 @@ CFLAGS = -g
 	$(CC) $(CFLAGS) $(INCLUDE) -c $<
 
 # if you type 'make' without arguments, this is the default
-build: $(TARGET) $(TARGET1)
+all: $(TARGET) $(TARGET1)
 
 # specify how to compile the target
 

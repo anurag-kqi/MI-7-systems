@@ -1,14 +1,5 @@
 /*School Mnagement Systems*/
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <fcntl.h>
-#include<unistd.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include "structure.h"
-#define size 9
+#include "head.h"
 
 struct teacher *chaint[size];
 struct teacher_disk readTeach;
@@ -49,6 +40,7 @@ read_teach()
         printf("%d\t%d\t%s\t%s\t%d\n", readTeach.index, readTeach.id, readTeach.name, readTeach.department,readTeach.contact);
         insert_teach(readTeach);
         num_record = ++num_record;
+          printf("num_records = %d\n", num_record);
     }
     printf("num_records = %d\n", num_record);
     close(fd);
@@ -139,7 +131,7 @@ delete_teach_file(struct teacher_disk teach)
     ftruncate(fd, num_record * sizeof(struct teacher_disk));
     printf("\n\n\tdelete successful\n");
     close(fd);
-    
+
 }
 
 //DELETE values from TEACHER hash table

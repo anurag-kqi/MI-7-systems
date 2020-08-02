@@ -4,46 +4,48 @@ Q1. What is a process?
 - also called as task
 
 Q2. Do you need to create a new process on your own?
-- if the task requires multiple threads of execution, then you need to create
-  a new process.
+- if the task requires multiple threads of execution, then you need to create a new process.
 
 Q3. How do you create a process?
-- fork system call you create a new process.
+- fork system call create a new process.
+- new process is the copy of existing  process
+- new process is child process and existing process is Parent process
+
 
 Q4. What is an env variable?
 -  An environment variable is a variable whose value is set outside the program,
-    typically through functionality built into the operating system, mostly shell program.
-    An environment variable is made up of a name/value pair, and any number may
-    be created and available for reference at a future point in time.
+typically through functionality built into the operating system, mostly shell program.
+An environment variable is made up of a name/value pair, and any number may
+be created and available for reference at a future point in time.
 
 Q5. What is a shell in unix?
--   Shell is an environment in which we can run our commands, programs, and
-    shell scripts. There are different flavors of a shell, just as there are
-    different flavors of operating systems. Each flavor of shell has its own
-    set of recognized commands and functions.
--   In Unix, there are two major types of shells −
-    1. Bourne shell − If you are using a Bourne-type shell, the $ character is the default prompt. (Bash)
+-  Shell is an environment in which we can run our commands, programs, and
+shell scripts. There are different flavors of a shell, just as there are
+different flavors of operating systems. Each flavor of shell has its own
+set of recognized commands and functions.
+-  In Unix, there are two major types of shells −
+1. Bourne shell − If you are using a Bourne-type shell, the $ character is the default prompt. (Bash)
 
-    2. C shell − If you are using a C-type shell, the % character is the default prompt.
+2. C shell − If you are using a C-type shell, the % character is the default prompt.
 
--   https://www.tutorialspoint.com/unix/unix-what-is-shell.htm
+-  https://www.tutorialspoint.com/unix/unix-what-is-shell.htm
 
 Q6. What are different shell programs in Unix?
--   (Prajwal)-In Unix, there are two major types of shells −
-    1. Bourne shell − If you are using a Bourne-type shell, the $ character is the default prompt.
-    2. C shell − If you are using a C-type shell, the % character is the default prompt.
+- (Prajwal)-In Unix, there are two major types of shells −
+1. Bourne shell − If you are using a Bourne-type shell, the $ character is the default prompt.
+2. C shell − If you are using a C-type shell, the % character is the default prompt.
 
--   The Bourne Shell has the following subcategories −
+- The Bourne Shell has the following subcategories −
 
-    1. Bourne shell (sh)
-    2. Korn shell (ksh)
-    3. Bourne Again shell (bash)
-    4. POSIX shell (sh)
+1. Bourne shell (sh)
+2. Korn shell (ksh)
+3. Bourne Again shell (bash)
+4. POSIX shell (sh)
 
-    The different C-type shells follow −
+The different C-type shells follow −
 
-    1. C shell (csh)
-    2. TENEX/TOPS C shell (tcsh)
+1. C shell (csh)
+2. TENEX/TOPS C shell (tcsh)
 -   https://www.tutorialspoint.com/unix/unix-what-is-shell.htm
 
 
@@ -64,18 +66,16 @@ Q7. What are the different segments for a program?
         - free retruns memory back to this segment
 
 Q8. What is process ID? How does one find it?
--  -A PID (i.e., process identification number) is an identification number that
-    is automatically assigned to each process when it is created on a Unix-like operating system.
+- A PID (i.e., process identification number) is an identification number that
+is automatically assigned to each process when it is created on a Unix-like operating system.
 
     1. ps
     2. pstree
     3. ps -af
 
 Q9. What is parent process ID? How does one find it?
-   - A parent process is a process that has created one or more child processes. Each child process is
-     given a Parental Process ID (PPID), and child when it completes their operation, terminates itself by calling exit
-   - In an unique process ID, each process is assigned a parent process ID (PPID) that tells which process started it.
-     The PPID is the PID of the process’s parent.
+   - A parent process is a process that has created one or more child processes. Each child process is given a Parental Process ID (PPID), and child when it completes their operation, terminates itself by calling exit
+   - In an unique process ID, each process is assigned a parent process ID (PPID) that tells which process started it. The PPID is the PID of the process’s parent.
 
    - it can be find from following commands:
       1. echo $PPID
@@ -119,6 +119,7 @@ Q16. What part of code after fork is executed only by child process and why?
 Q17. What part of code after fork is executed only by parent process and why?
 
 Q18. What part of code after fork is executed by both the processes?
+- entire code is executed after fork by both the processes 
 
 Q19: What is typical life cycle for a process?
 - Parent process creates a new child process using fork, at this point the child process and parent process shares the same address space

@@ -5,7 +5,7 @@ TARGET1 = server
 
 # other source files and the associated object files (this can be blank)
 SRC	=  menu-client.c school_management.c  structure.h
-SRC2    =  server.c
+SRC2 = server.c
 #stud_persistency.c
 OBJ	= $(SRC:.c=.o)
 OBJ2 = $(SRC2:.c=.o)

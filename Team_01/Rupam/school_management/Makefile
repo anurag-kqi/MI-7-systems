@@ -1,11 +1,11 @@
 # the name of the target program
-TARGET = client
-TARGET1 = server
+TARGET = server
+TARGET1 = client
 
 
 # other source files and the associated object files (this can be blank)
-SRC	=  menu-client.c school_management.c  structure.h
-SRC2    =  server.c 
+SRC	= server.c
+SRC2 = menu-client.c school_management.c  structure.h
 #stud_persistency.c
 OBJ	= $(SRC:.c=.o)
 OBJ2 = $(SRC2:.c=.o)

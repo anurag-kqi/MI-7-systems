@@ -128,6 +128,7 @@ Divyani:-
 Q15. How many processes can I create? Is there any limit as how many processes one can create?
 - There is no limit on creating new process.
 - We can create multiple processes.
+- but how many processes can run at the same time is depends on cpu
 
 Q16. What part of code after fork is executed only by child process and why?
 

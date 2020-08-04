@@ -111,6 +111,10 @@ Q12. At the starting of a new process, how does child process gets memory struct
 Q13. How can you differential between code running in parent process and child process?
 
 Q14. How do I create 50 processes from a single process?
+Divyani:-
+- I create 50 processes from a single process using fork() function. 
+- fork() is a system call function which can generate child process from parent process.
+- we have to create n-child processes from single parent process.
 
 Q15. How many processes can I create? Is there any limit as how many processes one can create?
 
@@ -119,7 +123,7 @@ Q16. What part of code after fork is executed only by child process and why?
 Q17. What part of code after fork is executed only by parent process and why?
 
 Q18. What part of code after fork is executed by both the processes?
-- entire code is executed after fork by both the processes 
+- entire code is executed after fork by both the processes
 
 Q19: What is typical life cycle for a process?
 - Parent process creates a new child process using fork, at this point the child process and parent process shares the same address space

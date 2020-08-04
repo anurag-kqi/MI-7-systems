@@ -106,7 +106,7 @@ Q11. How process is terminated?
    - If an I/O failure occurs for a process, it can be terminated. This will not result into proces dying, you will get an ioerror from read/write
    - For example: you are making a call to malloc, and system is running low on memory resources, then malloc might return null. And if you are not checking for null value from malloc, and then trying to access it in future, you will have memory violation
 
-Q12. At the starting of a new process, how does child process gets memory structure to continue execution?
+Q12. At the starting of a new process, how does child process gets memory structure to continue execution
 
 Q13. How can you differential between code running in parent process and child process?
 parent process:
@@ -133,7 +133,14 @@ Q15. How many processes can I create? Is there any limit as how many processes o
 Q16. What part of code after fork is executed only by child process and why?
 
 Q17. What part of code after fork is executed only by parent process and why?
-
+     - fork() system call creates the exact same copy of a parent process (existing) called child process.
+     - fork() returns the status -
+             * 0 - on creation on successful of child process.
+             * -1 - it returns to the parent process after unsuccessful creation of child process.
+             * Pid - it returns pid of child process.
+     - Parent is the process that receives the SIGCHLD signal on child's termination.
+     - parent process wiat() for the completion of child process execution.
+     
 Q18. What part of code after fork is executed by both the processes?
 - entire code is executed after fork by both the processes
 

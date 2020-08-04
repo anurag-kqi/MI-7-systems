@@ -109,7 +109,16 @@ Q11. How process is terminated?
 Q12. At the starting of a new process, how does child process gets memory structure to continue execution?
 
 Q13. How can you differential between code running in parent process and child process?
+parent process:
+   -A parent process is one that creates a child process by calling fork(). A parent process may have multiple child processes but a child process  only one parent process.
+  -the PID of the child process is returned to the parent process and 0 is returned to the child process. On the failure of a fork() system call, -1
+  is returned to the parent process.
 
+Child Process:
+  -A child process is a process created by a parent process using a fork() system call.
+  -A child process is created as its parent process’s copy and inherits most of its attributes.
+  -If a child process exits then a SIGCHLD signal is send to the parent process.
+  
 Q14. How do I create 50 processes from a single process?
 
 Q15. How many processes can I create? Is there any limit as how many processes one can create?
@@ -119,7 +128,7 @@ Q16. What part of code after fork is executed only by child process and why?
 Q17. What part of code after fork is executed only by parent process and why?
 
 Q18. What part of code after fork is executed by both the processes?
-- entire code is executed after fork by both the processes 
+- entire code is executed after fork by both the processes
 
 Q19: What is typical life cycle for a process?
 - Parent process creates a new child process using fork, at this point the child process and parent process shares the same address space

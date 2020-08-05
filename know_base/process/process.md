@@ -119,7 +119,7 @@ Q16. What part of code after fork is executed only by child process and why?
 Q17. What part of code after fork is executed only by parent process and why?
 
 Q18. What part of code after fork is executed by both the processes?
-- entire code is executed after fork by both the processes 
+- entire code is executed after fork by both the processes
 
 Q19: What is typical life cycle for a process?
 - Parent process creates a new child process using fork, at this point the child process and parent process shares the same address space
@@ -140,3 +140,6 @@ Q21: How does wait work?
 
 Q22: How does a process starts running a new program?
 - Process needs to call exec system call, that takes path of the executable as paramter and argument
+
+Q23: How do find the load on the machine?
+- top, that will give you cpu load as well as memory load in the machine. 

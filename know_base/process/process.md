@@ -118,10 +118,10 @@ Child Process:
   -A child process is a process created by a parent process using a fork() system call.
   -A child process is created as its parent process’s copy and inherits most of its attributes.
   -If a child process exits then a SIGCHLD signal is send to the parent process.
-  
+
 Q14. How do I create 50 processes from a single process?
 Divyani:-
-- I create 50 processes from a single process using fork() function. 
+- I create 50 processes from a single process using fork() function.
 - fork() is a system call function which can generate child process from parent process.
 - we have to create n-child processes from single parent process.
 
@@ -131,6 +131,16 @@ Q15. How many processes can I create? Is there any limit as how many processes o
 - but how many processes can run at the same time is depends on cpu
 
 Q16. What part of code after fork is executed only by child process and why?
+     - Fork system call is used for creating a new process, which is called child process.
+     - It runs concurrently with the process that makes the fork() call (parent process).
+     - After a new child process is created, both processes will execute the next instruction
+       following the fork() system call.
+     - A child process uses the same program counter, same CPU registers, same open files which use in the parent process.
+     - It takes no parameters and returns an integer value.
+     - Following are different values returned by fork().
+            * Negative Value: creation of a child process was unsuccessful.
+            * Zero: Returned to the newly created child process.
+            * Positive value: Returned to parent or caller.The value contains process ID of newly created child process.
 
 Q17. What part of code after fork is executed only by parent process and why?
      - fork() system call creates the exact same copy of a parent process (existing) called child process.
@@ -140,7 +150,7 @@ Q17. What part of code after fork is executed only by parent process and why?
              * Pid - it returns pid of child process.
      - Parent is the process that receives the SIGCHLD signal on child's termination.
      - parent process wiat() for the completion of child process execution.
-     
+
 Q18. What part of code after fork is executed by both the processes?
 - entire code is executed after fork by both the processes
 
@@ -165,4 +175,4 @@ Q22: How does a process starts running a new program?
 - Process needs to call exec system call, that takes path of the executable as paramter and argument
 
 Q23: How do find the load on the machine?
-- top, that will give you cpu load as well as memory load in the machine. 
+- top, that will give you cpu load as well as memory load in the machine.

@@ -8,6 +8,44 @@ Team Members:
         1. Ashwini Parab
         2. Ashwini Garje
         3. Sagar Mahajan 
+
+
+31 july 2020:
+
+Meeting Time: 10.30pm
+
+Atendees:
+
+    Ashwini P
+    shankar
+    
+
+Tasks :
+	 Everyone is working and writing client server program
+
+Task Performed By : (yesterday's task)
+
+	 Everyone is working and writing client server program.
+
+
+30 July 2020:
+
+Meeting Time: 10.30pm
+
+Atendees:
+
+    Ashwini P
+    sagar
+    shankar
+
+Tasks :
+	 Everyone is working and writing client server program
+
+Task Performed By : (yesterday's task)
+
+	 Everyone is working and writing client server program.
+	 
+
 29 July 2020:
 
 Meeting Time: 10.30pm

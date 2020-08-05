@@ -9,6 +9,7 @@
 #include "soc.h"
 #define size 1000
 
+int newsockfd;
 struct socData readsoc;
 struct socData soc;
 extern void insert_soc(struct socData);
@@ -110,7 +111,7 @@ void insert_soc(struct socData soc_data) {
 }
 
 /*display data*/
-void display_soc() {
+void display_soc(int newsockfd) {
     int i;
     int index = 0;
     struct society *temp;
@@ -122,9 +123,10 @@ void display_soc() {
         while(temp) {
             printf("%d. ",index);
             printf("%s\t %d\t%d\n", temp->sd.owner_name, temp->sd.flat_num, temp->sd.owner_contact);
-            // strcpy(soc.owner_name, temp->sd.owner_name);
-            // soc.flat_num = temp->sd.flat_num;
-            // soc.owner_contact = temp->sd.owner_contact;
+            strcpy(soc.owner_name, temp->sd.owner_name);
+            soc.flat_num = temp->sd.flat_num;
+            soc.owner_contact = temp->sd.owner_contact;
+            write(newsockfd, &soc, sizeof(struct socData));
             temp = temp->next;
             index++;
             // display1_soc(soc);
@@ -144,10 +146,13 @@ void search_soc(int flat_num) {
         while (ptr != NULL) {
             if (ptr->sd.flat_num == flat_num) {
                 printf("\n\n\towner_name\t -\t %s\n\tflat_num\t -\t %d\n\towner_contact\t -\t %d\n", ptr->sd.owner_name, ptr->sd.flat_num, ptr->sd.owner_contact);
+                strcpy(soc.owner_name, ptr->sd.owner_name);
+                soc.flat_num = ptr->sd.flat_num;
+                soc.owner_contact = ptr->sd.owner_contact;
+                write(newsockfd, &soc, sizeof(struct socData));
                 flag = 0;
                 break;
-            }
-            else {
+            } else {
                 flag=1;
             }
             ptr = ptr -> next;

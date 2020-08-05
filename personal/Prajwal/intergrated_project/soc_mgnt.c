@@ -19,6 +19,7 @@ extern void display_soc();
 extern void display1_soc(struct socData socd);
 extern void update_soc(struct socData upsd);
 extern void delete_soc(int flat_num);
+extern void search_soc(int flat_num);
 
 extern void init_soc();
 extern void init_complaints_D();
@@ -98,7 +99,7 @@ main(int argc, char *argv[])
     int ch, flat_num;
 
 	while(1){
-		printf("Now Next...........");
+		printf("Now Next...........\n");
 		read(newsockfd, &ch, sizeof(int));//main menu choice
 		switch(ch){
 			case 1:
@@ -117,7 +118,7 @@ main(int argc, char *argv[])
 					read(newsockfd, &ch, sizeof(int));//submenu choice
 					switch(ch) {
 						case 1:
-								display_soc();
+								display_soc(newsockfd);
 								// display1_soc(soc);
 								break;
 						case 5:
@@ -130,6 +131,9 @@ main(int argc, char *argv[])
 			case 3:
 					read(newsockfd, &ch, sizeof(int));//submenu choice
 					switch(ch) {
+						case 1:
+								read(newsockfd, &flat_num, sizeof(int));
+								search_soc(flat_num);
 
 					}
 					break;

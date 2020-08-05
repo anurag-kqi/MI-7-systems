@@ -10,6 +10,7 @@ struct socData{
     int flat_num;
     int owner_contact;
 };
+
 struct society{
     struct socData sd;
     struct society *next;

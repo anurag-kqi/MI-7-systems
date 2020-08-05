@@ -12,7 +12,7 @@
 
 struct socData soc;
 struct socData socd;
-int ch, num_records = 0, flat_num;
+int ch, n, num_records = 0, flat_num;
 extern void display_soc();
 
 void error(const char *msg) {
@@ -68,7 +68,7 @@ int main(int argc, char *argv[])
                     printf("\n\n\tEnter your choice to insert(1-5):");
                     scanf("%d", &ch);
                     write(sockfd, &ch, sizeof(int));
-                                
+
                     switch(ch)
                     {
                         case 1:
@@ -155,9 +155,13 @@ int main(int argc, char *argv[])
                     switch(ch)
                     {
                         case 1:
-                                // read(sockfd, &socd, sizeof(struct socData));
-								// printf("%s\t%d\t%d", socd.owner_name, socd.flat_num, socd.owner_contact);
-                                break;
+								printf("display...\n");
+                                while(n = read(sockfd, &socd, sizeof(struct socData))) {
+									if(n > 0){
+										printf("%s\t%d\t%d\n", socd.owner_name, socd.flat_num, socd.owner_contact);
+									}
+								}
+								break;
 
                         /*case 2:
                                 display_maint();
@@ -178,23 +182,26 @@ int main(int argc, char *argv[])
                     }
                     break;
 
-            /*case 3:
+            case 3:
                     printf("\n==================================================================");
                     printf("\n\t\tSEARCH DATA FROM\n");
                     printf("\n\t1. Society Data\n\t2. Maintenance Data\n\t3. Visitor Data\n\t4. Complaint Data\n\t5. Exit(0)");
                     printf("\n\n\tEnter your choice to search(1-3) : ");
                     scanf("\t %d", &ch);
-
+					write(sockfd, &ch, sizeof(int));
                     switch(ch)
                     {
                         case 1:
                                 printf("\n==================================================================");
                                 printf("\n\n\tEnter flat number for Search : ");
                                 scanf("\t%d", &flat_num);
-                                search_soc(flat_num);
+								write(sockfd, &flat_num, sizeof(int));
+								read(sockfd, &soc, sizeof(struct socData));
+								printf("\n\n\towner_name\t -\t %s\n\tflat_num\t -\t %d\n\towner_contact\t -\t %d\n", soc.owner_name, soc.flat_num, soc.owner_contact);
+                                // search_soc(flat_num);
                                 break;
 
-                        case 2:
+                        /*case 2:
                                 printf("\n==================================================================");
                                 printf("\n\n\tEnter flat number for Search : ");
                                 scanf("\t%d", &flat_num1);
@@ -213,14 +220,14 @@ int main(int argc, char *argv[])
                                 printf("\n\n\tEnter complainter's flat_number for search : ");
                                 scanf("\t%d", &flat_num3);
                                 search_complaints_D(flat_num3);
-                                break;
+                                break;*/
 
                         case 5:
                                 exit(0);
 
                         default: printf("\n\n\tWrong Choice!!\n");
                     }
-                    break;*/
+                    break;
 
             case 4:
                     printf("\n==================================================================");

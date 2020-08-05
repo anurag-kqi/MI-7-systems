@@ -1,5 +1,14 @@
 /*School Mnagement Systems*/
-#include "head.h"
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <fcntl.h>
+#include<unistd.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include "structure.h"
+#define size 9
 
 struct teacher *chaint[size];
 struct teacher_disk readTeach;

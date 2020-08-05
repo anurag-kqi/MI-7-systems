@@ -4,18 +4,10 @@ TARGET = server
 TARGET1 = client
 
 # other source files and the associated object files (this can be blank)
-<<<<<<< HEAD
-SRC	=  menu-client.c school_management.c  structure.h
-SRC2 = server.c
-#stud_persistency.c
-OBJ	= $(SRC:.c=.o)
-OBJ2 = $(SRC2:.c=.o)
-=======
  SRC =  school_management.c stud_scm.c teacher_scm.c
  SRC1 =  menu.c
  OBJ = $(SRC:.c=.o)
  OBJ1 = $(SRC1:.c=.o)
->>>>>>> 816c4351a969c5b401fd23cf1ebf62ce684df81d
 
 # special include directories
 INCLUDE = -I.

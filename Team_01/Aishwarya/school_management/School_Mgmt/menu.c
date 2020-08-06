@@ -169,9 +169,9 @@ int main(int argc, char *argv[])
                     {
                         case 1:
 								printf("\n\n\tEnter Student id for Delete : ");
-                                scanf("\t %d", &stud.id);
-								printf("5\n");
-								write(sockfd, &stud.id, sizeof(int));
+                                scanf("\t %d", &id);
+								// printf("5\n");
+								write(sockfd, &id, sizeof(int));
     				                    // delete_stud(stud.id);
                                 break;
 

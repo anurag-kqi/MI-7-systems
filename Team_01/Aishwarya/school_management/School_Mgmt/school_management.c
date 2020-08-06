@@ -20,6 +20,7 @@ extern void write_teach(struct teacher_disk teach);
 extern void insert_teach(struct teacher_disk teach);
 extern void delete_stud(int id);
 extern void delete_teach(int id);
+extern void search_stud(int id);
 
 //main menus
 //extern void menus();
@@ -134,7 +135,7 @@ main(int argc, char *argv[])
                     read(newsockfd, &ch, sizeof(int));
                     switch (ch) {
                         case 1:
-								printf("Start\n");
+								// printf("Start\n");
 								display_stud(newsockfd);
                                 break;
                         case 2: //display_teach();
@@ -146,16 +147,15 @@ main(int argc, char *argv[])
                     break;
 
           	case 3:
-		  			printf("\n\n\t---- DELETE FROM ----");
-                  	read(sockfd, &ch, sizeof(int));
-					printf("1\n");
+                  	read(newsockfd, &ch, sizeof(int));
+					// printf("1\n");
                     switch(ch)
                     {
                         case 1:
-								printf("2\n");
-								read(newsockfd, &stud.id, sizeof(int));
-								printf("3\n");
-    				            delete_stud(stud.id);
+								// printf("2\n");
+								read(newsockfd, &id, sizeof(int));
+								// printf("3\n");
+    				            delete_stud(id);
                                 break;
 
                         case 2:

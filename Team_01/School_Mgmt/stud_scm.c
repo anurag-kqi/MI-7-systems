@@ -1,30 +1,22 @@
 /*School Mnagement Systems*/
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <fcntl.h>
-#include<unistd.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include "structure.h"
-#define size 9
+#include "header.h"
 
 struct student *chain[size];
 struct student_disk readStud;
+struct student_disk sd;
 
 void read_stud();
 void write_stud(struct student_disk stud);
 void delete_stud_file(struct student_disk stud_data);
 void update_stud_file(struct student_disk stu_data);
 void insert_stud(struct student_disk readStud);
-void display_stud();
-void search_stud(int id);
-void update_stud(int id);
+void display_stud(int sockfd);
+void search_stud(int id, int newsockfd);
+void update_stud(struct student_disk upsd);
 void delete_stud(int id);
 
 int num_records;
-
+int sockfd;
 //init array of list to NULL
 void
 init_stud()
@@ -103,10 +95,11 @@ insert_stud(struct student_disk readStud)
 
 //DISPLAY data of STUDENT hash table
 void
-display_stud()
+display_stud(int sockfd)
 {
     int i;
     int index = 0;
+    int display_data = 1;
     struct student *temp;
     printf("\n_______________________________________________________________________________\n\n");
     printf("INDEX.\tSR.\tSTUD_NAME\tCLASS\tADDRESS\t\tCONTACT\n\n");
@@ -115,10 +108,19 @@ display_stud()
         while(temp) {
             printf("%d. ", index);
             printf("\t%d\t%s\t\t%s\t%s\t\t%d\n", temp->std.id, temp->std.name, temp->std.class, temp->std.address, temp->std.contact);
+            sd.id = temp->std.id;
+            strcpy(sd.name, temp->std.name);
+            strcpy(sd.class, temp->std.class);
+            strcpy(sd.address, temp->std.address);
+            sd.contact = temp->std.contact;
+            write(sockfd, &display_data, sizeof(int));
+            write(sockfd, &sd, sizeof(struct student_disk));
             temp = temp->next;
             index++;
         }
     }
+    display_data = 0;
+    write(sockfd, &display_data, sizeof(int));
 }
 
 //DELETE values from STUDENT text file
@@ -139,7 +141,7 @@ delete_stud_file(struct student_disk stud)
     ftruncate(fd, num_records * sizeof(struct student_disk));
     printf("\n\n\tdelete successful\n");
     close(fd);
-    
+
 }
 
 //DELETE values from STUDENT hash table
@@ -180,7 +182,7 @@ delete_stud(int id)
 
 //SEARCH Student data from STUDENT hash table
 void
-search_stud(int id)
+search_stud(int id, int newsockfd)
 {
     struct student *ptr;
     int i=0, flag;
@@ -194,6 +196,12 @@ search_stud(int id)
               if (ptr->std.id == id) {
                   printf("\n\n\tStudent id found at location %d ", i+1);
                   printf("\n\n\tStudent Prev - %p\n\tStudent Id - %d\n\tStudent Nmae - %s\n\tStudent Class - %s\n\tStudent Address - %s\n\tStudent Contact - %d\n\tStudent next - %p", ptr->prev, ptr->std.id, ptr->std.name, ptr->std.class, ptr->std.address, ptr->std.contact, ptr->next);
+                  sd.id = ptr->std.id;
+                  strcpy(sd.name, ptr->std.name);
+                  strcpy(sd.class, ptr->std.class);
+                  strcpy(sd.address, ptr->std.address);
+                  sd.contact = ptr->std.contact;
+                  write(newsockfd, &sd, sizeof(struct student_disk));
                   flag = 0;
                   break;
               } else {
@@ -210,52 +218,42 @@ search_stud(int id)
 
 //UPDATE student data from STUDENT hash table
 void
-update_stud(int id)
+update_stud(struct student_disk upsd)
 {
     struct student *ptr;
     int i=0, flag;
-    int key = id % size;
+    int key = upsd.id % size;
 
     ptr = chain[key];
     if (ptr == NULL) {
         printf("\n\n\tEmpty List\n");
     } else {
           while (ptr != NULL) {
-              if (ptr->std.id == id) {
+              if (ptr->std.id == upsd.id) {
                   printf("\n\n\tStudent old Data !!!\n");
                   printf("\n\n\tStudent Id - %d\n\tStudent Nmae - %s\n\tStudent Class - %s\n\tStudent Address - %s\n\tStudent Contact - %d",
                          ptr->std.id, ptr->std.name, ptr->std.class, ptr->std.address, ptr->std.contact);
 
-  		            printf("\n\n\tStudent New Data !!!\n");
+  		          printf("\n\n\tStudent New Data !!!\n");
 
                   int id, contact;
-                      char name[30], class[10], address[50];
+                  char name[30], class[10], address[50];
 
-                  printf("\n\tEnter Same ID : ");
-                  scanf("\t %d", &id);
-                  printf("\n\tEnter New Name : ");
-                  scanf("\t %[^\n]%*c", name);
-                  printf("\n\tEnter New Class : ");
-                  scanf("\t %s", class);
-                  printf("\n\tEnter New Address : ");
-                  scanf("\t %s", address);
-                  printf("\n\tEnter New Contact : ");
-                  scanf("\t %d", &contact);
+      		      ptr->std.id = upsd.id;
+      		      strcpy(ptr->std.name, upsd.name);
+      		      strcpy(ptr->std.class, upsd.class);
+      		      strcpy(ptr->std.address, upsd.address);
+      		      ptr->std.contact = upsd.contact;
 
-      		        ptr->std.id = id;
-      		        strcpy(ptr->std.name, name);
-      		        strcpy(ptr->std.class, class);
-      		        strcpy(ptr->std.address, address);
-      		        ptr->std.contact = contact;
-
-  		            printf("\n\n\tStudent Id - %d\n\tStudent Nmae - %s\n\tStudent Class - %s\n\tStudent Address - %s\n\tStudent Contact - %d",
+  		          printf("\n\n\tStudent Id - %d\n\tStudent Nmae - %s\n\tStudent Class - %s\n\tStudent Address - %s\n\tStudent Contact - %d",
                   ptr->std.id, ptr->std.name, ptr->std.class, ptr->std.address, ptr->std.contact);
-  		            printf("\n\n\tStudent Record Updated Successfully !!!\n\n");
-                      flag = 0;
-                  //printf("AAA: %d id %d index %d name %s\n", __LINE__, ptr->std.id, ptr->std.index, ptr->std.name);
+  		          printf("\n\n\tStudent Record Updated Successfully !!!\n\n");
+                  flag = 0;
+                  update_stud_file(ptr->std);
                   break;
+
               } else {
-                    flag = 1;
+                  flag = 1;
                 }
               i++;
               ptr = ptr -> next;
@@ -264,7 +262,6 @@ update_stud(int id)
               printf("\n\n\tStudent id not found\n");
           }
       }
-      update_stud_file(ptr->std);
 }
 
 //update from STUDENT text file

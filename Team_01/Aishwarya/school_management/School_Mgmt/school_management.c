@@ -87,24 +87,6 @@ main(int argc, char *argv[])
     int ch, id, index,contact,j,digit,alpha;
     char name[30], address[50], class[10], department[30];
 
-    /*read(newsockfd, &stud, sizeof(struct student_disk));
-    printf("%d\t%d\t%s\t%s\t%s\t%d\n", stud.index, stud.id, stud.name, stud.class, stud.address, stud.contact);
-    insert_stud(stud);
-    write_stud(stud);
-    num_records++;
-
-    read(newsockfd, &teach, sizeof(struct teacher_disk));
-		printf("%d\t%d\t%s\t%s\t%d\n", teach.index, teach.id, teach.name, teach.department,teach.contact);
-		insert_teach(teach);
-    write_teach(teach);
-    num_record++;
-
-		read(sockfd, &stud.id, sizeof(int));
-		delete_stud(stud.id);
-
-		read(sockfd, &teach.id, sizeof(int));
-		delete_teach(teach.id);
-*/
 	while (1) {
         read(newsockfd, &ch, sizeof(int));
         switch (ch) {

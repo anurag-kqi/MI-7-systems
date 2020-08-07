@@ -109,6 +109,7 @@ display_stud(int sockfd)
 {
     int i;
     int index = 0;
+    int display_data = 1;
     struct student *temp;
     printf("\n_______________________________________________________________________________\n\n");
     printf("INDEX.\tSR.\tSTUD_NAME\tCLASS\tADDRESS\t\tCONTACT\n\n");
@@ -122,12 +123,14 @@ display_stud(int sockfd)
             strcpy(sd.class, temp->std.class);
             strcpy(sd.address, temp->std.address);
             sd.contact = temp->std.contact;
+            write(sockfd, &display_data, sizeof(int));
             write(sockfd, &sd, sizeof(struct student_disk));
-
             temp = temp->next;
             index++;
         }
     }
+    display_data = 0;
+    write(sockfd, &display_data, sizeof(int));
 }
 
 //DELETE values from STUDENT text file
@@ -155,7 +158,6 @@ delete_stud_file(struct student_disk stud)
 void
 delete_stud(int id)
 {
-    printf("4\n");
     int key = id % size;
     struct student *ptr = chain[key], *toDelete;
 

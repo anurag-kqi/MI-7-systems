@@ -114,6 +114,7 @@ void insert_soc(struct socData soc_data) {
 void display_soc(int newsockfd) {
     int i;
     int index = 0;
+    int display_data = 1;
     struct society *temp;
     printf("\n==================================================================\n\n");
     printf("\t\tSOCIETY DATAFILE\n\n");
@@ -126,12 +127,15 @@ void display_soc(int newsockfd) {
             strcpy(soc.owner_name, temp->sd.owner_name);
             soc.flat_num = temp->sd.flat_num;
             soc.owner_contact = temp->sd.owner_contact;
+            write(newsockfd, &display_data, sizeof(int));
             write(newsockfd, &soc, sizeof(struct socData));
             temp = temp->next;
             index++;
             // display1_soc(soc);
         }
     }
+    display_data = 0;
+    write(newsockfd, &display_data, sizeof(int));
 }
 
 /*serch data*/

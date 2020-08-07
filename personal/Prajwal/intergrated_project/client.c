@@ -25,6 +25,7 @@ int main(int argc, char *argv[])
 	int sockfd, portno;
     struct sockaddr_in serv_addr;
     struct hostent *server;
+    int display_data;
 
     //char buffer[1024];
     if (argc < 3)
@@ -156,11 +157,21 @@ int main(int argc, char *argv[])
                     {
                         case 1:
 								printf("display...\n");
-                                while(n = read(sockfd, &socd, sizeof(struct socData))) {
-									if(n > 0){
+                                while(1) {
+                                    n = read(sockfd, &display_data, sizeof(int));
+                                    if (n < 0) {
+                                        perror("Read from server failed");
+                                        exit(1);
+                                    }
+                                    if (display_data == 0) {
+                                        break;
+                                    }
+                                    n = read(sockfd, &socd, sizeof(struct socData));
+									if (n > 0){
 										printf("%s\t%d\t%d\n", socd.owner_name, socd.flat_num, socd.owner_contact);
 									}
-								}
+
+                                }
 								break;
 
                         /*case 2:

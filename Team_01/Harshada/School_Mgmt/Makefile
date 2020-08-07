@@ -1,14 +1,13 @@
+
 # the name of the target program
 TARGET = server
 TARGET1 = client
 
-
 # other source files and the associated object files (this can be blank)
-SRC	= stud_server.c 
-SRC1 = school_management.c menu-client.c stud_scm.c
-#stud_persistency.c
-OBJ	= $(SRC:.c=.o)
-OBJ2 = $(SRC2:.c=.o)
+ SRC =  school_management.c stud_scm.c teacher_scm.c
+ SRC1 =  menu.c
+ OBJ = $(SRC:.c=.o)
+ OBJ1 = $(SRC1:.c=.o)
 
 # special include directories
 INCLUDE = -I.
@@ -27,19 +26,18 @@ CFLAGS = -g
 	$(CC) $(CFLAGS) $(INCLUDE) -c $<
 
 # if you type 'make' without arguments, this is the default
-build: $(TARGET)
+build: $(TARGET) $(TARGET1)
 
 # specify how to compile the target
+
 $(TARGET): $(OBJ)
 	$(CC) $(CFLAGS) $(INCLUDE)  $(OBJ) $(LIB) -o $(TARGET)
-$(TARGET2): $(OBJ2)
-	$(CC) $(CFLAGS) $(INCLUDE)  $(OBJ2) $(LIB) -o $(TARGET2)
-
-
-
+$(TARGET1): $(OBJ1)
+	$(CC) $(CFLAGS) $(INCLUDE)  $(OBJ1) $(LIB) -o $(TARGET1)
 # remove binaries
 clean:
-	rm -f $(OBJ) $(TARGET)
+	rm -f $(OBJ) $(TARGET) $(OBJ1) $(TARGET1)
+# echo "clean all"
 
 # remove binaries and other junk
 clobber:

@@ -1,19 +1,9 @@
 /*School Mnagement Systems*/
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <fcntl.h>
-#include<unistd.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include "structure.h"
-#define size 9
+#include "header.h"
 
 struct student *chain[size];
 struct student_disk readStud;
 struct student_disk sd;
-
 
 void read_stud();
 void write_stud(struct student_disk stud);
@@ -21,7 +11,7 @@ void delete_stud_file(struct student_disk stud_data);
 void update_stud_file(struct student_disk stu_data);
 void insert_stud(struct student_disk readStud);
 void display_stud(int sockfd);
-void search_stud(int id);
+void search_stud(int id, int newsockfd);
 void update_stud(struct student_disk upsd);
 void delete_stud(int id);
 
@@ -109,6 +99,7 @@ display_stud(int sockfd)
 {
     int i;
     int index = 0;
+    int display_data = 1;
     struct student *temp;
     printf("\n_______________________________________________________________________________\n\n");
     printf("INDEX.\tSR.\tSTUD_NAME\tCLASS\tADDRESS\t\tCONTACT\n\n");
@@ -122,12 +113,14 @@ display_stud(int sockfd)
             strcpy(sd.class, temp->std.class);
             strcpy(sd.address, temp->std.address);
             sd.contact = temp->std.contact;
+            write(sockfd, &display_data, sizeof(int));
             write(sockfd, &sd, sizeof(struct student_disk));
-
             temp = temp->next;
             index++;
         }
     }
+    display_data = 0;
+    write(sockfd, &display_data, sizeof(int));
 }
 
 //DELETE values from STUDENT text file
@@ -155,7 +148,6 @@ delete_stud_file(struct student_disk stud)
 void
 delete_stud(int id)
 {
-    printf("4\n");
     int key = id % size;
     struct student *ptr = chain[key], *toDelete;
 
@@ -190,7 +182,7 @@ delete_stud(int id)
 
 //SEARCH Student data from STUDENT hash table
 void
-search_stud(int id)
+search_stud(int id, int newsockfd)
 {
     struct student *ptr;
     int i=0, flag;
@@ -209,7 +201,7 @@ search_stud(int id)
                   strcpy(sd.class, ptr->std.class);
                   strcpy(sd.address, ptr->std.address);
                   sd.contact = ptr->std.contact;
-                  write(sockfd, &sd, sizeof(struct student_disk));
+                  write(newsockfd, &sd, sizeof(struct student_disk));
                   flag = 0;
                   break;
               } else {

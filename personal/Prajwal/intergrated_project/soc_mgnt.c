@@ -19,7 +19,7 @@ extern void display_soc();
 extern void display1_soc(struct socData socd);
 extern void update_soc(struct socData upsd);
 extern void delete_soc(int flat_num);
-extern void search_soc(int flat_num);
+extern void search_soc(int flat_num, int newsockfd);
 
 extern void init_soc();
 extern void init_complaints_D();
@@ -133,7 +133,7 @@ main(int argc, char *argv[])
 					switch(ch) {
 						case 1:
 								read(newsockfd, &flat_num, sizeof(int));
-								search_soc(flat_num);
+								search_soc(flat_num, newsockfd);
 
 					}
 					break;

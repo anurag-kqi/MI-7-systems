@@ -1,15 +1,5 @@
 /*School Mnagement Systems*/
-#include <unistd.h>
-#include <ctype.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <sys/stat.h>
-#include <sys/types.h>
-#include <sys/socket.h>
-#include <netinet/in.h>
-#include <arpa/inet.h>
-#include "structure.h"
+#include "header.h"
 
 struct student_disk stud;
 void write_stud(struct student_disk stud);
@@ -20,6 +10,7 @@ extern void write_teach(struct teacher_disk teach);
 extern void insert_teach(struct teacher_disk teach);
 extern void delete_stud(int id);
 extern void delete_teach(int id);
+extern void search_stud(int id, int newsockfd);
 
 //main menus
 //extern void menus();
@@ -86,24 +77,6 @@ main(int argc, char *argv[])
     int ch, id, index,contact,j,digit,alpha;
     char name[30], address[50], class[10], department[30];
 
-    /*read(newsockfd, &stud, sizeof(struct student_disk));
-    printf("%d\t%d\t%s\t%s\t%s\t%d\n", stud.index, stud.id, stud.name, stud.class, stud.address, stud.contact);
-    insert_stud(stud);
-    write_stud(stud);
-    num_records++;
-
-    read(newsockfd, &teach, sizeof(struct teacher_disk));
-		printf("%d\t%d\t%s\t%s\t%d\n", teach.index, teach.id, teach.name, teach.department,teach.contact);
-		insert_teach(teach);
-    write_teach(teach);
-    num_record++;
-
-		read(sockfd, &stud.id, sizeof(int));
-		delete_stud(stud.id);
-
-		read(sockfd, &teach.id, sizeof(int));
-		delete_teach(teach.id);
-*/
 	while (1) {
         read(newsockfd, &ch, sizeof(int));
         switch (ch) {
@@ -134,7 +107,7 @@ main(int argc, char *argv[])
                     read(newsockfd, &ch, sizeof(int));
                     switch (ch) {
                         case 1:
-								printf("Start\n");
+								// printf("Start\n");
 								display_stud(newsockfd);
                                 break;
                         case 2: //display_teach();
@@ -146,16 +119,15 @@ main(int argc, char *argv[])
                     break;
 
           	case 3:
-		  			printf("\n\n\t---- DELETE FROM ----");
-                  	read(sockfd, &ch, sizeof(int));
-					printf("1\n");
+                  	read(newsockfd, &ch, sizeof(int));
+					// printf("1\n");
                     switch(ch)
                     {
                         case 1:
-								printf("2\n");
-								read(newsockfd, &stud.id, sizeof(int));
-								printf("3\n");
-    				            delete_stud(stud.id);
+								// printf("2\n");
+								read(newsockfd, &id, sizeof(int));
+								// printf("3\n");
+    				            delete_stud(id);
                                 break;
 
                         case 2:
@@ -192,7 +164,7 @@ main(int argc, char *argv[])
                     {
                         case 1:
 						 		read(newsockfd, &id, sizeof(int));
-				                search_stud(id);
+				                search_stud(id,newsockfd);
                                 break;
                         /*case 2: printf("\n\n\tEnter Teacher ID for Search : ");
                                 scanf("\t%d", &id);

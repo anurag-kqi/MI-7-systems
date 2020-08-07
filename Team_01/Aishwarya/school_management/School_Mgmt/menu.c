@@ -53,7 +53,7 @@ int main(int argc, char *argv[])
 
 
 
-    int ch, id, index = 0,contact,j,digit,alpha;
+    int ch, id, index = 0,contact,j,digit,alpha,display_data;
     char name[30], address[50], class[10], department[30];
 
     while (1) {
@@ -142,14 +142,23 @@ int main(int argc, char *argv[])
                         case 1:
 								printf("\n_______________________________________________________________________________\n\n");
 								printf("INDEX.\tSR.\tSTUD_NAME\tCLASS\tADDRESS\t\tCONTACT\n\n");
-						        while(n = read(sockfd, &stud, sizeof(struct student_disk)))
-						        {
-									if(n>0)
-									{
+								while(1) {
+                                    n = read(sockfd, &display_data, sizeof(int));
+                                    if (n < 0) {
+                                        perror("Read from server failed");
+                                        exit(1);
+                                    }
+                                    if (display_data == 0) {
+                                        break;
+                                    }
+                                    n = read(sockfd, &stud, sizeof(struct student_disk));
+
+									if (n > 0){
 										printf("%d. ", index);
 										printf("\t%d\t%s\t\t%s\t%s\t\t%d\n",  stud.id, stud.name, stud.class, stud.address, stud.contact);
 										index++;
 									}
+
 								}
                         		break;
                         /*case 2: //display_teach();
@@ -170,9 +179,8 @@ int main(int argc, char *argv[])
                         case 1:
 								printf("\n\n\tEnter Student id for Delete : ");
                                 scanf("\t %d", &id);
-								// printf("5\n");
 								write(sockfd, &id, sizeof(int));
-    				                    // delete_stud(stud.id);
+								printf("Delete Successful.....\n");
                                 break;
 
                         case 2: printf("\n\n\tEnter Teacher id for Delete : ");

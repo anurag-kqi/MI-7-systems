@@ -139,7 +139,7 @@ void display_soc(int newsockfd) {
 }
 
 /*serch data*/
-void search_soc(int flat_num) {
+void search_soc(int flat_num, int newsockfd) {
     struct society *ptr;
     int flag;
     int key = flat_num % size;

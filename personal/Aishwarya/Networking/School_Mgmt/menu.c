@@ -1,17 +1,7 @@
-#include <unistd.h>
-#include <ctype.h>
-#include <arpa/inet.h>
-#include <netinet/in.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <sys/socket.h>
-#include <sys/types.h>
-#include <unistd.h>
-#include <netdb.h>
-#include "structure.h"
+#include "header.h"
 
 struct student_disk stud;
+struct student_disk sd;
 struct teacher_disk teach;
 int num_records = 0,n;
 int num_record = 0;
@@ -53,7 +43,7 @@ int main(int argc, char *argv[])
 
 
 
-    int ch, id, index = 0,contact,j,digit,alpha;
+    int ch, id, index = 0,contact,j,digit,alpha,display_data;
     char name[30], address[50], class[10], department[30];
 
     while (1) {
@@ -142,14 +132,22 @@ int main(int argc, char *argv[])
                         case 1:
 								printf("\n_______________________________________________________________________________\n\n");
 								printf("INDEX.\tSR.\tSTUD_NAME\tCLASS\tADDRESS\t\tCONTACT\n\n");
-						        while(n = read(sockfd, &stud, sizeof(struct student_disk)))
-						        {
-									if(n>0)
-									{
-										printf("%d. ", index);
+								while(1) {
+                                    n = read(sockfd, &display_data, sizeof(int));
+                                    if (n < 0) {
+                                        perror("Read from server failed");
+                                        exit(1);
+                                    }
+                                    if (display_data == 0) {
+                                        break;
+                                    }
+                                    n = read(sockfd, &stud, sizeof(struct student_disk));
+									printf("%d. ", index);
+									if (n > 0){
+
 										printf("\t%d\t%s\t\t%s\t%s\t\t%d\n",  stud.id, stud.name, stud.class, stud.address, stud.contact);
-										index++;
 									}
+									index++;
 								}
                         		break;
                         /*case 2: //display_teach();
@@ -169,10 +167,9 @@ int main(int argc, char *argv[])
                     {
                         case 1:
 								printf("\n\n\tEnter Student id for Delete : ");
-                                scanf("\t %d", &stud.id);
-								printf("5\n");
-								write(sockfd, &stud.id, sizeof(int));
-    				                    // delete_stud(stud.id);
+                                scanf("\t %d", &id);
+								write(sockfd, &id, sizeof(int));
+								printf("Delete Successful.....\n");
                                 break;
 
                         case 2: printf("\n\n\tEnter Teacher id for Delete : ");
@@ -229,8 +226,8 @@ int main(int argc, char *argv[])
 								printf("\n\n\tEnter Student ID for Search : ");
                                 scanf("\t%d", &id);
 								write(sockfd, &id, sizeof(int));
-								read(sockfd, &stud, sizeof(struct student_disk));
-								printf("%d\t%d\t%s\t%s\t%s\t%d\n", stud.index, stud.id, stud.name, stud.class, stud.address, stud.contact);
+								read(sockfd, &sd, sizeof(struct student_disk));
+								printf("%d\t%d\t%s\t%s\t%s\t%d\n", sd.index, sd.id, sd.name, sd.class, sd.address, sd.contact);
                                 break;
                         /*case 2: printf("\n\n\tEnter Teacher ID for Search : ");
                                 scanf("\t%d", &id);

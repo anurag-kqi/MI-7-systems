@@ -9,6 +9,135 @@ Team Members :
     3. Rupam Dandge
     4. Aishwarya Bhutkar
 ----------------------------------------------------------------------------
+7 aug 2020
+
+Meeting Time : 7.00 PM
+
+Attendees :
+              Aishwarya
+          		Shankar
+          		Rupam
+              Harshada
+
+Tasks :
+
+		. working on client server program(delete data, search data)
+    . Reading signals
+
+Task Performed By : (yesterday's)
+
+	Aishwarya :  
+		. Work on client server and signals
+
+	Rupam :  
+		. Work on client server and signals
+
+  Harshada :
+    . Work on client server and signals
+
+6 aug 2020
+
+Meeting Time : 7.00 PM
+
+Attendees :
+              Aishwarya
+          		Shankar
+          		Rupam
+              Harshada
+
+Tasks :
+
+		. working on client server program(display data)
+    . Reading signals
+
+Task Performed By : (yesterday's)
+
+	Aishwarya :  
+		. Work on client server and signals
+
+	Rupam :  
+		. Work on client server and signals
+
+  Harshada :
+    . Work on client server and signals
+
+4 aug 2020
+
+Meeting Time : 7.00 PM
+
+Attendees :
+              Aishwarya
+          		Shankar
+          		Rupam
+              Harshada
+
+Tasks :
+
+		. working on client server program(display data)
+    . Reading process (fork(), exit(), exac(), wait())
+
+Task Performed By : (yesterday's)
+
+	Aishwarya :  
+		. Work on client server and process
+
+	Rupam :  
+		. Work on client server and process
+
+  Harshada :
+    . Work on client server and process
+
+3 aug 2020
+
+Meeting Time : 9.30 AM
+
+Attendees :
+              Aishwarya
+          		Shankar
+          		Rupam
+              Harshada
+
+Tasks :
+
+		. working on client server program
+    . Reading process (fork(), exit(), exac(), wait())
+
+Task Performed By : (yesterday's)
+
+	Aishwarya :  
+		. Work on client server
+
+	Rupam :  
+		. Work on client server
+
+  Harshada :
+    . Work on client server
+
+
+1 aug 2020
+
+Meeting Time : 9.30 AM
+
+Attendees :
+              Aishwarya
+		          Shankar
+		          Rupam
+              Harshada
+
+
+Tasks :
+
+		. working on client server program
+
+Task Performed By : (yesterday's)
+
+	Aishwarya :  
+		. Work on client server and process id program
+
+	Rupam :  
+		. Work on client server and process id program
+
+
 31 july 2020
 
 Meeting Time : 9.30 AM

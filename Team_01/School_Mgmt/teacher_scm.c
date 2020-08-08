@@ -1,21 +1,9 @@
 /*School Mnagement Systems*/
-#include <ctype.h>
-#include "structure.h"
-#include<stdio.h>
-#include<string.h>
-#include<sys/types.h>
-#include<sys/socket.h>
-#include<netinet/in.h>
-#include<arpa/inet.h>
-#include<stdlib.h>
-#include <fcntl.h>
-#include<unistd.h>
-#include <sys/stat.h>
-
-#define size 9
+#include "header.h"
 
 struct teacher *chaint[size];
 struct teacher_disk readTeach;
+struct teacher_disk td;
 
 //file write functions
 void read_teach();
@@ -23,13 +11,13 @@ void write_teach(struct teacher_disk teach);
 void delete_teach_file(struct teacher_disk teach_data);
 void update_teach_file(struct teacher_disk tea_data);
 void insert_teach(struct teacher_disk readTeach);
-void display_teach();
-void search_teach(int id);
-void update_teach(int id);
+void display_teach(int sockfd);
+void search_teach(int id, int newsockfd);
+void update_teach(struct teacher_disk uptd);
 void delete_teach(int id);
 
 int num_record;
-
+int sockfd;
 //init array of list to NULL
 void init_teacher()
 {
@@ -107,10 +95,11 @@ void insert_teach(struct teacher_disk readTeach)
 
 //DISPLAY data of Teacher hash table
 void
-display_teach()
+display_teach(int sockfd)
 {
     int i;
     int index = 0;
+    int display_data = 1;
     struct teacher *temp;
     printf("\n_______________________________________________________________________________\n\n");
     printf("INDEX.\tSR.\tTEACHER_NAME\tDEPARTMENT\tCONTACT\n\n");
@@ -119,10 +108,18 @@ display_teach()
         while(temp) {
             printf("%d. ", index);
             printf("\t%d\t%s\t\t%s\t%d\n", temp->tch.id, temp->tch.name, temp->tch.department, temp->tch.contact);
+            td.id = temp->tch.id;
+            strcpy(td.name, temp->tch.name);
+            strcpy(td.department, temp->tch.department);
+            td.contact = temp->tch.contact;
+            write(sockfd, &display_data, sizeof(int));
+            write(sockfd, &td, sizeof(struct teacher_disk));
             temp = temp->next;
             index++;
         }
     }
+    display_data = 0;
+    write(sockfd, &display_data, sizeof(int));
 }
 
 //DELETE values from Teacher text file
@@ -143,7 +140,7 @@ delete_teach_file(struct teacher_disk teach)
     ftruncate(fd, num_record * sizeof(struct teacher_disk));
     printf("\n\n\tdelete successful\n");
     close(fd);
-    
+
 }
 
 //DELETE values from TEACHER hash table
@@ -183,7 +180,7 @@ delete_teach(int id)
 }
 
 //SEARCH teacher data from TEACHER hash table
-void search_teach(int id)
+void search_teach(int id, int newsockfd)
 {
     struct teacher *ptr;
     int i=0, flag;
@@ -199,8 +196,11 @@ void search_teach(int id)
         while (ptr != NULL) {
             if (ptr->tch.id == id) {
                 printf("\n\n\tTeacher id found at location %d ", i+1);
-                printf("\n\n\tTeacher Id - %d\n\tTeacher Nmae - %s\n\tTeacher Department - %s\n\tTeacher Contact - %d",
-                       ptr->tch.id, ptr->tch.name, ptr->tch.department, ptr->tch.contact);
+                printf("\n\n\tTeacher Id - %d\n\tTeacher Nmae - %s\n\tTeacher Department - %s\n\tTeacher Contact - %d",ptr->tch.id, ptr->tch.name, ptr->tch.department, ptr->tch.contact);
+                td.id = ptr->tch.id;
+                strcpy(td.name, ptr->tch.name);
+                strcpy(td.department, ptr->tch.department);            td.contact = ptr->tch.contact;
+                write(newsockfd, &td, sizeof(struct student_disk));
                 flag = 0;
                 break;
             } else {
@@ -216,12 +216,12 @@ void search_teach(int id)
 }
 
 //UPDATE teacher data from TEACHER hash table
-void update_teach(int id)
+void update_teach(struct teacher_disk uptd)
 {
     struct teacher *ptr;
     int i=0, flag;
 
-    int key = id % size;
+    int key = uptd.id % size;
 
     ptr = chaint[key];
     if (ptr == NULL) {
@@ -229,36 +229,27 @@ void update_teach(int id)
     } else {
 
         while (ptr != NULL) {
-            if (ptr->tch.id == id) {
+            if (ptr->tch.id == uptd.id) {
                 printf("\n\n\tTeacher old Data !!!\n");
                 printf("\n\n\tTeacher Id - %d\n\tTeacher Nmae - %s\n\tTeacher Department - %s\n\tTeacher Contact - %d",
                        ptr->tch.id, ptr->tch.name, ptr->tch.department, ptr->tch.contact);
 
-		printf("\n\n\tTeacher New Data !!!\n");
+		        printf("\n\n\tTeacher New Data !!!\n");
 
-		int id, contact;
-    		char name[30], department[30];
+		        int id, contact;
+    		    char name[30], department[30];
 
-		printf("\n\tEnter Same ID : ");
-		scanf("\t %d", &id);
-		printf("\n\tEnter New Name : ");
-		scanf("\t %[^\n]%*c", name);
-		    printf("\n\tEnter New Department : ");
-		    scanf("\t %s", department);
-		    printf("\n\tEnter New Contact : ");
-		    scanf("\t %d", &contact);
+                ptr->tch.id = uptd.id;
+    		    strcpy(ptr->tch.name, uptd.name);
+    		    strcpy(ptr->tch.department, uptd.department);
+    		    ptr->tch.contact = uptd.contact;
 
-		    ptr->tch.id = id;
-    		    strcpy(ptr->tch.name, name);
-    		    strcpy(ptr->tch.department, department);
-    		    ptr->tch.contact = contact;
-
-		    printf("\n\n\tTeacher Id - %d\n\tTeacher Nmae - %s\n\tTeacher Department - %s\n\tTeacher Contact - %d",
-                           ptr->tch.id, ptr->tch.name, ptr->tch.department, ptr->tch.contact);
-		    printf("\n\n\tTeacher Record Updated Successfully !!!\n");
-                    flag = 0;
-
+		        printf("\n\n\tTeacher Id - %d\n\tTeacher Nmae - %s\n\tTeacher Department - %s\n\tTeacher Contact - %d",ptr->tch.id, ptr->tch.name, ptr->tch.department, ptr->tch.contact);
+		        printf("\n\n\tTeacher Record Updated Successfully !!!\n");
+                flag = 0;
+                update_teach_file(ptr->tch);
                 break;
+
             } else {
                 flag = 1;
             }
@@ -270,7 +261,6 @@ void update_teach(int id)
             printf("\n\n\tTeacher id not found\n");
         }
     }
-    update_teach_file(ptr->tch);
 }
 
 

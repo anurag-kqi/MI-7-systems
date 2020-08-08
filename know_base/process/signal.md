@@ -23,5 +23,13 @@ Q5. How do you find different signals and their expected behaviors?
 
 
 Q6. Will every signal terminate the process?
-- No, it depends on the signal number and the default behavior fof that signo. 
-Q7.
+- No, it depends on the signal number and the default behavior fof that signo.
+
+Q7: What is unreliable signal?
+- in the main function, for example, you have set my_sig_int as signal handler for SIGINT. At time T1
+- At some time in future, time T2, some one send SIGINT to this process. At that time os does following:
+    1. It resets the signal handler for the SIGINT to default
+    2. It schedules the signal handler function execution for the process
+- At time T3: the signal handler (my_sig_int) is called
+- This leaves a gap between time T2 and T3. And if some one sends a signal, then my_sig_int will not get called. my_sig_int is called only once
+- So reduce the problem, very first thing you do in the my_sig_int function is to call signal() function to set the signal handler again. But it still leaves a small window between T2 and T3, where a signal is potentially lost.

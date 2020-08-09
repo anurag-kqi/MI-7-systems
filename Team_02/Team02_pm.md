@@ -8,6 +8,136 @@ Team Members :
 2. Kishori Nikam
 3. Prajawal
 
+08 August 2020
+Meeting Time:10:00 am
+
+Attendees:
+1. Divyani Patidar
+2. Kishori Nikam
+3. Prajawal
+
+Tasks:
+  .All:know-base question and answers on signal.
+1. Divyani Patidar: client server function of visitors module.
+2. Kishori Nikam: client server function of maintenance module.
+3. Prajawal: client server function of complaints module.
+
+Task perform by yesterday:
+  .All:concept of signal concept..
+       client server implementation for search of project.
+
+07 August 2020
+Meeting Time:10:00 am
+
+Attendees:
+1. Divyani Patidar
+2. Kishori Nikam
+3. Prajawal
+
+Tasks:
+  .All: concept of signal concept.
+        know-base question and answers.
+
+Task perform by yesterday:
+  .All:concept of signal concept..
+       client server implementation for search of project.
+
+06 August 2020
+Meeting Time:10:00 am
+
+Attendees:
+1. Divyani Patidar
+2. Kishori Nikam
+3. Prajawal
+
+Tasks:
+  .All: concept of signal concept.
+        client server implementation for search of project.
+
+Task perform by yesterday:
+  .All:concept of signal concept..
+       client server implementation for dispaly of project.
+
+05 August 2020
+Meeting Time:10:00 am
+
+Attendees:
+1. Divyani Patidar
+2. Kishori Nikam
+3. Prajawal
+
+Tasks:
+  .All: concept of signal concept.
+        client server implementation for display of project.
+
+Task perform by yesterday:
+  .All:concept of fork assignment.
+       client server implementation for dispaly of project.
+
+04 August 2020
+Meeting Time:10:00 am
+
+Attendees:
+1. Divyani Patidar
+2. Kishori Nikam
+3. Prajawal
+
+Tasks:
+  .All: concept of fork assignment
+        client server implementation for display of project.
+
+Task perform by yesterday:
+  .All:concept of fork, wait, exit.
+       client server implementation for dispaly of project.
+
+03 August 2020
+Meeting Time:10:00 am
+
+Attendees:
+1. Divyani Patidar
+2. Kishori Nikam
+3. Prajawal
+
+Tasks:
+  .All: concept of fork, wait, exit.
+        client server implementation for display of project.
+
+Task perform by yesterday:
+  .All:concept of fork, wait, exit.
+       client server implementation for update, search, delete of project.
+
+01 August 2020
+Meeting Time:10:00 am
+
+Attendees:
+1. Divyani Patidar
+2. Kishori Nikam
+3. Prajawal
+
+Tasks:
+  .All: concept of fork, wait, exit.
+        client server implementation for update, search, delete of project.
+
+Task perform by yesterday:
+  .All:concept of process
+       client server implementation for display of project.
+
+31 July 2020
+Meeting Time:10:00 am
+
+Attendees:
+1. Divyani Patidar
+2. Kishori Nikam
+3. Prajawal
+
+Tasks:
+  .All: concept of process
+        client server implementation for display of project.
+
+Task perform by yesterday:
+  .All:concept of process
+       client server implementation for insertion of project.
+
 30 July 2020
 Meeting Time:10:00 am
 

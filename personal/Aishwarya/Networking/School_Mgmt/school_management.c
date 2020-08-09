@@ -2,19 +2,23 @@
 #include "header.h"
 
 struct student_disk stud;
-void write_stud(struct student_disk stud);
-void insert_stud(struct student_disk);
+extern void write_stud(struct student_disk stud);
+extern void insert_stud(struct student_disk);
+extern void display_stud(int sockfd);
+extern void update_stud(struct student_disk upsd);
+extern void delete_stud(int id);
+extern void search_stud(int id, int newsockfd);
 
 struct teacher_disk teach;
 extern void write_teach(struct teacher_disk teach);
 extern void insert_teach(struct teacher_disk teach);
-extern void delete_stud(int id);
+extern void display_teach(int sockfd);
 extern void delete_teach(int id);
-extern void search_stud(int id, int newsockfd);
+extern void search_teach(int id, int newsockfd);
+extern void update_teach(struct teacher_disk uptd);
 
 //main menus
 //extern void menus();
-extern void display_stud(int sockfd);
 
 //init array of list to NULL
 extern void init_stud();
@@ -23,7 +27,6 @@ extern void read_stud();
 extern void read_teach();
 extern int num_record;
 extern int num_records;
-extern void update_stud(struct student_disk upsd);
 void error(const char *msg) {
 	perror(msg);
 	exit(1);
@@ -84,16 +87,19 @@ main(int argc, char *argv[])
                 	read(newsockfd, &ch, sizeof(int));
                 	switch (ch) {
                     	case 1:
+								write(newsockfd, &num_records, sizeof(int));
 								read(newsockfd, &stud, sizeof(struct student_disk));
 								insert_stud(stud);
 								write_stud(stud);
+								num_records++;
                             	break;
 
                     	case 2:
+								write(newsockfd, &num_record, sizeof(int));
 								read(newsockfd, &teach, sizeof(struct teacher_disk));
-								printf("%d\t%d\t%s\t%s\t%d\n", teach.index, teach.id, teach.name, teach.department,teach.contact);
 								insert_teach(teach);
 								write_teach(teach);
+								num_record++;
                             	break;
 
                     	case 3: exit(0);
@@ -107,26 +113,23 @@ main(int argc, char *argv[])
                     read(newsockfd, &ch, sizeof(int));
                     switch (ch) {
                         case 1:
-								// printf("Start\n");
 								display_stud(newsockfd);
                                 break;
-                        case 2: //display_teach();
+                        case 2: display_teach(newsockfd);
                                 break;
 
                         case 3: exit(0);
+
                         default: printf("\n\n\t2Wrong Choice!!\n");
                     }
                     break;
 
           	case 3:
                   	read(newsockfd, &ch, sizeof(int));
-					// printf("1\n");
                     switch(ch)
                     {
                         case 1:
-								// printf("2\n");
 								read(newsockfd, &id, sizeof(int));
-								// printf("3\n");
     				            delete_stud(id);
                                 break;
 
@@ -136,6 +139,7 @@ main(int argc, char *argv[])
                                 break;
 
                         case 3: exit(0);
+
                         default: printf("\n\n\tWrong Choice!!\n");
                     }
                     break;
@@ -148,12 +152,13 @@ main(int argc, char *argv[])
 								read(newsockfd, &stud, sizeof(struct student_disk));
 				                update_stud(stud);
                                 break;
-                        /*case 2:
-								printf("\n\n\tEnter Teacher ID for Update : ");
-                                scanf("\t %d", &id);
-				                update_teach(id);
-                                break;*/
+                        case 2:
+								read(newsockfd, &teach, sizeof(struct teacher_disk));
+				                update_teach(teach);
+                                break;
+
                         case 3: exit(0);
+
                         default: printf("\n\n\tWrong Choice!!\n");
                     }
                     break;
@@ -166,11 +171,14 @@ main(int argc, char *argv[])
 						 		read(newsockfd, &id, sizeof(int));
 				                search_stud(id,newsockfd);
                                 break;
-                        /*case 2: printf("\n\n\tEnter Teacher ID for Search : ");
-                                scanf("\t%d", &id);
-				                        search_teach(id);
-                                break;*/
+
+                        case 2:
+								read(newsockfd, &id, sizeof(int));
+				                search_teach(id,newsockfd);
+                                break;
+
                         case 3: exit(0);
+
                         default: printf("\n\n\tWrong Choice!!\n");
                     }
                     break;

@@ -234,37 +234,26 @@ update_stud(struct student_disk upsd)
                   printf("\n\n\tStudent Id - %d\n\tStudent Nmae - %s\n\tStudent Class - %s\n\tStudent Address - %s\n\tStudent Contact - %d",
                          ptr->std.id, ptr->std.name, ptr->std.class, ptr->std.address, ptr->std.contact);
 
-  		            printf("\n\n\tStudent New Data !!!\n");
+  		          printf("\n\n\tStudent New Data !!!\n");
 
                   int id, contact;
-                      char name[30], class[10], address[50];
+                  char name[30], class[10], address[50];
 
-                  // printf("\n\tEnter Same ID : ");
-                  // scanf("\t %d", &id);
-                  // printf("\n\tEnter New Name : ");
-                  // scanf("\t %[^\n]%*c", name);
-                  // printf("\n\tEnter New Class : ");
-                  // scanf("\t %s", class);
-                  // printf("\n\tEnter New Address : ");
-                  // scanf("\t %s", address);
-                  // printf("\n\tEnter New Contact : ");
-                  // scanf("\t %d", &contact);
+      		      ptr->std.id = upsd.id;
+      		      strcpy(ptr->std.name, upsd.name);
+      		      strcpy(ptr->std.class, upsd.class);
+      		      strcpy(ptr->std.address, upsd.address);
+      		      ptr->std.contact = upsd.contact;
 
-      		        ptr->std.id = upsd.id;
-      		        strcpy(ptr->std.name, upsd.name);
-      		        strcpy(ptr->std.class, upsd.class);
-      		        strcpy(ptr->std.address, upsd.address);
-      		        ptr->std.contact = upsd.contact;
-
-  		            printf("\n\n\tStudent Id - %d\n\tStudent Nmae - %s\n\tStudent Class - %s\n\tStudent Address - %s\n\tStudent Contact - %d",
+  		          printf("\n\n\tStudent Id - %d\n\tStudent Nmae - %s\n\tStudent Class - %s\n\tStudent Address - %s\n\tStudent Contact - %d",
                   ptr->std.id, ptr->std.name, ptr->std.class, ptr->std.address, ptr->std.contact);
-  		            printf("\n\n\tStudent Record Updated Successfully !!!\n\n");
-                      flag = 0;
-                      update_stud_file(ptr->std);
-
+  		          printf("\n\n\tStudent Record Updated Successfully !!!\n\n");
+                  flag = 0;
+                  update_stud_file(ptr->std);
                   break;
+
               } else {
-                    flag = 1;
+                  flag = 1;
                 }
               i++;
               ptr = ptr -> next;

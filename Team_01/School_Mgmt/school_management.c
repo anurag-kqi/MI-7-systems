@@ -87,15 +87,19 @@ main(int argc, char *argv[])
                 	read(newsockfd, &ch, sizeof(int));
                 	switch (ch) {
                     	case 1:
+								write(newsockfd, &num_records, sizeof(int));
 								read(newsockfd, &stud, sizeof(struct student_disk));
 								insert_stud(stud);
 								write_stud(stud);
+								num_records++;
                             	break;
 
                     	case 2:
+								write(newsockfd, &num_record, sizeof(int));
 								read(newsockfd, &teach, sizeof(struct teacher_disk));
 								insert_teach(teach);
 								write_teach(teach);
+								num_record++;
                             	break;
 
                     	case 3: exit(0);
@@ -115,7 +119,7 @@ main(int argc, char *argv[])
                                 break;
 
                         case 3: exit(0);
-						
+
                         default: printf("\n\n\t2Wrong Choice!!\n");
                     }
                     break;

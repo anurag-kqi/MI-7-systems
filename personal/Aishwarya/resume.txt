@@ -1,0 +1,101 @@
+Aishwarya Raghunandan Bhutkar
+B.E Computer Engineering
+
+
+ACADEMIC PROFILE:
+
+• Degree:
+
+	Examination: B. E (Computer Engg.)
+
+	Institution: RDTC’S Shri Chhatrapati Shivajieaje. College of Engineering, Dhangwadi,Pune
+
+	Board / University: Savitribai Phule Pune University
+
+	Passing Year: May –2020 (Appearing)
+
+	Percentage/SGPA: 8.55
+
+• College:
+
+	Examination: H.S.C.
+
+	Institution: Dnyansamwardhini junior college,shirwal
+
+	Board / University: MSBSHSE,Pune (Kolhapur Division)
+
+	Passing Year: Feb – 2016
+
+	Percentage/SGPA: 73.34%
+
+• School:
+
+	Examination: S.S.C.
+
+	Institution: Pragati Girl’s Highschool, Shirwal
+
+	Board / University: MSBSHSE,Pune (Kolhapur Division)
+
+	Passing Year: March – 2014
+
+	Percentage/SGPA: 91.60%
+
+
+AMBER TECH ENTERNSHIP:
+
+	• C
+	• Data Structures
+	• Docker
+	• Networking
+	• Process
+	• Signal
+
+
+TECHNICAL SKILLS:
+
+	• Languages Known- C, C++, PYTHON, JAVA, HTML
+	• Database-SQL
+
+
+CERTIFICATIONS:
+
+	• C
+	• Python
+
+
+AREAS OF INTEREST:
+    • Developer
+    • Designer
+
+
+PROJECT  UNDERTAKEN:
+
+Title:1. Hotel reservation system:
+
+Description: The main objective of this project is to build the application for the purpose of booking hotel room, updating, storing customer details.
+
+Tools & Language used- NetBeans , java, Mysql(database)
+
+
+2. Phonebook (desktop application):
+
+Description: Purpose of this application is to store, add, update, and search user information and its details.
+
+Tools & Language used-Eclipse IDE, java, Xampp Server For Mysql(database)
+
+
+3. Web application of Quiz competition:
+
+Description: This project builds for quiz competition purpose.
+
+Tools & Language used-PHP,HTML,CSS,MySql(database)
+
+4. American Sign Language For Deaf And Dumb People Using Machine Learning:
+
+Description: The main objective of this project is to build the application that can used for deaf and dumb people to communicate with
+	     normal people.
+
+Tools & Language used- Pycharm IDE, Python, SQlite (Database)
+
+
+

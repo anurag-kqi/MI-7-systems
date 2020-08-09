@@ -4,9 +4,8 @@ struct student_disk stud;
 struct student_disk sd;
 struct teacher_disk teach;
 struct teacher_disk td;
-int num_records = 0,n;
-int num_record = 0,n;
-
+int num_records ,n;
+int num_record ,n;
 void error(const char *msg) {
 	perror(msg);
 	exit(1);
@@ -15,24 +14,24 @@ void error(const char *msg) {
 int main(int argc, char *argv[])
 {
 	int sockfd, portno, n;
-    struct sockaddr_in serv_addr;
-    struct hostent *server;
+	struct sockaddr_in serv_addr;
+	struct hostent *server;
 
-    char buffer[1024];
-    if (argc < 3)
-    {
-       fprintf(stderr,"usage %s hostname port\n", argv[0]);
-       exit(0);
-    }
-    portno = atoi(argv[2]);
-    sockfd = socket(AF_INET, SOCK_STREAM, 0);
-    if (sockfd < 0)
-        error("ERROR opening socket");
-    server = gethostbyname(argv[1]);
-    if (server == NULL) {
-        fprintf(stderr,"ERROR, no such host\n");
-        exit(0);
-    }
+	char buffer[1024];
+	if (argc < 3)
+	{
+		fprintf(stderr,"usage %s hostname port\n", argv[0]);
+		exit(0);
+	}
+	portno = atoi(argv[2]);
+	sockfd = socket(AF_INET, SOCK_STREAM, 0);
+	if (sockfd < 0)
+		error("ERROR opening socket");
+	server = gethostbyname(argv[1]);
+	if (server == NULL) {
+		fprintf(stderr,"ERROR, no such host\n");
+		exit(0);
+	}
     bzero((char *) &serv_addr, sizeof(serv_addr));
     serv_addr.sin_family = AF_INET;
     bcopy((char *)server->h_addr,
@@ -44,7 +43,8 @@ int main(int argc, char *argv[])
 
 
 
-    int ch, id, index = 0,contact,j,digit,alpha,display_data;
+    int ch, id, index=0,contact,j,digit,alpha,display_data;
+
     char name[30], address[50], class[10], department[30];
 
     while (1) {
@@ -64,6 +64,7 @@ int main(int argc, char *argv[])
                 	write(sockfd, &ch, sizeof(int));
                 	switch (ch) {
                     	case 1:
+								read(sockfd, &num_records, sizeof(int));
                             	printf("\n\n\tIndex : %d" ,num_records);
                             	stud.index = num_records;
                          		printf("\n\n\tEnter ID : ");
@@ -93,6 +94,7 @@ int main(int argc, char *argv[])
 								}
                         		break;
                         case 2:
+								read(sockfd, &num_record, sizeof(int));
 								printf("\n\n\tIndex : %d" ,num_record);
                             	teach.index = num_record;
 					            printf("\n\n\tEnter ID : ");
@@ -135,7 +137,9 @@ int main(int argc, char *argv[])
                         case 1:
 								printf("\n_______________________________________________________________________________\n\n");
 								printf("INDEX.\tSR.\tSTUD_NAME\tCLASS\tADDRESS\t\tCONTACT\n\n");
+								index = 0;
 								while(1) {
+
                                     n = read(sockfd, &display_data, sizeof(int));
                                     if (n < 0) {
                                         perror("Read from server failed");
@@ -273,7 +277,7 @@ int main(int argc, char *argv[])
                                 break;
 
                         case 3: exit(0);
-						
+
                         default: printf("\n\n\tWrong Choice!!\n");
                     }
                     break;

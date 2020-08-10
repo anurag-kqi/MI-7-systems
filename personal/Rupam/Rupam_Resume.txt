@@ -54,8 +54,8 @@ AMBER ACADEMY INTERNSHIP:
 
 TECHNICAL SKILLS:
 
-	• Languages Known : C Language, Core JAVA
-  • DevOps : GIT, AWS(Amazon Web Services), Jenkins, Docker
+• Languages Known : C Language, Core JAVA
+• DevOps : GIT, AWS(Amazon Web Services), Jenkins, Docker
 
 
 PROJECT  UNDERTAKEN:

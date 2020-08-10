@@ -33,3 +33,6 @@ Q7: What is unreliable signal?
 - At time T3: the signal handler (my_sig_int) is called
 - This leaves a gap between time T2 and T3. And if some one sends a signal, then my_sig_int will not get called. my_sig_int is called only once
 - So reduce the problem, very first thing you do in the my_sig_int function is to call signal() function to set the signal handler again. But it still leaves a small window between T2 and T3, where a signal is potentially lost.
+
+Q8: What is blocking of a signal? And why would one need one?
+- Explaination for this topic is pending, needs to be revisited once we have done threading and have some understanding fo critical section.

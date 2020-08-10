@@ -1,0 +1,84 @@
+Yadav Prajwal Shankar
+B.E Computer Engineering
+
+ACADEMIC PROFILE:
+
+• Degree:
+
+	Examination: B. E (Computer Engg.)
+
+	Institution: RDTC’S Shri Chhatrapati Shivajiraje College of Engineering, Dhangawadi, Pune
+
+	Board / University: Savitribai Phule Pune University
+
+	Passing Year: May – 2020 (Appearing)
+
+	Percentage/SGPA: 7.5
+
+• College:
+
+	Examination: H.S.C.
+
+	Institution: Amrita Jr College, Baneshwar, Pune
+
+	Board / University: State Board
+
+	Passing Year: Feb – 2016
+
+	Percentage/SGPA: 60.00%
+
+• School:
+
+	Examination: S.S.C.
+
+	Institution: Amrita Vidhyalayam, Baneshwar, Pune
+
+	Board / University: State Board
+
+	Passing Year: March – 2014
+
+	Percentage/SGPA: 78.20%
+
+AMBER TECH ENTERNSHIP:
+
+	• C
+	• Data Structures
+	• Docker
+	• Networking
+	• Process
+	• Signal
+
+TECHNICAL SKILLS:
+
+	• Languages Known- C, C++, PYTHON, Java
+	• Database - SQL
+
+CERTIFICATIONS:
+
+	• Python
+    • Java
+
+AREAS OF INTEREST:
+    • Developer
+
+PROJECT  UNDERTAKEN:
+
+1. Fee Receipt Generation (desktop application):
+
+Description: Purpose of this project is to make the fee receipt by just filling the information also the fee receipt is generated in the pdf format.
+
+Tools & Language used-Eclipse IDE, java, Mysql(database)
+
+
+2. Voice Recognition:
+
+Description: This project build to simplify the work by just user have to speak what task he/she has to perform and as output it will perform the operation for user.
+eg. if user just speaks "play music for me", it it play music.
+
+Tools & Language used - VisualStudio, Python
+
+3. Dynamic Optimization Traffic Control System:
+
+Description: The main objective of this project is to control the traffic signals dynamically. Now a days their is huge problem while traveling so I try to find solution by controlling the traffic signals dynamically.
+
+Tools & Language used- python IDE, Raspberry-pi, python.

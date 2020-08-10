@@ -21,13 +21,20 @@ extern void delete_soc(int flat_num);
 extern void search_soc(int flat_num, int newsockfd);
 
 struct comData com;
-// struct socData socd;
 extern void insert_complaints_D(struct comData);
 extern void write_complaints_D(struct comData com);
 extern void display_complaints_D();
 extern void update_complaints_D(struct comData upcd);
 extern void delete_complaints_D(int flat_num3);
 extern void search_complaints_D(int flat_num3, int newsockfd);
+
+struct maintData maint;
+extern void insert_maint(struct maintData);
+extern void write_maint(struct maintData maint);
+extern void display_maint();
+extern void update_maint(struct maintData upmd);
+extern void delete_maint(int flat_num1);
+extern void search_maint(int flat_num1, int newsockfd);
 
 extern void init_soc();
 extern void init_complaints_D();
@@ -36,10 +43,10 @@ extern void init_vis();
 
 extern void read_soc(int newsockfd);
 extern void read_complaints_D(int newsockfd);
-extern void read_maint();
+extern void read_maint(int newsockfd);
 extern void read_vis();
 
-extern int num_records, num_records3;
+extern int num_records, num_records1, num_records3;
 
 void error(const char *msg) {
 	perror(msg);
@@ -79,9 +86,9 @@ main(int argc, char *argv[])
     }
 
 	init_soc();
-	// init_maint();
-	init_complaints_D();
+	init_maint();
 	// init_vis();
+	init_complaints_D();
 
 	//reading society datafile
 	printf("\n==================================================================\n");
@@ -92,7 +99,7 @@ main(int argc, char *argv[])
 	//reading maintenamce datafile
 	printf("\n==================================================================\n");
 	printf("\t\tMAINTENANCE DATAFILE\n\n");
-	//read_maint();
+	read_maint(newsockfd);
 
 	//reading visitor datafile
 	printf("\n==================================================================\n");
@@ -105,7 +112,7 @@ main(int argc, char *argv[])
 	read_complaints_D(newsockfd);
 	// printf("size is: %d\n", num_records3);
 
-    int ch, flat_num, flat_num3;
+    int ch, flat_num, flat_num1, flat_num3;
 
 	while(1){
 		read(newsockfd, &ch, sizeof(int));//main menu choice
@@ -121,6 +128,14 @@ main(int argc, char *argv[])
 								num_records++;
 								break;
 
+						case 2:
+								write(newsockfd, &num_records1, sizeof(int));
+								read(newsockfd, &maint, sizeof(struct maintData));
+								insert_maint(maint);
+								write_maint(maint);
+								num_records1++;
+								break;
+
 						case 4:
 								write(newsockfd, &num_records3, sizeof(int));
 								read(newsockfd, &com, sizeof(struct comData));
@@ -128,6 +143,11 @@ main(int argc, char *argv[])
 								write_complaints_D(com);
 								num_records3++;
 								break;
+
+						case 5:
+                                exit(0);
+
+                        default: printf("\n\n\tWrong Choice!!\n");
 					}
 					break;
 
@@ -137,6 +157,11 @@ main(int argc, char *argv[])
 						case 1:
 								printf("\n==================================================================\n");
 								display_soc(newsockfd);
+								break;
+
+						case 2:
+								printf("\n==================================================================\n");
+								display_maint(newsockfd);
 								break;
 
 						case 4:
@@ -157,11 +182,24 @@ main(int argc, char *argv[])
 								printf("\n==================================================================\n");
 								read(newsockfd, &flat_num, sizeof(int));
 								search_soc(flat_num, newsockfd);
+								break;
+
+						case 2:
+								printf("\n==================================================================\n");
+								read(newsockfd, &flat_num1, sizeof(int));
+								search_maint(flat_num1, newsockfd);
+								break;
 
 						case 4:
 								printf("\n==================================================================\n");
 								read(newsockfd, &flat_num3, sizeof(int));
 								search_complaints_D(flat_num3, newsockfd);
+								break;
+
+						case 5:
+                                exit(0);
+
+                        default: printf("\n\n\tWrong Choice!!\n");
 					}
 					break;
 
@@ -172,6 +210,12 @@ main(int argc, char *argv[])
 								printf("\n==================================================================\n");
 								read(newsockfd, &soc, sizeof(struct socData));
 								update_soc(soc);
+								break;
+
+						case 2:
+								printf("\n==================================================================\n");
+								read(newsockfd, &maint, sizeof(struct maintData));
+								update_maint(maint);
 								break;
 
 						case 4:
@@ -193,6 +237,11 @@ main(int argc, char *argv[])
 						case 1:
 								read(newsockfd, &flat_num, sizeof(int));
 								delete_soc(flat_num);
+								break;
+
+						case 2:
+								read(newsockfd, &flat_num1, sizeof(int));
+								delete_maint(flat_num1);
 								break;
 
 						case 4:

@@ -36,3 +36,12 @@ Q7: What is unreliable signal?
 
 Q8: What is blocking of a signal? And why would one need one?
 - Explaination for this topic is pending, needs to be revisited once we have done threading and have some understanding fo critical section.
+
+Q9: What is alarm function?
+- Alarm function allow us to set the timer. means it will alarm us when it's set time is expires. And when it expires then SIGALRM is generated.
+- If there is no signal handler or don't catch this signal then default action is terminate the process.
+- alarm(sec);
+
+Q10: What is pause function?
+- pause function pause the next calling process until signal get caught.
+- If signal get caught then next process is going to be executed.

@@ -15,7 +15,6 @@ struct socData soc;
 extern void insert_soc(struct socData);
 struct society *arr[size];
 int num_records;
-extern void display1_soc(struct socData socd);
 extern void update_soc(struct socData upsd);
 
 
@@ -71,7 +70,6 @@ void update_soc_file(struct socData update) {
 void delete_soc_file(struct socData delete) {
     int fd;
     struct socData temp;
-
     fd = open(SOCIETY_DATAFILE, O_RDWR);
     lseek (fd, (num_records - 1) * sizeof (struct socData), SEEK_SET);
     read(fd, &temp, sizeof(struct socData));

@@ -3,7 +3,7 @@ TARGET = socm
 TARGET1 = client
 
 # other source files and the associated object files (this can be blank)
- SRC =  soc_mgnt.c society.c maintenance.c complaints.c
+ SRC =  soc_mgnt.c society.c maintenance.c visitors.c complaints.c
  SRC1 =  client.c
  OBJ = $(SRC:.c=.o)
  OBJ1 = $(SRC1:.c=.o)

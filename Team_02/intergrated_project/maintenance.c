@@ -18,7 +18,6 @@ int num_records1;
 extern void display1_maint(struct maintData maintd);
 extern void update_maint(struct maintData upmd);
 
-
 //init array of list to NULL
 void init_maint() {
     int i;
@@ -165,7 +164,6 @@ void search_maint(int flat_num1, int newsockfd) {
         }
     }
 }
-
 
 /*updation*/
 void update_maint(struct maintData upmd) {

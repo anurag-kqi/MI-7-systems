@@ -14,7 +14,8 @@ struct socData soc;
 struct socData socd;
 
 struct comData com;
-int ch, n, num_records, num_records3, flat_num, flat_num3, indx, nr, nr3;
+struct maintData maint;
+int ch, n, num_records, num_records1, num_records3, flat_num, flat_num1, flat_num3, indx;
 extern void display_soc();
 
 void error(const char *msg) {
@@ -70,12 +71,12 @@ int main(int argc, char *argv[])
                     switch(ch)
                     {
                         case 1:
-								read(sockfd, &nr, sizeof(int));
-								printf("size is: %d", nr);
-                                printf("\n==================================================================");
+								printf("\n==================================================================");
+								read(sockfd, &num_records, sizeof(int));
+								printf("size is: %d", num_records);
                                 printf("\n\t\tINSERT SOCIETY DATA\n");
-                                printf("Index: %d", nr);
-                                soc.index = nr;
+                                printf("Index: %d", num_records);
+                                soc.index = num_records;
                                 printf("\n\tEnter owner_name : ");
                                 scanf("\t\n %[^\n]%*c", soc.owner_name);
                                 printf("\n\tEnter flat_num : ");
@@ -83,12 +84,14 @@ int main(int argc, char *argv[])
                                 printf("\n\tEnter owner_contact : ");
                                 scanf("\t\n %d", &soc.owner_contact);
 							    write(sockfd, &soc, sizeof(struct socData));
-                                nr++;
+                                num_records++;
     			                break;
 
-                        /*case 2:
+                        case 2:
                                 printf("\n==================================================================");
-                                printf("\n\t\tINSERT MAINTENANCE DATA\n");
+								read(sockfd, &num_records1, sizeof(int));
+								printf("size is: %d", num_records1);
+								printf("\n\t\tINSERT MAINTENANCE DATA\n");
                                 printf("Index: %d", num_records1);
                                 maint.index1 = num_records1;
                                 printf("\n\tEnter flat_num : ");
@@ -97,12 +100,11 @@ int main(int argc, char *argv[])
                                 scanf("\t\n %d", &maint.water_bill);
                                 printf("\n\tEnter electricity_bill :");
                                 scanf("\t\n %d", &maint.electricity_bill);
-                                insert_maint(maint);
-                                write_maint(maint);
+								write(sockfd, &maint, sizeof(struct maintData));
                                 num_records1++;
                                 break;
 
-                        case 3:
+                        /*case 3:
                                 printf("\n==================================================================");
                                 printf("\n\t\tINSERT VISITOR DATA\n");
                                 printf("Index: %d", num_records2);
@@ -124,11 +126,11 @@ int main(int argc, char *argv[])
 
                         case 4:
                                 printf("\n==================================================================\n");
-								read(sockfd, &nr3, sizeof(int));
-								printf("size is: %d\n", nr3);
+								read(sockfd, &num_records3, sizeof(int));
+								printf("size is: %d\n", num_records3);
                                 printf("\n\t\tINSERT COMPLAINT DATA\n");
-                                printf("Index: %d", nr3);
-                                com.index3 = nr3;
+                                printf("Index: %d", num_records3);
+                                com.index3 = num_records3;
                                 printf("\n\tEnter complainter's flat_number : ");
                                 scanf("\t %d", &com.flat_num3);
                                 printf("\n\n\t Enter the complaints_name : ");
@@ -136,7 +138,7 @@ int main(int argc, char *argv[])
                                 printf("\n\n\t Enter the suggestions_name : ");
                                 scanf("\t %[^\n]%*c", com.suggestions_name);
 								write(sockfd, &com, sizeof(struct comData));
-                                nr3++;
+                                num_records3++;
                                 break;
 
                         case 5: exit(0);
@@ -178,11 +180,29 @@ int main(int argc, char *argv[])
                                 }
 								break;
 
-                        /*case 2:
-                                display_maint();
-                                break;
-
-                        case 3:
+                        case 2:
+								printf("\n==================================================================\n");
+								printf("\t\t OWNER DATA\n\n");
+								printf("SR.\tFLAT_NO\t\tWAT_BILL\t\tELE_BILL\n\n");
+								indx = 1;
+								while(1) {
+									n = read(sockfd, &display_data, sizeof(int));
+									if (n < 0) {
+										perror("Read from server failed");
+										exit(1);
+									}
+									if (display_data == 0) {
+										break;
+									}
+									n = read(sockfd, &maint, sizeof(struct maintData));
+									printf("%d. \t", indx);
+									if(n > 0) {
+										printf("%d\t\t %d\t\t%d\n", maint.flat_num1, maint.water_bill, maint.electricity_bill);
+									}
+									indx++;
+								}
+								break;
+                        /*case 3:
                                 display_vis();
                                 break;*/
 
@@ -236,14 +256,18 @@ int main(int argc, char *argv[])
 								printf("\n\n\towner_name\t -\t %s\n\tflat_num\t -\t %d\n\towner_contact\t -\t %d\n", soc.owner_name, soc.flat_num, soc.owner_contact);
                                 break;
 
-                        /*case 2:
+                        case 2:
                                 printf("\n==================================================================");
                                 printf("\n\n\tEnter flat number for Search : ");
                                 scanf("\t%d", &flat_num1);
-                                search_maint(flat_num1);
+								printf("\n\t====================================");
+								write(sockfd, &flat_num1, sizeof(int));
+								read(sockfd, &maint, sizeof(struct maintData));
+								printf("\n\t\t SEARCH DATA");
+								printf("\n\n\tFlat No.\t - \t%d\n\tWater Bill\t - \t %d\n\tElect Bill\t - \t%d\n", maint.flat_num1, maint.water_bill, maint.electricity_bill);
                                 break;
 
-                        case 3:
+                        /*case 3:
                                 printf("\n==================================================================");
                                 printf("\n\n\tEnter vehicle_num for search : ");
                                 scanf("\t%d",&vehicle_num);
@@ -288,13 +312,18 @@ int main(int argc, char *argv[])
 								write(sockfd, &soc, sizeof(struct socData));
                                 break;
 
-                        /*case 2:
+                        case 2:
+								printf("\n==================================================================");
                                 printf("\n\n\tEnter flat number for Update : ");
-                                scanf("\t %d", &flat_num1);
-      				            update_maint(flat_num1);
+                                scanf("\t %d", &maint.flat_num1);
+								printf("\n\tEnter New water_bill : ");
+				          		scanf("\t %d", &maint.water_bill);
+				                printf("\n\tEnter New electricity_bill :");
+				                scanf("\t %d", &maint.electricity_bill);
+								write(sockfd, &maint, sizeof(struct maintData));
                                 break;
 
-                        case 3:
+                        /*case 3:
                                 printf("\n\n\tEnter vehicle number for Update : ");
                                 scanf("\t %d", &vehicle_num);
                                 update_vis(vehicle_num);
@@ -334,13 +363,14 @@ int main(int argc, char *argv[])
 								write(sockfd, &flat_num, sizeof(int));
                                 break;
 
-                        /*case 2:
+                        case 2:
+								printf("\n==================================================================");
                                 printf("\n\n\tEnter flat  number for Delete : ");
                                 scanf("\t %d", &flat_num1);
-                                delete_maint(flat_num1);
+								write(sockfd, &flat_num1, sizeof(int));
                                 break;
 
-                        case 3:
+                        /*case 3:
                                 printf("\n\n\tEnter vechicle number for Delete : ");
                                 scanf("\t %d", &vehicle_num);
                                 delete_vis(vehicle_num);

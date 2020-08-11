@@ -18,7 +18,6 @@ int num_records1;
 extern void display1_maint(struct maintData maintd);
 extern void update_maint(struct maintData upmd);
 
-
 //init array of list to NULL
 void init_maint() {
     int i;
@@ -71,7 +70,6 @@ void update_maint_file(struct maintData update) {
 void delete_maint_file(struct maintData delete) {
     int fd;
     struct maintData temp1;
-
     fd = open(MAINTENANCE_DATAFILE, O_RDWR);
     lseek (fd, (num_records1 - 1) * sizeof (struct maintData), SEEK_SET);
     read(fd, &temp1, sizeof(struct maintData));
@@ -116,7 +114,7 @@ void display_maint(int newsockfd) {
     int display_data = 1;
     struct maintenance *temp1;
     printf("\n==================================================================\n\n");
-    printf("\t\tmaintenance DATAFILE\n\n");
+    printf("\t\tMAINTENANCE DATAFILE\n\n");
     printf("SR.\tFLAT_NO\t\tWAT_BILL\t\tELE_BILL\n\n");
     for(i = 0; i < size; i++) {
         temp1 = arr1[i];
@@ -167,7 +165,6 @@ void search_maint(int flat_num1, int newsockfd) {
     }
 }
 
-
 /*updation*/
 void update_maint(struct maintData upmd) {
     struct maintenance *ptr;
@@ -183,12 +180,10 @@ void update_maint(struct maintData upmd) {
                 printf("\n\n\t\tmaintenance old Data");
                 printf("\n\n\tFlat No.\t -\t %d\n\twater_bill\t -\t %d\n\telectricity_bill\t -\t %d", ptr->md.flat_num1, ptr->md.water_bill, ptr->md.electricity_bill);
 
-
-
     		    ptr->md.water_bill = upmd.water_bill;
-            ptr->md.electricity_bill = upmd.electricity_bill;
+                ptr->md.electricity_bill = upmd.electricity_bill;
                 printf("\n    ====================================");
-                printf("\n\n\t\tmaintenance New Data");
+                printf("\n\n\t\tMaintenance New Data");
     		    printf("\n\n\twater_bill\t - \t%d\n\telectricity_bill\t - \t%d", ptr->md.water_bill, ptr->md.electricity_bill);
     		    printf("\n\n\tRecord Updated Successfully !!!\n");
                 flag = 0;

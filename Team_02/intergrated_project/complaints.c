@@ -69,9 +69,7 @@ void update_com_file(struct comData update) {
 void delete_com_file(struct comData delete) {
     int fd3;
     struct comData temp3;
-
     fd3 = open (COMPLAINT_DATAFILE, O_RDWR);
-
     lseek (fd3, (num_records3 - 1) * sizeof (struct comData), SEEK_SET);
     read (fd3, &temp3, sizeof(struct comData));
     temp3.index3 = delete.index3;
@@ -92,11 +90,9 @@ void insert_complaints_D(struct comData com_data) {
     newNode3->cd.flat_num3 = com_data.flat_num3;
     newNode3->next3 = NULL;
     newNode3->prev3 = NULL;
-
     int key3 = com_data.flat_num3 % size;
     newNode3->next3 = NULL;
     newNode3->prev3 = NULL;
-
     if(arr3[key3] == NULL) {
         newNode3->next3 = NULL;
         newNode3->prev3 = NULL;
@@ -212,7 +208,6 @@ void delete_complaints_D(int flat_num3) {
     int key3 = flat_num3 % size;
     struct complaint *toDelete;
     struct complaint *ptr3 = arr3[key3];
-
     if(ptr3 == NULL) {
         printf("\n List is Empty");
     } else if(ptr3->cd.flat_num3 == flat_num3) {

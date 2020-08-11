@@ -1,12 +1,9 @@
 # the name of the target program
-TARGET = socm
-TARGET1 = client
+TARGET = scm
 
 # other source files and the associated object files (this can be blank)
- SRC =  soc_mgnt.c society.c maintenance.c visitors.c complaints.c
- SRC1 =  client.c
- OBJ = $(SRC:.c=.o)
- OBJ1 = $(SRC1:.c=.o)
+SRC	= multi.c main.c
+OBJ	= $(SRC:.c=.o)
 
 # special include directories
 INCLUDE = -I.
@@ -25,18 +22,15 @@ CFLAGS = -g
 	$(CC) $(CFLAGS) $(INCLUDE) -c $<
 
 # if you type 'make' without arguments, this is the default
-all: $(TARGET) $(TARGET1)
+build: $(TARGET)
 
 # specify how to compile the target
-
 $(TARGET): $(OBJ)
 	$(CC) $(CFLAGS) $(INCLUDE)  $(OBJ) $(LIB) -o $(TARGET)
-$(TARGET1): $(OBJ1)
-	$(CC) $(CFLAGS) $(INCLUDE)  $(OBJ1) $(LIB) -o $(TARGET1)
+
 # remove binaries
 clean:
-	rm -f $(OBJ) $(TARGET) $(OBJ1) $(TARGET1)
-# echo "clean all"
+	rm -f $(OBJ) $(TARGET)
 
 # remove binaries and other junk
 clobber:

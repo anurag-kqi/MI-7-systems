@@ -1,5 +1,5 @@
 Harshada Balasaheb Londhal
-B.E Computer Engineering
+B.E Computer Science
 
 
 ACADEMIC PROFILE:
@@ -21,7 +21,7 @@ ACADEMIC PROFILE:
 
 	Institution: Yogeshwari college, Ambajogai
 
-	Board / University: HSC Aurangabad
+	Board / University: Statr Board
 
 	Passing Year: 2015
 
@@ -33,9 +33,9 @@ ACADEMIC PROFILE:
 
 	Institution: GKYK School, Ambajogai
 
-	Board / University: SSC Aurangabad
+	Board / University: State Board
 
-	Passing Year: March – 2014
+	Passing Year: March – 2013
 
 	Percentage/SGPA: 78.36%
 
@@ -59,4 +59,27 @@ TECHNICAL SKILLS:
 CERTIFICATIONS:
 
 	• Web Development
+
+PROJECT  UNDERTAKEN:
+
+1. Analysis of user's behaviour in website:
+
+Description: The main objective of this project is to analyse the behaviour of user in the website.
+
+Tools & Language used - HTML, java, Mysql(database)
+
+
+2. Reminder (Android application):
+
+Description: Purpose of this application is to show the reminder message.
+
+Tools & Language used - Android studio, java, SQLite(database)
+
+
+3. Dream Organizers (Web Application):
+
+Description: This is a static wedding organizationn website. It contains the deatil information about the wedding organization company.
+ 
+Tools & Language used - HTML, CSS, Bootstrap
+
 

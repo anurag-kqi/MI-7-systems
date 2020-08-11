@@ -142,7 +142,7 @@ Q16. What part of code after fork is executed only by child process and why?
             * Zero: Returned to the newly created child process.
             * Positive value: Returned to parent or caller.The value contains process ID of newly created child process.
 
-Q17. What part of code after fork is executed only by parent process and why?
+Q17. What part of code after fork is executed only by parent process and why?    
      - fork() system call creates the exact same copy of a parent process (existing) called child process.
      - fork() returns the status -
              * 0 - on creation on successful of child process.
@@ -150,6 +150,9 @@ Q17. What part of code after fork is executed only by parent process and why?
              * Pid - it returns pid of child process.
      - Parent is the process that receives the SIGCHLD signal on child's termination.
      - parent process wiat() for the completion of child process execution.
+- (Harshada)
+   - code in main() is exicuted by the parent process
+   - because the entire main() function is exicuted by the parent process parent process
 
 Q18. What part of code after fork is executed by both the processes?
 - entire code is executed after fork by both the processes

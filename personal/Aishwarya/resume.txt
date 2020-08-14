@@ -49,6 +49,7 @@ AMBER TECH ENTERNSHIP:
 	• Networking
 	• Process
 	• Signal
+	• Github
 
 
 TECHNICAL SKILLS:
@@ -65,7 +66,7 @@ CERTIFICATIONS:
 
 AREAS OF INTEREST:
     • Developer
-    • Designer
+    
 
 
 PROJECT  UNDERTAKEN:

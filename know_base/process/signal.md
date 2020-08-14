@@ -39,7 +39,7 @@ Q8: What is blocking of a signal? And why would one need one?
 
 Q9: What is alarm function?
 - Alarm function allow us to set the timer. means it will alarm us when it's set time is expires. And when it expires then SIGALRM is generated.
-- If there is no signal handler or don't catch this signal then default action is terminate the process.
+- If there is no signal handler or don't catch this signal then default action is to terminate the process.
 - alarm(sec);
 
 Q10: What is pause function?

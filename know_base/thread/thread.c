@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+int count = 0;
 
 void
 printids(const char *s)
@@ -28,11 +29,20 @@ thr_fn(void *arg)
 void *
 thr_fn1(void *arg)
 {
+    int         i;
+    pthread_t   tid;
+    tid = pthread_self();
+
     printf("thread 1 sleeping\n");
-    sleep(10);
+    for (i = 0; i < 10; i++) {
+        count += 5;
+        printf("Thread tid %lu count %d\n", tid, count);
+        // sleep(2);
+    }
     printf("thread 1 now returning\n");
     return((void *)1);
 }
+
 void *
 thr_fn2(void *arg)
 {
@@ -54,11 +64,14 @@ main(void)
         printf("can't create thread 1: %s\n", strerror(err));
         exit(1);
     }
-    err = pthread_create(&tid2, NULL, thr_fn2, NULL);
+    err = pthread_create(&tid2, NULL, thr_fn1, NULL);
     if (err != 0) {
         printf("can't create thread 2: %s\n", strerror(err));
         exit(1);
     }
+
+    thr_fn1(NULL);
+
     err = pthread_join(tid1, &tret);
     if (err != 0) {
         printf("can't join with thread 1: %s\n", strerror(err));

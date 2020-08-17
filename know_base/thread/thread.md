@@ -32,6 +32,9 @@ Q6. Write some sample thread create program, put some while loop, and print time
 Q7. Take an input as argument and create that many threads in parallel?
 
 Q8. How many threads of execution are there in a program with 2 calls of pthread_create?
+- (Harshada)
+- After pthread_create successfully returns, the program will create two threads. because the main program is also a thread and it executes the code in the main() function.
+- Hence, after execution of thread there are 3 threads in a program with 2 calls of pthread_create.
 
 Q9. Let's try to understand the problem of interleaved execution.
 - There are two threads, operating on the same memory location (variable).

@@ -8,7 +8,7 @@ pthread_t tid[2];
 
 void* doSomeThing(void *arg)
 {
-    unsigned long i = 0;
+    //unsigned long i = 0;
     pthread_t id = pthread_self();
 
     if(pthread_equal(id,tid[0]))
@@ -20,7 +20,7 @@ void* doSomeThing(void *arg)
         printf("\n Second thread processing\n");
     }
 
-    for(i=0; i<(0xFFFFFFFF);i++);
+  //  for(i=0; i<(0xFFFFFFFF);i++);
 
     return NULL;
 }

@@ -64,7 +64,7 @@ void error(const char *msg) {
 int
 main(int argc, char *argv[])
 {
-    int sockfd, newsockfd, portno;
+    int sockfd, newsockfd, portno, pid;
     socklen_t clilen;
     struct sockaddr_in serv_addr, cli_addr;
     if (argc < 2) {
@@ -83,13 +83,13 @@ main(int argc, char *argv[])
              sizeof(serv_addr)) < 0)
              error("ERROR on binding");
     listen(sockfd,5);
-    clilen = sizeof(cli_addr);
-    newsockfd = accept(sockfd,
-                (struct sockaddr *) &cli_addr,
-                &clilen);
-    if (newsockfd < 0) {
-         error("ERROR on accept");
-    }
+    // clilen = sizeof(cli_addr);
+    // newsockfd = accept(sockfd,
+    //             (struct sockaddr *) &cli_addr,
+    //             &clilen);
+    // if (newsockfd < 0) {
+    //      error("ERROR on accept");
+    // }
 
 	init_soc();
 	init_maint();
@@ -117,187 +117,205 @@ main(int argc, char *argv[])
 	read_complaints_D(newsockfd);
 
     int ch, flat_num, flat_num1, flat_num3, vehicle_num;
-	while(1){
-		read(newsockfd, &ch, sizeof(int));//main menu choice
-		switch(ch){
-			case 1:
-					read(newsockfd, &ch, sizeof(int));//submenu choice
-					switch(ch) {
-						case 1:
-								write(newsockfd, &num_records, sizeof(int));
-								read(newsockfd, &soc, sizeof(struct socData));
-								insert_soc(soc);
-								write_soc(soc);
-								num_records++;
-								break;
+	while(1) {
+		//parent process waiting to accept a new connection
+		// printf("\n*****server waiting for new client connection:*****\n");
+		clilen = sizeof(cli_addr);
+	    newsockfd = accept(sockfd,
+	                (struct sockaddr *) &cli_addr,
+	                &clilen);
+	    if (newsockfd < 0) {
+	         error("ERROR on accept");
+	    }
 
-						case 2:
-								write(newsockfd, &num_records1, sizeof(int));
-								read(newsockfd, &maint, sizeof(struct maintData));
-								insert_maint(maint);
-								write_maint(maint);
-								num_records1++;
-								break;
+	    pid=fork();
+	    if(pid==0)
+	    {
+	    while(1)
+	    {
+			read(newsockfd, &ch, sizeof(int));//main menu choice
+ 			switch(ch){
+ 				case 1:
+ 						read(newsockfd, &ch, sizeof(int));//submenu choice
+ 						switch(ch) {
+ 							case 1:
+ 									write(newsockfd, &num_records, sizeof(int));
+ 									read(newsockfd, &soc, sizeof(struct socData));
+ 									insert_soc(soc);
+ 									write_soc(soc);
+ 									num_records++;
+ 									break;
 
-						case 3:
-								write(newsockfd, &num_records2, sizeof(int));
-								read(newsockfd, &vis, sizeof(struct visData));
-								insert_vis(vis);
-								write_vis(vis);
-								num_records2++;
-								break;
+ 							case 2:
+ 									write(newsockfd, &num_records1, sizeof(int));
+ 									read(newsockfd, &maint, sizeof(struct maintData));
+ 									insert_maint(maint);
+ 									write_maint(maint);
+ 									num_records1++;
+ 									break;
 
-						case 4:
-								write(newsockfd, &num_records3, sizeof(int));
-								read(newsockfd, &com, sizeof(struct comData));
-								insert_complaints_D(com);
-								write_complaints_D(com);
-								num_records3++;
-								break;
+ 							case 3:
+ 									write(newsockfd, &num_records2, sizeof(int));
+ 									read(newsockfd, &vis, sizeof(struct visData));
+ 									insert_vis(vis);
+ 									write_vis(vis);
+ 									num_records2++;
+ 									break;
 
-						case 5:
-                                exit(0);
+ 							case 4:
+ 									write(newsockfd, &num_records3, sizeof(int));
+ 									read(newsockfd, &com, sizeof(struct comData));
+ 									insert_complaints_D(com);
+ 									write_complaints_D(com);
+ 									num_records3++;
+ 									break;
 
-                        default: printf("\n\n\tWrong Choice!!\n");
-					}
-					break;
+ 							case 5:
+ 	                                exit(0);
 
-			case 2:
-					read(newsockfd, &ch, sizeof(int));//submenu choice
-					switch(ch) {
-						case 1:
-								printf("\n==================================================================\n");
-								display_soc(newsockfd);
-								break;
+ 	                        default: printf("\n\n\tWrong Choice!!\n");
+ 						}
+ 						break;
 
-						case 2:
-								printf("\n==================================================================\n");
-								display_maint(newsockfd);
-								break;
+ 				case 2:
+ 						read(newsockfd, &ch, sizeof(int));//submenu choice
+ 						switch(ch) {
+ 							case 1:
+ 									printf("\n==================================================================\n");
+ 									display_soc(newsockfd);
+ 									break;
 
-						case 3:
-								printf("\n==================================================================\n");
-								display_vis(newsockfd);
-								break;
+ 							case 2:
+ 									printf("\n==================================================================\n");
+ 									display_maint(newsockfd);
+ 									break;
 
-						case 4:
-								printf("\n==================================================================\n");
-								display_complaints_D(newsockfd);
-								break;
-						case 5:
-                                exit(0);
+ 							case 3:
+ 									printf("\n==================================================================\n");
+ 									display_vis(newsockfd);
+ 									break;
 
-                        default: printf("\n\n\tWrong Choice!!\n");
-	        		}
-					break;
+ 							case 4:
+ 									printf("\n==================================================================\n");
+ 									display_complaints_D(newsockfd);
+ 									break;
+ 							case 5:
+ 	                                exit(0);
 
-			case 3:
-					read(newsockfd, &ch, sizeof(int));//submenu choice
-					switch(ch) {
-						case 1:
-								printf("\n==================================================================\n");
-								read(newsockfd, &flat_num, sizeof(int));
-								search_soc(flat_num, newsockfd);
-								break;
+ 	                        default: printf("\n\n\tWrong Choice!!\n");
+ 		        		}
+ 						break;
 
-						case 2:
-								printf("\n==================================================================\n");
-								read(newsockfd, &flat_num1, sizeof(int));
-								search_maint(flat_num1, newsockfd);
-								break;
+ 				case 3:
+ 						read(newsockfd, &ch, sizeof(int));//submenu choice
+ 						switch(ch) {
+ 							case 1:
+ 									printf("\n==================================================================\n");
+ 									read(newsockfd, &flat_num, sizeof(int));
+ 									search_soc(flat_num, newsockfd);
+ 									break;
 
-						case 3:
-								printf("\n==================================================================\n");
-								read(newsockfd, &vehicle_num, sizeof(int));
-								search_vis(vehicle_num, newsockfd);
-								break;
+ 							case 2:
+ 									printf("\n==================================================================\n");
+ 									read(newsockfd, &flat_num1, sizeof(int));
+ 									search_maint(flat_num1, newsockfd);
+ 									break;
 
-						case 4:
-								printf("\n==================================================================\n");
-								read(newsockfd, &flat_num3, sizeof(int));
-								search_complaints_D(flat_num3, newsockfd);
-								break;
+ 							case 3:
+ 									printf("\n==================================================================\n");
+ 									read(newsockfd, &vehicle_num, sizeof(int));
+ 									search_vis(vehicle_num, newsockfd);
+ 									break;
 
-						case 5:
-                                exit(0);
+ 							case 4:
+ 									printf("\n==================================================================\n");
+ 									read(newsockfd, &flat_num3, sizeof(int));
+ 									search_complaints_D(flat_num3, newsockfd);
+ 									break;
 
-                        default: printf("\n\n\tWrong Choice!!\n");
-					}
-					break;
+ 							case 5:
+ 	                                exit(0);
 
-			case 4:
-					read(newsockfd, &ch, sizeof(int));//submenu choice
-					switch (ch) {
-						case 1:
-								printf("\n==================================================================\n");
-								read(newsockfd, &soc, sizeof(struct socData));
-								update_soc(soc);
-								break;
+ 	                        default: printf("\n\n\tWrong Choice!!\n");
+ 						}
+ 						break;
 
-						case 2:
-								printf("\n==================================================================\n");
-								read(newsockfd, &maint, sizeof(struct maintData));
-								update_maint(maint);
-								break;
+ 				case 4:
+ 						read(newsockfd, &ch, sizeof(int));//submenu choice
+ 						switch (ch) {
+ 							case 1:
+ 									printf("\n==================================================================\n");
+ 									read(newsockfd, &soc, sizeof(struct socData));
+ 									update_soc(soc);
+ 									break;
 
-						case 3:
-								printf("\n==================================================================\n");
-								read(newsockfd, &vis, sizeof(struct visData));
-								update_vis(vis);
-								break;
+ 							case 2:
+ 									printf("\n==================================================================\n");
+ 									read(newsockfd, &maint, sizeof(struct maintData));
+ 									update_maint(maint);
+ 									break;
 
-						case 4:
-								printf("\n==================================================================\n");
-								read(newsockfd, &com, sizeof(struct comData));
-								update_complaints_D(com);
-								break;
+ 							case 3:
+ 									printf("\n==================================================================\n");
+ 									read(newsockfd, &vis, sizeof(struct visData));
+ 									update_vis(vis);
+ 									break;
 
-						case 5:
-								exit(0);
+ 							case 4:
+ 									printf("\n==================================================================\n");
+ 									read(newsockfd, &com, sizeof(struct comData));
+ 									update_complaints_D(com);
+ 									break;
 
-						default: printf("\n\n\tWrong Choice!!\n");
-					}
-					break;
+ 							case 5:
+ 									exit(0);
 
-			case 5:
-					read(newsockfd, &ch, sizeof(int));//submenu choice
-					switch (ch) {
-						case 1:
-								read(newsockfd, &flat_num, sizeof(int));
-								delete_soc(flat_num);
-								break;
+ 							default: printf("\n\n\tWrong Choice!!\n");
+ 						}
+ 						break;
 
-						case 2:
-								read(newsockfd, &flat_num1, sizeof(int));
-								delete_maint(flat_num1);
-								break;
+ 				case 5:
+ 						read(newsockfd, &ch, sizeof(int));//submenu choice
+ 						switch (ch) {
+ 							case 1:
+ 									read(newsockfd, &flat_num, sizeof(int));
+ 									delete_soc(flat_num);
+ 									break;
 
-						case 3:
-								read(newsockfd, &vehicle_num, sizeof(int));
-								delete_vis(vehicle_num);
-								break;
+ 							case 2:
+ 									read(newsockfd, &flat_num1, sizeof(int));
+ 									delete_maint(flat_num1);
+ 									break;
 
-						case 4:
-								read(newsockfd, &flat_num3, sizeof(int));
-								delete_complaints_D(flat_num3);
-								break;
+ 							case 3:
+ 									read(newsockfd, &vehicle_num, sizeof(int));
+ 									delete_vis(vehicle_num);
+ 									break;
 
-						case 5:
-                                exit(0);
+ 							case 4:
+ 									read(newsockfd, &flat_num3, sizeof(int));
+ 									delete_complaints_D(flat_num3);
+ 									break;
 
-                        default: printf("\n\n\tWrong Choice!!\n");
-					}
-					break;
+ 							case 5:
+ 	                                exit(0);
 
-			case 6:
-					exit(0);
+ 	                        default: printf("\n\n\tWrong Choice!!\n");
+ 						}
+ 						break;
 
-				default: printf("\n\n\tWrong Choice!!\n");
+ 				case 6:
+ 						exit(0);
+
+ 					default: printf("\n\n\tWrong Choice!!\n");
+			}
+	    };//close interior while
+	    exit(0);
+	    }
+		else {
+			close(newsockfd);
 		}
 	};
-
-    close(newsockfd);
     close(sockfd);
-
     return 0;
 }

@@ -335,7 +335,7 @@ conn_handlar(void *arg)
  						break;
 
  				case 6:
- 						exit(0);
+ 						pthread_exit(NULL);
 
  					default: printf("\n\n\tWrong Choice!!\n");
 		}

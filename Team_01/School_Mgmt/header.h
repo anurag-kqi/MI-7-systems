@@ -10,5 +10,6 @@
 #include <ctype.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
+#include <pthread.h>
 #include "structure.h"
 #define size 9

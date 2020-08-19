@@ -41,8 +41,6 @@ int main(int argc, char *argv[])
     if (connect(sockfd,(struct sockaddr *) &serv_addr,sizeof(serv_addr)) < 0)
         error("ERROR connecting");
 
-
-
     int ch, id, index=0,contact,j,digit,alpha,display_data;
 
     char name[30], address[50], class[10], department[30];

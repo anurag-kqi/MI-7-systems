@@ -12,7 +12,7 @@ TARGET1 = client
 INCLUDE = -I.
 
 # special libraries (none for now)
-LIB	=
+LIB	= -pthread
 
 # select the compiler and flags
 CC = /usr/bin/gcc

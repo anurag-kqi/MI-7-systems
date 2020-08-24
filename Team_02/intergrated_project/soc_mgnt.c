@@ -9,13 +9,14 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
+#include <pthread.h>
 #include "soc.h"
-
+void *conn_handlar(void *sock_desc);
 struct socData soc;
 struct socData socd;
 extern void insert_soc(struct socData);
 extern void write_soc(struct socData soc);
-extern void display_soc();
+extern void display_soc(int sockfd);
 extern void update_soc(struct socData upsd);
 extern void delete_soc(int flat_num);
 extern void search_soc(int flat_num, int newsockfd);
@@ -23,7 +24,7 @@ extern void search_soc(int flat_num, int newsockfd);
 struct comData com;
 extern void insert_complaints_D(struct comData);
 extern void write_complaints_D(struct comData com);
-extern void display_complaints_D();
+extern void display_complaints_D(int sockfd);
 extern void update_complaints_D(struct comData upcd);
 extern void delete_complaints_D(int flat_num3);
 extern void search_complaints_D(int flat_num3, int newsockfd);
@@ -31,7 +32,7 @@ extern void search_complaints_D(int flat_num3, int newsockfd);
 struct maintData maint;
 extern void insert_maint(struct maintData);
 extern void write_maint(struct maintData maint);
-extern void display_maint();
+extern void display_maint(int sockfd);
 extern void update_maint(struct maintData upmd);
 extern void delete_maint(int flat_num1);
 extern void search_maint(int flat_num1, int newsockfd);
@@ -39,7 +40,7 @@ extern void search_maint(int flat_num1, int newsockfd);
 struct visData vis;
 extern void insert_vis(struct visData);
 extern void write_vis(struct visData vis);
-extern void display_vis();
+extern void display_vis(int sockfd);
 extern void update_vis(struct visData upvd);
 extern void delete_vis(int vehicle_num);
 extern void search_vis(int vehicle_num, int newsockfd);
@@ -58,79 +59,108 @@ extern int num_records, num_records1, num_records2, num_records3;
 
 void error(const char *msg) {
 	perror(msg);
-	exit(1);
+    printf("Exiting thread %ld\n", pthread_self());
+    pthread_exit(NULL);
 }
 
 int
 main(int argc, char *argv[])
 {
-    int sockfd, newsockfd, portno, pid;
-    socklen_t clilen;
+    //int i, num_client = 5;
+
+    pthread_t thread;
+    int sockfd, newsockfd, portno;
     struct sockaddr_in serv_addr, cli_addr;
+    socklen_t clilen;
+
     if (argc < 2) {
-        fprintf(stderr,"ERROR, no port provided\n");
-        exit(1);
+            fprintf(stderr,"ERROR, no port provided\n");
+            exit(1);
     }
+
+		init_soc();
+		init_maint();
+		init_vis();
+		init_complaints_D();
+
+		//reading society datafile
+		printf("\n==================================================================\n");
+		printf("\t\tSOCIETY DATAFILE\n\n");
+		read_soc(newsockfd);
+
+		//reading maintenamce datafile
+		printf("\n==================================================================\n");
+		printf("\t\tMAINTENANCE DATAFILE\n\n");
+		read_maint(newsockfd);
+
+		//reading visitor datafile
+		printf("\n==================================================================\n");
+		printf("\t\tVISITOR DATAFILE\n\n");
+		read_vis(newsockfd);
+
+		//reading complaint datafile
+		printf("\n==================================================================\n");
+		printf("\t\tCOMPLAINT DATAFILE\n\n");
+		read_complaints_D(newsockfd);
+
+      portno = atoi(argv[1]);
+
     sockfd = socket(AF_INET, SOCK_STREAM, 0);
-    if (sockfd < 0)
-       error("ERROR opening socket");
-    bzero((char *) &serv_addr, sizeof(serv_addr));
-    portno = atoi(argv[1]);
-    serv_addr.sin_family = AF_INET;
-    serv_addr.sin_addr.s_addr = INADDR_ANY;
-    serv_addr.sin_port = htons(portno);
-    if (bind(sockfd, (struct sockaddr *) &serv_addr,
-             sizeof(serv_addr)) < 0)
-             error("ERROR on binding");
-    listen(sockfd,5);
-    // clilen = sizeof(cli_addr);
-    // newsockfd = accept(sockfd,
-    //             (struct sockaddr *) &cli_addr,
-    //             &clilen);
-    // if (newsockfd < 0) {
-    //      error("ERROR on accept");
-    // }
+	if (sockfd < 0)
+		 error("ERROR opening socket");
+	bzero((char *) &serv_addr, sizeof(serv_addr));
+	serv_addr.sin_family = AF_INET;
+	serv_addr.sin_addr.s_addr = INADDR_ANY;
+	serv_addr.sin_port = htons(portno);
+	if (bind(sockfd, (struct sockaddr *) &serv_addr,
+					 sizeof(serv_addr)) < 0)
+					 error("ERROR on binding");
+	listen(sockfd, 5);
+    clilen = sizeof(cli_addr);
+    printf("Server thread  %ld waiting for accept\n", pthread_self());
+		while (1) {
+    	newsockfd = accept(sockfd,
+    							(struct sockaddr *) &cli_addr,
+    							&clilen);
+    	if (newsockfd < 0)
+    			 error("ERROR on accept");
 
-	init_soc();
-	init_maint();
-	init_vis();
-	init_complaints_D();
+        if (pthread_create(&thread, NULL, conn_handlar,
+                           (void *)&newsockfd) < 0) {
+         				perror("could not create thread");
+         				return 1;
+        }
+        printf("Main: New client thread %ld newsockfd %d\n", thread, newsockfd);
+    }
 
-	//reading society datafile
-	printf("\n==================================================================\n");
-	printf("\t\tSOCIETY DATAFILE\n\n");
-	read_soc(newsockfd);
 
-	//reading maintenamce datafile
-	printf("\n==================================================================\n");
-	printf("\t\tMAINTENANCE DATAFILE\n\n");
-	read_maint(newsockfd);
+	//for (i = 0; i < num_client; i++) {
+        //printf("creating thread %d \n", i);
+		//if (pthread_create(&thread, NULL, conn_handlar, (void *)portno) < 0) {
+				//perror("could not create thread");
+				//return 1;
+	//	}
+	//	sleep(3);
+	//}
 
-	//reading visitor datafile
-	printf("\n==================================================================\n");
-	printf("\t\tVISITOR DATAFILE\n\n");
-	read_vis(newsockfd);
+    printf("Exiting main\n");
+	pthread_exit(NULL);
+    close(sockfd);
 
-	//reading complaint datafile
-	printf("\n==================================================================\n");
-	printf("\t\tCOMPLAINT DATAFILE\n\n");
-	read_complaints_D(newsockfd);
+    return 0;
+}
+
+void *
+conn_handlar(void *arg)
+{
+	int newsockfd;
 
     int ch, flat_num, flat_num1, flat_num3, vehicle_num;
-	while(1) {
-		//parent process waiting to accept a new connection
-		// printf("\n*****server waiting for new client connection:*****\n");
-		clilen = sizeof(cli_addr);
-	    newsockfd = accept(sockfd,
-	                (struct sockaddr *) &cli_addr,
-	                &clilen);
-	    if (newsockfd < 0) {
-	         error("ERROR on accept");
-	    }
+    //char owner_name[30], visitor_name[30], complaints_name, suggestions_name;
 
-	    pid=fork();
-	    if(pid==0)
-	    {
+    newsockfd = *(int *)arg;
+    printf("In thread %ld newsockfd %d\n", pthread_self(), newsockfd);
+
 	    while(1)
 	    {
 			read(newsockfd, &ch, sizeof(int));//main menu choice
@@ -305,17 +335,11 @@ main(int argc, char *argv[])
  						break;
 
  				case 6:
- 						exit(0);
+ 						pthread_exit(NULL);
 
  					default: printf("\n\n\tWrong Choice!!\n");
-			}
-	    };//close interior while
-	    exit(0);
-	    }
-		else {
-			close(newsockfd);
 		}
 	};
-    close(sockfd);
-    return 0;
+    close(newsockfd);
+    //return 0;
 }

@@ -57,7 +57,7 @@ main(int argc, char *argv[])
 }
 
 void
-*conn_handlar(void *sock_desc)
+*conn_handlar(int argc, char *argv[])
 {
 		int sockfd, newsockfd, portno;
 		socklen_t clilen;

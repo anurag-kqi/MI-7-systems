@@ -1,6 +1,6 @@
 /*School Mnagement Systems*/
 #include "header.h"
-#define num_client 5;
+//#define num_client 5;
 
 void *conn_handlar(void *sock_desc);
 
@@ -40,12 +40,12 @@ void error(const char *msg) {
 int
 main(int argc, char *argv[])
 {
-
+		int num_client = 5;
 		int sock_desc, i;
 		pthread_t thread;
 
 		for (i = 0; i < num_client; i++) {
-				if (pthread_create(&thread, NULL, conn_handlar, (void*)i) < 0) {
+				if (pthread_create(&thread, NULL, conn_handlar, argc,argv) < 0) {
 						perror("could not create thread");
 						return 1;
 				}

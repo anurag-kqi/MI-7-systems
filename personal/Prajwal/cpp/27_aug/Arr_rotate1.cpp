@@ -1,21 +1,42 @@
 #include <iostream>
 using namespace std;
 
-int bsearch(int arr[], int l, int r,int key) {    
+void rotate(int arr[], int m, int n) {
+    int temp, i, j;
+    for(i = 0; i < m; i++) {
+        temp = arr[0];
+        // cout << temp << endl;
+        for(j = 0; j < n-1; j++) {
+            arr[j] = arr[j+1];
+        }
+        arr[j] = temp;        
+    }
+    for(i = 0; i < n; i++){
+        cout << arr[i] << " ";
+    }    
+}
+
+int bsearch(int arr[], int l, int r, int key) {    
 
     if (r >= l) { 
-        int mid = l + (r - l) / 2; 
+        int mid = (l + r) / 2; 
   
         
         if (arr[mid] == key) 
             return mid; 
   
+        if (arr[l] <= arr[mid]){
+            if (arr[mid] >= key && key >= arr[l]) 
+                return bsearch(arr, l, mid - 1, key); 
+            return bsearch(arr, mid + 1, r, key); 
+        }  
         
-        if (arr[mid] > key) 
-            return bsearch(arr, key, mid - 1); 
-  
-        
-        return binarySearch(arr, key, mid + 1);    
+        if(key >= arr[mid] && key <= arr[r]) {
+            return bsearch(arr, mid + 1, r, key);
+        }
+        return bsearch(arr, l, mid - 1, key); 
+    }
+    return -1;   
 }
 
 int main() {
@@ -29,21 +50,16 @@ int main() {
 
     cout << "Enter how many rotation you have to rotate : ";
     cin >> m;
-
+    rotate(arr, m, n);    
     
-    for(i = 0; i < m; i++) {
-        temp = arr[0];
-        // cout << temp << endl;
-        for(j = 0; j < n-1; j++) {
-            arr[j] = arr[j+1];
-        }
-        arr[j] = temp;        
-    }
-    for(i = 0; i < n; i++){
-        cout << arr[i] << " ";
-    } 
-    cout << "Enter element to search : ";
+    cout << "\nEnter element to search : ";
     cin >> key;
-    bsearch(arr, 0, n-1, key);  
+    int result = bsearch(arr, 0, n-1, key); 
+    if (result == -1) {
+        cout << "Element not found..\n";
+    }
+    else {
+        cout << "Element found..\n";
+    } 
     return 0; 
 }

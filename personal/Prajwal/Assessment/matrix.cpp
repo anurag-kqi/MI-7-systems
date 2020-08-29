@@ -5,6 +5,12 @@ using namespace std;
 int main()  
 {  
 int a[10][10], b[10][10], mul[10][10], r, c, i, j, k;    
+
+cout << "Enter number of rows : ";
+cin >> r;
+
+cout << "Enter number of column : ";
+cin >> c;
     
 cout << "Enter values for matrix A = " << endl;    
 for(i = 0; i < r; i++) {    

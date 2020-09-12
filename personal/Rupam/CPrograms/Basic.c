@@ -1,4 +1,4 @@
-//Simple Basic Program.
+//* Simple Basic Program.
 
 #include <stdio.h>
  int
